@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ForeignWorker_HC" SavedBy="Tester" SavedAt="10/28/2014 5:24:16 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="ForeignWorkerList.xlt" ID="ForeignWorker_HC" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="Listing" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" ID="CallDetails" ConnectionID="HCRMConnection" Command="sp_is_RptForeignWorkerList">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Year" Value="@Data.Year~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Badge" Value="@Data.Badge~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Name" Value="@Data.Name~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Date_of_Birth" Value="@Data.Date_of_Birth~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Agent_Name" Value="@Data.Agent_Name~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Agent_Batch" Value="@Data.Agent_Batch~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Passport" Value="@Data.Passport~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Passport_Expiry_Date" Value="@Data.Passport_Expiry_Date~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="Permit_Expiry_Date" Value="@Data.Permit_Expiry_Date~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="Date_Join" Value="@Data.Date_Join~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="TMS_Group" Value="@Data.TMS_Group~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="Cost_Block" Value="@Data.Cost_Block~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="Supervisor_Badge" Value="@Data.Supervisor_Badge~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="Supervisor_Name" Value="@Data.Supervisor_Name~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="Hostel" Value="@Data.Hostel~"/>
+			<PatternBlockCell Column="Q" PatternBlockRow="1" ID="FOMEMA_CODE" Value="@Data.FOMEMA_CODE~"/>
+			<PatternBlockCell Column="R" PatternBlockRow="1" ID="Birth_Place" Value="@Data.Birth_Place~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="Permit" Value="@Data.Permit~"/>
+			<PatternBlockCell Column="T" PatternBlockRow="1" ID="Family_Name" Value="@Data.Family_Name~"/>
+			<PatternBlockCell Column="U" PatternBlockRow="1" ID="Contact" Value="@Data.Contact~"/>
+			<PatternBlockCell Column="V" PatternBlockRow="1" ID="Residential_Address" Value="@Data.Residential_Address~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

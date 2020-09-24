@@ -1,0 +1,7 @@
+<graph caption='Pie Chart' >
+    <set value='25' name='Item A' color='FF9966'/>
+    <set value='17' name='Item B' color='FF0000'/>
+    <set value='23' name='Item C' color='006F00' isSliced='1'/>
+    <set value='65' name='Item D' color='0099FF'/>
+    <set value='22' name='Item E' color='CCCC00'/>
+</graph>

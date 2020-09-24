@@ -1,0 +1,13 @@
+﻿Installing assembly 'C:\APPLICATION\Softfac_Jinji_unisem\Setup\2\Payroll_Batch_Process_Service2.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\APPLICATION\Softfac_Jinji_unisem\Setup\2\Payroll_Batch_Process_Service2.exe
+   logfile = C:\APPLICATION\Softfac_Jinji_unisem\Setup\2\Payroll_Batch_Process_Service2.InstallLog
+Installing service Payroll_Batch_Process_Service2...
+Creating EventLog source Payroll_Batch_Process_Service2 in log Application...
+Rolling back assembly 'C:\APPLICATION\Softfac_Jinji_unisem\Setup\2\Payroll_Batch_Process_Service2.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\APPLICATION\Softfac_Jinji_unisem\Setup\2\Payroll_Batch_Process_Service2.exe
+   logfile = C:\APPLICATION\Softfac_Jinji_unisem\Setup\2\Payroll_Batch_Process_Service2.InstallLog
+Restoring event log to previous state for source Payroll_Batch_Process_Service2.

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovTHaji_Excel" SavedBy="Tester" SavedAt="8/28/2015 4:41:31 PM" EngineVersion="8.0.30">
+	<ideTestParams RegNo="Softfac" Month="7" Year="2007" PIC="Ahmad" Cheque="1234"/>
+	<ExcelTemplate ExcelTemplateFilename="pr_GovTHaji.xlt" ID="Header" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="22" ID="Header" Worksheet="CARUMAN BULANAN MAJIKAN">
+			<DataLayer Type="SP" Command="sp_pr_RptTabungHaji" ID="CallHeader" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+				<SPParameters IdeDisplayStatus="Collapsed">
+					<SPParameter SPParamDirection="Input" ID="RegNo" SPParamSize="0" SPParamType="dt-200" Value="@Request.RegNo~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200" Value="@Request.PIC~"/>
+					<SPParameter SPParamDirection="Input" ID="Cheque" SPParamSize="0" SPParamType="dt-200" Value="@Request.Cheque~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="EXCEL"/>
+					<SPParameter SPParamDirection="Input" ID="HD" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="C" PatternBlockRow="8" ID="CompanyName" Value="@Data.Company_Name~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="9" ID="CompanyTBNo" Value="@Data.Company_TB_No~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="10" ID="Month_text" Value="'@Data.Month_text~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="11" ID="Year" Value="@Data.Year~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="12" ID="TotalEmp" Value="@Data.total_emp~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="13" ID="TotalAmount" Value="@Data.Page_Total~"/>
+			<SubPatternBlock FirstRow="19" LastRow="19" ID="Details" FillMode="Insert" DisposableFirstRow="20" DisposableLastRow="20">
+				<SubDataLayer ID="sdlDetail">
+					<DataLayer Type="SP" Command="sp_pr_RptTabungHaji" ID="CallDetail" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="RegNo" SPParamSize="0" SPParamType="dt-200" Value="@Request.RegNo~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200" Value="@Request.PIC~"/>
+							<SPParameter SPParamDirection="Input" ID="Cheque" SPParamSize="0" SPParamType="dt-200" Value="@Request.Cheque~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="EXCEL"/>
+							<SPParameter SPParamDirection="Input" ID="HD" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Company_Name" ParentColumn="Company_Name" ID="sdlCompany_Name"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Number" Value="@Data.Number~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Empname" Value="@Data.Emp_Name~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="IC" Value="@Data.Identity_Card_No~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="TBNo" Value="'@Data.Tabung_Haji_No~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="Amount" Value="@Data.Employee_Credit~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="EmpID" Value="@Data.Emp_ID~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

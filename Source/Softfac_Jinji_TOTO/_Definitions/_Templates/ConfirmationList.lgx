@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ConfirmationList" SavedBy="Tester" SavedAt="11/4/2014 5:05:38 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Confirmation.xlt" ID="ConfirmationList" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="ConfirmationList" FirstRow="1" LastRow="8" Worksheet="Listing" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" Command="sp_is_rptConfirmListing" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="@Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_is_rptConfirmListing" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="CostBlock" Value="@Data.CostBlock~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SupCode" Value="@Data.SupCode~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.EmpBadge~" Column="D" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.EmpName~" PatternBlockRow="1" Column="E"/>
+				<PatternBlockCell ID="Position" Value="@Data.Position~" PatternBlockRow="1" Column="F"/>
+				<PatternBlockCell ID="DateJoin" Value="@Data.DateJoin~" PatternBlockRow="1" Column="G"/>
+				<PatternBlockCell ID="DateConfirm" Value="@Data.DateConfirm~" PatternBlockRow="1" Column="H"/>
+				<PatternBlockCell ID="EmpCount" Value="@Data.EmpCount~" PatternBlockRow="1" Column="I"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock FirstRow="1" LastRow="42" Worksheet="Letter" ID="ConfirmationLetter">
+			<DataLayer Type="SP" Command="sp_is_rptConfirmListing" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="C" PatternBlockRow="8" ID="Date" Value="@Data.PrintDate~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="12" ID="EmpBadge" Value="@Data.EmpBadge~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="13" ID="EmpName" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="14" ID="CostBlock" Value="@Data.CostBlock~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="15" ID="TMSGroup" Value="@Data.TMSGroup~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="16" ID="SupCode" Value="@Data.SupCode~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="18" ID="Header" Value="Dear @Data.EmpName~,"/>
+			<PatternBlockCell Column="A" PatternBlockRow="23" ID="ConfirmDate" Value="@Data.DateConfirm~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="26" ID="Notice" Value="require to give @Data.notice~ written notice or salary in lieu of notice as per you appointment letter."/>
+			<PatternBlockCell Column="A" PatternBlockRow="36" ID="Notice" Value="For @Data.ComName~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

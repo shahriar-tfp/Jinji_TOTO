@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="UniformBalance" SavedBy="Tester" SavedAt="9/7/2018 12:02:25 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="UnformBalance.xlt" ID="UniformBalance" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="10" ID="Header">
+			<DataLayer Type="SP" ID="CalHeader" ConnectionID="HCRMConnection" Command="sp_es_RptUniformBal">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateForm" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Header" Value="@Data.Header~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="Details" FillMode="Insert" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="sdlc">
+					<DataLayer Type="SP" ID="CalHeader" ConnectionID="HCRMConnection" Command="sp_es_RptUniformBal">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateForm" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Header" ParentColumn="Header" ID="sdlcemp"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="ItemCategory" Value="@Data.ItemCategory~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="ItemID" Value="@Data.ItemID~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Size" Value="@Data.Size~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="OpenBal" Value="@Data.OpenBal~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="ReceiveQty" Value="@Data.ReceiveQty~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="IssueQty" Value="@Data.IssueQty~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="ReturnQty" Value="@Data.ReturnQty~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

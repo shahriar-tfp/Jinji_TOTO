@@ -1,0 +1,3698 @@
+﻿/* Default CSS Stylesheet for a new Web Application project */
+
+BODY
+{
+    FONT-FAMILY: Verdana, Helvetica, sans-serif;
+    FONT-SIZE: .8em;
+    FONT-WEIGHT: normal;
+    LETTER-SPACING: normal;
+    TEXT-TRANSFORM: none;
+    WORD-SPACING: normal
+}
+
+H1, H2, H3, H4, H5, TH, THEAD, TFOOT
+{
+    
+}
+H1	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	2em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H2	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.75em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H3	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.58em;
+	font-weight:	500;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H4	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1.33em;
+	font-weight:	500;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H5, DT	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	1em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+H6	{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:	.8em;
+	font-weight:	700;
+	font-style:	normal;
+	text-decoration:	none;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	}	
+		
+TFOOT, THEAD	{	
+	font-size:	1em;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family: Arial, Helvetica, sans-serif;
+	}	
+		
+TH	{	
+	vertical-align:	baseline;
+	font-size:	1em;
+	font-weight:	bold;
+	word-spacing:	normal;
+	letter-spacing:	normal;
+	text-transform:	none;
+	font-family: Arial, Helvetica, sans-serif;
+	}	
+	
+SMALL	{	
+	font-size:	.7em;
+	}	
+
+BIG	{	
+	font-size:	1.17em;
+	}	
+
+BLOCKQUOTE, PRE	{	
+	font-family:	Courier New, monospace;
+	}	
+	
+/*
+A:link	{	
+	text-decoration:	none;
+	color:	#000000;
+	}	
+		
+A:visited	{	
+	text-decoration:	none;
+	color:	#000000;
+	}	
+		
+A:active	{	
+	text-decoration:	none;
+	color:	#000000;
+	}	
+*/
+
+A:hover	{	
+	text-decoration:	underline; 
+	color:	#FF0000;
+	}
+
+UL LI	{	
+	list-style-type:	square ;
+	}	
+
+UL LI LI	{	
+	list-style-type:	disc;
+	}	
+
+UL LI LI LI	{	
+	list-style-type:	circle;
+	}	
+	
+OL LI	{	
+	list-style-type:	decimal;
+	}	
+
+OL OL LI	{	
+	list-style-type:	lower-alpha;
+	}	
+
+OL OL OL LI	{	
+	list-style-type:	lower-roman;
+	}	
+
+.toppos 	{
+	margin-top: 5px;
+	vertical-align :bottom; 
+	margin-left: 0px;
+	margin-right: 0px
+	}
+	
+.leftpos 	{
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-right: 0px;
+	}
+	
+.wordstyle{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 500;
+	color: #000000 }
+
+.wordstyle1{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 500;
+	vertical-align :sub ;
+	color: #000000 }
+	
+.wordstyle2{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	vertical-align :middle;
+	color: #FF3333 }
+	
+.wordstyle3{ 
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	vertical-align :super;
+	color: #000000 }
+	
+.wordstyle4{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	vertical-align :bottom;
+	color: #362f2d  }
+	
+.wordstyle5{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+    border-style : groove;
+	background-color : #B4DFFC;
+	text-align : center;
+	color: #000000 }
+	
+.wordstyle6{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	border-style : groove;
+	background-color : #B4DFFC;
+	text-align : center;
+	color: #000000 }
+	
+.wordstyle7{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 500;
+	color: #A2A2A2 }
+	
+.wordstyle8{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	vertical-align :sub ;
+	color: #ffffff }
+	
+.wordstyle9{ 
+	font-size : 10px;
+	font-family : Arial Unicode MS;
+	font-weight: 500;
+	color: #000000 }
+	
+.wordstyle10{ 
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	color: #000000 }
+	
+.wordstyle11{ 
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	color: #000000 }
+	
+.wordstyle12{ 
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	color: #000000 }
+	
+.textStyle01{
+	vertical-align : top; 
+	text-decoration : none;}
+	
+.titlestyle1{ 
+	font-size : 18px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	color: #000000 }
+	
+.titlestyle2{ 
+	font-size : 18px;
+	font-family : Arial Unicode MS;
+	font-weight: 700;
+	color: #FF3333 }
+	
+.dgstyle_h{
+	text-align : left ;
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight : 700;
+	color : #ffffff
+}
+	
+.dgstyle_i{
+	text-align : left ;
+	font-size : 10px;
+	font-family : Arial Unicode MS;
+	font-weight : 500; 
+	color : #000000
+}
+
+.treeRoot{
+	font-size : 12px;
+	font-family : Arial Unicode MS;
+	font-weight : 700;
+	color : #003366 
+}
+
+.treeParent{
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight : 700;
+	color : #0066CC 
+}
+
+.treeChild{
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight : 700;
+	color : #3399FF 
+}
+
+.treeHover{
+	color : #F0654D;
+	background-color : #FDEBE8
+}
+
+/* start of positining*/
+
+/* Row one 1-8 */
+
+.R_1{
+	left : 10px;
+	top : 91px;
+	position :absolute 
+}
+.R_2{
+	left : 33px;
+	top : 91px;
+	position :absolute ;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: Bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_3{
+	left : 169px;
+	top : 91px;
+	position :absolute 
+}
+.R_4{
+	left : 327px;
+	position :absolute;
+	top : 91px;
+}
+.R_5{
+	left : 352px;
+	position :absolute;
+	top : 91px;
+}
+.R_6{
+	left : 375px;
+	position :absolute;
+	top : 91px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-size: 11px;
+	font-weight: Bold;
+	color: #000000
+}
+.R_7{
+	left : 511px;
+	position :absolute;
+	top : 91px;
+}
+.R_8{
+	left : 669px;
+	position :absolute;
+	top : 91px;
+}
+
+/* Row two 9-16 */
+
+.R_9{
+	left : 10px;
+	top : 123px;
+	position :absolute;
+}
+.R_10{
+	left : 33px;
+	top : 123px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: Bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_11{
+	left : 169px;
+	top : 123px;
+	position :absolute;
+}
+.R_12{
+	left : 327px;
+	top : 123px;
+	position :absolute;
+}
+.R_13{
+	left : 352px;
+	top : 123px;
+	position :absolute;
+}
+.R_14{
+	left : 375px;
+	top : 123px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_15{
+	left : 511px;
+	top : 123px;
+	position :absolute;
+}
+.R_16{
+	left : 669px;
+	top : 123px;
+	position :absolute;
+}
+
+/* Row three 17-24 */
+
+.R_17{
+	left : 10px;
+	top : 155px;
+	position :absolute;
+}
+.R_18{
+	left : 33px;
+	top : 155px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_19{
+	left : 169px;
+	top : 155px;
+	position :absolute;
+}
+.R_20{
+	left : 327px;
+	top : 155px;
+	position :absolute;
+}
+.R_21{
+	left : 352px;
+	top : 155px;
+	position :absolute;
+}
+.R_22{
+	left : 375px;
+	top : 155px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_23{
+	left : 511px;
+	top : 155px;
+	position :absolute;
+}
+.R_24{
+	left : 669px;
+	top : 155px;
+	position :absolute;
+}
+
+/* Row four 25-32 */
+
+.R_25{
+	left : 10px;
+	top : 187px;
+	position :absolute;
+}
+.R_26{
+	left : 33px;
+	top : 187px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_27{
+	left : 169px;
+	top : 187px;
+	position :absolute;
+}
+.R_28{
+	left : 327px;
+	top : 187px;
+	position :absolute;
+}
+.R_29{
+	left : 352px;
+	top : 187px;
+	position :absolute;
+}
+.R_30{
+	left : 375px;
+	top : 187px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_31{
+	left : 511px;
+	top : 187px;
+	position :absolute;
+}
+.R_32{
+	left : 669px;
+	top : 187px;
+	position :absolute;
+}
+
+/* Row five 33-40 */
+
+.R_33{
+	left : 10px;
+	top : 219px;
+	position :absolute;
+}
+.R_34{
+	left : 33px;
+	top : 219px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_35{
+	left : 169px;
+	top : 219px;
+	position :absolute;
+}
+.R_36{
+	left : 327px;
+	top : 219px;
+	position :absolute;
+}
+.R_37{
+	left : 352px;
+	top : 219px;
+	position :absolute;
+}
+.R_38{
+	left : 375px;
+	top : 219px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_39{
+	left : 511px;
+	top : 219px;
+	position :absolute;
+}
+.R_40{
+	left : 669px;
+	top : 219px;
+	position :absolute;
+}
+
+/* Row six 41-48 */
+
+.R_41{
+	left : 10px;
+	top : 251px;
+	position :absolute;
+}
+.R_42{
+	left : 33px;
+	top : 251px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_43{
+	left : 169px;
+	top : 251px;
+	position :absolute;
+}
+.R_44{
+	left : 327px;
+	top : 251px;
+	position :absolute;
+}
+.R_45{
+	left : 352px;
+	top : 251px;
+	position :absolute;
+}
+.R_46{
+	left : 375px;
+	top : 251px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_47{
+	left : 511px;
+	top : 251px;
+	position :absolute;
+}
+.R_48{
+	left : 669px;
+	top : 251px;
+	position :absolute;
+}
+
+/* Row seven 49-56 */
+
+.R_49{
+	left : 10px;
+	top : 283px;
+	position :absolute;
+}
+.R_50{
+	left : 33px;
+	top : 283px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_51{
+	left : 169px;
+	top : 283px;
+	position :absolute;
+}
+.R_52{
+	left : 327px;
+	top : 283px;
+	position :absolute;
+}
+.R_53{
+	left : 352px;
+	top : 283px;
+	position :absolute;
+}
+.R_54{
+	left : 375px;
+	top : 283px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_55{
+	left : 511px;
+	top : 283px;
+	position :absolute;
+}
+.R_56{
+	left : 669px;
+	top : 283px;
+	position :absolute;
+}
+
+/* Row eight 57-64 */
+
+.R_57{
+	left : 10px;
+	top : 315px;
+	position :absolute;
+}
+.R_58{
+	left : 33px;
+	top : 315px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_59{
+	left : 169px;
+	top : 315px;
+	position :absolute;
+}
+.R_60{
+	left : 327px;
+	top : 315px;
+	position :absolute;
+}
+.R_61{
+	left : 352px;
+	top : 315px;
+	position :absolute;
+}
+.R_62{
+	left : 375px;
+	top : 315px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_63{
+	left : 511px;
+	top : 315px;
+	position :absolute;
+}
+.R_64{
+	left : 669px;
+	top : 315px;
+	position :absolute;
+}
+
+/* Row nine 65-72 */
+
+.R_65{
+	left : 10px;
+	top : 347px;
+	position :absolute;
+}
+.R_66{
+	left : 33px;
+	top : 347px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_67{
+	left : 169px;
+	top : 347px;
+	position :absolute;
+}
+.R_68{
+	left : 327px;
+	top : 347px;
+	position :absolute;
+}
+.R_69{
+	left : 352px;
+	top : 347px;
+	position :absolute;
+}
+.R_70{
+	left : 375px;
+	top : 347px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_71{
+	left : 511px;
+	top : 347px;
+	position :absolute;
+}
+.R_72{
+	left : 669px;
+	top : 347px;
+	position :absolute;
+}
+
+/* Row ten 73-80 */
+
+.R_73{
+	left : 10px;
+	top : 379px;
+	position :absolute;
+}
+.R_74{
+	left : 33px;
+	top : 379px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_75{
+	left : 169px;
+	top : 379px;
+	position :absolute;
+}
+.R_76{
+	left : 327px;
+	top : 379px;
+	position :absolute;
+}
+.R_77{
+	left : 352px;
+	top : 379px;
+	position :absolute;
+}
+.R_78{
+	left : 375px;
+	top : 379px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_79{
+	left : 511px;
+	top : 379px;
+	position :absolute;
+}
+.R_80{
+	left : 669px;
+	top : 379px;
+	position :absolute;
+}
+
+/* Row eleven 81-88 */
+
+.R_81{
+	left : 10px;
+	top : 411px;
+	position :absolute;
+}
+.R_82{
+	left : 33px;
+	top : 411px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_83{
+	left : 169px;
+	top : 411px;
+	position :absolute;
+}
+.R_84{
+	left : 327px;
+	top : 411px;
+	position :absolute;
+}
+.R_85{
+	left : 352px;
+	top : 411px;
+	position :absolute;
+}
+.R_86{
+	left : 375px;
+	top : 411px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_87{
+	left : 511px;
+	top : 411px;
+	position :absolute;
+}
+.R_88{
+	left : 669px;
+	top : 411px;
+	position :absolute;
+}
+
+/* Row twelve 89-96 */
+
+.R_89{
+	left : 10px;
+	top : 443px;
+	position :absolute;
+}
+.R_90{
+	left : 33px;
+	top : 443px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_91{
+	left : 169px;
+	top : 443px;
+	position :absolute;
+}
+.R_92{
+	left : 327px;
+	top : 443px;
+	position :absolute;
+}
+.R_93{
+	left : 352px;
+	top : 443px;
+	position :absolute;
+}
+.R_94{
+	left : 375px;
+	top : 443px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_95{
+	left : 511px;
+	top : 443px;
+	position :absolute;
+}
+.R_96{
+	left : 669px;
+	top : 443px;
+	position :absolute;
+}
+
+/* Row thirteen 97-104 */
+
+.R_97{
+	left : 10px;
+	top : 475px;
+	position :absolute;
+}
+.R_98{
+	left : 33px;
+	top : 475px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_99{
+	left : 169px;
+	top : 475px;
+	position :absolute;
+}
+.R_100{
+	left : 327px;
+	top : 475px;
+	position :absolute;
+}
+.R_101{
+	left : 352px;
+	top : 475px;
+	position :absolute;
+}
+.R_102{
+	left : 375px;
+	top : 475px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_103{
+	left : 511px;
+	top : 475px;
+	position :absolute;
+}
+.R_104{
+	left : 669px;
+	top : 475px;
+	position :absolute;
+}
+
+/* Row fourteen 105-112 */
+
+.R_105{
+	left : 10px;
+	top : 507px;
+	position :absolute;
+}
+.R_106{
+	left : 33px;
+	top : 507px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_107{
+	left : 169px;
+	top : 507px;
+	position :absolute;
+}
+.R_108{
+	left : 327px;
+	top : 507px;
+	position :absolute;
+}
+.R_109{
+	left : 352px;
+	top : 507px;
+	position :absolute;
+}
+.R_110{
+	left : 375px;
+	top : 507px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_111{
+	left : 511px;
+	top : 507px;
+	position :absolute;
+}
+.R_112{
+	left : 669px;
+	top : 507px;
+	position :absolute;
+}
+
+/* Row fifteen 113-120 */
+
+.R_113{
+	left : 10px;
+	top : 539px;
+	position :absolute;
+}
+.R_114{
+	left : 33px;
+	top : 539px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_115{
+	left : 169px;
+	top : 539px;
+	position :absolute;
+}
+.R_116{
+	left : 327px;
+	top : 539px;
+	position :absolute;
+}
+.R_117{
+	left : 352px;
+	top : 539px;
+	position :absolute;
+}
+.R_118{
+	left : 375px;
+	top : 539px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_119{
+	left : 511px;
+	top : 539px;
+	position :absolute;
+}
+.R_120{
+	left : 669px;
+	top : 539px;
+	position :absolute;
+}
+
+/* Row sixteen 121-128 */
+
+.R_121{
+	left : 10px;
+	top : 571px;
+	position :absolute;
+}
+.R_122{
+	left : 33px;
+	top : 571px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_123{
+	left : 169px;
+	top : 571px;
+	position :absolute;
+}
+.R_124{
+	left : 327px;
+	top : 571px;
+	position :absolute;
+}
+.R_125{
+	left : 352px;
+	top : 571px;
+	position :absolute;
+}
+.R_126{
+	left : 375px;
+	top : 571px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_127{
+	left : 511px;
+	top : 571px;
+	position :absolute;
+}
+.R_128{
+	left : 669px;
+	top : 571px;
+	position :absolute;
+}
+
+/* Row seventeen 129-136 */
+
+.R_129{
+	left : 10px;
+	top : 603px;
+	position :absolute;
+}
+.R_130{
+	left : 33px;
+	top : 603px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_131{
+	left : 169px;
+	top : 603px;
+	position :absolute;
+}
+.R_132{
+	left : 327px;
+	top : 603px;
+	position :absolute;
+}
+.R_133{
+	left : 352px;
+	top : 603px;
+	position :absolute;
+}
+.R_134{
+	left : 375px;
+	top : 603px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_135{
+	left : 511px;
+	top : 603px;
+	position :absolute;
+}
+.R_136{
+	left : 669px;
+	top : 603px;
+	position :absolute;
+}
+
+/* Row eightteen 137-144 */
+
+.R_137{
+	left : 10px;
+	top : 635px;
+	position :absolute;
+}
+.R_138{
+	left : 33px;
+	top : 635px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_139{
+	left : 169px;
+	top : 635px;
+	position :absolute;
+}
+.R_140{
+	left : 327px;
+	top : 635px;
+	position :absolute;
+}
+.R_141{
+	left : 352px;
+	top : 635px;
+	position :absolute;
+}
+.R_142{
+	left : 375px;
+	top : 635px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_143{
+	left : 511px;
+	top : 635px;
+	position :absolute;
+}
+.R_144{
+	left : 669px;
+	top : 635px;
+	position :absolute;
+}
+
+/* Row nineteen 145-152 */
+
+.R_145{
+	left : 10px;
+	top : 667px;
+	position :absolute;
+}
+.R_146{
+	left : 33px;
+	top : 667px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_147{
+	left : 169px;
+	top : 667px;
+	position :absolute;
+}
+.R_148{
+	left : 327px;
+	top : 667px;
+	position :absolute;
+}
+.R_149{
+	left : 352px;
+	top : 667px;
+	position :absolute;
+}
+.R_150{
+	left : 375px;
+	top : 667px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_151{
+	left : 511px;
+	top : 667px;
+	position :absolute;
+}
+.R_152{
+	left : 669px;
+	top : 667px;
+	position :absolute;
+}
+
+/* Row twenty 153-160 */
+
+.R_153{
+	left : 10px;
+	top : 699px;
+	position :absolute;
+}
+.R_154{
+	left : 33px;
+	top : 699px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_155{
+	left : 169px;
+	top : 699px;
+	position :absolute;
+}
+.R_156{
+	left : 327px;
+	top : 699px;
+	position :absolute;
+}
+.R_157{
+	left : 352px;
+	top : 699px;
+	position :absolute;
+}
+.R_158{
+	left : 375px;
+	top : 699px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.R_159{
+	left : 511px;
+	top : 699px;
+	position :absolute;
+}
+.R_160{
+	left : 669px;
+	top : 699px;
+	position :absolute;
+}
+
+
+/* Row_More one 1-8 */
+
+.RM_1{
+	left :14px;
+	top : 91px;
+	position :absolute 
+}
+.RM_2{
+	left :14px;
+	top : 91px;
+	position :absolute ;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: Bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_3{
+	left :145px;
+	top : 91px;
+	position :absolute 
+}
+.RM_4{
+	left :303px;
+	position :absolute;
+	top : 91px;
+}
+.RM_5{
+	left :328px;
+	position :absolute;
+	top : 91px;
+}
+.RM_6{
+	left :328px;
+	position :absolute;
+	top : 91px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-size: 11px;
+	font-weight: Bold;
+	color: #000000
+}
+.RM_7{
+	left :459px;
+	position :absolute;
+	top : 91px;
+}
+.RM_8{
+	left :617px;
+	position :absolute;
+	top : 91px;
+}
+
+/* Row_More two 9-16 */
+
+.RM_9{
+	left :14px;
+	top : 123px;
+	position :absolute
+}
+.RM_10{
+	left :14px;
+	top : 123px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: Bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_11{
+	left :145px;
+	top : 123px;
+	position :absolute
+}
+.RM_12{
+	left :303px;
+	top : 123px;
+	position :absolute
+}
+.RM_13{
+	left :328px;
+	top : 123px;
+	position :absolute
+}
+.RM_14{
+	left :328px;
+	top : 123px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_15{
+	left :459px;
+	top : 123px;
+	position :absolute
+}
+.RM_16{
+	left :617px;
+	top : 123px;
+	position :absolute
+}
+
+/* Row_More three 17-24 */
+
+.RM_17{
+	left :14px;
+	top : 155px;
+	position :absolute
+}
+.RM_18{
+	left :14px;
+	top : 155px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_19{
+	left :145px;
+	top : 155px;
+	position :absolute
+}
+.RM_20{
+	left :303px;
+	top : 155px;
+	position :absolute
+}
+.RM_21{
+	left :328px;
+	top : 155px;
+	position :absolute
+}
+.RM_22{
+	left :328px;
+	top : 155px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_23{
+	left :459px;
+	top : 155px;
+	position :absolute
+}
+.RM_24{
+	left :617px;
+	top : 155px;
+	position :absolute
+}
+
+/* Row_More four 25-32 */
+
+.RM_25{
+	left :14px;
+	top : 187px;
+	position :absolute
+}
+.RM_26{
+	left :14px;
+	top : 187px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_27{
+	left :145px;
+	top : 187px;
+	position :absolute
+}
+.RM_28{
+	left :303px;
+	top : 187px;
+	position :absolute
+}
+.RM_29{
+	left :328px;
+	top : 187px;
+	position :absolute
+}
+.RM_30{
+	left :328px;
+	top : 187px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_31{
+	left :459px;
+	top : 187px;
+	position :absolute
+}
+.RM_32{
+	left :617px;
+	top : 187px;
+	position :absolute
+}
+
+/* Row_More five 33-40 */
+
+.RM_33{
+	left :14px;
+	top : 219px;
+	position :absolute
+}
+.RM_34{
+	left :14px;
+	top : 219px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_35{
+	left :145px;
+	top : 219px;
+	position :absolute
+}
+.RM_36{
+	left :303px;
+	top : 219px;
+	position :absolute
+}
+.RM_37{
+	left :328px;
+	top : 219px;
+	position :absolute
+}
+.RM_38{
+	left :328px;
+	top : 219px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_39{
+	left :459px;
+	top : 219px;
+	position :absolute
+}
+.RM_40{
+	left :617px;
+	top : 219px;
+	position :absolute
+}
+
+/* Row_More six 41-48 */
+
+.RM_41{
+	left :14px;
+	top : 251px;
+	position :absolute
+}
+.RM_42{
+	left :14px;
+	top : 251px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_43{
+	left :145px;
+	top : 251px;
+	position :absolute
+}
+.RM_44{
+	left :303px;
+	top : 251px;
+	position :absolute
+}
+.RM_45{
+	left :328px;
+	top : 251px;
+	position :absolute
+}
+.RM_46{
+	left :328px;
+	top : 251px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_47{
+	left :459px;
+	top : 251px;
+	position :absolute
+}
+.RM_48{
+	left :617px;
+	top : 251px;
+	position :absolute
+}
+
+/* Row_More seven 49-56 */
+
+.RM_49{
+	left :14px;
+	top : 283px;
+	position :absolute
+}
+.RM_50{
+	left :14px;
+	top : 283px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_51{
+	left :145px;
+	top : 283px;
+	position :absolute
+}
+.RM_52{
+	left :303px;
+	top : 283px;
+	position :absolute
+}
+.RM_53{
+	left :328px;
+	top : 283px;
+	position :absolute
+}
+.RM_54{
+	left :328px;
+	top : 283px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_55{
+	left :459px;
+	top : 283px;
+	position :absolute
+}
+.RM_56{
+	left :617px;
+	top : 283px;
+	position :absolute
+}
+
+/* Row_More eight 57-64 */
+
+.RM_57{
+	left :14px;
+	top : 315px;
+	position :absolute
+}
+.RM_58{
+	left :14px;
+	top : 315px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_59{
+	left :145px;
+	top : 315px;
+	position :absolute
+}
+.RM_60{
+	left :303px;
+	top : 315px;
+	position :absolute
+}
+.RM_61{
+	left :328px;
+	top : 315px;
+	position :absolute
+}
+.RM_62{
+	left :328px;
+	top : 315px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_63{
+	left :459px;
+	top : 315px;
+	position :absolute
+}
+.RM_64{
+	left :617px;
+	top : 315px;
+	position :absolute
+}
+
+/* Row_More nine 65-72 */
+
+.RM_65{
+	left :14px;
+	top : 347px;
+	position :absolute
+}
+.RM_66{
+	left :14px;
+	top : 347px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_67{
+	left :145px;
+	top : 347px;
+	position :absolute
+}
+.RM_68{
+	left :303px;
+	top : 347px;
+	position :absolute
+}
+.RM_69{
+	left :328px;
+	top : 347px;
+	position :absolute
+}
+.RM_70{
+	left :328px;
+	top : 347px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_71{
+	left :459px;
+	top : 347px;
+	position :absolute
+}
+.RM_72{
+	left :617px;
+	top : 347px;
+	position :absolute
+}
+
+/* Row_More ten 73-80 */
+
+.RM_73{
+	left :14px;
+	top : 379px;
+	position :absolute
+}
+.RM_74{
+	left :14px;
+	top : 379px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_75{
+	left :145px;
+	top : 379px;
+	position :absolute
+}
+.RM_76{
+	left :303px;
+	top : 379px;
+	position :absolute
+}
+.RM_77{
+	left :328px;
+	top : 379px;
+	position :absolute
+}
+.RM_78{
+	left :328px;
+	top : 379px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_79{
+	left :459px;
+	top : 379px;
+	position :absolute
+}
+.RM_80{
+	left :617px;
+	top : 379px;
+	position :absolute
+}
+
+/* Row_More eleven 81-88 */
+
+.RM_81{
+	left :14px;
+	top : 411px;
+	position :absolute
+}
+.RM_82{
+	left :14px;
+	top : 411px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_83{
+	left :145px;
+	top : 411px;
+	position :absolute
+}
+.RM_84{
+	left :303px;
+	top : 411px;
+	position :absolute
+}
+.RM_85{
+	left :328px;
+	top : 411px;
+	position :absolute
+}
+.RM_86{
+	left :328px;
+	top : 411px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_87{
+	left :459px;
+	top : 411px;
+	position :absolute
+}
+.RM_88{
+	left :617px;
+	top : 411px;
+	position :absolute
+}
+
+/* Row_More twelve 89-96 */
+
+.RM_89{
+	left :14px;
+	top : 443px;
+	position :absolute
+}
+.RM_90{
+	left :14px;
+	top : 443px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_91{
+	left :145px;
+	top : 443px;
+	position :absolute
+}
+.RM_92{
+	left :303px;
+	top : 443px;
+	position :absolute
+}
+.RM_93{
+	left :328px;
+	top : 443px;
+	position :absolute
+}
+.RM_94{
+	left :328px;
+	top : 443px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_95{
+	left :459px;
+	top : 443px;
+	position :absolute
+}
+.RM_96{
+	left :617px;
+	top : 443px;
+	position :absolute
+}
+
+/* Row_More thirteen 97-104 */
+
+.RM_97{
+	left :14px;
+	top : 475px;
+	position :absolute
+}
+.RM_98{
+	left :14px;
+	top : 475px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_99{
+	left :145px;
+	top : 475px;
+	position :absolute
+}
+.RM_100{
+	left :303px;
+	top : 475px;
+	position :absolute
+}
+.RM_101{
+	left :328px;
+	top : 475px;
+	position :absolute
+}
+.RM_102{
+	left :328px;
+	top : 475px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_103{
+	left :459px;
+	top : 475px;
+	position :absolute
+}
+.RM_104{
+	left :617px;
+	top : 475px;
+	position :absolute
+}
+
+/* Row_More fourteen 105-112 */
+
+.RM_105{
+	left :14px;
+	top : 507px;
+	position :absolute
+}
+.RM_106{
+	left :14px;
+	top : 507px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_107{
+	left :145px;
+	top : 507px;
+	position :absolute
+}
+.RM_108{
+	left :303px;
+	top : 507px;
+	position :absolute
+}
+.RM_109{
+	left :328px;
+	top : 507px;
+	position :absolute
+}
+.RM_110{
+	left :328px;
+	top : 507px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_111{
+	left :459px;
+	top : 507px;
+	position :absolute
+}
+.RM_112{
+	left :617px;
+	top : 507px;
+	position :absolute
+}
+
+/* Row_More fifteen 113-120 */
+
+.RM_113{
+	left :14px;
+	top : 539px;
+	position :absolute
+}
+.RM_114{
+	left :14px;
+	top : 539px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_115{
+	left :145px;
+	top : 539px;
+	position :absolute
+}
+.RM_116{
+	left :303px;
+	top : 539px;
+	position :absolute
+}
+.RM_117{
+	left :328px;
+	top : 539px;
+	position :absolute
+}
+.RM_118{
+	left :328px;
+	top : 539px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_119{
+	left :459px;
+	top : 539px;
+	position :absolute
+}
+.RM_120{
+	left :617px;
+	top : 539px;
+	position :absolute
+}
+
+/* Row_More sixteen 121-128 */
+
+.RM_121{
+	left :14px;
+	top : 571px;
+	position :absolute
+}
+.RM_122{
+	left :14px;
+	top : 571px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_123{
+	left :145px;
+	top : 571px;
+	position :absolute
+}
+.RM_124{
+	left :303px;
+	top : 571px;
+	position :absolute
+}
+.RM_125{
+	left :328px;
+	top : 571px;
+	position :absolute
+}
+.RM_126{
+	left :328px;
+	top : 571px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_127{
+	left :459px;
+	top : 571px;
+	position :absolute
+}
+.RM_128{
+	left :617px;
+	top : 571px;
+	position :absolute
+}
+
+/* Row_More seventeen 129-136 */
+
+.RM_129{
+	left :14px;
+	top : 603px;
+	position :absolute
+}
+.RM_130{
+	left :14px;
+	top : 603px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_131{
+	left :145px;
+	top : 603px;
+	position :absolute
+}
+.RM_132{
+	left :303px;
+	top : 603px;
+	position :absolute
+}
+.RM_133{
+	left :328px;
+	top : 603px;
+	position :absolute
+}
+.RM_134{
+	left :328px;
+	top : 603px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_135{
+	left :459px;
+	top : 603px;
+	position :absolute
+}
+.RM_136{
+	left :617px;
+	top : 603px;
+	position :absolute
+}
+
+/* Row_More eightteen 137-144 */
+
+.RM_137{
+	left :14px;
+	top : 635px;
+	position :absolute
+}
+.RM_138{
+	left :14px;
+	top : 635px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_139{
+	left :145px;
+	top : 635px;
+	position :absolute
+}
+.RM_140{
+	left :303px;
+	top : 635px;
+	position :absolute
+}
+.RM_141{
+	left :328px;
+	top : 635px;
+	position :absolute
+}
+.RM_142{
+	left :328px;
+	top : 635px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_143{
+	left :459px;
+	top : 635px;
+	position :absolute
+}
+.RM_144{
+	left :617px;
+	top : 635px;
+	position :absolute
+}
+
+/* Row_More nineteen 145-152 */
+
+.RM_145{
+	left :14px;
+	top : 667px;
+	position :absolute
+}
+.RM_146{
+	left :14px;
+	top : 667px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_147{
+	left :145px;
+	top : 667px;
+	position :absolute
+}
+.RM_148{
+	left :303px;
+	top : 667px;
+	position :absolute
+}
+.RM_149{
+	left :328px;
+	top : 667px;
+	position :absolute
+}
+.RM_150{
+	left :328px;
+	top : 667px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_151{
+	left :459px;
+	top : 667px;
+	position :absolute
+}
+.RM_152{
+	left :617px;
+	top : 667px;
+	position :absolute
+}
+
+/* Row_More twenty 153-160 */
+
+.RM_153{
+	left :14px;
+	top : 699px;
+	position :absolute
+}
+.RM_154{
+	left :14px;
+	top : 699px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_155{
+	left :145px;
+	top : 699px;
+	position :absolute
+}
+.RM_156{
+	left :303px;
+	top : 699px;
+	position :absolute
+}
+.RM_157{
+	left :328px;
+	top : 699px;
+	position :absolute
+}
+.RM_158{
+	left :328px;
+	top : 699px;
+	position :absolute;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: bold;
+	font-size: 11px;
+	color: #000000
+}
+.RM_159{
+	left :459px;
+	top : 699px;
+	position :absolute
+}
+.RM_160{
+	left :617px;
+	top : 699px;
+	position :absolute
+}
+
+
+/* positioning for List Box -- row 1 */
+.RL1_1{
+    left : 360px;
+	top : 116px;
+	position :absolute
+}
+.RL1_2{
+    left : 360px;
+	top : 141px;
+	position :absolute
+}
+.RL1_3{
+    left : 360px;
+	top : 166px;
+	position :absolute
+}
+.RL1_4{
+    left : 360px;
+	top : 191px;
+	position :absolute
+}
+.RL1_5{
+    left : 415px;
+	top : 91px;
+	position :absolute
+}
+.RL1_6{
+    left : 577px;
+	top : 91px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 2 */
+.RL2_1{
+    left : 360px;
+	top : 148px;
+	position :absolute
+}
+.RL2_2{
+    left : 360px;
+	top : 173px;
+	position :absolute
+}
+.RL2_3{
+    left : 360px;
+	top : 198px;
+	position :absolute
+}
+.RL2_4{
+    left : 360px;
+	top : 223px;
+	position :absolute
+}
+.RL2_5{
+    left : 415px;
+	top : 123px;
+	position :absolute
+}
+.RL2_6{
+    left : 577px;
+	top : 123px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 3 */
+.RL3_1{
+    left : 360px;
+	top : 180px;
+	position :absolute
+}
+.RL3_2{
+    left : 360px;
+	top : 205px;
+	position :absolute
+}
+.RL3_3{
+    left : 360px;
+	top : 230px;
+	position :absolute
+}
+.RL3_4{
+    left : 360px;
+	top : 255px;
+	position :absolute
+}
+.RL3_5{
+    left : 415px;
+	top : 155px;
+	position :absolute
+}
+.RL3_6{
+    left : 577px;
+	top : 155px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 4 */
+.RL4_1{
+    left : 360px;
+	top : 212px;
+	position :absolute
+}
+.RL4_2{
+    left : 360px;
+	top : 238px;
+	position :absolute
+}
+.RL4_3{
+    left : 360px;
+	top : 262px;
+	position :absolute
+}
+.RL4_4{
+    left : 360px;
+	top : 287px;
+	position :absolute
+}
+.RL4_5{
+    left : 415px;
+	top : 187px;
+	position :absolute
+}
+.RL4_6{
+    left : 577px;
+	top : 187px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 5 */
+.RL5_1{
+    left : 360px;
+	top : 244px;
+	position :absolute
+}
+.RL5_2{
+    left : 360px;
+	top : 269px;
+	position :absolute
+}
+.RL5_3{
+    left : 360px;
+	top : 294px;
+	position :absolute
+}
+.RL5_4{
+    left : 360px;
+	top : 319px;
+	position :absolute
+}
+.RL5_5{
+    left : 415px;
+	top : 219px;
+	position :absolute
+}
+.RL5_6{
+    left : 577px;
+	top : 219px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 6 */
+.RL6_1{
+    left : 360px;
+	top : 276px;
+	position :absolute
+}
+.RL6_2{
+    left : 360px;
+	top : 301px;
+	position :absolute
+}
+.RL6_3{
+    left : 360px;
+	top : 326px;
+	position :absolute
+}
+.RL6_4{
+    left : 360px;
+	top : 351px;
+	position :absolute
+}
+.RL6_5{
+    left : 415px;
+	top : 251px;
+	position :absolute
+}
+.RL6_6{
+    left : 577px;
+	top : 251px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 7 */
+.RL7_1{
+    left : 360px;
+	top : 308px;
+	position :absolute
+}
+.RL7_2{
+    left : 360px;
+	top : 333px;
+	position :absolute
+}
+.RL7_3{
+    left : 360px;
+	top : 358px;
+	position :absolute
+}
+.RL7_4{
+    left : 360px;
+	top : 383px;
+	position :absolute
+}
+.RL7_5{
+    left : 415px;
+	top : 283px;
+	position :absolute
+}
+.RL7_6{
+    left : 577px;
+	top : 283px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 8 */
+.RL8_1{
+    left : 360px;
+	top : 340px;
+	position :absolute
+}
+.RL8_2{
+    left : 360px;
+	top : 355px;
+	position :absolute
+}
+.RL8_3{
+    left : 360px;
+	top : 390px;
+	position :absolute
+}
+.RL8_4{
+    left : 360px;
+	top : 415px;
+	position :absolute
+}
+.RL8_5{
+    left : 415px;
+	top : 315px;
+	position :absolute
+}
+.RL8_6{
+    left : 577px;
+	top : 315px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 9 */
+.RL9_1{
+    left : 360px;
+	top : 372px;
+	position :absolute
+}
+.RL9_2{
+    left : 360px;
+	top : 397px;
+	position :absolute
+}
+.RL9_3{
+    left : 360px;
+	top : 422px;
+	position :absolute
+}
+.RL9_4{
+    left : 360px;
+	top : 447px;
+	position :absolute
+}
+.RL9_5{
+    left : 415px;
+	top : 347px;
+	position :absolute
+}
+.RL9_6{
+    left : 577px;
+	top : 347px;
+	position :absolute
+}
+
+/* positioning for List Box -- row 10 */
+.RL10_1{
+    left : 360px;
+	top : 404px;
+	position :absolute
+}
+.RL10_2{
+    left : 360px;
+	top : 429px;
+	position :absolute
+}
+.RL10_3{
+    left : 360px;
+	top : 454px;
+	position :absolute
+}
+.RL10_4{
+    left : 360px;
+	top : 479px;
+	position :absolute
+}
+.RL10_5{
+    left : 415px;
+	top : 379px;
+	position :absolute
+}
+.RL10_6{
+    left : 577px;
+	top : 379px;
+	position :absolute
+}
+
+
+
+/* positioning for button 1*/
+
+.B1_0{
+	left : 22px;
+	top : 145px;
+	position :absolute
+}
+.B1_1{
+	left : 22px;
+	top : 177px;
+	position :absolute
+}
+.B1_2{
+	left : 22px;
+	top : 209px;
+	position :absolute
+}
+.B1_3{
+	left : 22px;
+	top : 241px;
+	position :absolute
+}
+.B1_4{
+	left : 22px;
+	top : 273px;
+	position :absolute
+}
+.B1_5{
+	left : 22px;
+	top : 305px;
+	position :absolute
+}
+.B1_6{
+	left : 22px;
+	top : 337px;
+	position :absolute
+}
+.B1_7{
+	left : 22px;
+	top : 369px;
+	position :absolute
+}
+.B1_8{
+	left : 22px;
+	top : 401px;
+	position :absolute
+}
+.B1_9{
+	left : 22px;
+	top : 433px;
+	position :absolute
+}
+.B1_10{
+	left : 22px;
+	top : 465px;
+	position :absolute
+}
+.B1_11{
+	left : 22px;
+	top : 497px;
+	position :absolute
+}
+.B1_12{
+	left : 22px;
+	top : 529px;
+	position :absolute
+}
+.B1_13{
+	left : 22px;
+	top : 561px;
+	position :absolute
+}
+.B1_14{
+	left : 22px;
+	top : 593px;
+	position :absolute
+}
+.B1_15{
+	left : 22px;
+	top : 625px;
+	position :absolute
+}
+.B1_16{
+	left : 22px;
+	top : 657px;
+	position :absolute
+}
+.B1_17{
+	left : 22px;
+	top : 689px;
+	position :absolute
+}
+.B1_18{
+	left : 22px;
+	top : 721px;
+	position :absolute
+}
+.B1_19{
+	left : 22px;
+	top : 753px;
+	position :absolute
+}
+.B1_20{
+	left : 22px;
+	top : 785px;
+	position :absolute
+}
+
+/* positioning for button 2*/
+
+.B2_0{
+	left : 102px;
+	top : 145px;
+	position :absolute
+}
+.B2_1{
+	left : 102px;
+	top : 177px;
+	position :absolute
+}
+.B2_2{
+	left : 102px;
+	top : 209px;
+	position :absolute
+}
+.B2_3{
+	left : 102px;
+	top : 241px;
+	position :absolute
+}
+.B2_4{
+	left : 102px;
+	top : 273px;
+	position :absolute
+}
+.B2_5{
+	left : 102px;
+	top : 305px;
+	position :absolute
+}
+.B2_6{
+	left : 102px;
+	top : 337px;
+	position :absolute
+}
+.B2_7{
+	left : 102px;
+	top : 369px;
+	position :absolute
+}
+.B2_8{
+	left : 102px;
+	top : 401px;
+	position :absolute
+}
+.B2_9{
+	left : 102px;
+	top : 433px;
+	position :absolute
+}
+.B2_10{
+	left : 102px;
+	top : 465px;
+	position :absolute
+}
+.B2_11{
+	left : 102px;
+	top : 497px;
+	position :absolute
+}
+.B2_12{
+	left : 102px;
+	top : 529px;
+	position :absolute
+}
+.B2_13{
+	left : 102px;
+	top : 561px;
+	position :absolute
+}
+.B2_14{
+	left : 102px;
+	top : 593px;
+	position :absolute
+}
+.B2_15{
+	left : 102px;
+	top : 625px;
+	position :absolute
+}
+.B2_16{
+	left : 102px;
+	top : 657px;
+	position :absolute
+}
+.B2_17{
+	left : 102px;
+	top : 689px;
+	position :absolute
+}
+.B2_18{
+	left : 102px;
+	top : 721px;
+	position :absolute
+}
+.B2_19{
+	left : 102px;
+	top : 753px;
+	position :absolute
+}
+.B2_20{
+	left : 102px;
+	top : 785px;
+	position :absolute
+}
+
+/* positioning for button 3*/
+
+.B3_0{
+	left : 182px;
+	top : 145px;
+	position :absolute
+}
+.B3_1{
+	left : 182px;
+	top : 177px;
+	position :absolute
+}
+.B3_2{
+	left : 182px;
+	top : 209px;
+	position :absolute
+}
+.B3_3{
+	left : 182px;
+	top : 241px;
+	position :absolute
+}
+.B3_4{
+	left : 182px;
+	top : 273px;
+	position :absolute
+}
+.B3_5{
+	left : 182px;
+	top : 305px;
+	position :absolute
+}
+.B3_6{
+	left : 182px;
+	top : 337px;
+	position :absolute
+}
+.B3_7{
+	left : 182px;
+	top : 369px;
+	position :absolute
+}
+.B3_8{
+	left : 182px;
+	top : 401px;
+	position :absolute
+}
+.B3_9{
+	left : 182px;
+	top : 433px;
+	position :absolute
+}
+.B3_10{
+	left : 182px;
+	top : 465px;
+	position :absolute
+}
+.B3_11{
+	left : 182px;
+	top : 497px;
+	position :absolute
+}
+.B3_12{
+	left : 182px;
+	top : 529px;
+	position :absolute
+}
+.B3_13{
+	left : 182px;
+	top : 561px;
+	position :absolute
+}
+.B3_14{
+	left : 182px;
+	top : 593px;
+	position :absolute
+}
+.B3_15{
+	left : 182px;
+	top : 625px;
+	position :absolute
+}
+.B3_16{
+	left : 182px;
+	top : 657px;
+	position :absolute
+}
+.B3_17{
+	left : 182px;
+	top : 689px;
+	position :absolute
+}
+.B3_18{
+	left : 182px;
+	top : 721px;
+	position :absolute
+}
+.B3_19{
+	left : 182px;
+	top : 753px;
+	position :absolute
+}
+.B3_20{
+	left : 182px;
+	top : 785px;
+	position :absolute
+}
+
+/* positioning for button 4*/
+
+.B4_0{
+	left : 262px;
+	top : 145px;
+	position :absolute
+}
+.B4_1{
+	left : 262px;
+	top : 177px;
+	position :absolute
+}
+.B4_2{
+	left : 262px;
+	top : 209px;
+	position :absolute
+}
+.B4_3{
+	left : 262px;
+	top : 241px;
+	position :absolute
+}
+.B4_4{
+	left : 262px;
+	top : 273px;
+	position :absolute
+}
+.B4_5{
+	left : 262px;
+	top : 305px;
+	position :absolute
+}
+.B4_6{
+	left : 262px;
+	top : 337px;
+	position :absolute
+}
+.B4_7{
+	left : 262px;
+	top : 369px;
+	position :absolute
+}
+.B4_8{
+	left : 262px;
+	top : 401px;
+	position :absolute
+}
+.B4_9{
+	left : 262px;
+	top : 433px;
+	position :absolute
+}
+.B4_10{
+	left : 262px;
+	top : 465px;
+	position :absolute
+}
+.B4_11{
+	left : 262px;
+	top : 497px;
+	position :absolute
+}
+.B4_12{
+	left : 262px;
+	top : 529px;
+	position :absolute
+}
+.B4_13{
+	left : 262px;
+	top : 561px;
+	position :absolute
+}
+.B4_14{
+	left : 262px;
+	top : 593px;
+	position :absolute
+}
+.B4_15{
+	left : 262px;
+	top : 625px;
+	position :absolute
+}
+.B4_16{
+	left : 262px;
+	top : 657px;
+	position :absolute
+}
+.B4_17{
+	left : 262px;
+	top : 689px;
+	position :absolute
+}
+.B4_18{
+	left : 262px;
+	top : 721px;
+	position :absolute
+}
+.B4_19{
+	left : 262px;
+	top : 753px;
+	position :absolute
+}
+.B4_20{
+	left : 262px;
+	top : 785px;
+	position :absolute
+}
+
+/* positioning for button 5*/
+
+.B5_0{
+	left : 374px;
+	top : 145px;
+	position :absolute
+}
+.B5_1{
+	left : 374px;
+	top : 177px;
+	position :absolute
+}
+.B5_2{
+	left : 374px;
+	top : 209px;
+	position :absolute
+}
+.B5_3{
+	left : 374px;
+	top : 241px;
+	position :absolute
+}
+.B5_4{
+	left : 374px;
+	top : 273px;
+	position :absolute
+}
+.B5_5{
+	left : 374px;
+	top : 305px;
+	position :absolute
+}
+.B5_6{
+	left : 374px;
+	top : 337px;
+	position :absolute
+}
+.B5_7{
+	left : 374px;
+	top : 369px;
+	position :absolute
+}
+.B5_8{
+	left : 374px;
+	top : 401px;
+	position :absolute
+}
+.B5_9{
+	left : 374px;
+	top : 433px;
+	position :absolute
+}
+.B5_10{
+	left : 374px;
+	top : 465px;
+	position :absolute
+}
+.B5_11{
+	left : 374px;
+	top : 497px;
+	position :absolute
+}
+.B5_12{
+	left : 374px;
+	top : 529px;
+	position :absolute
+}
+.B5_13{
+	left : 374px;
+	top : 561px;
+	position :absolute
+}
+.B5_14{
+	left : 374px;
+	top : 593px;
+	position :absolute
+}
+.B5_15{
+	left : 374px;
+	top : 625px;
+	position :absolute
+}
+.B5_16{
+	left : 374px;
+	top : 657px;
+	position :absolute
+}
+.B5_17{
+	left : 374px;
+	top : 689px;
+	position :absolute
+}
+.B5_18{
+	left : 374px;
+	top : 721px;
+	position :absolute
+}
+.B5_19{
+	left : 374px;
+	top : 753px;
+	position :absolute
+}
+.B5_20{
+	left : 374px;
+	top : 785px;
+	position :absolute
+}
+
+/* positioning for button 6*/
+
+.B6_0{
+	left : 422px;
+	top : 145px;
+	position :absolute
+}
+.B6_1{
+	left : 422px;
+	top : 177px;
+	position :absolute
+}
+.B6_2{
+	left : 422px;
+	top : 209px;
+	position :absolute
+}
+.B6_3{
+	left : 422px;
+	top : 241px;
+	position :absolute
+}
+.B6_4{
+	left : 422px;
+	top : 273px;
+	position :absolute
+}
+.B6_5{
+	left : 422px;
+	top : 305px;
+	position :absolute
+}
+.B6_6{
+	left : 422px;
+	top : 337px;
+	position :absolute
+}
+.B6_7{
+	left : 422px;
+	top : 369px;
+	position :absolute
+}
+.B6_8{
+	left : 422px;
+	top : 401px;
+	position :absolute
+}
+.B6_9{
+	left : 422px;
+	top : 433px;
+	position :absolute
+}
+.B6_10{
+	left : 422px;
+	top : 465px;
+	position :absolute
+}
+.B6_11{
+	left : 422px;
+	top : 497px;
+	position :absolute
+}
+.B6_12{
+	left : 422px;
+	top : 529px;
+	position :absolute
+}
+.B6_13{
+	left : 422px;
+	top : 561px;
+	position :absolute
+}
+.B6_14{
+	left : 422px;
+	top : 593px;
+	position :absolute
+}
+.B6_15{
+	left : 422px;
+	top : 625px;
+	position :absolute
+}
+.B6_16{
+	left : 422px;
+	top : 657px;
+	position :absolute
+}
+.B6_17{
+	left : 422px;
+	top : 689px;
+	position :absolute
+}
+.B6_18{
+	left : 422px;
+	top : 721px;
+	position :absolute
+}
+.B6_19{
+	left : 422px;
+	top : 753px;
+	position :absolute
+}
+.B6_20{
+	left : 422px;
+	top : 785px;
+	position :absolute
+}
+
+
+
+/* positioning for label 1 */
+
+.L1_0{
+	left : 275px;
+	top : 145px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_1{
+	left : 275px;
+	top : 177px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_2{
+	left : 275px;
+	top : 209px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_3{
+	left : 275px;
+	top : 241px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_4{
+	left : 275px;
+	top : 273px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_5{
+	left : 275px;
+	top : 305px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_6{
+	left : 275px;
+	top : 337px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_7{
+	left : 275px;
+	top : 369px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_8{
+	left : 275px;
+	top : 401px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_9{
+	left : 275px;
+	top : 433px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_10{
+	left : 275px;
+	top : 465px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_11{
+	left : 275px;
+	top : 497px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_12{
+	left : 275px;
+	top : 529px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_13{
+	left : 275px;
+	top : 561px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_14{
+	left : 275px;
+	top : 593px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_15{
+	left : 275px;
+	top : 625px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_16{
+	left : 275px;
+	top : 657px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_17{
+	left : 275px;
+	top : 689px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_18{
+	left : 275px;
+	top : 721px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_19{
+	left : 275px;
+	top : 753px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+.L1_20{
+	left : 275px;
+	top : 785px;
+	position :absolute;
+	font-size : 12px;
+	font-family : Arial Unicode MS,Verdana,Arial,Tahoma;
+	font-weight: 700;
+	color: #FF3333
+}
+
+/* end of positining*/
+
+
+/* setting for font-size and font-family only */
+
+.fontSize08 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize09 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize10 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize11 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize12 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize13 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize14 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize15 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize16 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize17 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize18 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize19 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize20 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+.fontSize22 {font-size: 10px; font-family : Arial Unicode MS,Verdana,Arial,Tahoma;}
+
+/* setting for image display : Add/Edit/More */
+
+.Display_0{
+	left : 15px;
+	top : 42px;
+	position :absolute
+}
+.Display_1{
+	left : 15px;
+	top : 129px;
+	position :absolute
+}
+.Display_2{
+	left : 15px;
+	top : 161px;
+	position :absolute
+}
+.Display_3{
+	left : 15px;
+	top : 193px;
+	position :absolute
+}
+.Display_4{
+	left : 15px;
+	top : 225px;
+	position :absolute
+}
+.Display_5{
+	left : 15px;
+	top : 257px;
+	position :absolute
+}
+.Display_6{
+	left : 15px;
+	top : 289px;
+	position :absolute
+}
+.Display_7{
+	left : 15px;
+	top : 321px;
+	position :absolute
+}
+.Display_8{
+	left : 15px;
+	top : 353px;
+	position :absolute
+}
+.Display_9{
+	left : 15px;
+	top : 385px;
+	position :absolute
+}
+.Display_10{
+	left : 15px;
+	top : 417px;
+	position :absolute
+}
+.Display_11{
+	left : 15px;
+	top : 449px;
+	position :absolute
+}
+.Display_12{
+	left : 15px;
+	top : 481px;
+	position :absolute
+}
+.Display_13{
+	left : 15px;
+	top : 513px;
+	position :absolute
+}
+.Display_14{
+	left : 15px;
+	top : 545px;
+	position :absolute
+}
+.Display_15{
+	left : 15px;
+	top : 577px;
+	position :absolute
+}
+.Display_16{
+	left : 15px;
+	top : 609px;
+	position :absolute
+}
+.Display_17{
+	left : 15px;
+	top : 641px;
+	position :absolute
+}
+.Display_18{
+	left : 15px;
+	top : 673px;
+	position :absolute
+}
+.Display_19{
+	left : 15px;
+	top : 705px;
+	position :absolute
+}
+.Display_20{
+	left : 15px;
+	top : 737px;
+	position :absolute
+}
+
+
+/* Forum Stylesheet */
+.button_style{
+    margin: 0px 0px 0px 10px;
+    text-align:center ;
+    cursor:hand;
+	font-size : 10px;
+	font-family : Arial Unicode MS;
+	font-weight : 500; 
+    height:20px;
+    color:#3e3e3e;
+    width:70px; 
+    background:#ebf7f7;
+    border-width:1px;
+    border-style:solid; 
+    border-color:#7793b1 #7793b1 #7793b1 #7793b1;
+}
+.reportTitle_style{
+	color:blue;
+	font-weight:bold;
+	font-family:Arial CE;
+}
+.divforum{
+	background-color:#1d8a0f; 
+	width:100%;
+}
+.divpagesize{
+	background-color:#b7dfd5;
+}
+.divtopbottomcontent{
+	background-color:#f1f1f1; 
+}
+.showuser{
+	border-width:3px;
+	border-style:solid;
+	padding:10px 10px 10px 10px;
+	border-color:#b7dfd5 #b7dfd5 #b7dfd5 #b7dfd5;    
+	background-color:#f1f1f1;
+	position:absolute;	
+}
+.filtertxt
+{
+	border-style:groove;
+	width : 80px;
+}

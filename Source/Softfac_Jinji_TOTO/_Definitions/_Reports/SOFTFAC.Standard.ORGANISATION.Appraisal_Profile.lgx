@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Report ID="SOFTFAC.Standard.ORGANISATION.Appraisal_Profile" SavedBy="sy.tey" SavedAt="11/24/2007 1:33:48 PM" EngineVersion="8.0.30">
+	<StyleSheet StyleSheet="Blue.css"/>
+	<ReportHeader ShowModes="Interactive">
+		<Image ID="imgLogo" Width="110" Height="74" Caption="softfac.gif"/>
+		<Spaces/>
+		<Label ID="lblCompanyName" Caption="SoftFac Technology Sdn Bhd" Class="rptHeaderLogoText" AbsoluteLeft="120" AbsoluteTop="68" Width="281" Height="27" WidthScale="px">
+		</Label>
+		<HR/>
+		<Image ID="imgPrint" Caption="btnPrint.bmp" Class="image" Tooltip="Print">
+			<Action Type="Report" ID="actPrint">
+				<Target Type="Report" ID="tgPrint" FrameID="NewWindow" Report="CurrentReport" Paging="Printable" RequestForwarding="True" ReportShowModes="Printable"/>
+			</Action>
+		</Image>
+		<Image ID="imgExportPDF" Caption="btnExportPDF.bmp" Class="image" Tooltip="Export To PDF">
+			<Action Type="PDF" ID="actExportPDF">
+				<Target Type="PDF" FrameID="NewWindow" ID="tgPDF" KeepShowElements="True" Report="CurrentReport" ReportShowModes="Printable" RequestForwarding="True"/>
+			</Action>
+		</Image>
+		<Image Caption="btnExportExcel.bmp" ID="imgExportExcel" Class="image" Tooltip="Export To Excel">
+			<Action Type="NativeExcel" ID="actExportExcel">
+				<Target Type="NativeExcel" ExportDataTableID="dtDynamicColumns" Report="CurrentReport" ID="tgExcel" FrameID="NewWindow" ReportShowModes="Printable" RequestForwarding="True"/>
+			</Action>
+		</Image>
+		<Image ID="imgExportXML" Caption="btnExportXML.bmp" Class="image" Tooltip="Export To XML">
+			<Action Type="XML" ID="actExportXML">
+				<Target Type="XML" FrameID="NewWindow" ID="tgXML" Report="CurrentReport" RequestForwarding="True"/>
+			</Action>
+		</Image>
+		<Image Caption="btnExportWord.bmp" ID="imgExportWord" Class="image" Tooltip="Export To Word">
+			<Action Type="Export" ID="actExportWord">
+				<Target Type="Export" ReportFormat="Word" Report="CurrentReport" RequestForwarding="True" ReportShowModes="Printable" KeepShowElements="True" FrameID="NewWindow" ID="tgWord"/>
+			</Action>
+		</Image>
+		<HR/>
+		<Spaces/>
+		<Spaces/>
+		<LineBreak/>
+		<Label ID="lblTitle" Class="title" Caption="Employee Address Reports"/>
+		<LineBreak/>
+	</ReportHeader>
+	<Body>
+		<DataTable ID="dtDynamicColumns">
+			<DataLayer Type="Linked" LinkedDataLayerID="dlLinkCustomers" ID="dlCustomersLinked"/>
+			<InteractivePaging PageRowCount="20" ShowPageNumber="True" Location="Top" Class="report" CaptionType="Image" FirstPageCaption="page_first_en.gif" PreviousPageCaption="page_prev_en.gif" NextPageCaption="page_next_en.gif" LastPageCaption="page_last_en.gif"/>
+		</DataTable>
+	</Body>
+	<ReportFooter>
+		<Remark>
+			<Label ID="lblPrintDate"/>
+		</Remark>
+		<Remark>
+			<HR/>
+		</Remark>
+	</ReportFooter>
+	<PluginCall PluginName="SoftFacPlugin" PluginTypeName="SoftFacPlugin.SoftFacPlugin" EngineEvent="LoadDefinition" PluginMethod="SetDynamicColumnsSql" ID="DynamicSelectSql"/>
+	<PrintablePaging PageHeight="9.5" PageWidth="6.5" IdeDisplayStatus="Collapsed">
+		<PageHeader>
+			<Image ID="imgLogoPrintable" Width="110" Height="74" Caption="softfac.gif"/>
+			<Spaces/>
+			<Label ID="lblCompanyName" Caption="SoftFac Technology Sdn Bhd" Class="rptHeaderLogoText" AbsoluteLeft="120" AbsoluteTop="68" Width="281" Height="27" WidthScale="px">
+			</Label>
+			<HR/>
+			<Label Caption="Employee Personal Reports" ID="lblTitle" Class="title"/>
+			<LineBreak/>
+		</PageHeader>
+		<PageFooter/>
+	</PrintablePaging>
+	<LocalData>
+		<DataLayer Type="SQL" ID="dlCustomers">
+			<DataLayerPluginCall PluginName="SoftFacPlugin" PluginTypeName="SoftFacPlugin.SoftFacPlugin" PluginMethod="SetDataTableColumns" ID="GenerateReportColumns">
+				<Note Note="DataLayer.PluginCall can modify the report definition file when called from under a LocalData element.
+
+But it's too late to modifiy the definition from the DataTable's DataLayer.  That's because the definition has already been processed."/>
+				<PluginParams DataTableID="dtDynamicColumns" Logo="imgLogo" LogoPrintable="imgLogoPrintable" CompanyName="lblCompanyName" ReportTitle="lblTitle"/>
+			</DataLayerPluginCall>
+			<DataLayerLink ID="dlLinkCustomers">
+				<Note Note="Make this DataLayer available to the DataTable."/>
+			</DataLayerLink>
+		</DataLayer>
+	</LocalData>
+</Report>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_payslip_unisem" SavedBy="Tester" SavedAt="7/3/2014 9:57:19 AM" EngineVersion="8.0.30">
+	<ideTestParams OrganID="RWEM" month="01" year="2012" SPID="1" Paymode="BANK"/>
+	<PdfForm PdfFormTemplateFilename="UNISEM_PAYSLIP_FR.pdf" ID="Payslip_Unisem" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField Name="txt_Company_Code" ID="txt_Company_Code" Value="@Data.Company_Profile_Code~ - @Data.PayMonth~"/>
+		<PdfFormField Name="txt_Header_Month" ID="txt_Header_Month"/>
+		<PdfFormField Name="txt_Name" ID="txt_Name" Value="@Data.EmpName~"/>
+		<PdfFormField Name="txt_NRIC" ID="txt_NRIC" Value="@Data.NRIC~"/>
+		<PdfFormField Name="txt_Designation" ID="txt_Designation" Value="@Data.Position~"/>
+		<PdfFormField Name="txt_BADGE" ID="txt_BADGE" Value="@Data.Empcode~"/>
+		<PdfFormField Name="txt_Cost_Block" ID="txt_Cost_Block" Value="@Data.finance~"/>
+		<PdfFormField Name="txt_SEX" ID="txt_SEX" Value="@Data.sex~"/>
+		<PdfFormField Name="txt_Superior" ID="txt_Superior" Value="@Data.superior~"/>
+		<PdfFormField Name="txt_Leave_Bal" ID="txt_Leave_Bal" Value="@Data.ALBalance~"/>
+		<PdfFormField Name="txt_BankACNO" ID="txt_BankACNO" Value="@Data.BankAcc~"/>
+		<PdfFormField Name="txt_EPFNO" ID="txt_EPFNO" Value="@Data.EPFNo~"/>
+		<PdfFormField Name="txt_IncomeTax" ID="txt_IncomeTax" Value="@Data.PCBNo~"/>
+		<PdfFormField Name="txt_SOCSONO" ID="txt_SOCSONO" Value="@Data.SocsoNo~"/>
+		<PdfFormField Name="txt_Remark1" ID="txt_Remark1" Value="@Data.EPFERCont~"/>
+		<PdfFormField Name="txt_Remark2" ID="txt_Remark2" Value="@Data.SOCSOERCont~"/>
+		<PdfFormField Name="txt_Allowance_Code" ID="txt_Allowance_Code" Value="@Data.allow~"/>
+		<PdfFormField Name="txt_Allowance_Month" ID="txt_Allowance_Month" Value="@Data.allowamt~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_Allowance_YTD" ID="txt_Allowance_YTD" Value="@Data.AllowYTD~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_Deduction_Code" ID="txt_Deduction_Code" Value="@Data.deduct~"/>
+		<PdfFormField Name="txt_Deduction_Month" ID="txt_Deduction_Month" Value="@Data.deductamt~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_Deduction_YTD" ID="txt_Deduction_YTD" Value="@Data.deductYTD~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_Allowance_Month_Total" ID="txt_Allowance_Month_Total" Value="@Data.AMonthTotal~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_Allowance_YTD_Total" ID="txt_Allowance_YTD_Total"/>
+		<PdfFormField Name="txt_Deduction_Month_Total" ID="txt_Deduction_Month_Total" Value="@Data.DMonthTotal~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_SOCSOERAMT" ID="txt_SOCSOERAMT" Value="@Data.SOCSOERAmt~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_SOCSOERAMTYTD" ID="txt_SOCSOERAMTYTD" Value="@Data.SOCSOERYTDAmt~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_EPFERAMT" ID="txt_EPFERAMT" Value="@Data.EPFERAmt~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_EPFERAMTYTD" ID="txt_EPFERAMTYTD" Value="@Data.EPFERYTDAmt~" Format="###,##0.00"/>
+		<PdfFormField Name="txt_Deduction_YTD_Total" ID="txt_Deduction_YTD_Total"/>
+		<PdfFormField Name="txt_Net_Pay" ID="txt_Net_Pay" Value="@Data.NetPay~" Format="###,##0.00"/>
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="[sp_pr_RptCusPayslip_Unisem]">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="month" SPParamSize="0" SPParamType="dt-200" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+				<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+				<SPParameter SPParamDirection="Input" ID="PayType" SPParamSize="0" SPParamType="dt-200" Value="@Request.PayType~"/>
+				<SPParameter SPParamDirection="Input" ID="PayMode" SPParamSize="0" SPParamType="dt-200" Value="@Request.PayMode~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="UserID" SPParamSize="0" SPParamType="dt-200" Value="@Request.UserID~"/>
+				<SPParameter SPParamDirection="Input" ID="PayCycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.PayCycle~"/>
+			</SPParameters>
+			<GroupFilter GroupColumn="finance,superior,Empcode,EPFERCont,EPFERAmt,EPFERYTDAmt,SOCSOERCont,SOCSOERAmt,SOCSOERYTDAmt,Employee_Profile_ID,EmpName,NRIC,PayType ,DeptCode ,PayMonth ,BasicRate ,HRP ,PayMode ,BankAcc ,ALBalance ,Position  ,sex ,EPFNo ,SocsoNo ,PCBNo " DataType="Text" Hierarchical="True" ID="Group by" KeepGroupedRows="True" SortSequence="Ascending">
+				<GroupAggregateColumn AggregateColumn="allowamt" AggregateFunction="SUM" ID="AMonthTotal" DataType="Number"/>
+				<GroupAggregateColumn AggregateColumn="deductamt" AggregateFunction="SUM" ID="DMonthTotal" DataType="Number"/>
+				<GroupAggregateColumn AggregateColumn="AllowYTD" AggregateFunction="SUM" ID="YTDATotal" DataType="Number"/>
+				<GroupAggregateColumn AggregateColumn="DeductYTD" AggregateFunction="SUM" ID="YTDDTotal" DataType="Number"/>
+			</GroupFilter>
+			<CalculatedColumn Formula="@Data.AMonthTotal~ - @Data.DMonthTotal~" ID="NetPay"/>
+		</DataLayer>
+	</PdfForm>
+</Template>

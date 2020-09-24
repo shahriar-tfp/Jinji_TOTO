@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_Attendance_BYDate" SavedBy="Tester" SavedAt="10/10/2012 2:59:30 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AttendanceCount.xlt" ID="Roster_Attendance_BYDate">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_tms_RptAttendanceToday" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_From" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date_From~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_To" Value="@Request.Date_To~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Division" Value="@Data.Division~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Date" Value="@Data.Date~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="employee_profile_id" Value="@Data.employee_profile_id~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="TmsID" Value="@Data.TmsID~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="DayType" Value="@Data.DayType~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="ShiftID" Value="@Data.ShiftID~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="Shift_In" Value="@Data.Shift_In~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="Time_in" Value="@Data.Time_in~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="Time_out" Value="@Data.Time_out~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="Option_type" Value="@Data.Option_type~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="EmpCount" Value="@Data.EmpCount~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="DeptAvg" Value="@Data.DeptAvg~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="DeptAvg2" Value="@Data.DeptAvg2~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

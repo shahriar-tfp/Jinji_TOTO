@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Copy_of_Roster_OTAnalysis" SavedBy="Tester" SavedAt="7/27/2018 12:44:15 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="OvertimeAnalysis.xlt" ID="Roster_OTAnalysis" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="15" ID="Header" Worksheet="OTAnalysis">
+			<DataLayer Type="SP" Command="sp_tms_RptCusOTAnalysis" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="StartDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Enddate" Value="@Request.ToDate~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="SPid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="Groupby" SPParamSize="0" SPParamType="dt-200" Value="@Request.Group~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="OrganName" Value="@Data.OrganName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="4" ID="Period" Value="@Data.Period~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="6" ID="Costcenter" Value="Cost Center : @Data.Costcenter~"/>
+			<SubPatternBlock FirstRow="10" LastRow="10" DisposableFirstRow="11" DisposableLastRow="11" ID="Details" FillMode="Insert">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" Command="sp_tms_RptCusOTAnalysis" ID="CallHeader" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="StartDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Enddate" Value="@Request.ToDate~" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter SPParamDirection="Input" ID="SPid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="Groupby" SPParamSize="0" SPParamType="dt-200" Value="@Request.Group~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Costcenter" ParentColumn="Costcenter" ID="sdlrcFinance"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Empid" Value="@Data.Empid~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Jobgrade" Value="@Data.Jobgrade~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="tolot1" Value="@Data.tolot1~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="tolot2" Value="@Data.tolot2~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="tolot3" Value="@Data.tolot3~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

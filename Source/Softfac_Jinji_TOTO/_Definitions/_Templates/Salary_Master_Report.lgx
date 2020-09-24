@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Salary_Master_Report" SavedBy="sy.tey" SavedAt="1/20/2008 2:54:03 PM" EngineVersion="8.0.30">
+	<PdfForm ID="Salary_Master_Report" FlattenFields="True" PdfFormMode="OneFormPerDataRow" PdfFormTemplateFilename="Salary_Master_Report.pdf" IdeDisplayStatus="Collapsed">
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_pr_SelRptPayrollDetail2">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+			</SPParameters>
+			<AggregateColumn AggregateColumn="total" AggregateFunction="SUM" ID="SUM_total"/>
+			<AggregateColumn AggregateColumn="netpay" AggregateFunction="SUM" ID="SUM_netpay"/>
+			<AggregateColumn AggregateColumn="others" AggregateFunction="SUM" ID="SUM_others"/>
+			<AggregateColumn AggregateColumn="tolothers" AggregateFunction="SUM" ID="SUM_tolothers"/>
+			<AggregateColumn AggregateColumn="tolpcb" AggregateFunction="SUM" ID="SUM_tolpcb"/>
+			<AggregateColumn AggregateColumn="shops" AggregateFunction="SUM" ID="SUM_shops"/>
+			<AggregateColumn AggregateColumn="tolsocsoee" AggregateFunction="SUM" ID="SUM_tolsocsoee"/>
+			<AggregateColumn AggregateColumn="tolepfer" AggregateFunction="SUM" ID="SUM_tolepfer"/>
+			<AggregateColumn AggregateColumn="tolsocsoer" AggregateFunction="SUM" ID="SUM_tolsocsoer"/>
+			<AggregateColumn AggregateColumn="tolepfee" AggregateFunction="SUM" ID="SUM_tolepfee"/>
+			<AggregateColumn AggregateColumn="loan" AggregateFunction="SUM" ID="SUM_loan"/>
+			<GroupFilter ID="GroupBy" GroupColumn="regisno,Organname,groupid" DataType="Text" Hierarchical="True" KeepGroupedRows="True"/>
+		</DataLayer>
+		<PdfFormField ID="txt_Check_Date" Name="txt_Check_Date"/>
+		<PdfFormField ID="txt_Check_Name" Name="txt_Check_Name"/>
+		<PdfFormField ID="txt_Company_Name" Name="txt_Company_Name" Value="@Data.organname~"/>
+		<PdfFormField ID="txt_Employee_Allowance" Name="txt_Employee_Allowance" Value="@Data.tolallowance~"/>
+		<PdfFormField ID="txt_Employee_Basic" Name="txt_Employee_Basic" Value="@Data.basicsalary~"/>
+		<PdfFormField ID="txt_Employee_Code" Name="txt_Employee_Code" Value="@Data.empcode~"/>
+		<PdfFormField ID="txt_Employee_Designation" Name="txt_Employee_Designation" Value="@Data.jobtitledesc~"/>
+		<PdfFormField ID="txt_Employee_EPF" Name="txt_Employee_EPF" Value="@Data.tolepfee~"/>
+		<PdfFormField ID="txt_Employee_EPF_No" Name="txt_Employee_EPF_No" Value="@Data.epfno~"/>
+		<PdfFormField ID="txt_Employee_Grade" Name="txt_Employee_Grade" Value="@Data.jobgradeid~"/>
+		<PdfFormField ID="txt_Employee_Group" Name="txt_Employee_Group" Value="@Data.groupid~"/>
+		<PdfFormField ID="txt_Employee_IC_No" Name="txt_Employee_IC_No" Value="@Data.ic~"/>
+		<PdfFormField ID="txt_Employee_Join_Date" Name="txt_Employee_Join_Date" Value="@Data.datejoin~"/>
+		<PdfFormField ID="txt_Employee_Loan" Name="txt_Employee_Loan" Value="@Data.loan~"/>
+		<PdfFormField ID="txt_Employee_Name" Name="txt_Employee_Name" Value="@Data.empname~"/>
+		<PdfFormField ID="txt_Employee_Nett_Pay" Name="txt_Employee_Nett_Pay" Value="@Data.netpay~"/>
+		<PdfFormField ID="txt_Employee_OT" Name="txt_Employee_OT" Value="@Data.tolot~"/>
+		<PdfFormField ID="txt_Employee_Other" Name="txt_Employee_Other" Value="@Data.others~"/>
+		<PdfFormField ID="txt_Employee_Others_1st" Name="txt_Employee_Others_1st" Value="@Data.tolothers~"/>
+		<PdfFormField ID="txt_Employee_PCB" Name="txt_Employee_PCB" Value="@Data.tolpcb~"/>
+		<PdfFormField ID="txt_Employee_Shops" Name="txt_Employee_Shops" Value="@Data.shops~"/>
+		<PdfFormField ID="txt_Employee_Socso" Name="txt_Employee_Socso" Value="@Data.tolsocsoee~"/>
+		<PdfFormField ID="txt_Employee_Total" Name="txt_Employee_Total" Value="@Data.total~"/>
+		<PdfFormField ID="txt_Employer_EPF" Name="txt_Employer_EPF" Value="@Data.tolepfer~"/>
+		<PdfFormField ID="txt_Employer_Socso" Name="txt_Employer_Socso" Value="@Data.tolsocsoer~"/>
+		<PdfFormField ID="txt_Month_Year" Name="txt_Month_Year" Value="@Data.Month_Year~"/>
+		<PdfFormField ID="txt_Total_Employee_EPF" Name="txt_Total_Employee_EPF" Value="@Data.SUM_tolepfee~"/>
+		<PdfFormField ID="txt_Total_Employee_Loan" Name="txt_Total_Employee_Loan" Value="@Data.SUM_loan~"/>
+		<PdfFormField ID="txt_Total_Employee_Nett_Pay" Name="txt_Total_Employee_Nett_Pay" Value="@Data.SUM_netpay~"/>
+		<PdfFormField ID="txt_Total_Employee_Other" Name="txt_Total_Employee_Other" Value="@Data.SUM_others~"/>
+		<PdfFormField ID="txt_Total_Employee_Others_1st" Name="txt_Total_Employee_Others_1st" Value="@Data.SUM_tolothers~"/>
+		<PdfFormField ID="txt_Total_Employee_PCB" Name="txt_Total_Employee_PCB" Value="@Data.SUM_tolpcb~"/>
+		<PdfFormField ID="txt_Total_Employee_Shops" Name="txt_Total_Employee_Shops" Value="@Data.SUM_shops~"/>
+		<PdfFormField ID="txt_Total_Employee_Socso" Name="txt_Total_Employee_Socso" Value="@Data.SUM_tolsocsoee~"/>
+		<PdfFormField ID="txt_Total_Employee_Total" Name="txt_Total_Employee_Total" Value="@Data.SUM_total~"/>
+		<PdfFormField ID="txt_Total_Employer_EPF" Name="txt_Total_Employer_EPF" Value="@Data.SUM_tolepfer~"/>
+		<PdfFormField ID="txt_Total_Employer_Socso" Name="txt_Total_Employer_Socso" Value="@Data.SUM_tolsocsoer~"/>
+		<PdfFormField Name="txt_Verifyed_Name" ID="txt_Verifyed_Name"/>
+		<PdfFormField Name="txt_Verifyed_Date" ID="txt_Verifyed_Date"/>
+		<PdfFormField Name="txt_Approved_Name" ID="txt_Approved_Name"/>
+		<PdfFormField Name="txt_Approved_Date" ID="txt_Approved_Date"/>
+	</PdfForm>
+	<ideTestParams OrganID="JAVA" month="1" year="2008"/>
+</Template>

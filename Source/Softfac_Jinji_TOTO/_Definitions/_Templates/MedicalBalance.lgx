@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="MedicalBalance" SavedBy="Administrator" SavedAt="10/3/2011 5:42:58 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="MedicalBalance.xlt" ID="MedicalBalance">
+		<PatternBlock FirstRow="1" LastRow="9" ID="Header">
+			<DataLayer Type="SQL" ID="CallHeader" ConnectionID="HCRMConnection" Source="Select Code, Name from Company_Profile where code = {*apos;*}@Request.Company_Profile_Code~{*apos;*}"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Company" Value="@Data.Name~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="Details" DisposableFirstRow="7" DisposableLastRow="7">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" Command="sp_md_rptMedicalBalance" ID="CallDetails" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter ID="ClaimType" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.ClaimType~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter ID="Type" Value="@Request.Type~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter ID="User_Profile_Code" Value="@Request.User_Profile_Code~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter ID="Report_ID" Value="@Request.Report_ID~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Company_Profile_Code" ParentColumn="Code" ID="sdlrcCompany"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpCode" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="ClaimType" Value="@Data.ClaimName~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="Year" Value="@Request.Year~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="YearlyEntitle" Value="@Data.yearlyamt~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="Balance" Value="@Data.useamount~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="HalfPaid" Value="@Data.HalfPaid~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TABJ" ClaimType="MC" Type="ADD" User_Profile_Code="TABJ" Report_ID="1"/>
+</Template>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_CashDenoList" SavedBy="Tester" SavedAt="7/3/2014 11:14:40 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="CASHDenomination.xlt" ID="Payroll_CashDenoList" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="18" ID="Header">
+			<DataLayer Type="SP" ID="Header" ConnectionID="HCRMConnection" Command="[sp_pr_RptCashDemoList]">
+				<SPParameters>
+					<SPParameter ID="Company_profile_code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+					<SPParameter ID="Option_Pay_Mode" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Mode~"/>
+					<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SpID~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="ByRpt" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByRpt~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="NEGATIVE" SPParamSize="0" SPParamType="dt-200" Value="@Request.NEGATIVE~"/>
+					<SPParameter SPParamDirection="Input" ID="ProcessDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ProcessDate~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="OrganName" Column="A" PatternBlockRow="1" Value="@Data.CompanyName~"/>
+			<PatternBlockCell ID="TITLE" Column="B" PatternBlockRow="2" Value="CASH AND DENOMINATION LISTING (@Data.PrintType~) FOR @Data.Month_text~"/>
+			<PatternBlockCell ID="PrintDate" Column="D" PatternBlockRow="3" Value="@Data.PrintDate~"/>
+			<SubPatternBlock ID="Details" FirstRow="5" LastRow="5" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="Details" Command="sp_pr_RptCashDemoList">
+						<SPParameters>
+							<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+							<SPParameter ID="Option_Pay_Mode" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Mode~"/>
+							<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SpID~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="ByRpt" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByRpt~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="NEGATIVE" SPParamSize="0" SPParamType="dt-200" Value="@Request.NEGATIVE~"/>
+							<SPParameter SPParamDirection="Input" ID="ProcessDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ProcessDate~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="CompanyName" ParentColumn="CompanyName" ID="RelCompanyName"/>
+					<SubDataLayerRelationColumn ChildColumn="PageNo" ParentColumn="PageNo" ID="RelPageNo"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Rowno" Column="A" PatternBlockRow="1" Value="@Data.Rowno~"/>
+				<PatternBlockCell ID="EmpCode" Column="B" PatternBlockRow="1" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="ICNo" Value="@Data.NewIC~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="JoinDate" Value="@Data.Join_Date~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="Resign_Date" Value="@Data.Resign_Date~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="Amount100_00" Value="@Data.Amount100_00~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="Amount50_00" Value="@Data.Amount50_00~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="Amount10_00" Value="@Data.Amount10_00~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="Amount5_00" Value="@Data.Amount5_00~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="Amount2_00" Value="@Data.Amount2_00~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="Amount1_00" Value="@Data.Amount1_00~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="Amount0_50" Value="@Data.Amount0_50~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="Amount0_20" Value="@Data.Amount0_20~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="Amount0_10" Value="@Data.Amount0_10~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="Amount0_05" Value="@Data.Amount0_05~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="OriAmount" Value="@Data.OriAmount~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="RoundPay" Value="@Data.RoundPay~"/>
+			</SubPatternBlock>
+			<SubPatternBlock ID="Details2" FirstRow="9" LastRow="9">
+				<SubDataLayer ID="sdlDetails2">
+					<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="Details2" Command="sp_pr_RptCashDemoList">
+						<SPParameters>
+							<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+							<SPParameter ID="Option_Pay_Mode" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Mode~"/>
+							<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SpID~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="PRETOTAL"/>
+							<SPParameter SPParamDirection="Input" ID="ByRpt" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByRpt~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="NEGATIVE" SPParamSize="0" SPParamType="dt-200" Value="@Request.NEGATIVE~"/>
+							<SPParameter SPParamDirection="Input" ID="ProcessDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ProcessDate~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="PageNo" ParentColumn="PageNo" ID="RelPageNo"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="Amount100_00" Value="@Data.Amount100_00~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="Amount50_00" Value="@Data.Amount50_00~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="Amount10_00" Value="@Data.Amount10_00~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="Amount5_00" Value="@Data.Amount5_00~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="Amount2_00" Value="@Data.Amount2_00~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="Amount1_00" Value="@Data.Amount1_00~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="Amount0_50" Value="@Data.Amount0_50~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="Amount0_20" Value="@Data.Amount0_20~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="Amount0_10" Value="@Data.Amount0_10~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="Amount0_05" Value="@Data.Amount0_05~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="OriAmount" Value="@Data.OriAmount~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="RoundPay" Value="@Data.RoundPay~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="500" Year="2014" Month="03" Option_Pay_Cycle="MONTHLY" Option_Pay_Mode="CASH" Spid="59" ByRpt="PAY"/>
+</Template>

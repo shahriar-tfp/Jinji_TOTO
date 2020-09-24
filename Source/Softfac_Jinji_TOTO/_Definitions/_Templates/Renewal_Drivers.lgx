@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Renewal_Drivers" SavedBy="Tester" SavedAt="11/18/2015 4:21:09 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Renewal_Drivers.xlt" ID="Renewal_Drivers" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="70" ID="Details">
+			<DataLayer Type="SP" Command="sp_ap_RptAppraisalLetter" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Period" SPParamSize="0" SPParamType="dt-200" Value="@Request.Period~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="E" PatternBlockRow="4" Value="@Data.EmpName~" ID="EmpName"/>
+			<PatternBlockCell Column="S" PatternBlockRow="4" Value="@Data.YOS~" ID="YOS"/>
+			<PatternBlockCell Column="G" PatternBlockRow="5" Value="@Data.Appraiser_1st~" ID="Appraiser_1st"/>
+			<PatternBlockCell Column="D" PatternBlockRow="53" Value="@Data.Appraiser_1st~" ID="1stApp"/>
+			<PatternBlockCell Column="O" PatternBlockRow="53" Value="@Data.Appraiser_1st_Position~" ID="1stAppPosition"/>
+			<PatternBlockCell Column="G" PatternBlockRow="63" Value="@Data.Appraiser_2nd~" ID="2ndApp"/>
+			<PatternBlockCell Column="N" PatternBlockRow="63" Value="@Data.Appraiser_2nd_Position~" ID="2ndAppPosition"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

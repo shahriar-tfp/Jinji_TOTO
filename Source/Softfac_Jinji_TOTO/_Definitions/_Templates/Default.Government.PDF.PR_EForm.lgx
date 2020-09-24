@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Default.Government.PDF.PR_EForm" SavedBy="ls.chew" SavedAt="9/27/2007 1:40:18 PM" EngineVersion="8.0.30">
+	<PdfForm ID="pfPR_EForm" PdfFormTemplateFilename="PR_EForm.pdf" FlattenFields="True" PdfFormMode="OneFormPerDataRow"/>
+</Template>

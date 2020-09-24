@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovSOCSO" SavedBy="Tester" SavedAt="10/8/2014 5:34:29 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovSOCSO.pdf" ID="pr_GovSOCSO" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Date_Start" Name="txt_Date_Start" Value="@Data.Date_Start~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.Emp_Name~"/>
+		<PdfFormField ID="txt_Emp_Socso_Amount_1" Name="txt_Emp_Socso_Amount_1" Value="@Data.Sum_Socso_1~"/>
+		<PdfFormField ID="txt_Emp_Socso_Amount_2" Name="txt_Emp_Socso_Amount_2" Value="@Data.Sum_Socso_2~"/>
+		<PdfFormField ID="txt_Emp_Socso_Amount_3" Name="txt_Emp_Socso_Amount_3" Value="@Data.Sum_Socso_3~"/>
+		<PdfFormField ID="txt_Emp_Socso_Amount_4" Name="txt_Emp_Socso_Amount_4" Value="@Data.Sum_Socso_4~"/>
+		<PdfFormField ID="txt_Emp_Socso_Amount_5" Name="txt_Emp_Socso_Amount_5" Value="@Data.Sum_Socso_5~"/>
+		<PdfFormField ID="txt_Total_Amount_1" Name="txt_Total_Amount_1" Value="@Data.Total_Amount_1~"/>
+		<PdfFormField ID="txt_Total_Amount_2" Name="txt_Total_Amount_2" Value="@Data.Total_Amount_2~"/>
+		<PdfFormField ID="txt_Total_Amount_3" Name="txt_Total_Amount_3" Value="@Data.Total_Amount_3~"/>
+		<PdfFormField ID="txt_Total_Amount_4" Name="txt_Total_Amount_4" Value="@Data.Total_Amount_4~"/>
+		<PdfFormField ID="txt_Total_Amount_5" Name="txt_Total_Amount_5" Value="@Data.Total_Amount_5~"/>
+		<PdfFormField ID="txt_Total_Amount_6" Name="txt_Total_Amount_6" Value="@Data.Total_Amount_6~"/>
+		<PdfFormField ID="txt_Total_Amount_7" Name="txt_Total_Amount_7" Value="@Data.Total_Amount_7~"/>
+		<PdfFormField ID="txt_Total_Amount_8" Name="txt_Total_Amount_8" Value="@Data.Total_Amount_8~"/>
+		<PdfFormField ID="txt_Emp_Socso_No" Name="txt_Emp_Socso_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_1" Name="txt_Emp_Socso_Page_Total_Amount_1" Value="@Data.Page_Total_1~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_2" Name="txt_Emp_Socso_Page_Total_Amount_2" Value="@Data.Page_Total_2~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_3" Name="txt_Emp_Socso_Page_Total_Amount_3" Value="@Data.Page_Total_3~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_4" Name="txt_Emp_Socso_Page_Total_Amount_4" Value="@Data.Page_Total_4~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_5" Name="txt_Emp_Socso_Page_Total_Amount_5" Value="@Data.Page_Total_5~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_6" Name="txt_Emp_Socso_Page_Total_Amount_6" Value="@Data.Page_Total_6~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_7" Name="txt_Emp_Socso_Page_Total_Amount_7" Value="@Data.Page_Total_7~"/>
+		<PdfFormField ID="txt_Emp_Socso_Page_Total_Amount_8" Name="txt_Emp_Socso_Page_Total_Amount_8" Value="@Data.Page_Total_8~"/>
+		<PdfFormField ID="txt_Month_Caruman_1" Name="txt_Month_Caruman_1" Value="@Data.Caruman_Month_1~"/>
+		<PdfFormField ID="txt_Month_Caruman_2" Name="txt_Month_Caruman_2" Value="@Data.Caruman_Month_2~"/>
+		<PdfFormField ID="txt_Month_Caruman_3" Name="txt_Month_Caruman_3" Value="@Data.Caruman_Month_3~"/>
+		<PdfFormField ID="txt_Month_Caruman_4" Name="txt_Month_Caruman_4" Value="@Data.Caruman_Month_4~"/>
+		<PdfFormField ID="txt_Month_Caruman_5" Name="txt_Month_Caruman_5" Value="@Data.Caruman_Month_5~"/>
+		<PdfFormField ID="txt_Month_Caruman_6" Name="txt_Month_Caruman_6" Value="@Data.Caruman_Month_6~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.Lot~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.Street~"/>
+		<PdfFormField ID="txt_Organ_Address_3" Name="txt_Organ_Address_3" Value="@Data.Address_3~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Company_Name~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_1" Name="txt_Organ_Socso_No_1" Value="@Data.Company_Socso_No_1~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_2" Name="txt_Organ_Socso_No_2" Value="@Data.Company_Socso_No_2~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_3" Name="txt_Organ_Socso_No_3" Value="@Data.Company_Socso_No_3~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_4" Name="txt_Organ_Socso_No_4" Value="@Data.Company_Socso_No_4~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_5" Name="txt_Organ_Socso_No_5" Value="@Data.Company_Socso_No_5~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_6" Name="txt_Organ_Socso_No_6" Value="@Data.Company_Socso_No_6~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_7" Name="txt_Organ_Socso_No_7" Value="@Data.Company_Socso_No_7~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_8" Name="txt_Organ_Socso_No_8" Value="@Data.Company_Socso_No_8~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_9" Name="txt_Organ_Socso_No_9" Value="@Data.Company_Socso_No_9~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_10" Name="txt_Organ_Socso_No_10" Value="@Data.Company_Socso_No_10~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_11" Name="txt_Organ_Socso_No_11" Value="@Data.Company_Socso_No_11~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_12" Name="txt_Organ_Socso_No_12" Value="@Data.Company_Socso_No_12~"/>
+		<PdfFormField ID="txt_Page_No_1" Name="txt_Page_No_1" Value="@Data.Page_No_1~"/>
+		<PdfFormField ID="txt_Page_No_2" Name="txt_Page_No_2" Value="@Data.Page_No_2~"/>
+		<PdfFormField ID="txt_Page_No_3" Name="txt_Page_No_3" Value="@Data.Page_No_3~"/>
+		<PdfFormField ID="txt_Page_No_4" Name="txt_Page_No_4" Value="@Data.Page_No_4~"/>
+		<PdfFormField ID="txt_Page_No_5" Name="txt_Page_No_5" Value="@Data.Page_No_5~"/>
+		<PdfFormField ID="txt_Page_No_6" Name="txt_Page_No_6" Value="@Data.Page_No_6~"/>
+		<PdfFormField ID="txt_Resign_Flag" Name="txt_Resign_Flag" Value="@Data.Resign_Flag~"/>
+		<PdfFormField ID="txt_Total_Emp_1" Name="txt_Total_Emp_1" Value="@Data.EmpCount_1~" Format="###,###,##0"/>
+		<PdfFormField ID="txt_Total_Emp_2" Name="txt_Total_Emp_2" Value="@Data.EmpCount_2~" Format="###,###,##0"/>
+		<PdfFormField ID="txt_Total_Emp_3" Name="txt_Total_Emp_3" Value="@Data.EmpCount_3~" Format="###,###,##0"/>
+		<PdfFormField ID="txt_Total_Emp_4" Name="txt_Total_Emp_4" Value="@Data.EmpCount_4~" Format="###,###,##0"/>
+		<PdfFormField Name="txt_Cek_No" ID="txt_Cek_No" Value="@Request.Cheque~"/>
+		<PdfFormField Name="txt_PICName" ID="txt_PICName" Value="@Request.PICName~"/>
+		<PdfFormField Name="txt_Tel_OrgName" ID="txt_Tel_OrgName" Value="@Request.PICTelNo~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_InsTempSocsoBorang8A">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+				<SPParameter SPParamDirection="Input" ID="Page" SPParamSize="0" SPParamType="dt-200" Value="@Request.Page~"/>
+			</SPParameters>
+			<AggregateColumn ID="Sum_Emp" AggregateFunction="COUNT" AggregateColumn="Emp_Name" DataType="Number"/>
+			<GroupFilter ID="GroupBy" Hierarchical="True" KeepGroupedRows="True" GroupColumn="Company_Name,Page_No,Page_No_1,Page_No_2,Page_No_3,Page_No_4,Page_No_5,Page_No_6,Lot,Street,Address_3,Company_Socso_No_1,Company_Socso_No_2,Company_Socso_No_3,Company_Socso_No_4,Company_Socso_No_5,Company_Socso_No_6,Company_Socso_No_7,Company_Socso_No_8,Company_Socso_No_9,Company_Socso_No_10,Company_Socso_No_11,Company_Socso_No_12,Page_Total_1,Page_Total_2,Page_Total_3,Page_Total_4,Page_Total_5,Page_Total_6,Page_Total_7,Page_Total_8,Total_Amount_1,Total_Amount_2,Total_Amount_3,Total_Amount_4,Total_Amount_5,Total_Amount_6,Total_Amount_7,Total_Amount_8,Caruman_Month_1,Caruman_Month_2,Caruman_Month_3,Caruman_Month_4,Caruman_Month_5,Caruman_Month_6,EmpCount_1,EmpCount_2,EmpCount_3,EmpCount_4" SortSequence="Ascending" DataType="Text">
+			</GroupFilter>
+			<SortFilter SortSequence="Ascending" ID="Sortby" DataType="Number" SortColumn="Page_No"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams OrganID="JAVA" month="1" year="2008" SPID="50" Type="ADD" paytype="MONTHLY" Location="PENINSULA" Module="REPORTS" userID="HRSA"/>
+</Template>

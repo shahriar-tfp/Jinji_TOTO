@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_SODPH" SavedBy="Tester" SavedAt="10/14/2014 5:28:56 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="HSODPH_Listing.xlt" ID="Payroll_SODPH" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_SODPH" FirstRow="1" LastRow="15" Worksheet="HCT">
+			<DataLayer Type="SP" Command="sp_pr_rptSODPHListing" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="@Data.Option_Pay_Cycle~  SOD &amp; PH OT HEADCOUNT FOR @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="3" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_rptSODPHListing" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Option_Pay_Cycle" ChildColumn="Option_Pay_Cycle" ParentColumn="Option_Pay_Cycle"/>
+					<SubDataLayerRelationColumn ID="ComName" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="TMSGroup" Value="@Data.TMS_Group~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Date" Value="@Data.Date~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="Hcount" Value="@Data.Hcount~" Column="D" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

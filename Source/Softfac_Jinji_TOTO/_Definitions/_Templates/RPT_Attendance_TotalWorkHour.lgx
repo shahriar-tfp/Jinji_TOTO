@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="RPT_Attendance_TotalWorkHour" SavedBy="Tester" SavedAt="11/25/2011 5:25:23 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Attendance_TotalWorkHour.xlt" ID="TotalWorkHour" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Header" FirstRow="1" LastRow="10" FillMode="Insert">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="sp_tms_rptattendanceTotalHours">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="FromDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="ToDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="By_type" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company Code" Value="@Data.Company_Profile_Code~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="6" Value="@Data.Division~" ID="Division"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Title" Value="Attendance Summary Report"/>
+			<PatternBlockCell Column="B" PatternBlockRow="3" ID="Period" Value="Period: from @Data.StartDate~ to @Data.EndDate~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="4" ID="Printed" Value="Printed on : @Data.CurrentDate~"/>
+			<SubPatternBlock ID="Details" FirstRow="8" LastRow="8" DisposableFirstRow="9" DisposableLastRow="9" FillMode="Insert">
+				<SubDataLayer ID="SubDetails">
+					<DataLayer Type="SP" ID="GetDetails" ConnectionID="HCRMConnection" Command="sp_tms_rptattendanceTotalHours">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="FromDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="ToDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="By_type" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Division" ParentColumn="Division" ID="sdlrcDivision"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmployeeName" Value="@Data.Employee_Profile_ID~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="Position" Value="@Data.Position~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+				<PatternBlockCell Column="F" ID="TotalHour" PatternBlockRow="1" Value="@Data.TotalHour~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TABJ" FromDate="20110801000000" ToDate="20110831000000" User_Profile_Code="tabj" By_type="DIVISION" spid="63"/>
+</Template>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="MedicalChit" SavedBy="Tey Sing Yeh" SavedAt="06/05/2010 11:16:37 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="MedicalChit.xlt" ID="MedicalChit" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="2" LastRow="16" ID="Header">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_md_SelMedicalChit">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+					<SPParameter SPParamDirection="Input" ID="AutoApprovalNo" SPParamSize="0" SPParamType="dt-200" Value="@Request.AutoApprovalNo~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="D" PatternBlockRow="4" ID="AutoNo" Value="@Request.AutoApprovalNo~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="8" ID="EmpName" Value="@Data.Employee_Profile_ID~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="6" Value="@Data.Paneldoctor~" ID="PanelDoctor"/>
+			<PatternBlockCell Column="D" PatternBlockRow="10" ID="PersonVisit" Value="@Data.Beneficiaryvisiter~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="10" Value="@Data.Relationship~" ID="Relation"/>
+			<PatternBlockCell Column="I" PatternBlockRow="8" ID="VisitDate" Value="@Data.VisitDate~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="12" ID="Company" Value="@Data.Company_Profile_Code~ "/>
+			<PatternBlockCell ID="Department" Value="@Data.Department~" Column="D" PatternBlockRow="14"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="RPT_Attendance_Summary" SavedBy="Tester" SavedAt="4/1/2014 6:52:15 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Attendance_Summary.xlt" ExcelTemplateMode="OneWorksheetPerDataRow" ID="Attendance_Summary" IdeDisplayStatus="Collapsed">
+		<PatternBlock ID="Header" FirstRow="1" LastRow="20" FillMode="Insert">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="sp_tms_RptAttendanceSummary">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+				<SortFilter SortColumn="Employee_Profile_ID" DataType="Text" SortSequence="Ascending" ID="empid"/>
+			</DataLayer>
+			<PatternBlockCell ID="CompanyName" Column="B" PatternBlockRow="1" Value="@Data.Company_Profile_Code~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Report Title" Value="Attendance Summary Report From @Request.FromDate~ - @Request.ToDate~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="3" ID="EmployeeID" Value="@Data.Employee_Profile_ID~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="4" ID="Position" Value="@Data.Position~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="5" ID="Division" Value="@Data.Division~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="6" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="4" ID="Nationality" Value="@Data.Nationality~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="4" ID="SalaryType" Value="@Data.Salary_Type~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="5" ID="JoinDate" Value="@Data.Join_Date~"/>
+			<PatternBlockCell ID="ResignDate" Column="L" PatternBlockRow="6" Value="@Data.Resign_Date~"/>
+			<PatternBlockCell ID="PrintDate" Value="@Data.PrintDate~" PatternBlockRow="1" Column="U"/>
+			<SubPatternBlock ID="ShiftName" FirstRow="7" LastRow="7" FillMode="Overwrite" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="SubShift">
+					<DataLayer Type="SP" Command="[sp_tms_RptAttendanceSummary]" ConnectionID="HCRMConnection" ID="GetShift">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="SHIFT"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Employee_Profile_ID" ID="sdlrcShiftEmployeeID" ParentColumn="Employee_Profile_ID"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="ShiftName" Value="@Data.ShiftName~"/>
+			</SubPatternBlock>
+			<SubPatternBlock FirstRow="13" LastRow="13" DisposableFirstRow="14" DisposableLastRow="14" ID="Details" FillMode="Insert" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="SubDetails">
+					<DataLayer Type="SP" ID="GetDetails" ConnectionID="HCRMConnection" Command="sp_tms_RptAttendanceSummary" IdeDisplayStatus="Collapsed">
+						<SPParameters IdeDisplayStatus="Collapsed">
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Employee_Profile_ID" ParentColumn="Employee_Profile_ID" ID="sdlrcEmployeeID"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Date" Value="@Data.WorkDate~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="WDC" Value="@Data.WDC~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="Shift" Value="@Data.Shift~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="TimeIn1" Value="@Data.Date_Time_In1~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="TimeOut1" Value="@Data.Date_Time_Out1~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="TimeIn2" Value="@Data.Date_Time_In2~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="TimeOut2" Value="@Data.Date_Time_Out2~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="TimeIn3" Value="@Data.Date_Time_In3~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="TimeOut3" Value="@Data.Date_Time_Out3~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="TimeIn4" Value="@Data.Date_Time_In4~"/>
+				<PatternBlockCell Column="M" ID="TimeOut4" PatternBlockRow="1" Value="@Data.Date_Time_Out4~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="TMS" Value="@Data.TMS~"/>
+				<PatternBlockCell ID="Late" Column="O" PatternBlockRow="1" Value="@Data.Late_In~"/>
+				<PatternBlockCell ID="LeaveEarly" Column="P" PatternBlockRow="1" Value="@Data.leavearly~"/>
+				<PatternBlockCell ID="Time_Off" Column="Q" PatternBlockRow="1" Value="@Data.Time_Off~"/>
+				<PatternBlockCell ID="OT_After_Work" Value="@Data.OT_After_Work~" Column="R" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OT_Before_Work" Column="S" PatternBlockRow="1" Value="@Data.OT_Before_Work~"/>
+				<PatternBlockCell ID="fixot" PatternBlockRow="1" Column="T" Value="@Data.fixot~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="appot" Value="@Data.appot~"/>
+				<PatternBlockCell Column="V" PatternBlockRow="1" ID="Leave1" Value="@Data.Leave1~"/>
+				<PatternBlockCell ID="Period1" Column="W" PatternBlockRow="1" Value="@Data.Period1~"/>
+				<PatternBlockCell Column="X" PatternBlockRow="1" ID="Leave2" Value="@Data.Leave2~"/>
+				<PatternBlockCell ID="Period2" Value="@Data.Period2~" Column="Y" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TAC" spid="55" FromDate="20091001000000" ToDate="20091031000000"/>
+</Template>

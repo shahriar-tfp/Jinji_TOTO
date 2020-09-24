@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="RetirementList" SavedBy="Tester" SavedAt="10/31/2014 4:04:48 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Retirement.xlt" ID="RetirementList">
+		<PatternBlock ID="RetirementList" FirstRow="1" LastRow="8" Worksheet="Retirement">
+			<DataLayer Type="SP" Command="sp_is_RptRetirementList" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="@Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_is_RptRetirementList" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.EmpBadge~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.EmpName~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="DateOfBirth" Value="@Data.DateOfBirth~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="Age" PatternBlockRow="1" Column="E" Value="@Data.Age~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

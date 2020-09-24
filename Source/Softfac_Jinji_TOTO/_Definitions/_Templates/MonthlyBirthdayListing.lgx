@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="MonthlyBirthdayListing" SavedBy="Tester" SavedAt="10/23/2014 7:14:11 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="MonthlyBirthdayListing.xlt" ExcelTemplateMode="OneWorksheet" ID="MonthlyBirthdayListing" IdeDisplayStatus="Collapsed">
+		<PatternBlock ID="Details" Worksheet="MonthlyBirthdayListingData" FirstRow="2" LastRow="2" DisposableFirstRow="3" DisposableLastRow="3" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" ID="GetDetails" Command="[sp_tms_MonthlyBirthdayListing]" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="Employee_Code" PatternBlockRow="1" Value="@Data.EmployeeCode~" Column="A"/>
+			<PatternBlockCell ID="Employee_Name" Column="B" PatternBlockRow="1" Value="@Data.EmployeeName~"/>
+			<PatternBlockCell ID="Section" Column="C" PatternBlockRow="1" Value="@Data.Section~"/>
+			<PatternBlockCell ID="Department" Column="D" PatternBlockRow="1" Value="@Data.Department~"/>
+			<PatternBlockCell ID="DepartmentHead" Column="E" PatternBlockRow="1" Value="@Data.DepartmentHead~"/>
+			<PatternBlockCell ID="Position" Column="F" PatternBlockRow="1" Value="@Data.Position~"/>
+			<PatternBlockCell ID="JobCategory" Column="G" PatternBlockRow="1" Value="@Data.JobCategory~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="TMSCode" Value="@Data.TMSCode~"/>
+			<PatternBlockCell ID="CostBlock" Column="I" PatternBlockRow="1" Value="@Data.CostBlock~"/>
+			<PatternBlockCell ID="Supervisor" Column="J" PatternBlockRow="1" Value="@Data.Supervisor~"/>
+			<PatternBlockCell ID="EmpGroup" Column="K" PatternBlockRow="1" Value="@Data.EmpGroup~"/>
+			<PatternBlockCell ID="BirthDate" Column="L" PatternBlockRow="1" Value="@Data.BirthDate~"/>
+			<PatternBlockCell ID="Age" Column="M" PatternBlockRow="1" Value="@Data.Age~"/>
+			<PatternBlockCell ID="DateJoin" Column="N" PatternBlockRow="1" Value="@Data.DateJoin~"/>
+			<PatternBlockCell ID="ResignDate" Column="O" PatternBlockRow="1" Value="@Data.ResignDate~"/>
+			<PatternBlockCell ID="EmpStatus" Column="P" PatternBlockRow="1" Value="@Data.EmpStatus~"/>
+			<PatternBlockCell ID="Gender" Column="Q" PatternBlockRow="1" Value="@Data.Gender~"/>
+			<PatternBlockCell ID="MaritalStatus" Column="R" PatternBlockRow="1" Value="@Data.MaritalStatus~"/>
+			<PatternBlockCell ID="Citizenship" Column="S" PatternBlockRow="1" Value="@Data.Citizenship~"/>
+			<PatternBlockCell ID="Religion" Column="T" PatternBlockRow="1" Value="@Data.Religion~"/>
+			<PatternBlockCell ID="Race" Column="U" PatternBlockRow="1" Value="@Data.Race~"/>
+			<PatternBlockCell ID="PrintDate" Column="V" PatternBlockRow="1" Value="@Data.PrintDate~"/>
+			<PatternBlockCell ID="Month" Column="W" PatternBlockRow="1" Value="@Data.Month~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

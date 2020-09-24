@@ -1,0 +1,109 @@
+Perodua                                           01122014072000086<86                  
+Perodua                                           01122014080100049<Mohd Ali            
+Perodua                                           01122014080200317<317                 
+Perodua                                           01122014083200250<250                 
+Perodua                                           01122014090600317<317                 
+Perodua                                           01122014103100012<Alan Wu             
+Perodua                                           01122014173600086<86                  
+Perodua                                           01122014173800049<Mohd Ali            
+Perodua                                           01122014174100012<Alan Wu             
+Perodua                                           01122014190700250<250                 
+Perodua                                           01122014190700317<317                 
+Perodua                                           02122014075800086<86                  
+Perodua                                           02122014081200049<Mohd Ali            
+Perodua                                           02122014083000250<250                 
+Perodua                                           02122014083100317<317                 
+Perodua                                           02122014110800012<Alan Wu             
+Perodua                                           02122014174200049<Mohd Ali            
+Perodua                                           02122014174500250<250                 
+Perodua                                           02122014181200086<86                  
+Perodua                                           02122014190200012<Alan Wu             
+Perodua                                           02122014201100317<317                 
+Perodua                                           03122014072300086<86                  
+Perodua                                           03122014083500250<250                 
+Perodua                                           03122014091900317<317 
+Perodua                                           03122014103000049<Mohd Ali                   
+Perodua                                           03122014112400012<Alan Wu             
+Perodua                                           03122014182800086<86                  
+Perodua                                           03122014183700012<Alan Wu             
+Perodua                                           03122014183900012<Alan Wu             
+Perodua                                           03122014190400317<317                 
+Perodua                                           03122014190400250<250                 
+Perodua                                           03122014193400049<Mohd Ali            
+Perodua                                           04122014075000086<86                  
+Perodua                                           04122014080000049<Mohd Ali            
+Perodua                                           04122014082100317<317                 
+Perodua                                           04122014112000012<Alan Wu             
+Perodua                                           04122014173000049<Mohd Ali            
+Perodua                                           04122014175900012<Alan Wu             
+Perodua                                           04122014180700086<86                  
+Perodua                                           04122014185500250<250                 
+Perodua                                           05122014074400086<86                  
+Perodua                                           05122014080800049<Mohd Ali            
+Perodua                                           05122014083400250<250                 
+Perodua                                           05122014101100317<317                 
+Perodua                                           05122014105000012<Alan Wu             
+Perodua                                           05122014105100012<Alan Wu             
+Perodua                                           05122014171400317<317                 
+Perodua                                           05122014173100086<86                  
+Perodua                                           05122014174300049<Mohd Ali            
+Perodua                                           05122014181200012<Alan Wu             
+Perodua                                           05122014181400250<250                 
+Perodua                                           06122014100500317<317                 
+Perodua                                           06122014173500250<250                 
+Perodua                                           06122014181400317<317                 
+Perodua                                           07122014080100049<Mohd Ali            
+Perodua                                           07122014232800049<Mohd Ali            
+Perodua                                           08122014075500086<86                  
+Perodua                                           08122014081100049<Mohd Ali            
+Perodua                                           08122014083400250<250                 
+Perodua                                           08122014093200317<317                 
+Perodua                                           08122014131700012<Alan Wu             
+Perodua                                           08122014182100049<Mohd Ali            
+Perodua                                           08122014183000086<86                  
+Perodua                                           08122014183100012<Alan Wu             
+Perodua                                           08122014183200012<Alan Wu             
+Perodua                                           08122014190300250<250                 
+Perodua                                           08122014192100317<317                 
+Perodua                                           09122014075700086<86                  
+Perodua                                           09122014080700049<Mohd Ali            
+Perodua                                           09122014081800012<Alan Wu             
+Perodua                                           09122014083500250<250                 
+Perodua                                           09122014144200012<Alan Wu             
+Perodua                                           09122014173300049<Mohd Ali            
+Perodua                                           09122014180100086<86                  
+Perodua                                           09122014181100250<250                 
+Perodua                                           10122014074200086<86                  
+Perodua                                           10122014080700049<Mohd Ali            
+Perodua                                           10122014082700317<317                 
+Perodua                                           10122014165200012<Alan Wu             
+Perodua                                           10122014173800049<Mohd Ali            
+Perodua                                           10122014180100086<86                  
+Perodua                                           10122014182300250<250                 
+Perodua                                           10122014190400317<317                 
+Perodua                                           11122014082400317<317                 
+Perodua                                           11122014082400086<86                  
+Perodua                                           11122014104000250<250                 
+Perodua                                           11122014173200086<86                  
+Perodua                                           11122014185300250<250                 
+Perodua                                           11122014190700317<317                 
+Perodua                                           12122014075600086<86                  
+Perodua                                           12122014080500049<Mohd Ali            
+Perodua                                           12122014083700317<317                 
+Perodua                                           12122014173100086<86                  
+Perodua                                           12122014175100049<Mohd Ali            
+Perodua                                           12122014192800317<317                 
+Perodua                                           13122014080800049<Mohd Ali            
+Perodua                                           13122014190400049<Mohd Ali            
+Perodua                                           14122014093300317<317                 
+Perodua                                           14122014191100317<317                 
+Perodua                                           15122014072000086<86                  
+Perodua                                           15122014082700049<Mohd Ali            
+Perodua                                           15122014083000250<250                 
+Perodua                                           15122014084200317<317                 
+Perodua                                           15122014120000317<317                 
+Perodua                                           15122014125600012<Alan Wu             
+Perodua                                           15122014175700012<Alan Wu             
+Perodua                                           15122014180000049<Mohd Ali            
+Perodua                                           15122014180400086<86                  
+Perodua                                           15122014183200250<250                 

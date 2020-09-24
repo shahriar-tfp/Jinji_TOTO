@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Monthly_ManPower" SavedBy="Tester" SavedAt="3/26/2014 7:06:44 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="ManPower.xlt" ID="Monthly_ManPower" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Monthly_ManPower_LogicXML" FirstRow="1" LastRow="65536" Worksheet="ManPower">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where company_Profile_Code = {*apos;*}@Request.Company_Profile_Code~{*apos;*} and code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_RptManPower" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+						<SortFilter SortColumn="Div_sec" SortSequence="Ascending"/>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Month" Column="A" PatternBlockRow="1" Value="@Data.Month~"/>
+				<PatternBlockCell ID="Year" Value="@Data.Year~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Div_sec" Value="@Data.Div_sec~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="Dept_Desc" Column="D" PatternBlockRow="1" Value="@Data.Dept_Desc~"/>
+				<PatternBlockCell ID="MP" Value="@Data.MP~" Column="E" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

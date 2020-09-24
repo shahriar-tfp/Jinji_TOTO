@@ -1,0 +1,47 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+rdWeb
+</name>
+</assembly>
+<members>
+<member name="T:rdWeb.rdPage">
+	<summary>
+rdPage class.
+</summary>
+	<remarks>
+Auto-generated class.
+</remarks>
+</member><member name="T:rdWeb.rdChart">
+	<summary>
+rdChart class.
+</summary>
+	<remarks>
+Auto-generated class.
+</remarks>
+</member><member name="F:rdWeb.rdAjax.headToFixThemesError">
+	<summary>
+headToFixThemesError control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="T:rdWeb.rdAjax">
+	<summary>
+rdAjax class.
+</summary>
+	<remarks>
+Auto-generated class.
+</remarks>
+</member><member name="T:rdWeb.rdActionProcess">
+	<summary>
+rdActionProcess class.
+</summary>
+	<remarks>
+Auto-generated class.
+</remarks>
+</member>
+</members>
+</doc>

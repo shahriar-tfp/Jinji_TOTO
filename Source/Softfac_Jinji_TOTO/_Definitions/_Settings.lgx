@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Setting ID="_settings" SavedBy="Tester" SavedAt="10/24/2014 3:13:21 PM" EngineVersion="8.0.30">
+	<Connections>
+		<Connection Type="Application" ID="HCRMConnection" ConnectionString="Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa;Initial Catalog=unisemdb_uat;Data Source=192.168.71.1\SQL2008;Password=pass;" CommandTimeOut="180000"/>
+	</Connections>
+	<Application Caption="HCRM Reports"/>
+	<Path AppPath="http://LOCALHOST/Report"/>
+	<General DebuggerStyle="NoDetail"/>
+	<GlobalCSS StyleSheet="Blue.css"/>
+	<PluginCall PluginName="SoftFacPlugin" PluginTypeName="SoftFacPlugin.SoftFacPlugin" EngineEvent="LoadDefinition" PluginMethod="SetApplicationConnection" ID="MyPluginCall"/>
+</Setting>

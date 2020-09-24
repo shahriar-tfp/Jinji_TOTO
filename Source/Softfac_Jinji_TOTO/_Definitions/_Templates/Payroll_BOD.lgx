@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_BOD" SavedBy="Tester" SavedAt="7/8/2014 7:00:33 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Head_Count2.xlt" ID="Payroll_BOD" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_BOD" FirstRow="1" LastRow="65536" Worksheet="DATA">
+			<DataLayer Type="SP" Command="sp_pr_rptHeadCount" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_rptHeadCount" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="ComName" ParentColumn="ComName" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.Company~"/>
+				<PatternBlockCell ID="Age" Column="C" PatternBlockRow="1" Value="@Data.Age~"/>
+				<PatternBlockCell ID="Citizenship" Column="D" PatternBlockRow="1" Value="@Data.Citizenship~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="YOS" Value="@Data.YOS~"/>
+				<PatternBlockCell ID="Educate" Column="F" PatternBlockRow="1" Value="@Data.Educate~"/>
+				<PatternBlockCell ID="Job_level" Column="G" PatternBlockRow="1" Value="@Data.Job_level~"/>
+				<PatternBlockCell ID="Gender" Column="H" PatternBlockRow="1" Value="@Data.Gender~"/>
+				<PatternBlockCell ID="EmpCount" Column="I" PatternBlockRow="1" Value="@Data.EmpCount~"/>
+				<PatternBlockCell ID="Month_text" Column="J" PatternBlockRow="1" Value="@Data.Month_text~"/>
+				<PatternBlockCell ID="PrintDate" Column="K" PatternBlockRow="1" Value="@Data.PrintDate~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

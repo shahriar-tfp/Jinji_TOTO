@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="OT_TotalHour" SavedBy="Tester" SavedAt="2/27/2012 10:55:22 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="OverTime_Hour.xlt" ID="OverTime_Hour" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="9" ID="Header">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallHeader" Command="sp_tms_rptOTTotalHours">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="FromDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="ToDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Report" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Report~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="By_type" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.Company_Profile_Code~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Period" Value="Form @Data.StartDate~ To @Data.EndDate~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="PrintDate" Value="@Data.CurrentDate~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="5" ID="RType" Value="@Data.Report_Type~"/>
+			<SubPatternBlock ID="Details" FirstRow="7" LastRow="7" DisposableFirstRow="8" DisposableLastRow="8" FillMode="Insert">
+				<SubDataLayer ID="SubDetails">
+					<DataLayer Type="SP" ID="GetDetails" ConnectionID="HCRMConnection" Command="sp_tms_rptOTTotalHours">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="FromDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="ToDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="Option_Report" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Report~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="By_type" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+						</SPParameters>
+						<SortFilter SortColumn="Department,Employee_Profile_ID" DataType="Text" SortSequence="Ascending"/>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Company_Profile_Code" ParentColumn="Company_Profile_Code" ID="sdlrcCompany_Profile_Code"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="DeptNo" Value="@Data.Department~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpNo" Value="@Data.Employee_Profile_ID~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="ShiftOT" Value="@Data.ShiftOT~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="NormalOT" Value="@Data.NormalOT~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="RestDayOT" Value="@Data.RestDayOT~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="TotalEmp" Value="@Data.TotalEmp~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

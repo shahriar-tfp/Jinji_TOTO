@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Rpt_PaymentVoucher" SavedBy="Tester" SavedAt="3/1/2012 5:44:40 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="PaymentVoucher.xlt" ID="PaymentVoucher" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="pbHeader" FirstRow="1" LastRow="30">
+			<DataLayer Type="SP" ID="dlHeader" ConnectionID="HCRMConnection" Command="sp_rptVoucher">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="EmployeeName" Column="F" PatternBlockRow="3" Value="@Data.Name~"/>
+			<PatternBlockCell ID="EmployeeNo" Column="F" PatternBlockRow="4" Value="'@Data.code~"/>
+			<PatternBlockCell ID="PrintDate" Column="J" PatternBlockRow="1" Value="@Data.PrintDate~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="4" ID="PAYDATE" Value="@Data.Pay_Date~"/>
+			<SubPatternBlock ID="spbDetails" FirstRow="9" LastRow="9" FillMode="Overwrite">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" ID="dlDetails" ConnectionID="HCRMConnection" Command="sp_rptVoucher">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="code" ID="relEmployeeCode" ParentColumn="code"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="AllowanceCode" Column="D" PatternBlockRow="1" Value="@Data.Allowance~"/>
+				<PatternBlockCell ID="AllowanceAmount" Column="J" PatternBlockRow="1" Value="@Data.Value~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TAE" Month="07" Year="2009" spid="1"/>
+</Template>

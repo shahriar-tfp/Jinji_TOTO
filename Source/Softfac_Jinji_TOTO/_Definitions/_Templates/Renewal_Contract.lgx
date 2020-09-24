@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Renewal_Contract" SavedBy="Tester" SavedAt="11/18/2015 4:21:09 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Renewal_Contract.xlt" ID="Renewal_Contract" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="70" ID="Details">
+			<DataLayer Type="SP" Command="sp_ap_RptAppraisalLetter" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Period" SPParamSize="0" SPParamType="dt-200" Value="@Request.Period~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="F" PatternBlockRow="12" Value="@Data.EmpName~" ID="EmpName"/>
+			<PatternBlockCell Column="Y" PatternBlockRow="12" Value="@Data.Age~" ID="Age"/>
+			<PatternBlockCell Column="F" PatternBlockRow="13" Value="@Data.Position~" ID="Position"/>
+			<PatternBlockCell Column="F" PatternBlockRow="15" Value="@Data.Qualification~" ID="Qualification"/>
+			<PatternBlockCell Column="Y" PatternBlockRow="14" Value="@Data.Salary~" ID="Salary"/>
+			<PatternBlockCell Column="F" PatternBlockRow="14" Value="@Data.WorkLocation~" ID="WorkLocation"/>
+			<PatternBlockCell Column="V" PatternBlockRow="40" Value="@Data.Appraiser_1st~" ID="1stApp"/>
+			<PatternBlockCell Column="V" PatternBlockRow="41" Value="@Data.Appraiser_1st_Position~" ID="1stAppPosition"/>
+			<PatternBlockCell Column="E" PatternBlockRow="59" Value="@Data.Appraiser_2nd~" ID="2ndApp"/>
+			<PatternBlockCell Column="E" PatternBlockRow="60" Value="@Data.Appraiser_2nd_Position~" ID="2ndAppPosition"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

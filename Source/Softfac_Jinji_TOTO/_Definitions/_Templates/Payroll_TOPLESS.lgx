@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_TOPLESS" SavedBy="Tester" SavedAt="5/19/2014 8:03:44 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="TOPLESSList.xlt" ID="Payroll_TOPLESS" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_Retro" FirstRow="1" LastRow="13">
+			<DataLayer Type="SP" Command="sp_pr_TopNetPay_logicXML" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Top" SPParamSize="0" SPParamType="dt-200" Value="@Request.Top~"/>
+					<SPParameter SPParamDirection="Input" ID="GrpType" SPParamSize="0" SPParamType="dt-200" Value="@Request.GrpType~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="@Data.HType~ NET PAY FOR  @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="3" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_TopNetPay_logicXML" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Top" SPParamSize="0" SPParamType="dt-200" Value="@Request.Top~"/>
+							<SPParameter SPParamDirection="Input" ID="GrpType" SPParamSize="0" SPParamType="dt-200" Value="@Request.GrpType~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="HType" ParentColumn="HType"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpCode" Value="@Data.EmpBadge~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.EmpName~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="CostBlock" Value="@Data.CostBlock~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell Value="@Data.TmsGroup~" Column="E" PatternBlockRow="1" ID="TmsGroup"/>
+				<PatternBlockCell Value="@Data.Basic_Salary~" Column="F" PatternBlockRow="1" ID="Basic_Salary"/>
+				<PatternBlockCell Value="@Data.Overtime~" Column="G" PatternBlockRow="1" ID="Overtime"/>
+				<PatternBlockCell Value="@Data.NetPay~" Column="H" PatternBlockRow="1" ID="NetPay"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

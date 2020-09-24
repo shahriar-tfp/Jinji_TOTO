@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_CP22" SavedBy="Tester" SavedAt="2/1/2012 3:05:38 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="PR_CP22.pdf" ID="pr_CP22" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Current_Date" Name="txt_Current_Date" Value="@Data.cdate~"/>
+		<PdfFormField ID="txt_Emp_Date_Join" Name="txt_Emp_Date_Join" Value="@Data.dtjoin~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth" Name="txt_Emp_Date_Of_Birth" Value="@Data.dob~"/>
+		<PdfFormField ID="txt_Emp_Husb_IC_No" Name="txt_Emp_Husb_IC_No"/>
+		<PdfFormField ID="txt_Emp_Husb_Name" Name="txt_Emp_Husb_Name"/>
+		<PdfFormField ID="txt_Emp_Husb_PCB_No" Name="txt_Emp_Husb_PCB_No"/>
+		<PdfFormField ID="txt_Emp_Job_Title" Name="txt_Emp_Job_Title" Value="@Data.natureemploy~"/>
+		<PdfFormField ID="txt_Emp_Marital_Status" Name="txt_Emp_Marital_Status" Value="@Data.maritalsts~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.empnm~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No" Name="txt_Emp_New_IC_No" Value="@Data.newnric~"/>
+		<PdfFormField ID="txt_Emp_No_Of_Child" Name="txt_Emp_No_Of_Child" Value="@Data.childno~"/>
+		<PdfFormField ID="txt_Emp_Old_IC_No" Name="txt_Emp_Old_IC_No" Value="@Data.oldnric~"/>
+		<PdfFormField ID="txt_Emp_Passport_No" Name="txt_Emp_Passport_No" Value="@Data.passport~"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.emppcbno~"/>
+		<PdfFormField ID="txt_Emp_PM_Address_1" Name="txt_Emp_PM_Address_1" Value="@Data.pmaddr1~"/>
+		<PdfFormField ID="txt_Emp_PM_Address_2" Name="txt_Emp_PM_Address_2" Value="@Data.pmaddr2~"/>
+		<PdfFormField ID="txt_Emp_PM_City" Name="txt_Emp_PM_City" Value="@Data.pmcity~"/>
+		<PdfFormField ID="txt_Emp_PM_Post_Code" Name="txt_Emp_PM_Post_Code" Value="@Data.pmpostcd~"/>
+		<PdfFormField ID="txt_Emp_Pr_Organ_Address_1" Name="txt_Emp_Pr_Organ_Address_1" Value="@Data.preorgaddr1~"/>
+		<PdfFormField ID="txt_Emp_Pr_Organ_Address_2" Name="txt_Emp_Pr_Organ_Address_2" Value="@Data.preorgaddr2~"/>
+		<PdfFormField ID="txt_Emp_Pr_Organ_Name" Name="txt_Emp_Pr_Organ_Name" Value="@Data.preorgnm~"/>
+		<PdfFormField ID="txt_Emp_PS_Address_1" Name="txt_Emp_PS_Address_1" Value="@Data.psaddr1~"/>
+		<PdfFormField ID="txt_Emp_PS_Address_2" Name="txt_Emp_PS_Address_2" Value="@Data.psaddr2~"/>
+		<PdfFormField ID="txt_Emp_PS_City" Name="txt_Emp_PS_City" Value="@Data.pscity~"/>
+		<PdfFormField ID="txt_Emp_PS_Post_Code" Name="txt_Emp_PS_Post_Code" Value="@Data.pspostcd~"/>
+		<PdfFormField ID="txt_Emp_Salary" Name="txt_Emp_Salary" Value="@Data.salary~"/>
+		<PdfFormField ID="txt_GOV_Address_1" Name="txt_GOV_Address_1" Value="@Data.govaddr1~"/>
+		<PdfFormField ID="txt_GOV_Address_2" Name="txt_GOV_Address_2" Value="@Data.govaddr2~"/>
+		<PdfFormField ID="txt_GOV_City" Name="txt_GOV_City" Value="@Data.govcity~"/>
+		<PdfFormField ID="txt_GOV_Name_1" Name="txt_GOV_Name_1" Value="@Data.govnm1~"/>
+		<PdfFormField ID="txt_GOV_Name_2" Name="txt_GOV_Name_2" Value="@Data.govnm2~"/>
+		<PdfFormField ID="txt_GOV_Post_Code" Name="txt_GOV_Post_Code" Value="@Data.govpostcd~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.orgaddr1~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.orgaddr2~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.orgnm~"/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.orgpcbno~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.orgtel~"/>
+		<PdfFormField ID="txt_PIC_Job_Title" Name="txt_PIC_Job_Title" Value="@Data.orgpos~"/>
+		<PdfFormField ID="txt_PIC_Name" Name="txt_PIC_Name" Value="@Data.orgpic~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_RptCP22">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="RegNo" SPParamSize="0" SPParamType="dt-200" Value="@Request.RegNo~"/>
+				<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200" Value="@Request.PIC~"/>
+				<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SpID~"/>
+			</SPParameters>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams RegNo="Java" PIC="11" SpID="100"/>
+</Template>

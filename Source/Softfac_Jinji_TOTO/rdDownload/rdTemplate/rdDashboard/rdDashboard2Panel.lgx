@@ -1,0 +1,56 @@
+<Division ID="rdDashboardPanelID" HtmlDiv="True" Class="rdDashboardPanel">
+  <Label Format="HTML" Caption="&lt;script type=&quot;text/javascript&quot;&gt;
+    YAHOO.util.Event.addListener(window, &quot;load&quot;, YAHOO.rd.DDApp.init(new YAHOO.util.DD(&quot;rdDashboardPanelID&quot;)));    
+    &lt;/script&gt; " ID="rdDDInitScript"/>
+  <Rows Width="100" WidthScale="%">
+		<Row ID="rdDashboard2PanelTitle" Class="rdDashboardTitle">
+			<Column>
+				<Rows Width="100" WidthScale="%">
+					<Row>
+						<Column Width="99" WidthScale="%" Class="rdDashboardTitleCaption">
+							<Label ID="rdDashboardCaptionID" Caption="Caption"/>
+						</Column>
+						<Column ID="rdDashboardControl" Class="rdDashboardControl">
+							<Spaces Size="4"/>
+							<Division ID="rdDashboardEditID">
+								<Label Caption="Edit">
+									<Action Type="ShowElement" ElementID="rdDashboardEditID,rdDashboardCancelID,rdDashboard2PanelParams" Display="Toggle" rdNoValidate="True" />
+								</Label>
+							</Division>
+							<Division ID="rdDashboardCancelID" ShowModes="None">
+								<Label Caption="Cancel">
+									<Action Type="ShowElement" ElementID="rdDashboardEditID,rdDashboardCancelID,rdDashboard2PanelParams" Display="Toggle" rdNoValidate="True" />
+								</Label>
+							</Division>
+							<Spaces Size="2"/>
+							<Label Caption="X" Tooltip="Remove">
+								<Action Type="Link">
+									<Target Type="Link" Link="javascript:alert('Fix this...')"/>
+								</Action>
+							</Label>
+						</Column>
+					</Row>
+				</Rows>
+			</Column>
+		</Row>
+		<Row ID="Dashboard2PanelParams" Class="rdDashboardParams" ShowModes="None">
+			<Column>
+				<Rows Width="100" WidthScale="%">
+					<Row>
+						<Column ID="rdDashboardParams" Width="99" WidthScale="%" Class="rdDashboardParams">
+						</Column>
+						<Column Class="rdDashboardParamsSave">
+							<Button Caption="Save"/>
+						</Column>
+					</Row>
+				</Rows>
+			</Column>
+		</Row>
+		<Row ID="Dashboard2PanelContent" Class="rdDashboardContent">
+			<Column>
+			</Column>
+		</Row>
+	</Rows>
+</Division>
+
+			

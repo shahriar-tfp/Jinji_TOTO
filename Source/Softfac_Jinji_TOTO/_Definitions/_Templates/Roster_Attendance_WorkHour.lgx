@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_Attendance_WorkHour" SavedBy="Tester" SavedAt="4/16/2014 2:24:37 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AttendanceWorkHour.xlt" ID="Attendance Work Hour">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Details" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="EmpBadge" Value="@Data.EmpCode~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Section" Value="@Data.Section~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Category" Value="@Data.Category~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Date" Value="@Data.Date~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="DateIn" Value="@Data.DateIn~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="TimeIn" Value="@Data.TimeIn~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="DateOut" Value="@Data.DateOut~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="TimeOut" Value="@Data.TimeOut~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="Group" Value="@Data.Group~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="Daytype" Value="@Data.Daytype~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="SUP" Value="@Data.SUP~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="HOD" Value="@Data.HOD~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="WW" Value="@Data.WW~"/>
+			<DataLayer Type="SP" Command="sp_tms_rptWorkingHour2" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_From" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date_From~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_To" Value="@Request.Date_To~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

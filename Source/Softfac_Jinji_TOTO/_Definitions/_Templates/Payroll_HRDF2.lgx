@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_HRDF2" SavedBy="Tester" SavedAt="7/15/2014 5:43:05 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="HRDFList2.xlt" ID="Payroll_HRDF2">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Employee" Value="@Data.CodeName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Job_Level" Value="@Data.Job_Level~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="NoofEmp" Value="@Data.NoofEmp~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="TotalPaid" Value="@Data.TotalPaid~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="TotalHRDF" Value="@Data.TotalHRDF~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Month_text" Value="@Data.Month_text~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="ComName" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="PrintDate" Value="@Data.PrintDate~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="Allowance/Deduction" Value="@Data.OCP_ID_Salary~"/>
+			<DataLayer Type="SP" Command="sp_pr_RptHRDFList" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+				</SPParameters>
+			</DataLayer>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

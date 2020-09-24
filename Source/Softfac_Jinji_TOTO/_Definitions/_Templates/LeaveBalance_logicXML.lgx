@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="LeaveBalance_logicXML" SavedBy="Tester" SavedAt="12/5/2011 1:09:48 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="LeaveBalance_logicXML.xlt" ID="LeaveBalance_logicXML" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="AllInfo_logicXML" FirstRow="1" LastRow="4000" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select Code from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_ls_LeaveBalance_logicXML" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Layer" ParentColumn="Code" ChildColumn="User_Profile_Code"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" ID="EmployeeID" PatternBlockRow="1" Value="@Data.Employee_Profile_ID~"/>
+				<PatternBlockCell ID="EmployeeCode" Column="B" PatternBlockRow="1" Value="@Data.Employee_Profile_Code~"/>
+				<PatternBlockCell ID="EmployeeName" Value="@Data.Employee_Name~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmployeeCodeName" Value="@Data.Employee_CodeName~"/>
+				<PatternBlockCell ID="LeaveID" Value="@Data.OCP_ID_Leave~" PatternBlockRow="1" Column="E"/>
+				<PatternBlockCell ID="LeaveCodeName" Column="F" PatternBlockRow="1" Value="@Data.Leave_CodeName~"/>
+				<PatternBlockCell ID="LeaveCode" Value="@Data.Leave_Code~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="LeaveName" Value="@Data.Leave_Name~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="ProcessDate" Value="@Data.Process_Date~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="LeaveStartDate" Value="@Data.Leave_Start_Date~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="LeaveEndDate" Value="@Data.Leave_End_Date~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EntitleYear" Value="@Data.Entitlement_Year~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="TotalEntitle" Value="@Data.Total_Entitlement~" Column="M" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EntitleToDate" Value="@Data.Entitlement_Up_To_Date~" Column="N" PatternBlockRow="1"/>
+				<PatternBlockCell ID="CarryForward" Value="@Data.Days_Carry_Forward~" Column="O" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Days_Burned" Value="@Data.Days_Burned~" Column="P" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Days_Taken_Include_Pending" Value="@Data.Days_Taken_Include_Pending~" Column="Q" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Days_Taken_Exclude_Pending" Value="@Data.Days_Taken_Exclude_Pending~" Column="R" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Leave_Balance_Include_Pending" Value="@Data.Leave_Balance_Include_Pending~" Column="S" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Leave_Balance_Exclude_Pending" Value="@Data.Leave_Balance_Exclude_Pending~" Column="T" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="RWEM" User_Profile_Code="RWEM"/>
+</Template>

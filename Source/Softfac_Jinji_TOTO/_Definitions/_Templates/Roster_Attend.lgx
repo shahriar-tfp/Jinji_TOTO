@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_Attend" SavedBy="Tester" SavedAt="5/2/2014 11:21:15 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="MarkAttend.xlt" ID="Roster_Attend" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="7" ID="Header" Worksheet="WorkingHour">
+			<DataLayer Type="SP" Command="sp_tms_ChkEmpInFactory" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Header" Value="Employee In Factory on : @Data.CurrentDate~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" DisposableFirstRow="7" DisposableLastRow="7" ID="Details" FillMode="Insert">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" Command="sp_tms_ChkEmpInFactory" ID="CallDetails" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Date" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="CurrentDate" ParentColumn="CurrentDate" ID="sdlrcCurrentDate"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="RowNo" Value="@Data.RowNo~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="BadgeNo" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="InTime" Value="@Data.InTime~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

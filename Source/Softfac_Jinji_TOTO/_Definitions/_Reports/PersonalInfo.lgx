@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Report ID="PersonalInfo" SavedBy="Tester" SavedAt="5/2/2014 3:46:45 PM" EngineVersion="8.0.30" idePositioning="Absolute">
+	<StyleSheet/>
+	<ReportHeader Width="971" WidthScale="px" IdeDisplayStatus="Collapsed">
+		<Label Caption="@Local.Company_Profile_Code~" ID="lblCompany" Class="rptHeaderLogoText" AbsoluteLeft="10" AbsoluteTop="15" Width="971" Height="27" WidthScale="px"/>
+		<Label ID="lblPrintDate" Caption="Print Date : @Local.PrintDate~" Class="PrintDate"/>
+		<LineBreak/>
+		<HR/>
+		<Label ID="lblTitle" Caption="Employee Personnel Details Listing" Class="title"/>
+	</ReportHeader>
+	<Body Width="188" WidthScale="px" IdeDisplayStatus="Collapsed">
+		<LineBreak/>
+		<Rows ID="Personal" Layout="Fixed" Caption="Personal Info" IdeDisplayStatus="Collapsed">
+			<Row ID="1" Class="Tablerows">
+				<Column ID="11" Width="12" WidthScale="%">
+					<Label ID="lblEmployeeCode" Caption="Employee Code " Class="Tablecell"/>
+				</Column>
+				<Column ID="12" Width="78" WidthScale="%" ColSpan="3">
+					<Label Caption=": @Local.Employee_Code~" ID="txtEmployeeCode" Class="Tablecell"/>
+				</Column>
+				<Column ID="14" RowSpan="6" WidthScale="px" Width="98">
+					<Image Caption="@Local.Image_Path~" ID="PersonalImage" Class="Tablecell" Width="98" Height="98"/>
+				</Column>
+			</Row>
+			<Row ID="2" Class="Tablerows">
+				<Column ID="21" Width="12" WidthScale="%">
+					<Label ID="lblEmployeeName" Caption="Employee Name " Class="Tablecell"/>
+				</Column>
+				<Column ID="22" Width="78" WidthScale="%" ColSpan="3">
+					<Label ID="txtEmployeeName" Caption=": @Local.Employee_Name~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="3" Class="Tablerows">
+				<Column ID="31" Width="12" WidthScale="%">
+					<Label Caption="Title " ID="lblTitle" Class="Tablecell"/>
+				</Column>
+				<Column ID="32" Width="33" WidthScale="%">
+					<Label Caption=": @Local.Option_Title~" ID="txtTitle" Class="Tablecell"/>
+				</Column>
+				<Column ID="33" Width="12" WidthScale="%">
+					<Label ID="lblSex" Caption="Sex " Class="Tablecell"/>
+				</Column>
+				<Column ID="34" Width="33" WidthScale="%">
+					<Label ID="txtSex" Caption=": @Local.Option_Sex~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="4" Class="Tablerows">
+				<Column ID="41" WidthScale="%" Width="12">
+					<Label ID="lblOldICNo" Caption="Old IC No " Class="Tablecell"/>
+				</Column>
+				<Column ID="42" WidthScale="%" Width="33">
+					<Label ID="txtOldICNo" Caption=": @Local.Old_ICNo~" Class="Tablecell"/>
+				</Column>
+				<Column ID="43" WidthScale="%" Width="12">
+					<Label ID="lblNewICNo" Caption="New IC No " Class="Tablecell"/>
+				</Column>
+				<Column ID="44" WidthScale="%" Width="33">
+					<Label ID="txtNewICNo" Caption=": @Local.New_ICNo~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="5" Class="Tablerows">
+				<Column ID="51" WidthScale="%" Width="12">
+					<Label ID="lblDateOfBirth" Caption="Date Of Birth " Class="Tablecell"/>
+				</Column>
+				<Column ID="52" WidthScale="%" Width="33">
+					<Label ID="txtDateOfBirth" Caption=": @Local.Date_Of_Birth~" Class="Tablecell"/>
+				</Column>
+				<Column ID="53" WidthScale="%" Width="12">
+					<Label ID="lblPlaceOfBirth" Caption="Place Of Birth " Class="Tablecell"/>
+				</Column>
+				<Column ID="54" WidthScale="%" Width="33">
+					<Label ID="txtPlaceOfBirth" Caption=": @Local.Place_Of_Birth~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="6" Class="Tablerows">
+				<Column ID="61" WidthScale="%" Width="12">
+					<Label ID="lblMaritalStatus" Caption="Marital Status " Class="Tablecell"/>
+				</Column>
+				<Column ID="62" WidthScale="%" Width="33">
+					<Label ID="txtMaritalStatus" Caption=": @Local.Option_Marital_Status~" Class="Tablecell"/>
+				</Column>
+				<Column ID="63" WidthScale="%" Width="12">
+					<Label ID="lblRace" Caption="Race " Class="Tablecell"/>
+				</Column>
+				<Column ID="64" WidthScale="%" Width="33">
+					<Label ID="txtRace" Caption=": @Local.Option_Race~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="7" Class="Tablerows">
+				<Column ID="71" WidthScale="%" Width="12">
+					<Label ID="lblReligion" Caption="Religion " Class="Tablecell"/>
+				</Column>
+				<Column ID="72" WidthScale="%" Width="33">
+					<Label ID="txtReligion" Caption=": @Local.Option_Religion~" Class="Tablecell"/>
+				</Column>
+				<Column ID="73" WidthScale="%" Width="12">
+					<Label ID="lblCitizenship" Caption="Citizenship " Class="Tablecell"/>
+				</Column>
+				<Column ID="74" WidthScale="%" Width="45" ColSpan="2">
+					<Label ID="txtCitizenship" Caption=": @Local.Option_Citizenship~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="8" Class="Tablerows">
+				<Column ID="81" WidthScale="%" Width="12" IdeDisplayStatus="Collapsed">
+					<Label ID="lblPassportNo" Caption="Passport No " Class="Tablecell"/>
+				</Column>
+				<Column ID="82" WidthScale="%" Width="33" IdeDisplayStatus="Collapsed">
+					<Label ID="txtPassportNo" Caption=": @Local.Passport_No~" Class="Tablecell"/>
+				</Column>
+				<Column ID="83" WidthScale="%" Width="12">
+					<Label ID="lblEPFNo" Caption="EPF No " Class="Tablecell"/>
+				</Column>
+				<Column ID="84" WidthScale="%" Width="45" ColSpan="2">
+					<Label ID="txtEPFNo" Caption=": @Local.EPFNo~ (@Local.EPFName~)" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="9" Class="Tablerows">
+				<Column ID="91" WidthScale="%" Width="12" IdeDisplayStatus="Collapsed">
+					<Label ID="lblBankAccNo" Caption="Bank Account No " Class="Tablecell"/>
+				</Column>
+				<Column ID="92" WidthScale="%" Width="33" IdeDisplayStatus="Collapsed">
+					<Label ID="txtBankAccNo" Caption=": @Local.BankAccNo~" Class="Tablecell"/>
+				</Column>
+				<Column ID="93" WidthScale="%" Width="12">
+					<Label ID="lblSocsoNo" Caption="Socso No " Class="Tablecell"/>
+				</Column>
+				<Column ID="94" WidthScale="%" Width="45" ColSpan="2">
+					<Label ID="txtSocsoNo" Caption=": @Local.SOCSONo~ (@Local.SocsoName~)" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="10" Class="Tablerows">
+				<Column ID="101" WidthScale="%" Width="12" IdeDisplayStatus="Collapsed">
+					<Label ID="lblHPNo" Caption="Hand Phone No " Class="Tablecell"/>
+				</Column>
+				<Column ID="102" WidthScale="%" Width="33" IdeDisplayStatus="Collapsed">
+					<Label ID="txtHPNo" Caption=": @Local.Permanent_HPNo~" Class="Tablecell"/>
+				</Column>
+				<Column ID="103" WidthScale="%" Width="12">
+					<Label ID="lblTaxNo" Caption="Income Tax No " Class="Tablecell"/>
+				</Column>
+				<Column ID="104" WidthScale="%" Width="45" ColSpan="2">
+					<Label ID="txtTaxNo" Caption=": @Local.PCBNo~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="11" Class="Tablerows">
+				<Column ID="111" WidthScale="%" Width="12">
+					<Label ID="lblEmail" Caption="Email " Class="Tablecell"/>
+				</Column>
+				<Column ID="112" WidthScale="%" Width="90" ColSpan="4">
+					<Label ID="txtEmail" Caption=": @Local.Permanent_Email~" Class="Tablecell"/>
+				</Column>
+			</Row>
+		</Rows>
+		<HR/>
+		<Rows ID="Address" Caption="Personal Address" Layout="Fixed" IdeDisplayStatus="Collapsed">
+			<Row ID="12" Class="Tablerows">
+				<Column ID="121" WidthScale="%" Width="50">
+					<Label ID="lblPermanent1" Caption="Permanent Address : @Local.Permanent_Address_1~" Class="Tablecell"/>
+				</Column>
+				<Column ID="122" WidthScale="%" Width="50">
+					<Label ID="lblPresent1" Caption="Present Address : @Local.Present_Address_1~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="13" Class="Tablerows">
+				<Column ID="131" WidthScale="%" Width="50">
+					<Label ID="lblPermanent2" Caption="                               @Local.Permanent_Address_2~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+				<Column ID="132" WidthScale="%" Width="50">
+					<Label ID="lblPresent2" Caption="                          @Local.Present_Address_2~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+			</Row>
+			<Row ID="14" Class="Tablerows">
+				<Column ID="141" WidthScale="%" Width="50">
+					<Label ID="lblPermanent3" Caption="                               @Local.Permanent_Postcode~ , @Local.Permanent_City~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+				<Column ID="142" WidthScale="%" Width="50">
+					<Label ID="lblPresent3" Caption="                          @Local.Present_Postcode~ , @Local.Present_City~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+			</Row>
+			<Row ID="15" Class="Tablerows">
+				<Column ID="151" WidthScale="%" Width="50">
+					<Label ID="lblPermanent4" Caption="                               @Local.Permanent_State~ , @Local.Permanent_Country~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+				<Column ID="152" WidthScale="%" Width="50">
+					<Label ID="lblPresent4" Caption="                          @Local.Present_State~ , @Local.Present_Country~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+			</Row>
+			<Row ID="16" Class="Tablerows">
+				<Column ID="161" WidthScale="%" Width="50">
+					<Label ID="lblPermanent5" Caption="Tel No :                    @Local.Permanent_TelNo~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+				<Column ID="162" WidthScale="%" Width="50">
+					<Label ID="lblPresent5" Caption="Tel No :               @Local.Present_TelNo~" Class="Tablecell" Format="Expanded Spaces"/>
+				</Column>
+			</Row>
+		</Rows>
+		<HR/>
+		<Rows ID="Status" Caption="Personal Status" Layout="Fixed" IdeDisplayStatus="Collapsed">
+			<Row ID="17" Class="Tablerows">
+				<Column ID="171" WidthScale="%" Width="50">
+					<Label ID="lblDivCode" Caption="Division Code : @Local.DivCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="172" WidthScale="%" Width="50">
+					<Label ID="lblDivName" Caption="Division Description : @Local.DivDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="18" Class="Tablerows">
+				<Column ID="181" WidthScale="%" Width="50">
+					<Label ID="lblDeptCode" Caption="Department Code : @Local.DeptCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="182" WidthScale="%" Width="50">
+					<Label ID="lblDeptName" Caption="Department Description : @Local.DeptDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="19" Class="Tablerows">
+				<Column ID="191" WidthScale="%" Width="50">
+					<Label ID="lblSectCode" Caption="Section Code : @Local.SectCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="192" WidthScale="%" Width="50">
+					<Label ID="lblSectName" Caption="Section Description : @Local.SectDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="20" Class="Tablerows">
+				<Column ID="201" WidthScale="%" Width="50">
+					<Label ID="lblLineCode" Caption="Line Code : @Local.LineCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="202" WidthScale="%" Width="50">
+					<Label ID="lblLineName" Caption="Line Description : @Local.LineDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="21" Class="Tablerows">
+				<Column ID="211" WidthScale="%" Width="50">
+					<Label ID="lblGrpCode" Caption="Group Code : @Local.GrpCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="212" WidthScale="%" Width="50">
+					<Label ID="lblGrpName" Caption="Group Description : @Local.GrpDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="22" Class="Tablerows">
+				<Column ID="221" WidthScale="%" Width="50">
+					<Label ID="lblProcessCode" Caption="Process Code : @Local.ProcessCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="222" WidthScale="%" Width="50">
+					<Label ID="lblProcessName" Caption="Process Description : @Local.ProcessDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="23" Class="Tablerows">
+				<Column ID="231" WidthScale="%" Width="50">
+					<Label ID="lblFinCode" Caption="Finance Code : @Local.FinCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="232" WidthScale="%" Width="50">
+					<Label ID="lblFinName" Caption="Finance Description : @Local.FinDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="24" Class="Tablerows">
+				<Column ID="241" WidthScale="%" Width="50">
+					<Label ID="lblTmsCode" Caption="TMS Code : @Local.TmsCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="242" WidthScale="%" Width="50">
+					<Label ID="lblTmsName" Caption="TMS Description : @Local.TmsDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="25" Class="Tablerows">
+				<Column ID="251" WidthScale="%" Width="50">
+					<Label ID="lblGradeCode" Caption="Job Grade Code : @Local.GradeCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="252" WidthScale="%" Width="50">
+					<Label ID="lblGradeName" Caption="Job Grade Description : @Local.GradeDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="26" Class="Tablerows">
+				<Column ID="261" WidthScale="%" Width="50">
+					<Label ID="lblPosCode" Caption="Position Code : @Local.PosCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="262" WidthScale="%" Width="50">
+					<Label ID="lblPosName" Caption="Position Description : @Local.PosDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="27" Class="Tablerows">
+				<Column ID="271" WidthScale="%" Width="50">
+					<Label ID="lblAprCode" Caption="Appraisal Code : @Local.AprCode~" Class="Tablecell"/>
+				</Column>
+				<Column ID="272" WidthScale="%" Width="50">
+					<Label ID="lblAprName" Caption="Appraisal Description : @Local.AprDesc~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="28" Class="Tablerows">
+				<Column ID="281" WidthScale="%" Width="50">
+					<Label ID="lblDateJoin" Caption="Join Date : @Local.Join_Date~" Class="Tablecell"/>
+				</Column>
+				<Column ID="282" WidthScale="%" Width="50">
+					<Label ID="lblDateConfirm" Caption="Confirm Date : @Local.Confirm_Date~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="29" Class="Tablerows">
+				<Column ID="291" WidthScale="%" Width="50">
+					<Label ID="lblDateResign" Caption="Resign Date : @Local.Resign_Date~" Class="Tablecell"/>
+				</Column>
+				<Column ID="292" WidthScale="%" Width="50">
+					<Label ID="lblSalary" Caption="Basic Salary : @Local.Basic_Salary~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="30" Class="Tablerows">
+				<Column ID="301" WidthScale="%" Width="50">
+					<Label ID="lblSpouseWork" Caption="Spouse Work : @Local.Option_Spouse_Work_Status~" Class="Tablecell"/>
+				</Column>
+				<Column ID="302" WidthScale="%" Width="50">
+					<Label ID="lblChild" Caption="No Of Child : @Local.Non_Work_Child~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="31" Class="Tablerows">
+				<Column ID="311" WidthScale="%" Width="50">
+					<Label ID="lblSubmitDate" Caption="Submit Date : @Local.Submit_Date~" Class="Tablecell"/>
+				</Column>
+				<Column ID="312" WidthScale="%" Width="50">
+					<Label ID="lblReceiveDate" Caption="Receive Date : @Local.Receive_Date~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="32" Class="Tablerows">
+				<Column ID="321" WidthScale="%" Width="50">
+					<Label ID="lblLastWorkDate" Caption="Adjust Last Work Date : @Local.ActualLastDate~" Class="Tablecell"/>
+				</Column>
+				<Column ID="322" WidthScale="%" Width="50">
+					<Label ID="lblOption_Eligible" Caption="Eligible : @Local.Option_Eligible~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="33" Class="Tablerows">
+				<Column ID="331" WidthScale="%" Width="50">
+					<Label ID="lblShortNotice" Caption="Short Notice : @Local.ShortNotice~" Class="Tablecell"/>
+				</Column>
+				<Column ID="332" WidthScale="%" Width="50">
+					<Label ID="lblOption_Notice" Caption="Notice Waive : @Local.Option_Notice~" Class="Tablecell"/>
+				</Column>
+			</Row>
+			<Row ID="34" Class="Tablerows">
+				<Column ID="341" WidthScale="%" Width="50">
+					<Label ID="lblAdjustNotice" Caption="Adjust Notice : @Local.AdjustNotice~" Class="Tablecell"/>
+				</Column>
+			</Row>
+		</Rows>
+	</Body>
+	<ReportFooter Width="0" WidthScale="px"/>
+	<LocalData ID="LocalData" IdeDisplayStatus="Collapsed">
+		<DataLayer Type="SP" ID="CallPersonal" ConnectionID="HCRMConnection" Command="sp_is_rptPesonalInfo">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+				<SPParameter SPParamDirection="Input" ID="Employee_Profile_ID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Employee_Profile_ID~"/>
+				<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+			</SPParameters>
+		</DataLayer>
+	</LocalData>
+	<ideTestParams Employee_Profile_ID="78" Company_Profile_Code="RWEM" User_Profile_Code="RWEM"/>
+</Report>

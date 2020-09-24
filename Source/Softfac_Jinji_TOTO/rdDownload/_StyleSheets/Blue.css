@@ -1,0 +1,189 @@
+.rptHeaderLogoText{
+	font-size: large;
+	width: 100%;
+}
+.report {
+	background-color : #ECF0F5;
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 9pt;
+	color: #000000;
+	margin : 0px;
+	scrollbar-face-color : #B4B4B4;
+	scrollbar-highlight-color : #FFFFFF;
+	scrollbar-darkshadow-color : #666666;
+	scrollbar-shadow-color : #999999;
+	scrollbar-arrow-color : White;
+	scrollbar-3dlight-color : #999999;
+	text-align: center;	
+}
+
+A:link	{	
+	text-decoration:	none;
+	color:	#25405F;
+	}	
+		
+A:visited	{	
+	text-decoration:	none;
+	color:	#25405F;
+	}	
+		
+A:active	{	
+	text-decoration:	none;
+	color:	#25405F;
+	}	
+		
+A:hover	{
+	text-decoration: underline;
+	color:#4F6D8F;
+}
+
+IMG 	{
+    border: 0;
+	margin: 0px;
+}
+
+.cell {
+	background-color: #FFFFFF;
+	padding-left: 4px;
+	padding-right: 1px;
+	font-size : 8pt;	
+}
+	
+.header {
+}
+
+.table {
+	background-color: #8EA6C1;
+	font-family: Verdana;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-left : 3px;
+}
+
+.tableHeader {
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 2px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.defaultrow{
+	font-family: Verdana;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-left : 3px;
+	border-color: Fuchsia;
+}
+
+.alternaterow{
+	background-color: #F2F4FF;
+	font-family: Verdana;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-left : 3px;
+	border-color: Aqua;
+	border: Fuchsia;
+}
+
+.columnheader{
+	background-color: #001B97;
+	color: #F0F8FF;
+	font-family: Verdana;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-left : 3px;
+}
+
+.rows {
+	background-color: #8EA6C1;
+	font-family: Verdana;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-left : 3px;
+}
+
+.Tablerows {
+	background-color: #8EA6C1;
+	.font-family: Verdana;
+	font-size: 9pt;
+	margin-top: 6px;
+	margin-left : 3px;
+	width : 100%;
+}
+
+.Tablecell {
+	background-color: #FFFFFF;
+	padding-left: 4px;
+	padding-right: 1px;
+	font-size : 8pt;	
+	width: 100%
+}
+
+.rowsHeader {
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 2px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.inputGrid {
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 9pt;
+	margin-right : 2px;
+}
+
+.title  {
+	background: #8EA6C1;
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 8pt;
+	color: #FFFFFF;
+	font: bold 12pt;
+	padding-top: 9px;
+	height: 34px;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.date {
+	background: #FFFFFF;
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 8pt;	
+	font-weight: bold;
+	color: #666666;	
+	margin-bottom: 6px;	
+	padding-right: 0pt;
+	padding-top: 9px;
+	height: 32px;	
+	width: 100%;
+	border-bottom: 1px dashed #25405F;
+}
+
+.PrintDate {
+	background: #FFFFFF;
+	font-family : Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size : 8pt;	
+	font-weight: bold;
+	color: #666666;	
+	margin-bottom: 6px;	
+	padding-right: 0pt;
+	padding-top: 9px;
+	height: 32px;	
+	width: 100%;
+	text-align:right;
+}
+
+.image{
+	width: 35px;
+	height: 35px;
+}
+
+.headerbackground{
+	background: Silver;
+}
+
+.horizontalline
+{
+	height:1px;
+}

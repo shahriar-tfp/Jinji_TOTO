@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Test_Bank" SavedBy="TFP-HR01" SavedAt="10/26/2009 11:47:00 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="BankList.xlt" ID="test">
+		<PatternBlock FirstRow="1" LastRow="30" ID="sste">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_RptBankSum" ID="sp_pr_RptBankSum">
+				<SPParameters>
+					<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+					<SPParameter ID="Bank_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Bank_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Value="@Data.BankName~" ID="Company" Column="A" PatternBlockRow="1"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TAC" Year="2009" Month="10" Option_Pay_Cycle="MONTHLY" Bank_Profile_Code="ABMB" Spid="1"/>
+</Template>

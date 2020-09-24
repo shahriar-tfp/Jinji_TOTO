@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_FinanceReport" SavedBy="Tester" SavedAt="3/15/2019 12:35:13 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="FINANCEReport.xlt" ID="FinanceReport" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="9" ID="FinanceReport">
+			<DataLayer Type="SP" Command="sp_Fin_SelDownloadPayrollData" ConnectionID="HCRMConnection" ID="CallPhaseHeader">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Month" Value="@Data.Period~"/>
+			<SubPatternBlock FirstRow="7" LastRow="7" ID="PhaseDetails" DisposableFirstRow="8" DisposableLastRow="8" FillMode="Insert">
+				<SubDataLayer ID="PhaseSDL">
+					<SubDataLayerRelationColumn ID="PhaseSDLRC" ChildColumn="ComName" ParentColumn="ComName"/>
+					<DataLayer Type="SP" Command="sp_Fin_SelDownloadPayrollData" ConnectionID="HCRMConnection" ID="CallPhaseDetails">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="CostCenter" Value="@Data.CostCode~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Category" Value="@Data.AccountName~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="debitcredit" Value="@Data.debitcredit~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="GLCode" Value="@Data.GLCode~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="remarks" Value="@Data.remarks~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="Amount" Value="@Data.Amount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="YrEndDistribution2" SavedBy="Tester" SavedAt="10/23/2014 5:20:04 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="YrEndDistribution2.xlt" ID="YrEndDistribution2" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="YrEndDistribution2" FirstRow="1" LastRow="9" Worksheet="Yearly">
+			<DataLayer Type="SP" Command="sp_pr_RptYrEndDistribution2" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Month" Value="Yearly : @Data.Month_text~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="HOD" Value="Head Of Department : @Data.HOD~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="Details" DisposableFirstRow="7" DisposableLastRow="7">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_RptYrEndDistribution2" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+					<SubDataLayerRelationColumn ID="HOD" ChildColumn="HOD" ParentColumn="HOD"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="CostBlock" Value="@Data.CostBlock~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SuperCode" Value="@Data.SuperCode~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="HOD" Value="@Data.HOD~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.EmpBadge~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="EmpName" PatternBlockRow="1" Column="E" Value="@Data.EmpName~"/>
+				<PatternBlockCell ID="Position" Column="F" PatternBlockRow="1" Value="@Data.Position~"/>
+				<PatternBlockCell ID="DateJoin" Column="G" PatternBlockRow="1" Value="@Data.DateJoin~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

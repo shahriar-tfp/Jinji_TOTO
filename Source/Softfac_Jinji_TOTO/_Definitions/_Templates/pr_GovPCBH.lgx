@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovPCBH" SavedBy="Tester" SavedAt="9/8/2015 11:23:08 AM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovPCBH.pdf" ID="pr_GovPCBH">
+		<PdfFormField ID="txt_Month_Payment" Name="txt_Month_Payment" Value="@Request.month~"/>
+		<PdfFormField ID="txt_Year_Payment" Name="txt_Year_Payment" Value="@Request.year~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1" Name="txt_Organ_PCB_No_1" Value="@Data.Company_PCB_No_1~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_2" Name="txt_Organ_PCB_No_2" Value="@Data.Company_PCB_No_2~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_3" Name="txt_Organ_PCB_No_3" Value="@Data.Company_PCB_No_3~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_4" Name="txt_Organ_PCB_No_4" Value="@Data.Company_PCB_No_4~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_5" Name="txt_Organ_PCB_No_5" Value="@Data.Company_PCB_No_5~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_6" Name="txt_Organ_PCB_No_6" Value="@Data.Company_PCB_No_6~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_7" Name="txt_Organ_PCB_No_7" Value="@Data.Company_PCB_No_7~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_8" Name="txt_Organ_PCB_No_8" Value="@Data.Company_PCB_No_8~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_9" Name="txt_Organ_PCB_No_9" Value="@Data.Company_PCB_No_9~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_10" Name="txt_Organ_PCB_No_10" Value="@Data.Company_PCB_No_10~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Company_Name~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.Company_Lot~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.Company_Street~"/>
+		<PdfFormField ID="txt_Organ_Address_3" Name="txt_Organ_Address_3" Value="@Data.Address_3~"/>
+		<PdfFormField ID="txt_Organ_ID" Name="txt_Organ_ID" Value="@Data.Registration_No~"/>
+		<PdfFormField ID="txt_Total_PCB_Amount" Name="txt_Total_PCB_Amount" Value="@Data.Total_PCB_Amount~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Total_CP38_Amount" Name="txt_Total_CP38_Amount" Value="@Data.Total_CP38_Amount~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Total_CP38_Emp" Name="txt_Total_CP38_Emp" Value="@Data.CP38_Count~"/>
+		<PdfFormField ID="txt_Total_PCB_Emp" Name="txt_Total_PCB_Emp" Value="@Data.PCB_Count~"/>
+		<PdfFormField ID="txt_Grand_Total" Name="txt_Grand_Total" Value="@Data.Grand_Total~" Format="###,###,##0.00"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_InsDelTempPCB" ID="CallSP">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+				<SPParameter ID="Part" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+			</SPParameters>
+			<AggregateColumn AggregateColumn="CP39_Amount" AggregateFunction="SUM" ID="Total_PCB_Amount" DataType="Number"/>
+			<AggregateColumn AggregateColumn="CP38_Amount" AggregateFunction="SUM" ID="Total_CP38_Amount" DataType="Number"/>
+			<CalculatedColumn ID="Grand_Total" Formula="@Data.Total_CP38_Amount~ + @Data.Total_PCB_Amount~"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams month=""/>
+</Template>

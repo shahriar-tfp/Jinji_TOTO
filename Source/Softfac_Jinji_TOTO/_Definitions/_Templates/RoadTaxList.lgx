@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="RoadTaxList" SavedBy="Tester" SavedAt="7/5/2018 12:54:54 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="RoadTaxList.xlt" ID="RoadTaxList">
+		<PatternBlock ID="RoadTax" FirstRow="1" LastRow="8">
+			<DataLayer Type="SP" Command="sp_est_RptRoadTaxLicence" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="By_Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_Type~"/>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-131" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-131" Value="@Request.Spid~"/>
+					<SPParameter SPParamDirection="Input" ID="Report" SPParamSize="0" SPParamType="dt-200" Value="@Request.Report~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="Expiry" SPParamSize="0" SPParamType="dt-200" Value="@Request.Expiry~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ReportHeader~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_est_RptRoadTaxLicence" ID="Details" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="By_Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_Type~"/>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-131" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-131" Value="@Request.Spid~"/>
+							<SPParameter SPParamDirection="Input" ID="Report" SPParamSize="0" SPParamType="dt-200" Value="@Request.Report~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="Details"/>
+							<SPParameter SPParamDirection="Input" ID="Expiry" SPParamSize="0" SPParamType="dt-200" Value="@Request.Expiry~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="ReportH" ChildColumn="ReportHeader" ParentColumn="ReportHeader"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.Employee_Profile_ID~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.Empname~" PatternBlockRow="1" Column="B"/>
+				<PatternBlockCell ID="Costdesc" Value="@Data.Costdesc~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="Category" PatternBlockRow="1" Column="D" Value="@Data.Categorydesc~"/>
+				<PatternBlockCell ID="model" PatternBlockRow="1" Column="E" Value="@Data.model~"/>
+				<PatternBlockCell ID="color" PatternBlockRow="1" Column="F" Value="@Data.color~"/>
+				<PatternBlockCell ID="PlatNo" PatternBlockRow="1" Column="G" Value="@Data.PlatNo~"/>
+				<PatternBlockCell ID="StikerNo" PatternBlockRow="1" Column="H" Value="@Data.StikerNo~"/>
+				<PatternBlockCell ID="validfrom" PatternBlockRow="1" Column="I" Value="@Data.validfrom~"/>
+				<PatternBlockCell ID="expirydate" PatternBlockRow="1" Column="J" Value="@Data.expirydate~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

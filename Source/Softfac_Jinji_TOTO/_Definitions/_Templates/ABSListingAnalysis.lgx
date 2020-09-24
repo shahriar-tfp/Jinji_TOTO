@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ABSListingAnalysis" SavedBy="Tester" SavedAt="11/11/2014 5:50:52 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="MCABSAnalysis.xlt" ID="ABSListingAnalysis" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="ABSListing" FirstRow="1" LastRow="8" Worksheet="Listing">
+			<DataLayer Type="SP" Command="sp_is_RptMCABSListing" ID="Header" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="Absent Leave Taken @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_is_RptMCABSListing" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS3"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.EmpBadge~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.EmpName~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="Hostel" Value="@Data.Hostel~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="JobLevel" Value="@Data.JobLevel~" PatternBlockRow="1" Column="E"/>
+				<PatternBlockCell ID="CostBlock" Value="@Data.CostBlock~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SupCode" Value="@Data.SupCode~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Days" Value="@Data.days~" PatternBlockRow="1" Column="H"/>
+				<PatternBlockCell ID="DateApply" Value="@Data.DateApply~" PatternBlockRow="1" Column="I"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock FirstRow="1" LastRow="9" Worksheet="Analysis" ID="ABSAnalysis">
+			<DataLayer Type="SP" Command="sp_is_RptMCABSListing" ID="Header1" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company1" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month1" Value="Absent Leave Analysis @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Printdate1" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="ABSAnalysis1" DisposableFirstRow="7" DisposableLastRow="7">
+				<SubDataLayer ID="ABSAnalysis">
+					<DataLayer Type="SP" Command="sp_is_RptMCABSListing" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS4"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="ABSAnalysis1" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="CostBlock1" Value="@Data.CostBlock~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="MgrD1" Value="@Data.MGRD~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="MgrP1" Value="@Data.MGRP~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="EXED1" Value="@Data.EXED~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="EXEP1" Value="@Data.EXEP~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="NEXED1" Value="@Data.NEXED~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="NEXEP1" Value="@Data.NEXEP~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="OPERD1" Value="@Data.OPERD~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="OPERP1" Value="@Data.OPERP~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

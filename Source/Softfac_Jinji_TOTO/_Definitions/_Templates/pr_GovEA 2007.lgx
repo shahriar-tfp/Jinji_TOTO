@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovEA" SavedBy="Administrator" SavedAt="9/2/2008 10:24:44 AM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovEA.pdf" ID="pr_GovEA" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Emp_Allowance_1" Name="txt_Emp_Allowance_1" Value="@Data.Allowance_1~"/>
+		<PdfFormField ID="txt_Emp_Allowance_10" Name="txt_Emp_Allowance_10" Value="@Data.Allowance_10~"/>
+		<PdfFormField ID="txt_Emp_Allowance_11" Name="txt_Emp_Allowance_11" Value="@Data.Allowance_11~"/>
+		<PdfFormField ID="txt_Emp_Allowance_12" Name="txt_Emp_Allowance_12" Value="@Data.Allowance_12~"/>
+		<PdfFormField ID="txt_Emp_Allowance_13" Name="txt_Emp_Allowance_13" Value="@Data.Allowance_13~"/>
+		<PdfFormField ID="txt_Emp_Allowance_14" Name="txt_Emp_Allowance_14" Value="@Data.Allowance_14~"/>
+		<PdfFormField ID="txt_Emp_Allowance_15" Name="txt_Emp_Allowance_15" Value="@Data.Allowance_15~"/>
+		<PdfFormField ID="txt_Emp_Allowance_16" Name="txt_Emp_Allowance_16" Value="@Data.Allowance_16~"/>
+		<PdfFormField ID="txt_Emp_Allowance_17" Name="txt_Emp_Allowance_17" Value="@Data.Allowance_17~"/>
+		<PdfFormField ID="txt_Emp_Allowance_18" Name="txt_Emp_Allowance_18" Value="@Data.Allowance_18~"/>
+		<PdfFormField ID="txt_Emp_Allowance_19" Name="txt_Emp_Allowance_19" Value="@Data.Allowance_19~"/>
+		<PdfFormField ID="txt_Emp_Allowance_2" Name="txt_Emp_Allowance_2" Value="@Data.Allowance_2~"/>
+		<PdfFormField ID="txt_Emp_Allowance_20" Name="txt_Emp_Allowance_20" Value="@Data.Allowance_20~"/>
+		<PdfFormField ID="txt_Emp_Allowance_21" Name="txt_Emp_Allowance_21" Value="@Data.Allowance_21~"/>
+		<PdfFormField ID="txt_Emp_Allowance_3" Name="txt_Emp_Allowance_3" Value="@Data.Allowance_3~"/>
+		<PdfFormField ID="txt_Emp_Allowance_4" Name="txt_Emp_Allowance_4" Value="@Data.Allowance_4~"/>
+		<PdfFormField ID="txt_Emp_Allowance_5" Name="txt_Emp_Allowance_5" Value="@Data.Allowance_5~"/>
+		<PdfFormField ID="txt_Emp_Allowance_6" Name="txt_Emp_Allowance_6" Value="@Data.Allowance_6~"/>
+		<PdfFormField ID="txt_Emp_Allowance_7" Name="txt_Emp_Allowance_7" Value="@Data.Allowance_7~"/>
+		<PdfFormField ID="txt_Emp_Allowance_8" Name="txt_Emp_Allowance_8" Value="@Data.Allowance_8~"/>
+		<PdfFormField ID="txt_Emp_Allowance_9" Name="txt_Emp_Allowance_9" Value="@Data.Allowance_9~"/>
+		<PdfFormField ID="txt_Emp_CP38_Amount" Name="txt_Emp_CP38_Amount" Value="@Data.CP38~"/>
+		<PdfFormField ID="txt_Emp_Current_Date" Name="txt_Emp_Current_Date"/>
+		<PdfFormField ID="txt_Emp_Date_Join" Name="txt_Emp_Date_Join" Value="@Data.Join_Date~"/>
+		<PdfFormField ID="txt_Emp_Date_Resign" Name="txt_Emp_Date_Resign" Value="@Data.Resign_Date~"/>
+		<PdfFormField ID="txt_Emp_EPF_Amount" Name="txt_Emp_EPF_Amount" Value="@Data.EPF_Employee~"/>
+		<PdfFormField ID="txt_Emp_EPF_No" Name="txt_Emp_EPF_No" Value="@Data.EPF~"/>
+		<PdfFormField ID="txt_Emp_ID" Name="txt_Emp_ID" Value="@Data.Employee_Profile_ID~"/>
+		<PdfFormField ID="txt_Emp_Job_Title" Name="txt_Emp_Job_Title" Value="@Data.Position~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.Emp_Name~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No" Name="txt_Emp_New_IC_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Emp_Old_IC_No" Name="txt_Emp_Old_IC_No"/>
+		<PdfFormField ID="txt_Emp_PCB_Amount" Name="txt_Emp_PCB_Amount" Value="@Data.PCB~"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.PCB1~"/>
+		<PdfFormField ID="txt_Emp_Zakat_Amount" Name="txt_Emp_Zakat_Amount" Value="@Data.ZAKAT~"/>
+		<PdfFormField ID="txt_Organ_Address" Name="txt_Organ_Address" Value="@Data.Address_City_Code~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Company_Name~"/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.Company_PCB_No~"/>
+		<PdfFormField ID="txt_Serial_No" Name="txt_Serial_No" Value="@Data.Serial_No~"/>
+		<PdfFormField ID="txt_Total_Allowance" Name="txt_Total_Allowance" Value="@Data.total_allow~"/>
+		<PdfFormField ID="txt_Year" Name="txt_Year"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_RptEA">
+			<SPParameters>
+				<SPParameter ID="RegNo" Value="@Request.RegNo~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+				<SPParameter ID="SpID" Value="@Request.SpID~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-3"/>
+				<SPParameter ID="Year" Value="@Request.Year~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-3"/>
+				<SPParameter ID="bonus1" Value="@Request.bonus1~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+				<SPParameter SPParamDirection="Input" ID="bonus2" SPParamSize="0" SPParamType="dt-200" Value="@Request.bonus2~"/>
+			</SPParameters>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams RegNo="JAVA" SpID="58" Company_Profile_Code="JAVA" year="2007" PicID="11" type="PRINT2" Year="2008" bonus1="01/01/2008" bonus2="31/12/2008"/>
+</Template>

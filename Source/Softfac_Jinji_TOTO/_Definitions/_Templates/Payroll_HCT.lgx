@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_HCT" SavedBy="Tester" SavedAt="10/14/2014 4:44:16 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="HCT_Listing.xlt" ID="Payroll_HCT" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock ID="Payroll_HCT" FirstRow="1" LastRow="15" Worksheet="HCT">
+			<DataLayer Type="SP" Command="sp_pr_rptHCTListing" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="HCT Listing for   @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="3" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="4" ID="Group by" Value="Group By : @Data.Job_Level~ / @Data.TMS_Group~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="details" DisposableFirstRow="7" DisposableLastRow="7">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_rptHCTListing" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Job_Level" ChildColumn="Job_Level" ParentColumn="Job_Level"/>
+					<SubDataLayerRelationColumn ID="TMS_Group" ChildColumn="TMS_Group" ParentColumn="TMS_Group"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Job_Level" Value="@Data.Job_Level~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="TMSGroup" Value="@Data.TMS_Group~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Race" Value="@Data.Race~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="HCount" Value="@Data.Hcount~" Column="E" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock FirstRow="2" LastRow="2" DisposableFirstRow="3" DisposableLastRow="3" ID="RawData" Worksheet="Data">
+			<DataLayer Type="SP" Command="sp_pr_rptHCTListing" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Badge" Value="@Data.EmpBadge~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Name" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Job_Level" Value="@Data.Job_Level~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="TMS_Group" Value="@Data.TMS_Group~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Race" Value="@Data.Race~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

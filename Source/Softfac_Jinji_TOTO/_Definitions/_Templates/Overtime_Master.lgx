@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Overtime_Master" SavedBy="Tester" SavedAt="2/8/2012 3:20:43 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Overtime_Master.xlt" ID="Overtime_Master" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="100" ID="Header">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="sp_pr_rptOvertimeMaster">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.year~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.month~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="Header"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.UserID~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company_Name" Value="@Data.company_Profile_Code~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="3" ID="Categories" Value="MONTHLY OVERTIME REPORT FOR @Data.DivDesc~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="Print_Date" Value="Print Date : @Data.Print_Date~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="3" ID="Print_By" Value="Print By : @Request.UserID~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month_Year" Value="MONTH : @Data.PayMonth~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="5" ID="Division" Value="@Data.DivDesc~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="5" ID="Month" Value="@Data.PayMonth~"/>
+			<SubPatternBlock ID="Details" FirstRow="8" LastRow="8" DisposableFirstRow="9" DisposableLastRow="9">
+				<SubDataLayer ID="GetDetails">
+					<DataLayer Type="SP" Command="sp_pr_rptOvertimeMaster" ID="GetDetails" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.year~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.month~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="Details"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.UserID~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="company_profile_code" ParentColumn="company_profile_code" ID="relHeader_Details"/>
+					<SubDataLayerRelationColumn ChildColumn="DivCode" ParentColumn="DivCode" ID="relGroup"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Department" Value="@Data.DeptDesc~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="NDHRS" Value="@Data.NDHRS~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="NDAMT" Value="@Data.NDAMT~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="RDHRS1" Value="@Data.RDHRS1~"/>
+				<PatternBlockCell ID="RDAMT1" Column="F" PatternBlockRow="1" Value="@Data.RDAMT1~"/>
+				<PatternBlockCell ID="RDHRS2" Column="G" PatternBlockRow="1" Value="@Data.RDHRS2~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="RDAMT2" Value="@Data.RDAMT2~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="PHHRS2" Value="@Data.PHHRS2~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="PHAMT2" Value="@Data.PHAMT2~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="PHHRS3" Value="@Data.PHHRS3~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="PHAMT3" Value="@Data.PHAMT3~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="TotalStaff" Value="@Data.headcount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams OrganID="TASH" month="11" year="2009" Type="Header" UserID="TASH"/>
+</Template>

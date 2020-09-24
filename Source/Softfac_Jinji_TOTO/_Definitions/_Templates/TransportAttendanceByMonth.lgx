@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="TransportAttendanceByMonth" SavedBy="Tester" SavedAt="6/27/2014 10:08:37 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="TransportAttendanceByMonth.xlt" ID="TransportAttendanceByMonth" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="14" ID="Header" Worksheet="Monthly">
+			<DataLayer Type="SP" Command="[sp_rptUniBUS_MONTHLY]" ID="GetHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+					<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter ID="Header" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company_Profile_Code" Value="@Data.Company_Profile_Code~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="3" ID="Bus" Value=": @Data.Vender~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="4" ID="Duty" Value="@Data.OCP_ID_TMS~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="3" ID="Header" Value="MONTHLY TRANSPORT ATTENDANCE FOR @Data.MonthName~ @Data.Year~"/>
+			<PatternBlockCell Column="X" PatternBlockRow="1" ID="PrintDate" Value="Print Date : @Data.Printdate~  UserID : @Data.UserID~"/>
+			<SubPatternBlock FirstRow="7" ID="Details" DisposableFirstRow="8" DisposableLastRow="8" LastRow="7" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="Sdl">
+					<DataLayer Type="SP" Command="[sp_rptUniBUS_MONTHLY]" ID="GetDetails" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+						<SPParameters IdeDisplayStatus="Collapsed">
+							<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+							<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter ID="Header" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="DETAIL"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Vender" ID="GrpVender" ParentColumn="Vender"/>
+					<SubDataLayerRelationColumn ChildColumn="OCP_ID_TMS" ID="GrpTms" ParentColumn="OCP_ID_TMS"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="NRIC" Value="@Data.NRIC~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Staff_Name" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="Date_Join" Value="@Data.Join_Date~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="Staff_No" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="D01" Value="@Data.W_DAY01~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="D02" Value="@Data.W_DAY02~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="D03" Value="@Data.W_DAY03~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="D04" Value="@Data.W_DAY04~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="D05" Value="@Data.W_DAY05~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="D06" Value="@Data.W_DAY06~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="D07" Value="@Data.W_DAY07~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="D08" Value="@Data.W_DAY08~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="D09" Value="@Data.W_DAY09~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="D10" Value="@Data.W_DAY10~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="D11" Value="@Data.W_DAY11~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="D12" Value="@Data.W_DAY12~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="D13" Value="@Data.W_DAY13~"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="D14" Value="@Data.W_DAY14~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="D15" Value="@Data.W_DAY15~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="D16" Value="@Data.W_DAY16~"/>
+				<PatternBlockCell Column="V" PatternBlockRow="1" ID="D17" Value="@Data.W_DAY17~"/>
+				<PatternBlockCell Column="W" PatternBlockRow="1" ID="D18" Value="@Data.W_DAY18~"/>
+				<PatternBlockCell Column="X" PatternBlockRow="1" ID="D19" Value="@Data.W_DAY19~"/>
+				<PatternBlockCell Column="Y" PatternBlockRow="1" ID="D20" Value="@Data.W_DAY20~"/>
+				<PatternBlockCell Column="Z" PatternBlockRow="1" ID="D21" Value="@Data.W_DAY21~"/>
+				<PatternBlockCell Column="AA" PatternBlockRow="1" ID="D22" Value="@Data.W_DAY22~"/>
+				<PatternBlockCell Column="AB" PatternBlockRow="1" ID="D23" Value="@Data.W_DAY23~"/>
+				<PatternBlockCell Column="AC" PatternBlockRow="1" ID="D24" Value="@Data.W_DAY24~"/>
+				<PatternBlockCell Column="AD" PatternBlockRow="1" ID="D25" Value="@Data.W_DAY25~"/>
+				<PatternBlockCell Column="AE" PatternBlockRow="1" ID="D26" Value="@Data.W_DAY26~"/>
+				<PatternBlockCell Column="AF" PatternBlockRow="1" ID="D27" Value="@Data.W_DAY27~"/>
+				<PatternBlockCell Column="AG" PatternBlockRow="1" ID="D28" Value="@Data.W_DAY28~"/>
+				<PatternBlockCell Column="AH" PatternBlockRow="1" ID="D29" Value="@Data.W_DAY29~"/>
+				<PatternBlockCell Column="AI" PatternBlockRow="1" ID="D30" Value="@Data.W_DAY30~"/>
+				<PatternBlockCell Column="AJ" PatternBlockRow="1" ID="D31" Value="@Data.W_DAY31~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="asdas" Option_Pay_Cycle="dasd" Month="dasd" Year="dasd" User_Profile_Code="dasda"/>
+</Template>

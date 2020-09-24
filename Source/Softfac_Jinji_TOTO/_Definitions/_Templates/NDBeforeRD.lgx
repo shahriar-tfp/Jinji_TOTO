@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="NDBeforeRD" SavedBy="Tester" SavedAt="3/16/2012 3:42:07 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="NormalDayBefore.xlt" ID="NDBeforeRD" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="NDBeforeRD" FirstRow="1" LastRow="65536" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="4" LastRow="4" ID="details" DisposableFirstRow="5" DisposableLastRow="5">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_getNDBeforeRD" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="CompanyProfileCode" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Employee_Profile_ID" Column="A" PatternBlockRow="1" Value="@Data.Employee_Profile_ID~"/>
+				<PatternBlockCell ID="Date" Value="@Data.Date~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="TMS" Value="@Data.TMS~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="SHIFT" Column="D" PatternBlockRow="1" Value="@Data.SHIFT~"/>
+				<PatternBlockCell ID="DayType" Value="@Data.DayType~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Time_In" Value="@Data.Time_In~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Time_Out" Value="@Data.Time_Out~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="BOT" Value="@Data.BOT~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AOT" Value="@Data.AOT~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell Column="J" ID="FixOT" PatternBlockRow="1" Value="@Data.FixOT~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

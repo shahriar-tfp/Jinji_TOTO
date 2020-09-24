@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovEPF" SavedBy="Tester" SavedAt="2/29/2012 2:21:07 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovEPF.pdf" ID="pr_GovEPF" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Amount_Caruman" Name="txt_Amount_Caruman" Format="###,###,##0.00" Value="@Data.Amount_Total~"/>
+		<PdfFormField ID="txt_Basic_Salary" Name="txt_Basic_Salary" Value="@Data.Basic_Salary~"/>
+		<PdfFormField ID="txt_Date_Print" Name="txt_Date_Print" Value="@Data.Current_Date~"/>
+		<PdfFormField ID="txt_Emp_EPF_Amount" Name="txt_Emp_EPF_Amount" Value="@Data.EPF_Employee~"/>
+		<PdfFormField ID="txt_Emp_EPF_Total_Amount" Name="txt_Emp_EPF_Total_Amount" Value="@Data.Page_Total_Employee~"/>
+		<PdfFormField ID="txt_Emp_EPF_Next_Total_Amount" Name="txt_EMP_EPF_Next_Total_Amount" Value="@Data.Next_Page_Total_Employee~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.EMP_Name~" Format="Fixed"/>
+		<PdfFormField ID="txt_EPF_No" Name="txt_EPF_No" Value="@Data.EMP_EPF_NO~"/>
+		<PdfFormField ID="txt_IC_No" Name="txt_IC_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Month_Caruman" Name="txt_Month_Caruman" Value="@Data.Month_Caruman~"/>
+		<PdfFormField ID="txt_No_Organ_Reference" Name="txt_No_Organ_Reference" Value="@Data.COMPANY_EPF_NO~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.Lot~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.Street~"/>
+		<PdfFormField ID="txt_Organ_EPF_Amount" Name="txt_Organ_EPF_Amount" Value="@Data.EPF_Employer~"/>
+		<PdfFormField ID="txt_Organ_EPF_Total_Amount" Name="txt_Organ_EPF_Total_Amount" Value="@Data.Page_Total_Employer~"/>
+		<PdfFormField ID="txt_Organ_EPF_Next_Total_Amount" Name="txt_Organ_EPF_Next_Total_Amount" Value="@Data.Next_Page_Total_Employer~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.COMPANY_Name~"/>
+		<PdfFormField ID="txt_Organ_PostCode_City" Name="txt_Organ_PostCode_City" Value="@Data.Company_Postal_City~"/>
+		<PdfFormField ID="txt_Organ_State_Country" Name="txt_Organ_State_Country" Value="@Data.Company_State_Country~"/>
+		<PdfFormField ID="txt_Page_No" Name="txt_Page_No" Value="@Data.Page_No~"/>
+		<PdfFormField ID="txt_PIC_Date_Apply" Name="txt_PIC_Date_Apply"/>
+		<PdfFormField ID="txt_PIC_Email" Name="txt_PIC_Email"/>
+		<PdfFormField ID="txt_PIC_IC_No" Name="txt_PIC_IC_No" Value="@Request.PICNRIC~"/>
+		<PdfFormField ID="txt_PIC_Job_Title" Name="txt_PIC_Job_Title" Value="@Request.PICPosition~"/>
+		<PdfFormField ID="txt_PIC_Name" Name="txt_PIC_Name" Value="@Request.PICName~"/>
+		<PdfFormField ID="txt_PIC_Phone_no" Name="txt_PIC_Phone_no" Value="@Request.PICTelNo~"/>
+		<PdfFormField ID="txt_Sum_Emp" Name="txt_Sum_Emp" Value="@Data.EmpCount~"/>
+		<PdfFormField ID="txt_Grand_Total" Name="txt_Grand_Total" Value="@Data.Grand_Total~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Number_Row" Name="txt_Number_Row" Value="@Data.RowNumber~"/>
+		<PdfFormField ID="txt_Cek_No" Name="txt_Cek_No" Value="@Request.Cheque~"/>
+		<DataLayer Type="SP" Command="sp_pr_InsDelTempEPFBorang8" ID="CallEPF" ConnectionID="HCRMConnection">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+				<SPParameter SPParamDirection="Input" ID="Page" SPParamSize="0" SPParamType="dt-200" Value="@Request.Page~"/>
+			</SPParameters>
+			<SequenceColumn ID="Number"/>
+			<AggregateColumn AggregateColumn="Emp_Name" AggregateFunction="COUNT" ID="Sum_Emp" DataType="Number"/>
+			<GroupFilter GroupColumn="Company_Name,Lot,Street,Company_Postal_City,Company_State_Country,COMPANY_EPF_NO,Page_Total_Employee,Page_Total_Employer,Next_Page_Total_Employee,Next_Page_Total_Employer,Page_No,Amount_Total" DataType="Text" Hierarchical="True" ID="GroupBy" KeepGroupedRows="True"/>
+			<CalculatedColumn Formula="@Data.Page_Total_Employee~ + @Data.Page_Total_Employer~" ID="Grand_Total"/>
+			<SortFilter ID="Sortby" SortSequence="Ascending" SortColumn="Page_No" DataType="Number"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams Regisno="SoftFac" Month="07" Year="2007" SPID="50" Type="ADD" PayType="MONTHLY" Userid="HRSA" OrganID="JAVA" month="1" year="2008" spid="50" type="ADD" paytype="MONTHLY" userid="hrsa" userID="hrsa" Location="PENINSULA" Module="REPORTS"/>
+</Template>

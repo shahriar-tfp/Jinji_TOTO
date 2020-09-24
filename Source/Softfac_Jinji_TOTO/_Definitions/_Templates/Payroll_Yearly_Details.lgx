@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_Yearly_Details" SavedBy="Tester" SavedAt="8/26/2015 3:09:21 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Payroll_Yearly_Details.xlt" ID="Payroll_Yearly_Details" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_Retro" FirstRow="1" LastRow="21">
+			<DataLayer Type="SP" Command="SP_PR_RPTPAYROLLANALYSIS" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="seltype" SPParamSize="0" SPParamType="dt-200" Value="@Request.seltype~"/>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="sql_processid" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Year" Value="Employee : @Data.EmpBadgeName~        Year : @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="3" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="SP_PR_RPTPAYROLLANALYSIS" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="seltype" SPParamSize="0" SPParamType="dt-200" Value="@Request.seltype~"/>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="sql_processid" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Badge" ChildColumn="EmpBadgeName" ParentColumn="EmpBadgeName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Salary" Value="@Data.CodeName~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JanA" Value="@Data.mth1~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="FebA" Value="@Data.mth2~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MarA" Value="@Data.mth3~" Column="D" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AprA" Value="@Data.mth4~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MayA" Value="@Data.mth5~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JunA" Value="@Data.mth6~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JulyA" Value="@Data.mth7~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AugA" Value="@Data.mth8~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SepA" Value="@Data.mth9~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OctA" Value="@Data.mth10~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="NovA" Value="@Data.mth11~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DecA" Value="@Data.mth12~" Column="M" PatternBlockRow="1"/>
+			</SubPatternBlock>
+			<SubPatternBlock FirstRow="9" LastRow="9" ID="details2" DisposableFirstRow="10" DisposableLastRow="10" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="details2">
+					<DataLayer Type="SP" Command="SP_PR_RPTPAYROLLANALYSIS" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="seltype" SPParamSize="0" SPParamType="dt-200" Value="@Request.seltype~"/>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="sql_processid" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Badge" ChildColumn="EmpBadgeName" ParentColumn="EmpBadgeName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Salary" Value="@Data.CodeName~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JanA" Value="@Data.mth1~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="FebA" Value="@Data.mth2~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MarA" Value="@Data.mth3~" Column="D" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AprA" Value="@Data.mth4~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MayA" Value="@Data.mth5~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JunA" Value="@Data.mth6~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JulyA" Value="@Data.mth7~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AugA" Value="@Data.mth8~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SepA" Value="@Data.mth9~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OctA" Value="@Data.mth10~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="NovA" Value="@Data.mth11~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DecA" Value="@Data.mth12~" Column="M" PatternBlockRow="1"/>
+			</SubPatternBlock>
+			<SubPatternBlock FirstRow="16" LastRow="16" ID="details3" DisposableFirstRow="17" DisposableLastRow="17" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="details3">
+					<DataLayer Type="SP" Command="SP_PR_RPTPAYROLLANALYSIS" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="seltype" SPParamSize="0" SPParamType="dt-200" Value="@Request.seltype~"/>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="sql_processid" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS3"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Badge" ChildColumn="EmpBadgeName" ParentColumn="EmpBadgeName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Salary" Value="@Data.CodeName~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JanA" Value="@Data.er_mth1~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="FebA" Value="@Data.er_mth2~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MarA" Value="@Data.er_mth3~" Column="D" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AprA" Value="@Data.er_mth4~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MayA" Value="@Data.er_mth5~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JunA" Value="@Data.er_mth6~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JulyA" Value="@Data.er_mth7~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AugA" Value="@Data.er_mth8~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SepA" Value="@Data.er_mth9~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OctA" Value="@Data.er_mth10~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="NovA" Value="@Data.er_mth11~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DecA" Value="@Data.er_mth12~" Column="M" PatternBlockRow="1"/>
+			</SubPatternBlock>
+			<SubPatternBlock FirstRow="21" LastRow="21" ID="details4" DisposableFirstRow="22" DisposableLastRow="22" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="details4">
+					<DataLayer Type="SP" Command="SP_PR_RPTPAYROLLANALYSIS" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="seltype" SPParamSize="0" SPParamType="dt-200" Value="@Request.seltype~"/>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="sql_processid" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS4"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Badge" ChildColumn="EmpBadgeName" ParentColumn="EmpBadgeName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Salary" Value="@Data.CodeName~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JanA" Value="@Data.er_mth1~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="FebA" Value="@Data.er_mth2~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MarA" Value="@Data.er_mth3~" Column="D" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AprA" Value="@Data.er_mth4~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MayA" Value="@Data.er_mth5~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JunA" Value="@Data.er_mth6~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JulyA" Value="@Data.er_mth7~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AugA" Value="@Data.er_mth8~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SepA" Value="@Data.er_mth9~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OctA" Value="@Data.er_mth10~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="NovA" Value="@Data.er_mth11~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DecA" Value="@Data.er_mth12~" Column="M" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

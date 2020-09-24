@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Invoices" SavedBy="TFP-HR01" SavedAt="8/28/2009 5:10:06 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Invoices.xlt" ID="etInvoice" ExcelTemplateMode="OneTemplatePerDataRow">
+		<PatternBlock FirstRow="8" LastRow="16" ID="pbCustomers">
+			<DataLayer Type="SQL" Source="SELECT 
+	ContactName, 
+	CompanyName, 
+	CustomerID, 
+	Address, 
+	City, 
+	Region, 
+	PostalCode, 
+	Country 
+FROM 
+	Customers  
+WHERE  
+	(Country = {*apos;*}USA{*apos;*})" ID="dlCustomers"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="pbcContactName" Value="@Data.ContactName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="2" ID="pbcCompanyName" Value="@Data.CompanyName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="3" ID="pbcAddress" Value="@Data.Address~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="4" ID="pbcRegion" Value="@Data.City~, @Data.Region~  @Data.PostalCode~"/>
+			<SubPatternBlock FirstRow="8" LastRow="8" DisposableFirstRow="9" DisposableLastRow="9" ID="spbOrders">
+				<SubDataLayer ID="sdlOrders">
+					<DataLayer Type="SQL" ID="dlOrders" Source="SELECT 
+	OrderID, 
+	OrderDate, 
+	CustomerID, 
+	ProductName, 
+	UnitPrice, 
+	Quantity 
+FROM 
+	Invoices"/>
+					<SubDataLayerRelationColumn ID="relCustomerID" ChildColumn="CustomerID" ParentColumn="CustomerID"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="pbcOrderID" Value="@Data.OrderID~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="pbcOrderDate" Value="@Data.OrderDate~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="pbcProductName" Value="@Data.ProductName~" AdjustColumnWidth="True"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="pbcUnitPrice" Value="@Data.UnitPrice~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="pbcQuantity" Value="@Data.Quantity~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

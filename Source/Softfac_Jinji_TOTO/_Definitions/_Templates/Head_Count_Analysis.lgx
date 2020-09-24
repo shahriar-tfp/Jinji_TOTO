@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Head_Count_Analysis" SavedBy="Tester" SavedAt="2/1/2012 3:04:25 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="Head_Count_Analysis.pdf" ID="Head_Count_Analysis" PdfFormMode="OneFormPerDataRow">
+		<DataLayer Type="SP" Command="sp_is_RptHeadCountAnalysis" ID="CallSP" ConnectionID="HCRMConnection">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+			</SPParameters>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="monthemployee1" ID="SUM_monthemployee1" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="monthpayroll1" ID="SUM_monthpayroll1" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="monthemployee2" ID="SUM_monthemployee2" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="monthpayroll2" ID="SUM_monthpayroll2" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="newemployee" ID="SUM_newemployee" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="newpayroll" ID="SUM_newpayroll" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="monthemployee" ID="SUM_monthemployee" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="monthpayroll" ID="SUM_monthpayroll" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="resignemployee" ID="SUM_resignemployee" DataType="Number"/>
+			<AggregateColumn AggregateFunction="SUM" AggregateColumn="resignpayroll" ID="SUM_resignpayroll" DataType="Number"/>
+			<GroupFilter ID="Groupby" Hierarchical="True" KeepGroupedRows="True" DataType="Text" GroupColumn="regisno,organname,year,month,year1,month1,year2,month2"/>
+		</DataLayer>
+		<PdfFormField ID="txt_1Month_Grand_Total_Emp" Name="txt_1Month_Grand_Total_Emp" Value="@Data.SUM_monthemployee1~"/>
+		<PdfFormField ID="txt_1Month_Grand_Total_Payroll" Name="txt_1Month_Grand_Total_Payroll" Value="@Data.SUM_monthpayroll1~"/>
+		<PdfFormField ID="txt_1Month_Total_Emp" Name="txt_1Month_Total_Emp" Value="@Data.monthemployee1~"/>
+		<PdfFormField ID="txt_1Month_Total_Payroll" Name="txt_1Month_Total_Payroll" Value="@Data.monthpayroll1~"/>
+		<PdfFormField ID="txt_2Month_Grand_Total_Emp" Name="txt_2Month_Grand_Total_Emp" Value="@Data.SUM_monthemployee2~"/>
+		<PdfFormField ID="txt_2Month_Grand_Total_Payroll" Name="txt_2Month_Grand_Total_Payroll" Value="@Data.SUM_monthpayroll2~"/>
+		<PdfFormField ID="txt_2Month_Total_Emp" Name="txt_2Month_Total_Emp" Value="@Data.monthemployee2~"/>
+		<PdfFormField ID="txt_2Month_Total_Payroll" Name="txt_2Month_Total_Payroll" Value="@Data.monthpayroll2~"/>
+		<PdfFormField ID="txt_Company_Name" Name="txt_Company_Name" Value="@Data.organname~"/>
+		<PdfFormField ID="txt_Group_By" Name="txt_Group_By" Value="@Data.jobgrade~"/>
+		<PdfFormField ID="txt_New_Grand_Total_Emp" Name="txt_New_Grand_Total_Emp" Value="@Data.SUM_newemployee~"/>
+		<PdfFormField ID="txt_New_Grand_Total_Payroll" Name="txt_New_Grand_Total_Payroll" Value="@Data.SUM_newpayroll~"/>
+		<PdfFormField ID="txt_New_Total_Emp" Name="txt_New_Total_Emp" Value="@Data.newemployee~"/>
+		<PdfFormField ID="txt_New_Total_Payroll" Name="txt_New_Total_Payroll" Value="@Data.newpayroll~"/>
+		<PdfFormField ID="txt_Now_Grand_Total_Emp" Name="txt_Now_Grand_Total_Emp" Value="@Data.SUM_monthemployee~"/>
+		<PdfFormField ID="txt_Now_Grand_Total_Payroll" Name="txt_Now_Grand_Total_Payroll" Value="@Data.SUM_monthpayroll~"/>
+		<PdfFormField ID="txt_Now_Total_Emp" Name="txt_Now_Total_Emp" Value="@Data.monthemployee~"/>
+		<PdfFormField ID="txt_Now_Total_Payroll" Name="txt_Now_Total_Payroll" Value="@Data.monthpayroll~"/>
+		<PdfFormField ID="txt_Prepay_by" Name="txt_Prepay_by"/>
+		<PdfFormField ID="txt_Prepay_Date" Name="txt_Prepay_Date"/>
+		<PdfFormField ID="txt_Resign_Grand_Total_Emp" Name="txt_Resign_Grand_Total_Emp" Value="@Data.SUM_resignemployee~"/>
+		<PdfFormField ID="txt_Resign_Grand_Total_Payroll" Name="txt_Resign_Grand_Total_Payroll" Value="@Data.SUM_resignpayroll~"/>
+		<PdfFormField ID="txt_Resign_Total_Emp" Name="txt_Resign_Total_Emp" Value="@Data.resignemployee~"/>
+		<PdfFormField ID="txt_Resign_Total_Payroll" Name="txt_Resign_Total_Payroll" Value="@Data.resignpayroll~"/>
+	</PdfForm>
+	<ideTestParams OrganID="JAVA" month="1" year="2008"/>
+</Template>

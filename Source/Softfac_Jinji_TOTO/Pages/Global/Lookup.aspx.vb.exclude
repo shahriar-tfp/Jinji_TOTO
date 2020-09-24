@@ -1,0 +1,234 @@
+Imports System
+Imports System.Data
+
+Partial Class Pages_Global_Lookup
+    Inherits System.Web.UI.Page
+
+    Private WithEvents mySQL As New clsSQL
+    Private myDS As New DataSet, tmpDS As New DataSet, htb As New Hashtable, htbValue As New Hashtable, de As DictionaryEntry
+    Dim ssql As String, i As Integer, j As Integer
+    Dim strOriginalColour As String = "'#FFFFFF'"
+
+    Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If Session.IsNewSession Then
+            SelfClose()
+        End If
+        If Not Page.IsPostBack Then
+            BindData()
+        End If
+    End Sub
+    Private Sub SelfClose()
+        Dim strFormName As String = "", strControlName As String = ""
+        Dim posSplit As Integer = Request.QueryString("formname").ToString.IndexOf(".")
+        Dim strjscript As String = "<script language=""javascript"">"
+
+        strFormName = Left(Request.QueryString("formname").ToString, posSplit)
+        Dim strScript As String = ""
+
+        strScript = "<script language=" & """javascript" & """>" & _
+                    "self.close();window.opener.location='SessionTimeOut.aspx';" & _
+                    ";</" & "script>"
+        Page.ClientScript.RegisterStartupScript(GetType(Page), "ClosePage", strScript)
+    End Sub
+    Sub BindData()
+        Dim IsEmp As Boolean = False
+        If Mid(Request.QueryString(0).ToString.ToUpper, Request.QueryString(0).ToString.IndexOf(".") + 5, Len(Request.QueryString(0).ToString)) = "EMPLOYEE_PROFILE_ID" Then
+            myDS = New DataSet
+            myDS = mySQL.ExecuteSQL("Select dbo.fn_IsEmployee('" & Session("Company").ToString & "','" & Session("EmpID").ToString & "')")
+            If Not myDS Is Nothing Then
+                If myDS.Tables(0).Rows(0).Item(0).ToString = "TRUE" Then
+                    IsEmp = True
+                Else
+                    IsEmp = False
+                End If
+            End If
+            myDS = Nothing
+            myDS = New DataSet
+        End If
+
+        myDS = mySQL.ExecuteSQL(Request.QueryString("query").ToString.Replace("""", "'"), Session("Company").ToString, Session("EmpID").ToString)
+        If Not myDS Is Nothing Then
+            If myDS.Tables(0).Rows.Count > 0 Then
+                If IsEmp = True Then
+                    Dim tmpDS As New DataTable, tmpDR As DataRow
+
+                    tmpDS.Columns.Add(myDS.Tables(0).Columns(0).ToString)
+                    tmpDS.Columns.Add(myDS.Tables(0).Columns(1).ToString)
+                    tmpDS.Columns.Add(myDS.Tables(0).Columns(2).ToString)
+                    For i As Integer = 0 To myDS.Tables(0).Rows.Count - 1
+                        If myDS.Tables(0).Rows(i).Item(1).ToString.ToUpper = Session("EmpID").ToString.ToUpper Then
+                            tmpDR = tmpDS.NewRow
+                            tmpDR.Item(0) = myDS.Tables(0).Rows(i).Item(0).ToString
+                            tmpDR.Item(1) = myDS.Tables(0).Rows(i).Item(1).ToString
+                            tmpDR.Item(2) = myDS.Tables(0).Rows(i).Item(2).ToString
+                            tmpDS.Rows.Add(tmpDR)
+                        End If
+                    Next
+                    grdLookup.DataSource = tmpDS.DefaultView
+                    grdLookup.DataBind()
+                Else
+                    grdLookup.DataSource = myDS
+                    grdLookup.DataBind()
+                End If
+            End If
+        End If
+        myDS = Nothing
+    End Sub
+
+    Protected Sub grdLookup_PageIndexChanging(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewPageEventArgs) Handles grdLookup.PageIndexChanging
+
+        grdLookup.PageIndex = e.NewPageIndex
+        BindData()
+
+    End Sub
+
+    Protected Sub grdLookup_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles grdLookup.RowDataBound
+
+        If e.Row.RowType = ListItemType.Item Or e.Row.RowType = ListItemType.AlternatingItem Then
+
+            If e.Row.RowType = ListItemType.AlternatingItem Then
+                strOriginalColour = "'#F2F4FF'"
+            End If
+
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='pink'; this.style.cursor='hand'")
+            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=" & strOriginalColour)
+
+            e.Row.Attributes.Add("onClick", "return mainValues();")
+            Dim button As LinkButton = CType(e.Row.Cells(0).Controls(0), LinkButton)
+            e.Row.Attributes("onclick") = Page.ClientScript.GetPostBackClientHyperlink(button, "")
+        End If
+
+    End Sub
+
+    Protected Sub grdLookup_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdLookup.SelectedIndexChanged
+        Dim CodeName As String, Code As String, Name As String
+        Code = Replace(grdLookup.SelectedRow.Cells(2).Text, "&amp;", "&")
+        Name = Replace(grdLookup.SelectedRow.Cells(3).Text, "&amp;", "&")
+        CodeName = Code & " [" & Name & "]"
+        
+        Dim strFormName As String = "", strControlName As String = ""
+        Dim posSplit As Integer = Request.QueryString("formname").ToString.IndexOf(".")
+        Dim strjscript As String = "<script language=""javascript"">"
+
+        strFormName = Left(Request.QueryString("formname").ToString, posSplit)
+        strControlName = Right(Request.QueryString("formname").ToString, Len(Request.QueryString("formname").ToString) - (posSplit + 4))
+        GetOptionDataType(strFormName)
+        Select Case Request.QueryString("selectedcolumn")
+            Case "Code"
+                ssql = "Exec sp_sa_GetAutoFillData N'" & Replace(Session("Company").ToString, "'", "''") & "',N'" & _
+                                Replace(Session("Module").ToString, "'", "''") & "',N'" & Replace(Code, "'", "''") & "',N'" & Replace(strFormName, "'", "''") & "',N'" & Replace(strControlName, "'", "''") & "',N'AUTOFILL',N'" & _
+                                Request.QueryString("filter").ToString & "',N'" & Request.QueryString("filter2").ToString & "',N'" & Request.QueryString("filter3").ToString & "'"
+            Case "CodeName"
+                ssql = "Exec sp_sa_GetAutoFillData N'" & Replace(Session("Company").ToString, "'", "''") & "',N'" & _
+                                Replace(Session("Module").ToString, "'", "''") & "',N'" & Replace(CodeName, "'", "''") & "',N'" & Replace(strFormName, "'", "''") & "',N'" & Replace(strControlName, "'", "''") & "',N'AUTOFILL',N'" & _
+                                Request.QueryString("filter").ToString & "',N'" & Request.QueryString("filter2").ToString & "',N'" & Request.QueryString("filter3").ToString & "'"
+            Case "Name"
+                ssql = "Exec sp_sa_GetAutoFillData N'" & Replace(Session("Company").ToString, "'", "''") & "',N'" & _
+                                Replace(Session("Module").ToString, "'", "''") & "',N'" & Replace(Name, "'", "''") & "',N'" & Replace(strFormName, "'", "''") & "',N'" & Replace(strControlName, "'", "''") & "',N'AUTOFILL',N'" & _
+                                Request.QueryString("filter").ToString & "',N'" & Request.QueryString("filter2").ToString & "',N'" & Request.QueryString("filter3").ToString & "'"
+        End Select
+        myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+        If Not myDS Is Nothing Then
+            If myDS.Tables.Count > 0 Then
+                If myDS.Tables(0).Rows.Count > 0 Then
+                    strjscript = strjscript & "window.opener." & Request.QueryString("formname") & ".value = " & """" & CodeName & """" & ";"
+                    For i = 0 To myDS.Tables(0).Columns.Count - 1
+                        strjscript = strjscript & "window.opener." & strFormName & _
+                                ReturnControlName(myDS.Tables(0).Columns(i).ColumnName.ToString.ToUpper) & _
+                                ReturnValue(myDS.Tables(0).Columns(i).ColumnName.ToString.ToUpper) & _
+                                myDS.Tables(0).Rows(0).Item(i).ToString & "';"
+                    Next
+                    strjscript = strjscript & "self.close();" & "window.opener." & strFormName & ".submit();"
+                    strjscript = strjscript & "<" & "/script>"
+                    strjscript = Replace(strjscript, "&amp;", "&")
+                    strjscript = Replace(strjscript, "&nbsp;", "&")
+                Else
+                    Select Case Request.QueryString("selectedcolumn")
+                        Case "CodeName"
+                            strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & CodeName & """" & ";"
+                        Case "Code"
+                            strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & Code & """" & ";"
+                        Case "Name"
+                            strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & Name & """" & ";"
+                    End Select
+                    strjscript = strjscript & "self.close();" & "window.opener." & strFormName & ".submit();"
+                    strjscript = strjscript & "<" & "/script>"
+                    strjscript = Replace(strjscript, "&amp;", "&")
+                    strjscript = Replace(strjscript, "&nbsp;", "&")
+                End If
+            Else
+                Select Case Request.QueryString("selectedcolumn")
+                    Case "CodeName"
+                        strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & CodeName & """" & ";"
+                    Case "Code"
+                        strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & Code & """" & ";"
+                    Case "Name"
+                        strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & Name & """" & ";"
+                End Select
+                strjscript = strjscript & "self.close();" & "window.opener." & strFormName & ".submit();"
+                strjscript = strjscript & "<" & "/script>"
+                strjscript = Replace(strjscript, "&amp;", "&")
+                strjscript = Replace(strjscript, "&nbsp;", "&")
+            End If
+        Else
+            Select Case Request.QueryString("selectedcolumn")
+                Case "CodeName"
+                    strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & CodeName & """" & ";"
+                Case "Code"
+                    strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & Code & """" & ";"
+                Case "Name"
+                    strjscript = strjscript & "window.opener." & HttpContext.Current.Request.QueryString("formname") & ".value = " & """" & Name & """" & ";"
+            End Select
+            strjscript = strjscript & "self.close();" & "window.opener." & strFormName & ".submit();"
+            strjscript = strjscript & "<" & "/script>"
+            strjscript = Replace(strjscript, "&amp;", "&")
+            strjscript = Replace(strjscript, "&nbsp;", "&")
+        End If
+        ltrValue.Text = strjscript
+
+    End Sub
+    Private Sub GetOptionDataType(ByVal TableProfileCode As String)
+        tmpDS = New DataSet
+        tmpDS = mySQL.ExecuteSQL("Select Code,Name,Option_Data_Type From Table_Field Where Table_Profile_Code='" & TableProfileCode & "' Order By Sequence_No", Session("Company").ToString, Session("EmpID").ToString)
+        htb = New Hashtable
+        htbValue = New Hashtable
+        For j = 0 To tmpDS.Tables(0).Rows.Count - 1
+            Select Case tmpDS.Tables(0).Rows(i).Item(1).ToString
+                Case "OPTION"
+                    htb.Add(tmpDS.Tables(0).Rows(j).Item(0).ToString.ToUpper, ".ddl" & tmpDS.Tables(0).Rows(j).Item(0).ToString)
+                    htbValue.Add(tmpDS.Tables(0).Rows(j).Item(0).ToString.ToUpper, ".selectedvalue = '")
+                Case Else
+                    htb.Add(tmpDS.Tables(0).Rows(j).Item(0).ToString.ToUpper, ".txt" & tmpDS.Tables(0).Rows(j).Item(0).ToString)
+                    htbValue.Add(tmpDS.Tables(0).Rows(j).Item(0).ToString.ToUpper, ".value = '")
+            End Select
+        Next
+        'htb = Nothing
+        'htbValue = Nothing
+        tmpDS = Nothing
+    End Sub
+    Private Function ReturnControlName(ByVal TableFieldCode As String) As String
+        Dim strOutput As String = ""
+        de = New DictionaryEntry
+        For Each de In htb
+            If de.Key = TableFieldCode Then
+                strOutput = de.Value
+                Exit For
+            End If
+        Next
+        de = Nothing
+        Return strOutput
+    End Function
+    Private Function ReturnValue(ByVal TableFieldCode As String) As String
+        Dim strOutput As String = ""
+        de = New DictionaryEntry
+        For Each de In htbValue
+            If de.Key = TableFieldCode Then
+                strOutput = de.Value
+                Exit For
+            End If
+        Next
+        de = Nothing
+        Return strOutput
+    End Function
+End Class

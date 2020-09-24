@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_CP22A" SavedBy="Tester" SavedAt="2/1/2012 3:05:45 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_CP22A.pdf" ID="pr_CP22A" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Emp_Address_1" Name="txt_Emp_Address_1" Value="@Data.psaddr1~"/>
+		<PdfFormField ID="txt_Emp_Address_2" Name="txt_Emp_Address_2" Value="@Data.psaddr2~"/>
+		<PdfFormField ID="txt_Emp_Amount_1" Name="txt_Emp_Amount_1" Value="@Data.a~"/>
+		<PdfFormField ID="txt_Emp_Amount_10" Name="txt_Emp_Amount_10" Value="@Data.j~"/>
+		<PdfFormField ID="txt_Emp_Amount_2" Name="txt_Emp_Amount_2" Value="@Data.b~"/>
+		<PdfFormField ID="txt_Emp_Amount_3" Name="txt_Emp_Amount_3" Value="@Data.c~"/>
+		<PdfFormField ID="txt_Emp_Amount_4" Name="txt_Emp_Amount_4" Value="@Data.d~"/>
+		<PdfFormField ID="txt_Emp_Amount_5" Name="txt_Emp_Amount_5" Value="@Data.e~"/>
+		<PdfFormField ID="txt_Emp_Amount_6" Name="txt_Emp_Amount_6" Value="@Data.f~"/>
+		<PdfFormField ID="txt_Emp_Amount_7" Name="txt_Emp_Amount_7" Value="@Data.g~"/>
+		<PdfFormField ID="txt_Emp_Amount_8" Name="txt_Emp_Amount_8" Value="@Data.h~"/>
+		<PdfFormField ID="txt_Emp_Amount_9" Name="txt_Emp_Amount_9" Value="@Data.i~"/>
+		<PdfFormField ID="txt_Emp_City" Name="txt_Emp_City" Value="@Data.pscity~"/>
+		<PdfFormField ID="txt_Emp_Date_Join" Name="txt_Emp_Date_Join" Value="@Data.dtjoin~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth" Name="txt_Emp_Date_Of_Birth" Value="@Data.dob~"/>
+		<PdfFormField ID="txt_Emp_EPF_Amount" Name="txt_Emp_EPF_Amount" Value="@Data.epfee~"/>
+		<PdfFormField ID="txt_Emp_Husb_IC_No" Name="txt_Emp_Husb_IC_No" Value="@Data.husbnric~"/>
+		<PdfFormField ID="txt_Emp_Husb_Name" Name="txt_Emp_Husb_Name" Value="@Data.husbdnm~"/>
+		<PdfFormField ID="txt_Emp_Husb_PCB_No" Name="txt_Emp_Husb_PCB_No" Value="@Data.husbdpcbno~"/>
+		<PdfFormField ID="txt_Emp_IC_No" Name="txt_Emp_IC_No" Value="@Data.nric~"/>
+		<PdfFormField ID="txt_Emp_Job_Grade" Name="txt_Emp_Job_Grade" Value="@Data.natureemploy~"/>
+		<PdfFormField ID="txt_Emp_Marital_Status" Name="txt_Emp_Marital_Status" Value="@Data.maritalsts~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.empnm~"/>
+		<PdfFormField ID="txt_Emp_No_Of_Child" Name="txt_Emp_No_Of_Child" Value="@Data.childno~"/>
+		<PdfFormField ID="txt_Emp_PCB_Amount" Name="txt_Emp_PCB_Amount" Value="@Data.pcb~"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.emppcbno~"/>
+		<PdfFormField ID="txt_Emp_Post_Code" Name="txt_Emp_Post_Code" Value="@Data.pspostcd~"/>
+		<PdfFormField ID="txt_Emp_Resign_Date" Name="txt_Emp_Resign_Date" Value="@Data.dtresign~"/>
+		<PdfFormField ID="txt_Emp_State" Name="txt_Emp_State" Value="@Data.psstate~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.orgaddr1~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.orgaddr2~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.orgnm~"/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.orgpcbno~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.orgtel~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_RptCP22A" IdeDisplayStatus="Collapsed">
+			<SPParameters IdeDisplayStatus="Collapsed">
+				<SPParameter SPParamDirection="Input" ID="RegNo" SPParamSize="0" SPParamType="dt-200" Value="@Request.RegNo~"/>
+				<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200" Value="@Request.PIC~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.Year~"/>
+				<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SpID~"/>
+			</SPParameters>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams RegNo="JAVA" PIC="11" Year="2008" SpID="100"/>
+</Template>

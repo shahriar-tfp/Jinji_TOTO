@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Default.Government.EXCEL.PR_TabungHaji" SavedBy="ls.chew" SavedAt="9/27/2007 12:06:07 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ID="etPR_TabungHaji" ExcelTemplateMode="OneWorksheet" ExcelTemplateFilename="PR_TabungHaji.xlt"/>
+</Template>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_Attendance_Summary" SavedBy="Tester" SavedAt="8/10/2012 10:09:03 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AttSummaryAvg.xlt" ID="Roster_Attendance_Summary">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_tms_RptAttSummary" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_From" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date_From~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_To" Value="@Request.Date_To~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Division" Value="@Data.Division~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmpCode" Value="@Data.EmpCode~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Date" Value="@Data.Date~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Option_Type" Value="@Data.Option_Type~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Late_in" Value="@Data.Late_in~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="EmpCount" Value="@Data.EmpCount~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="EmpAvg" Value="@Data.EmpAvg~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="EmpAvg2" Value="@Data.EmpAvg2~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="DivAvg" Value="@Data.DivAvg~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="DeptAvg" Value="@Data.DeptAvg~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="Header" Value="@Data.Header~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="DeptHeadCount" Value="@Data.DeptHeadCount~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="Option_Status" Value="@Data.Option_Status~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

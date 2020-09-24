@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Category_Journal" SavedBy="Tester" SavedAt="2/27/2012 3:26:51 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Category_Journal.xlt" ID="Category_Journal">
+		<PatternBlock FirstRow="1" LastRow="3000" ID="Category_Journal" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="Details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details" IdeDisplayStatus="Collapsed">
+					<DataLayer Type="SP" Command="sp_pr_rptPayrollCategorySummary" ID="GetData" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Year" Value="@Data.Year~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Month" Value="'@Data.Month~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Division" Value="@Data.Division~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="Category" Value="@Data.Category~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="POSNO" Value="'@Data.POSNO~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="DESC" Value="@Data.DESC~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="P_AAM" Value="@Data.P_AAM~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="BASICSALARY" Value="@Data.BASICSALARY~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="TA" Value="@Data.TA~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="A2" Value="@Data.A2~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="IP" Value="@Data.IP~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="IL" Value="@Data.IL~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="AL" Value="@Data.AL~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="AM" Value="@Data.AM~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="AA" Value="@Data.AA~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="IF_R" Value="@Data.IF_R~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="SOCSOYER" Value="@Data.SOCSOYER~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="EPFYER" Value="@Data.EPFYER~"/>
+				<PatternBlockCell Column="V" PatternBlockRow="1" ID="P_LEVI" Value="@Data.P_LEVI~"/>
+				<PatternBlockCell Column="X" PatternBlockRow="1" ID="WHAMT" Value="@Data.WHAMT~"/>
+				<PatternBlockCell Column="Y" PatternBlockRow="1" ID="RDAMT" Value="@Data.RDAMT~"/>
+				<PatternBlockCell Column="AA" PatternBlockRow="1" ID="RHAMT" Value="@Data.RHAMT~"/>
+				<PatternBlockCell Column="AB" PatternBlockRow="1" ID="HDAMT" Value="@Data.HDAMT~"/>
+				<PatternBlockCell Column="AC" PatternBlockRow="1" ID="HHAMT" Value="@Data.HHAMT~"/>
+				<PatternBlockCell Column="AD" PatternBlockRow="1" ID="EMPNO" Value="@Data.EMPNO~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

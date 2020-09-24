@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovSIP" SavedBy="Tester" SavedAt="2/6/2018 8:41:32 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="pr_GovSIP.xlt" ID="SIP" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="18" ID="Header" Worksheet="FormatExcelCaruman">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_InsDelTempSIP" ID="CallSP">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+					<SPParameter SPParamDirection="Input" ID="Report" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+					<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+					<SPParameter ID="OCP_ID" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.OCP_ID~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="C" PatternBlockRow="8" ID="Comname" Value="@Data.CompanyName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="9" ID="SIPNo" Value="@Data.ComSipNo~"/>
+			<SubPatternBlock FirstRow="12" LastRow="12" DisposableFirstRow="13" DisposableLastRow="13" ID="Details">
+				<SubDataLayer ID="SDLRDetails">
+					<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_InsDelTempSIP" ID="CallSP">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+							<SPParameter SPParamDirection="Input" ID="Report" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+							<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+							<SPParameter ID="OCP_ID" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.OCP_ID~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="CompanyName" ParentColumn="CompanyName" ID="sdlrc"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Num" Value="@Data.Num~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="ComSipNo" Value="@Data.ComSipNo~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="IcNo" Value="@Data.IcNo~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="Caruman" Value="@Data.Caruman~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="Amount" Value="@Data.Amount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

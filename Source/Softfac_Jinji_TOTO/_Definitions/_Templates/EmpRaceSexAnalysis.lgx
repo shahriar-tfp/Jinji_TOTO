@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="EmpRaceSexAnalysis" SavedBy="Tester" SavedAt="11/4/2014 4:57:37 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="EmpRaceSexAnalysis.xlt" ExcelTemplateMode="OneWorksheet" ID="EmpRaceSexAnalysis">
+		<PatternBlock ID="Details" Worksheet="EmpRaceSexAnalysisData" FirstRow="2" LastRow="2" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="[sp_tms_EmpRaceSexAnalysis]">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="OptionRace" PatternBlockRow="1" Value="@Data.OptionRace~" Column="A"/>
+			<PatternBlockCell ID="OptionSex" Column="B" PatternBlockRow="1" Value="@Data.OptionSex~"/>
+			<PatternBlockCell ID="Category" Column="C" PatternBlockRow="1" Value="@Data.Category~"/>
+			<PatternBlockCell ID="CNT" Column="D" PatternBlockRow="1" Value="@Data.CNT~"/>
+			<PatternBlockCell ID="PrintDate" Column="E" PatternBlockRow="1" Value="@Data.PrintDate~"/>
+			<PatternBlockCell ID="Month" Column="F" PatternBlockRow="1" Value="@Data.Month~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

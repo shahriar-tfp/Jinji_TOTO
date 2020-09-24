@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_Check_RestOT" SavedBy="Tester" SavedAt="5/28/2012 4:29:56 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Check_RestOT.xlt" ID="Check_RestOT">
+		<PatternBlock FirstRow="3" LastRow="3" DisposableFirstRow="4" DisposableLastRow="4" Worksheet="DATA" ID="Data">
+			<DataLayer Type="SP" Command="sp_tms_chkRestOT" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters IdeDisplayStatus="Collapsed">
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Division" Value="@Data.Division~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Employee" Value="@Data.Employee~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Date" Value="@Data.Date~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Timein" Value="@Data.Timein~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Timeout" Value="@Data.Timeout~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="DayType" Value="@Data.Daytype~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="OT" Value="@Data.OT~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="APPOT" Value="@Data.ApprovedOT~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="PreDate" Value="@Data.PreDate~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="PreTimein" Value="@Data.PreTimein~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="PreTimeout" Value="@Data.PreTimeout~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="PreDaytype" Value="@Data.PreDaytype~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

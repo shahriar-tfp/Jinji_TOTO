@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_ShiftHeadCount" SavedBy="Tester" SavedAt="7/15/2014 5:28:02 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Payroll_ShiftHeadCount.xlt" ID="Payroll_ShiftHeadCount" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock ID="Payroll_ShiftHeadCount" FirstRow="2" LastRow="2" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_pr_RptShiftHeadCount" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="ShiftCode" Value="@Data.ShiftCode~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Date" Value="@Data.Date~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="ByType" Value="@Data.ByType~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="HCount" Value="@Data.HCount~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Month_text" Value="@Data.Month_text~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="ComName" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="PrintDate" Value="@Data.PrintDate~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

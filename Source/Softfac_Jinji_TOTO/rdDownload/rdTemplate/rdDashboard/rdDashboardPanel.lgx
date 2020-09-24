@@ -1,0 +1,49 @@
+<Rows ID="rdPanelID" Class="DashboardPanel" >
+	<Row>
+		<Column Width="rdWidth" WidthScale="px">
+			<Label Caption="rdCaption" Class="DashboardPanelCaption"/>
+			<Image Caption="rdTemplate/rdDashboard/PanelControl.GIF" ID="imgControl" Class="DashboardPanelButton" Tooltip="rdTooltip" AltText="rdTooltip">
+				<Action Type="Popup" ID="actPopupMenu_rdPanelID">
+					<PopupOption Caption="Collapse" ID="optCollapse_rdPanelID">
+						<Action Type="Link" ID="actCollapse_rdPanelID">
+							<Target Type="Link" Link="javascript:rdCollapsePanel('rdPanelID');"/>
+						</Action>
+					</PopupOption>
+					<PopupOption Caption="Expand" ID="optExpand_rdPanelID">
+						<Action Type="Link" ID="actExpand_rdPanelID">
+							<Target Type="Link" Link="javascript:rdExpandPanel('rdPanelID');"/>
+						</Action>
+					</PopupOption>
+					<PopupOption Caption="Move Up" ID="optMoveUp_rdPanelID">
+						<Action Type="Link" ID="actMoveUp_rdPanelID">
+							<Target Type="Link" Link="javascript:rdMovePanel('rdPanelID','U');"/>
+						</Action>
+					</PopupOption>
+					<PopupOption Caption="Move Down" ID="optMoveDown_rdPanelID">
+						<Action Type="Link" ID="actMoveUp_rdPanelID">
+							<Target Type="Link" Link="javascript:rdMovePanel('rdPanelID','D');"/>
+						</Action>
+					</PopupOption>
+					<PopupOption Caption="Move Left" ID="optMoveLeft_rdPanelID">
+						<Action Type="Link" ID="actMoveUp_rdPanelID">
+							<Target Type="Link" Link="javascript:rdMovePanel('rdPanelID','L');"/>
+						</Action>
+					</PopupOption>
+					<PopupOption Caption="Move Right" ID="optMoveRight_rdPanelID">
+						<Action Type="Link" ID="actMoveUp_rdPanelID">
+							<Target Type="Link" Link="javascript:rdMovePanel('rdPanelID','R');"/>
+						</Action>
+					</PopupOption>
+				</Action>
+			</Image>
+		</Column>
+	</Row>
+	<Row ID="DashboardPanelContent" Class="DashboardPanelContent">
+		<Column>
+			<IncludeFrame ID="rdFrameID" Scrolling="False" Width="rdWidth" WidthScale="px" FrameBorder="False">
+				rdTarget
+			</IncludeFrame>
+		</Column>
+	</Row>
+</Rows>
+			

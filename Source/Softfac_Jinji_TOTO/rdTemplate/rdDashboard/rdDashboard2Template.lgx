@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="Big5"?>
+<Report ID="Dashboard.rdDashboard2Template" SavedBy="dave" SavedAt="2/27/2007 11:19:34 AM" EngineVersion="8.0.0">
+	<StyleSheet StyleSheet="rdTemplate/rdDashboard/rdDashboard2.css"/>
+	<Body>
+		<Division ID="rdDashboardRoot" Class="rdDashboard">
+			<Label Class="rdDashboardHidden" ID="rdDashboardAdjustable" Caption="True"/>
+			<Rows Width="100" WidthScale="%" CellSpacing="0">
+				<Row ID="rdDashboardMenu">
+					<Column Class="rdDashboardMenu">
+						<Division ID="rdAddPanels">
+							<Label ID="lblAddPanels" Caption="Add Panels..." Class="rdDashboardCommand">
+								<Action Type="ShowElement" ElementID="rdDashboardList,rdDashboardPanels,rdShowPanels,rdAddPanels" ID="rdShowDashboardList"/>
+							</Label>
+						</Division>
+						<Division ID="rdShowPanels" ShowModes="None">
+							<Label ID="lblShowPanels" Caption="Show Panels" Class="rdDashboardCommand">
+								<Action Type="Link" ID="actionShowPanels">
+									<Target Type="Link" Link="javascript:
+rdSaveDashboardPanels();
+
+
+
+
+"/>
+								</Action>
+							</Label>
+						</Division>
+						<Spaces/>
+					</Column>
+				</Row>
+				<Row ShowModes="None" ID="rdDashboardList">
+					<Column Class="rdDashboard">
+						<Rows TableBorder="0" CellSpacing="5" Width="100" WidthScale="%">
+							<Row ID="rowPanelList">
+								<Column>
+									<Rows Class="rdDashboardPanel" Width="100" WidthScale="%" ID="rdDashboardListTable">
+										<Row>
+											<Column Class="rdDashboardTitle">
+												<Rows Width="100" WidthScale="%">
+													<Row>
+														<Column Class="rdDashboardTitle">
+															<Label ID="lblAddPanelsTitle" Caption="Add Panels" Class="rdDashboardTitleCaption">
+															</Label>
+														</Column>
+													</Row>
+												</Rows>
+											</Column>
+										</Row>
+										<Row>
+											<Column>
+												<Rows Width="100" WidthScale="%">
+													<Row>
+														<Column>
+															<Label ID="lblPanelListDescription" Class="rdDashboardText" Caption="Use this page to add panels to your dashboard.  Then click &quot;Show Panels&quot; when you're done.">
+															</Label>
+														</Column>
+													</Row>
+												</Rows>
+											</Column>
+										</Row>
+										<Row>
+											<Column>
+												<ConditionalClass Class="rdDashboardListCellAdded" Condition="@Data.PanelAdded~"/>
+												<DataMultiColumnList ID="dtPanelList" CellSpacing="15" Width="100" WidthScale="%" MultiListColumns="1" MultiListDirection="Across" Layout="Fixed">
+													<DataLayer Type="Static" ID="rdPanelListDataLayer">
+														<SortFilter SortColumn="Caption"/>
+													</DataLayer>
+													<Division>
+														<InputCheckbox CheckedValue="True" DefaultValue="@Data.PanelAdded~" ID="chkAddPanel">
+															<EventHandler DhtmlEvent="onClick">
+																<Action Type="Link" ID="actionCheckPanel">
+																	<Target Type="Link" Link="javascript:rdAddedRemovedPanels = rdAddedRemovedPanels + &quot;,@Data.PanelID~&quot;;"/>
+																</Action>
+															</EventHandler>
+														</InputCheckbox>
+														<Label Caption="@Data.Caption~" ID="lblCaption" Class="rdDashboardTitleCaption">
+														</Label>
+														<LineBreak/>
+														<Label Caption="@Data.Description~" ID="lblDescription" Class="rdDashboardText"/>
+													</Division>
+												</DataMultiColumnList>
+											</Column>
+										</Row>
+									</Rows>
+								</Column>
+							</Row>
+						</Rows>
+					</Column>
+				</Row>
+				<Row ID="rdDashboardPanels">
+					<Column Class="rdDashboard">
+						<Rows TableBorder="0" ID="rdDashboardPanelTable" Width="100" WidthScale="%">
+							<Row ID="rowPanels">
+								<Column>
+									<Division ID="rdDashboardPanelID" HtmlDiv="True" Class="rdDashboardPanel">
+										<Rows Width="100" WidthScale="%">
+											<Row ID="rdDashboardPanelTitleID">
+												<Column Class="rdDashboardTitle">
+													<Rows Width="100" WidthScale="%">
+														<Row>
+															<Column Class="rdDashboardTitle">
+																<Division>
+																	<Label ID="rdDashboardCaptionID" Caption="Caption" Class="rdDashboardTitleCaption"/>
+																</Division>
+															</Column>
+															<Column ID="rdDashboardControl" Class="rdDashboardControl">
+																<Spaces Size="4"/>
+																<Division ID="rdDashboardEditID" Class="rdDashboardCommand">
+																	<Label ID="lblEditPanel" Caption="Edit">
+																		<Action Type="Link">
+																			<Target Type="Link" Link="javascript:
+
+rdDashboardHidePanelParams();
+
+ShowElement(this.id,'rdDashboardEditID,rdDashboardCancelID,rdDashboard2PanelParamsID','Toggle');
+
+
+"/>
+																		</Action>
+																	</Label>
+																</Division>
+																<Division ID="rdDashboardCancelID" ShowModes="None" Class="rdDashboardCommand">
+																	<Label ID="lblCancelEditPanel" Caption="Cancel">
+																		<Action Type="ShowElement" ElementID="rdDashboardEditID,rdDashboardCancelID,rdDashboard2PanelParamsID" Display="Toggle" rdNoValidate="True"/>
+																	</Label>
+																</Division>
+																<Spaces Size="2"/>
+																<Label ID="rdDashboardRemoveID" Caption="X" Class="rdDashboardCommand">
+																	<Action Type="Link">
+																		<Target Type="Link" Link="javascript:rdRemoveDashboardPanel('rdDashboardPanelID');"/>
+																	</Action>
+																</Label>
+															</Column>
+														</Row>
+													</Rows>
+												</Column>
+											</Row>
+											<Row ID="rdDashboard2PanelParamsID" Class="rdDashboardParams" ShowModes="None">
+												<Column>
+													<Rows Width="100" WidthScale="%" TableBorder="0" CellSpacing="0">
+														<Row>
+															<Column ID="rdDashboardParams" Class="rdDashboardParams">
+															</Column>
+															<Column Class="rdDashboardParamsSave">
+																<Label ID="lblSavePanel" Caption="Save" Class="rdDashboardCommand">
+																	<Action Type="Link">
+																		<Target Type="Link" Link="javascript:rdSaveDashboardParams('rdDashboardPanelID')"/>
+																	</Action>
+																</Label>
+															</Column>
+														</Row>
+													</Rows>
+												</Column>
+											</Row>
+											<Row ID="Dashboard2PanelContent" Class="rdDashboardContent">
+												<Column>
+													<Division HtmlDiv="True" rdDashboardContent="True"/>
+												</Column>
+											</Row>
+										</Rows>
+									</Division>
+								</Column>
+							</Row>
+						</Rows>
+					</Column>
+				</Row>
+			</Rows>
+		</Division>
+	</Body>
+</Report>

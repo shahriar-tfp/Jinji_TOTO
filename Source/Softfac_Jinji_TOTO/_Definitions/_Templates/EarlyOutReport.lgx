@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="EarlyOutReport" SavedBy="Tester" SavedAt="7/27/2018 2:44:37 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="LateEarlyReport.xlt" ID="EarlyOutReport" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="17" ID="Header" Worksheet="Report">
+			<DataLayer Type="SP" Command="sp_tms_rptLeaveEarly" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="StartDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Enddate" Value="@Request.ToDate~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="ProcessID" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="OrganName" Value="@Data.OrganName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Period" Value="Leave Early Report As Between @Data.DateRange~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="5" ID="Division" Value="@Data.Division~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="6" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="8" ID="Late" Value="Leave Early"/>
+			<SubPatternBlock FirstRow="9" LastRow="9" DisposableFirstRow="10" DisposableLastRow="10" ID="Details" FillMode="Insert">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" Command="sp_tms_rptLeaveEarly" ID="CallDetail" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="StartDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Enddate" Value="@Request.ToDate~" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter SPParamDirection="Input" ID="ProcessID" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+						<SortFilter SortColumn="EmpCode, Date_Time_In" DataType="Text" ID="Sort" SortSequence="Ascending"/>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="Department" ParentColumn="Department" ID="sdlrcDate"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Empid" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="CostCenter" Value="@Data.CostCenter~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="datein1" Value="@Data.datein1~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="dateout" Value="@Data.dateout~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="DayType" Value="@Data.DayType~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="ShiftID" Value="@Data.ShiftID~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="Late" Value="@Data.leaveearly~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

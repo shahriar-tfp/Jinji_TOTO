@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_EmpVW_payslip" SavedBy="Tester" SavedAt="2/1/2012 3:05:55 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_payslip.pdf" ID="pr_payslip" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Allowance_ID" Name="txt_Allowance_ID" Value="@Data.OCP_Name_Allowance~"/>
+		<PdfFormField ID="txt_Deduction" Name="txt_Deduction" Value="@Data.Deduction_Amount~"/>
+		<PdfFormField ID="txt_Deduction_ID" Name="txt_Deduction_ID" Value="@Data.OCP_Name_Deduction~"/>
+		<PdfFormField ID="txt_Employee_ICNo" Name="txt_Employee_ICNo" Value="@Data.identity_card_no~"/>
+		<PdfFormField ID="txt_Employee_Name" Name="txt_Employee_Name" Value="@Data.Empname~"/>
+		<PdfFormField ID="txt_Employer_EPF" Name="txt_Employer_EPF" Value="@Data.Company_EPF_Credit~"/>
+		<PdfFormField ID="txt_Employer_SOCSO" Name="txt_Employer_SOCSO" Value="@Data.Company_Socso_Credit~"/>
+		<PdfFormField ID="txt_Income" Name="txt_Income" Value="@Data.Allowance_Amount~"/>
+		<PdfFormField ID="txt_Income_Total" Name="txt_Income_Total" Value="@Data.Total_Allowance_Amount~" Format="########0.00"/>
+		<PdfFormField ID="txt_Nett_Pay" Name="txt_Nett_Pay" Value="@Data.Total_Nett_Pay~" Format="########0.00"/>
+		<PdfFormField ID="txt_Pay_Period" Name="txt_Pay_Period" Value="@Data.End_Date~"/>
+		<PdfFormField ID="txt_Pay_Type" Name="txt_Pay_Type" Value="@Data.Pay_Mode~"/>
+		<PdfFormField ID="txtCompanyName" Name="txtCompanyName" Value="@Data.CompName~"/>
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_pr_RptPayslip">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="BLOCK" SPParamSize="0" SPParamType="dt-3" Value="@Request.BLOCK='YES'"/>
+			</SPParameters>
+			<CalculatedColumn Formula="@Data.Allowance_Amount~ - @Data.Deduction_Amount~" ID="Nett_Pay"/>
+			<GroupFilter ID="Groupby" Hierarchical="True" KeepGroupedRows="True" DataType="Text" GroupColumn="CompName,Empname,identity_card_no,Pay_Mode,Company_EPF_Credit,Company_Socso_Credit">
+				<GroupAggregateColumn AggregateColumn="Deduction_Amount" AggregateFunction="SUM" ID="Total_Deduction_Amount"/>
+				<GroupAggregateColumn AggregateColumn="Allowance_Amount" AggregateFunction="SUM" ID="Total_Allowance_Amount"/>
+				<GroupAggregateColumn AggregateFunction="SUM" AggregateColumn="Nett_Pay" ID="Total_Nett_Pay"/>
+			</GroupFilter>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams month="1" year="2008" OrganID="JAVA" paytype="" SPID="58" Option_Pay_Cycle="MONTHLY" PayType="MONTHLY" Paymode="BANK"/>
+</Template>

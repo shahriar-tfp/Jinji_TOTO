@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="PerfectAttendance" SavedBy="Tester" SavedAt="12/22/2014 2:23:25 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="PerfectListing.xlt" ID="PerfectAttendance" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock ID="PerfectListing" FirstRow="1" LastRow="8" Worksheet="Perfect">
+			<DataLayer Type="SP" Command="sp_tms_rptPerfectAttendance" ID="Header" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="Perfect Attendance @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_tms_rptPerfectAttendance" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.EmpBadge~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.EmpName~" PatternBlockRow="1" Column="B"/>
+				<PatternBlockCell ID="JobGrade" Value="@Data.JobGrade~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="CostBlock" Value="@Data.CostBlock~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="Dept" Value="@Data.Dept~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SupCode" Value="@Data.SupCode~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="HOD" Value="@Data.HOD~" PatternBlockRow="1" Column="G"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock FirstRow="1" LastRow="9" Worksheet="NotPerfect" ID="ABSAnalysis" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" Command="sp_tms_rptPerfectAttendance" ID="Header1" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company1" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month1" Value="Non-Perfect Attendance  @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Printdate1" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details1" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details1">
+					<DataLayer Type="SP" Command="sp_tms_rptPerfectAttendance" ID="GetData1" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com1" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpBadge1" Value="@Data.EmpBadge~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName1" Value="@Data.EmpName~" PatternBlockRow="1" Column="B"/>
+				<PatternBlockCell ID="JobGrade1" Value="@Data.JobGrade~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="CostBlock1" Value="@Data.CostBlock~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="Dept1" Value="@Data.Dept~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SupCode1" Value="@Data.SupCode~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="HOD1" Value="@Data.HOD~" PatternBlockRow="1" Column="G"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock ID="UploadAllowance" FirstRow="2" LastRow="2" Worksheet="Allowance" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_tms_rptPerfectAttendance" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS3"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="EmpBadge" Value="@Data.EmpBadge~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="PayType" Value="Fixed"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Baseon" Value="N/A"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Option_Pay_Cycle" Value="@Data.Option_Pay_Cycle~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovBRG3" SavedBy="Tester" SavedAt="2/1/2012 3:06:21 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovBrg3.pdf" ID="pr_GovBrg3" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Emp_Date_Resign" Name="txt_Emp_Date_Resign" Value="@Data.Resign_Date~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.EMP_Name~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No" Name="txt_Emp_New_IC_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Emp_Socso_No" Name="txt_Emp_Socso_No" Value="@Data.Emp_Socso_No~"/>
+		<PdfFormField ID="txt_Month" Name="txt_Month" Value="@Data.Month_Text~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.Lot~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.Street~"/>
+		<PdfFormField Name="txt_Organ_Address_3" ID="txt_Organ_Address_3" Value="@Data.Company_Addr_3~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Company_Name~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.Phone_No~"/>
+		<PdfFormField ID="txt_Organ_Socso_No" Name="txt_Organ_Socso_No" Value="@Data.Company_Socso_No~"/>
+		<PdfFormField ID="txt_Page_No" Name="txt_Page_No" Value="@Data.Page_No~"/>
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_pr_InsTempSocsoBorang8A">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+			</SPParameters>
+			<GroupFilter DataType="Text" Hierarchical="True" ID="GroupBy" KeepGroupedRows="True" GroupColumn="Code,Company_Name,Page_No,SPID,Lot,Company_Addr_2,Phone_No,Company_Socso_No,Month_Text"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams OrganID="JAVA" month="1" year="2008" SPID="50" Type="BRG3" paytype="MONTHLY" Location="PENINSULA" Module="REPORTS" userID="HRSA"/>
+</Template>

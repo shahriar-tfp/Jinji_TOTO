@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Monthly_Salary" SavedBy="Tester" SavedAt="2/28/2012 2:50:42 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ID="Monthly_Salary" ExcelTemplateFilename="Monthly_Salary.xlt" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="3000" ID="Monthly_Salary" Worksheet="DATA">
+			<DataLayer Type="SP" Command="sp_pr_rptMonthlySalary" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="TYPE" SPParamType="dt-200" SPParamSize="0" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company_Name" Value="@Data.CompanyName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="Month : @Data.Month~ / @Data.Year~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="3" ID="ReportName" Value="MONTHLY SALARY REPORT"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="Details" DisposableFirstRow="7" DisposableLastRow="7">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_rptMonthlySalary" ID="GetData" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+						<SPParameters IdeDisplayStatus="Collapsed">
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="TYPE" SPParamType="dt-200" SPParamSize="0" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="User_Profile_Code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="FINANCE" Value="@Data.FinanceCode~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="DEPARTMENT" Value="@Data.Department~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="EMPCOUNT" Value="@Data.EmpCount~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="Gross" Value="@Data.Gross~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="EPFEE" Value="@Data.EPFEE~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="SOCEE" Value="@Data.SOCEE~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="PTPTN" Value="@Data.PTPTN~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="SHOE" Value="@Data.SHOE~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="PASS" Value="@Data.PASS~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="TH" Value="@Data.TH~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="ASB" Value="@Data.ASB~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="PCB" Value="@Data.PCB~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="SJ" Value="@Data.SJ~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="TEL" Value="@Data.TEL~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" Value="@Data.UNIFORM~" ID="UNIFORM"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="NETAMT" Value="@Data.NETAMT~"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="OVERTIME" Value="@Data.OVERTIME~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="UNIFORMREFUND" Value="@Data.UNIFORMREFUND~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="DF" Value="@Data.DF~"/>
+				<PatternBlockCell Column="W" PatternBlockRow="1" ID="EPFER" Value="@Data.EPFER~"/>
+				<PatternBlockCell Column="X" PatternBlockRow="1" ID="SOCER" Value="@Data.SOCER~"/>
+				<PatternBlockCell Column="Y" PatternBlockRow="1" ID="LEVI" Value="@Data.LEVI~"/>
+				<PatternBlockCell Column="Z" PatternBlockRow="1" ID="Total" Value="@Data.Total~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

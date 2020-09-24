@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="TOTOKPI_PerformanceAppraisal_InDirect_2018" SavedBy="Tester" SavedAt="3/13/2018 4:40:12 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Performance_Appraisal_Report_InDirect_2018.xlt" ID="TOTOKPI_PerformanceAppraisal_InDirect_2018">
+		<PatternBlock FirstRow="5" LastRow="5" ID="Detail" Worksheet="Final" DisposableFirstRow="6" DisposableLastRow="6">
+			<DataLayer Type="SP" Command="sp_KPI_RptFinalEvalaution" ConnectionID="HCRMConnection" ID="FinalEvalaution" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Category" SPParamSize="0" SPParamType="dt-200" Value="@Request.Direct~"/>
+					<SPParameter SPParamDirection="Input" ID="OCP_ID_Department" SPParamSize="0" SPParamType="dt-200" Value="@Request.Department~"/>
+					<SPParameter SPParamDirection="Input" ID="OCP_ID_Section" SPParamSize="0" SPParamType="dt-200" Value="@Request.Section~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="FINAL"/>
+					<SPParameter SPParamDirection="Input" ID="ByJobgrade" SPParamSize="0" SPParamType="dt-200" Value="NonManagement"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpCode" Value="@Data.EmpCode~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmpName" Value="@Data.Employee~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Section" Value="@Data.Section~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="JobGrade" Value="@Data.JobGradeCode~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="CSLY" Value="@Data.CSLY~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="CSTY" Value="@Data.CSTY~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="SSLY" Value="@Data.SSLY~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="SSTY" Value="@Data.SSTY~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="TSLY" Value="@Data.TSLY~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="TSTY" Value="@Data.TSTY~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="SITY" Value="@Data.SITY~"/>
+			<PatternBlockCell Column="W" PatternBlockRow="1" ID="SkillImprove" Value="@Data.SkillImprovement~"/>
+			<PatternBlockCell Column="X" PatternBlockRow="1" ID="PersonalDevelopment" Value="@Data.PersonalDevelopment~"/>
+			<PatternBlockCell Column="Y" PatternBlockRow="1" ID="Kaizen" Value="@Data.Kaizen~"/>
+			<PatternBlockCell Column="Z" PatternBlockRow="1" ID="SafetyIdea" Value="@Data.SafetyIdea~"/>
+			<PatternBlockCell Column="AA" PatternBlockRow="1" ID="CompulsoryTraining" Value="@Data.CompulsoryTraining~"/>
+			<PatternBlockCell Column="AB" PatternBlockRow="1" ID="AchievementScore" Value="@Data.AchievementScore~"/>
+			<PatternBlockCell Column="AC" PatternBlockRow="1" ID="TargetAchievement" Value="@Data.TargetAchievement~"/>
+			<PatternBlockCell Column="AD" PatternBlockRow="1" ID="AttendanceScore" Value="@Data.AttendanceScore~"/>
+			<PatternBlockCell Column="AE" PatternBlockRow="1" ID="Minor" Value="@Data.Minor~"/>
+			<PatternBlockCell Column="AF" PatternBlockRow="1" ID="Serious" Value="@Data.Serious~"/>
+			<PatternBlockCell Column="AG" PatternBlockRow="1" ID="Gross" Value="@Data.Gross~"/>
+			<PatternBlockCell Column="AH" PatternBlockRow="1" ID="MisconductScore" Value="@Data.MisconductScore~"/>
+			<PatternBlockCell Column="AI" PatternBlockRow="1" ID="TotalScore" Value="@Data.TotalScore~"/>
+			<PatternBlockCell Column="R" PatternBlockRow="1" ID="PromoteColor" Value="@Data.PromoteColor~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="ImproveColor" Value="@Data.ImproveColor~"/>
+			<PatternBlockCell Column="AJ" PatternBlockRow="1" ID="BonusGrade" Value="@Data.BonusGrade~"/>
+			<PatternBlockCell Column="AP" PatternBlockRow="1" ID="TSLY" Value="@Data.TSLY~"/>
+			<PatternBlockCell Column="AQ" PatternBlockRow="1" ID="TYSP" Value="@Data.TYSP~"/>
+		</PatternBlock>
+		<PatternBlock FirstRow="14" LastRow="14" ID="Detail2" Worksheet="Final" DisposableFirstRow="15" DisposableLastRow="15">
+			<DataLayer Type="SP" Command="sp_KPI_RptFinalEvalaution" ConnectionID="HCRMConnection" ID="FinalEvalaution2" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Category" SPParamSize="0" SPParamType="dt-200" Value="@Request.Direct~"/>
+					<SPParameter SPParamDirection="Input" ID="OCP_ID_Department" SPParamSize="0" SPParamType="dt-200" Value="@Request.Department~"/>
+					<SPParameter SPParamDirection="Input" ID="OCP_ID_Section" SPParamSize="0" SPParamType="dt-200" Value="@Request.Section~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="FINAL"/>
+					<SPParameter SPParamDirection="Input" ID="ByJobgrade" SPParamSize="0" SPParamType="dt-200" Value="Management"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpCode2" Value="@Data.EmpCode~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmpName2" Value="@Data.Employee~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Department2" Value="@Data.Department~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Section2" Value="@Data.Section~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="JobGrade2" Value="@Data.JobGradeCode~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="CSLY2" Value="@Data.CSLY~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="CSTY2" Value="@Data.CSTY~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="SSLY2" Value="@Data.SSLY~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="SSTY2" Value="@Data.SSTY~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="TSLY2" Value="@Data.TSLY~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="TSTY2" Value="@Data.TSTY~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="SITY2" Value="@Data.SITY~"/>
+			<PatternBlockCell Column="W" PatternBlockRow="1" ID="SkillImprove2" Value="@Data.SkillImprovement~"/>
+			<PatternBlockCell Column="X" PatternBlockRow="1" ID="PersonalDevelopment2" Value="@Data.PersonalDevelopment~"/>
+			<PatternBlockCell Column="Y" PatternBlockRow="1" ID="Kaizen2" Value="@Data.Kaizen~"/>
+			<PatternBlockCell Column="Z" PatternBlockRow="1" ID="SafetyIdea2" Value="@Data.SafetyIdea~"/>
+			<PatternBlockCell Column="AA" PatternBlockRow="1" ID="CompulsoryTraining2" Value="@Data.CompulsoryTraining~"/>
+			<PatternBlockCell Column="AB" PatternBlockRow="1" ID="AchievementScore2" Value="@Data.AchievementScore~"/>
+			<PatternBlockCell Column="AC" PatternBlockRow="1" ID="TargetAchievement2" Value="@Data.TargetAchievement~"/>
+			<PatternBlockCell Column="AD" PatternBlockRow="1" ID="AttendanceScore2" Value="@Data.AttendanceScore~"/>
+			<PatternBlockCell Column="AE" PatternBlockRow="1" ID="Minor2" Value="@Data.Minor~"/>
+			<PatternBlockCell Column="AF" PatternBlockRow="1" ID="Serious2" Value="@Data.Serious~"/>
+			<PatternBlockCell Column="AG" PatternBlockRow="1" ID="Gross2" Value="@Data.Gross~"/>
+			<PatternBlockCell Column="AH" PatternBlockRow="1" ID="MisconductScore2" Value="@Data.MisconductScore~"/>
+			<PatternBlockCell Column="AI" PatternBlockRow="1" ID="TotalScore2" Value="@Data.TotalScore~"/>
+			<PatternBlockCell Column="R" PatternBlockRow="1" ID="PromoteColor2" Value="@Data.PromoteColor~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="ImproveColor2" Value="@Data.ImproveColor~"/>
+			<PatternBlockCell Column="AJ" PatternBlockRow="1" ID="BonusGrade2" Value="@Data.BonusGrade~"/>
+			<PatternBlockCell Column="AP" PatternBlockRow="1" ID="TSLY2" Value="@Data.TSLY~"/>
+			<PatternBlockCell Column="AQ" PatternBlockRow="1" ID="TYSP2" Value="@Data.TYSP~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

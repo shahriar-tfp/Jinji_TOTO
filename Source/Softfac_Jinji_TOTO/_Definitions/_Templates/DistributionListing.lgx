@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="DistributionListing" SavedBy="Tester" SavedAt="11/12/2014 4:01:14 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="DistributionListing.xlt" ID="DistributionListing" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="DistributionListing" FirstRow="1" LastRow="9" Worksheet="Listing">
+			<DataLayer Type="SP" Command="sp_is_rptDistributeList" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="Employee Listing as @Data.Month_text~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="4" ID="Department" Value="Department : @Data.Department~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="5" ID="Section" Value="Section : @Data.Section~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="8" LastRow="8" ID="Details" DisposableFirstRow="9" DisposableLastRow="9">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_is_rptDistributeList" ID="dETAILS" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+					<SubDataLayerRelationColumn ID="Department" ChildColumn="Department" ParentColumn="Department"/>
+					<SubDataLayerRelationColumn ID="Section" ChildColumn="Section" ParentColumn="Section"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpBadge" Value="@Data.EmpBadge~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="HOD" Value="@Data.HOD~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="SupCode" Value="@Data.SupCode~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="TmsGroup" Value="@Data.TmsGroup~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="JobLevel" Value="@Data.JobLevel~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

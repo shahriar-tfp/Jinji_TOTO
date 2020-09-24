@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovCP8D" SavedBy="Tey Sing Yeh" SavedAt="07/04/2010 01:58:41 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Format_CP8D.xlt" ExcelTemplateMode="OneWorksheet" ID="CP8D">
+		<PatternBlock FirstRow="13" LastRow="26" ID="Header">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="sp_pr_rptE8D" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter ID="year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-131" Value="@Request.Year~"/>
+					<SPParameter ID="PicID" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.PicID~"/>
+					<SPParameter ID="type" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="Company_PCB_No" Column="E" PatternBlockRow="1" Value="@Data.compcbno~"/>
+			<PatternBlockCell Value="@Data.comname~" ID="Company_Name" Column="E" PatternBlockRow="2"/>
+			<PatternBlockCell ID="Year" Column="E" PatternBlockRow="3" Value="@Request.Year~"/>
+			<SubPatternBlock ID="Details" FirstRow="22" LastRow="22" DisposableFirstRow="23" DisposableLastRow="23">
+				<SubDataLayer ID="sdlDetails" IdeDisplayStatus="Collapsed">
+					<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_rptE8D" ID="GetDetails" IdeDisplayStatus="Collapsed">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter ID="year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-131" Value="@Request.Year~"/>
+							<SPParameter ID="PicID" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.PicID~"/>
+							<SPParameter ID="type" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Company" ChildColumn="Company_Profile_Code" ParentColumn="Company_Profile_Code"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Employee_Name" Column="B" PatternBlockRow="1" Value="@Data.Row~"/>
+				<PatternBlockCell ID="Employee_Name" Column="C" PatternBlockRow="1" Value="@Data.empname~"/>
+				<PatternBlockCell ID="Employee_PCB" Column="F" PatternBlockRow="1" Value="@Data.pcbno~"/>
+				<PatternBlockCell ID="ICNo" Column="G" PatternBlockRow="1" Value="@Data.icno~"/>
+				<PatternBlockCell ID="Category" Column="H" PatternBlockRow="1" Value="@Data.category~"/>
+				<PatternBlockCell ID="TaxPaidBy" Column="I" PatternBlockRow="1" Value="2"/>
+				<PatternBlockCell ID="noofchild" Column="J" PatternBlockRow="1" Value="@Data.noofchild~"/>
+				<PatternBlockCell ID="totalChild" Column="K" PatternBlockRow="1" Value="@Data.totalchild~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="Gross_Pay" Value="@Data.tolgross~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="BIK" Value="@Data.BIK~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="VOLA" Value="@Data.vola~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="ESOS" Value="@Data.ESOS~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="Non_Tax_Amount" Value="@Data.nontaxallw~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="TP1" Value="@Data.TP1~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="TP1Zakat" Value="@Data.TP1Zakat~"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="EPF" Value="@Data.EPF~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="Zakat" Value="@Data.Zakat~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="PCB_Amount" Value="@Data.pcbamount~"/>
+				<PatternBlockCell ID="CP38_Amount" Column="V" PatternBlockRow="1" Value="@Data.cp38amount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

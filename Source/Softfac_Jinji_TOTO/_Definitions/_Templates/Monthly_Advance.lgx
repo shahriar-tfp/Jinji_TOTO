@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Monthly_Advance" SavedBy="Tester" SavedAt="7/14/2014 5:53:26 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Payroll_MidMonthRpt2.xlt" ID="Advance">
+		<PatternBlock FirstRow="5" LastRow="5" ID="Details" Worksheet="Monthly" DisposableFirstRow="6" DisposableLastRow="6">
+			<DataLayer Type="SP" ID="CallDetails" Command="sp_pr_rptAdvanceSummary" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+					<SPParameter SPParamDirection="Input" ID="SalaryCodeName" SPParamSize="0" SPParamType="dt-200" Value="@Request.OCP_ID_Salary~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.UserID~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpBadge" Value="@Data.EmpBadge~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Basic_Salary" Value="@Data.Basic_Salary~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Calculated_Salary" Value="@Data.Calculated_Salary~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Day_Dedected" Value="@Data.Day_Dedected~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="MidMonthSalary" Value="@Data.MidMonthSalary~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="TmsGroup" Value="@Data.TmsGroup~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="Title" Value="@Request.OCP_ID_Salary~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams OCP_ID_Salary="AFDS" Company_Profile_Code="500" Year="2014" Month="07" Option_Pay_Cycle="MONTHLY"/>
+</Template>

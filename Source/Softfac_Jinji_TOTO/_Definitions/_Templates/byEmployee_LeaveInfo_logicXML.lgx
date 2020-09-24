@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="byEmployee_LeaveInfo_logicXML" SavedBy="Tester" SavedAt="11/25/2015 4:48:39 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="byEmployee_LeaveInfo_logicXML.xlt" ID="byEmployee_LeaveInfo_logicXML" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="byEmployee_LeaveInfo_logicXML" FirstRow="1" LastRow="4000" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select code from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_ls_byEmployee_LeaveInfo_logicXML" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Company_Profile_Code" Column="A" PatternBlockRow="1" Value="@Data.CompanyCode~"/>
+				<PatternBlockCell Column="B" ID="EmployeeID" PatternBlockRow="1" Value="@Data.EmployeeID~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmployeeCodeName" Value="@Data.EmployeeCodeName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="Title" Value="@Data.Title~"/>
+				<PatternBlockCell ID="EmployeeCode" Column="E" PatternBlockRow="1" Value="@Data.EmployeeCode~"/>
+				<PatternBlockCell ID="EmployeeName" Value="@Data.EmployeeName~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Name2" Value="@Data.Name2~" PatternBlockRow="1" Column="G"/>
+				<PatternBlockCell ID="LeaveType" Column="H" PatternBlockRow="1" Value="@Data.LeaveType~"/>
+				<PatternBlockCell ID="Apply_Year" Value="@Data.Apply_Year~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Apply_Month" Value="@Data.Apply_Month~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Apply_Date" Value="@Data.Apply_Date~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Date_Apply_For" Value="@Data.Date_Apply_For~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="option_period" Column="M" PatternBlockRow="1" Value="@Data.option_period~"/>
+				<PatternBlockCell ID="Days" Column="N" PatternBlockRow="1" Value="@Data.Days~"/>
+				<PatternBlockCell ID="Option_Status" Column="O" PatternBlockRow="1" Value="@Data.Option_Status~"/>
+				<PatternBlockCell ID="IdentityNo" Value="@Data.IdentityNo~" Column="P" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DateOfBirth" Value="@Data.DateOfBirth~" Column="Q" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Age" Value="@Data.Age~" Column="R" PatternBlockRow="1"/>
+				<PatternBlockCell ID="PlaceOfBirth" Value="@Data.PlaceOfBirth~" Column="S" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Religion" Value="@Data.Religion~" Column="T" PatternBlockRow="1"/>
+				<PatternBlockCell ID="MaritalStatus" Value="@Data.MaritalStatus~" Column="U" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Sex" Value="@Data.Sex~" Column="V" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Citizenship" Value="@Data.Citizenship~" Column="W" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Race" Value="@Data.Race~" Column="X" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EffectiveDate" Column="Y" PatternBlockRow="1" Value="@Data.EffectiveDate~"/>
+				<PatternBlockCell ID="JoinDate" Value="@Data.JoinDate~" Column="Z" PatternBlockRow="1"/>
+				<PatternBlockCell ID="YOS" Column="AA" PatternBlockRow="1" Value="@Data.YOS~"/>
+				<PatternBlockCell ID="ConfirmDate" Column="AB" PatternBlockRow="1" Value="@Data.ConfirmDate~"/>
+				<PatternBlockCell ID="ResignDate" Column="AC" PatternBlockRow="1" Value="@Data.ResignDate~"/>
+				<PatternBlockCell ID="SubmitDate" Column="AD" PatternBlockRow="1" Value="@Data.SubmitDate~"/>
+				<PatternBlockCell ID="ResignType" Column="AE" PatternBlockRow="1" Value="@Data.ResignType~"/>
+				<PatternBlockCell ID="ResignFlag" Column="AF" PatternBlockRow="1" Value="@Data.ResignFlag~"/>
+				<PatternBlockCell ID="BasicSalary" PatternBlockRow="1" Value="@Data.BasicSalary~" Column="AG"/>
+				<PatternBlockCell ID="BasicCurrency" PatternBlockRow="1" Value="@Data.BasicCurrency~" Column="AH"/>
+				<PatternBlockCell ID="PayTo" Column="AI" PatternBlockRow="1" Value="@Data.PayTo~"/>
+				<PatternBlockCell ID="PayType" Column="AJ" PatternBlockRow="1" Value="@Data.PayType~"/>
+				<PatternBlockCell ID="PayCycle" Column="AK" PatternBlockRow="1" Value="@Data.PayCycle~"/>
+				<PatternBlockCell ID="Divsion" Column="AL" PatternBlockRow="1" Value="@Data.Divsion~"/>
+				<PatternBlockCell ID="Department" Column="AM" PatternBlockRow="1" Value="@Data.Department~"/>
+				<PatternBlockCell ID="Section" Column="AN" PatternBlockRow="1" Value="@Data.Section~"/>
+				<PatternBlockCell ID="Line" Column="AO" PatternBlockRow="1" Value="@Data.Line~"/>
+				<PatternBlockCell ID="OcpIdGROUP" Column="AP" PatternBlockRow="1" Value="@Data.OcpIdGROUP~"/>
+				<PatternBlockCell ID="Process" Column="AQ" PatternBlockRow="1" Value="@Data.Process~"/>
+				<PatternBlockCell ID="CostCenter" Column="AR" PatternBlockRow="1" Value="@Data.CostCenter~"/>
+				<PatternBlockCell ID="TMS" Column="AS" PatternBlockRow="1" Value="@Data.TMS~"/>
+				<PatternBlockCell ID="JobGrade" Column="AT" PatternBlockRow="1" Value="@Data.JobGrade~"/>
+				<PatternBlockCell ID="JobTitle" Column="AU" PatternBlockRow="1" Value="@Data.JobTitle~"/>
+				<PatternBlockCell ID="Appraisal" Column="AV" PatternBlockRow="1" Value="@Data.Appraisal~"/>
+				<PatternBlockCell ID="EmployeeGroup" Column="AW" PatternBlockRow="1" Value="@Data.EmployeeGroup~"/>
+				<PatternBlockCell ID="EmploymentType" Column="AX" PatternBlockRow="1" Value="@Data.PayTo~"/>
+				<PatternBlockCell ID="User_Profile_Code" Column="AY" PatternBlockRow="1" Value="@Data.User_Profile_Code~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR"/>
+</Template>

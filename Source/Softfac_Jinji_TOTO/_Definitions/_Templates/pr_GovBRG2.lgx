@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovBRG2" SavedBy="Tester" SavedAt="9/8/2015 5:48:20 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovBrg2.pdf" ID="pr_GovBrg2" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField Name="txt_IC_Type" ID="txt_IC_Type" Value="@Data.ICType~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_1" Name="txt_Emp_New_IC_No_1" Value="@Data.Identity_Card_No_1~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_2" Name="txt_Emp_New_IC_No_2" Value="@Data.Identity_Card_No_2~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_3" Name="txt_Emp_New_IC_No_3" Value="@Data.Identity_Card_No_3~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_4" Name="txt_Emp_New_IC_No_4" Value="@Data.Identity_Card_No_4~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_5" Name="txt_Emp_New_IC_No_5" Value="@Data.Identity_Card_No_5~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_6" Name="txt_Emp_New_IC_No_6" Value="@Data.Identity_Card_No_6~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_7" Name="txt_Emp_New_IC_No_7" Value="@Data.Identity_Card_No_7~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_8" Name="txt_Emp_New_IC_No_8" Value="@Data.Identity_Card_No_8~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_9" Name="txt_Emp_New_IC_No_9" Value="@Data.Identity_Card_No_9~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_10" Name="txt_Emp_New_IC_No_10" Value="@Data.Identity_Card_No_10~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_11" Name="txt_Emp_New_IC_No_11" Value="@Data.Identity_Card_No_11~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_12" Name="txt_Emp_New_IC_No_12" Value="@Data.Identity_Card_No_12~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_13" Name="txt_Emp_New_IC_No_13" Value="@Data.Identity_Card_No_13~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No_14" Name="txt_Emp_New_IC_No_14" Value="@Data.Identity_Card_No_14~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_1" Name="txt_Emp_Date_Of_Birth_1" Value="@Data.Date_Of_Birth_1~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_2" Name="txt_Emp_Date_Of_Birth_2" Value="@Data.Date_Of_Birth_2~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_3" Name="txt_Emp_Date_Of_Birth_3" Value="@Data.Date_Of_Birth_3~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_4" Name="txt_Emp_Date_Of_Birth_4" Value="@Data.Date_Of_Birth_4~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_5" Name="txt_Emp_Date_Of_Birth_5" Value="@Data.Date_Of_Birth_5~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_6" Name="txt_Emp_Date_Of_Birth_6" Value="@Data.Date_Of_Birth_6~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_7" Name="txt_Emp_Date_Of_Birth_7" Value="@Data.Date_Of_Birth_7~"/>
+		<PdfFormField ID="txt_Emp_Date_Of_Birth_8" Name="txt_Emp_Date_Of_Birth_8" Value="@Data.Date_Of_Birth_8~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.EMP_Name~"/>
+		<PdfFormField ID="txt_Emp_Sex" Name="txt_Emp_Sex" Value="@Data.Option_Sex~"/>
+		<PdfFormField ID="txt_Emp_Race" Name="txt_Emp_Race" Value="@Data.OPTION_RACE~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_1" Name="txt_Emp_Date_Join_1" Value="@Data.Join_Date_1~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_2" Name="txt_Emp_Date_Join_2" Value="@Data.Join_Date_2~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_3" Name="txt_Emp_Date_Join_3" Value="@Data.Join_Date_3~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_4" Name="txt_Emp_Date_Join_4" Value="@Data.Join_Date_4~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_5" Name="txt_Emp_Date_Join_5" Value="@Data.Join_Date_5~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_6" Name="txt_Emp_Date_Join_6" Value="@Data.Join_Date_6~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_7" Name="txt_Emp_Date_Join_7" Value="@Data.Join_Date_7~"/>
+		<PdfFormField ID="txt_Emp_Date_Join_8" Name="txt_Emp_Date_Join_8" Value="@Data.Join_Date_8~"/>
+		<PdfFormField ID="txt_Emp_Job_Title" Name="txt_Emp_Job_Title" Value="@Data.Position~"/>
+		<PdfFormField ID="txt_Emp_Salary" Name="txt_Emp_Salary" Value="@Data.SalaryFlag~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Company_Name~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.Phone_No~"/>
+		<PdfFormField ID="txt_PIC_Name" Name="txt_PIC_Name" Value="@Request.PICName~"/>
+		<PdfFormField ID="txt_PIC_IC" Name="txt_PIC_IC" Value="@Request.PICNRIC~"/>
+		<PdfFormField ID="txt_PIC_Position" Name="txt_PIC_Position" Value="@Request.PICPosition~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_1" Name="txt_Organ_Socso_No_1" Value="@Data.Company_Socso_No_1~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_2" Name="txt_Organ_Socso_No_2" Value="@Data.Company_Socso_No_2~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_3" Name="txt_Organ_Socso_No_3" Value="@Data.Company_Socso_No_3~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_4" Name="txt_Organ_Socso_No_4" Value="@Data.Company_Socso_No_4~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_5" Name="txt_Organ_Socso_No_5" Value="@Data.Company_Socso_No_5~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_6" Name="txt_Organ_Socso_No_6" Value="@Data.Company_Socso_No_6~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_7" Name="txt_Organ_Socso_No_7" Value="@Data.Company_Socso_No_7~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_8" Name="txt_Organ_Socso_No_8" Value="@Data.Company_Socso_No_8~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_9" Name="txt_Organ_Socso_No_9" Value="@Data.Company_Socso_No_9~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_10" Name="txt_Organ_Socso_No_10" Value="@Data.Company_Socso_No_10~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_11" Name="txt_Organ_Socso_No_11" Value="@Data.Company_Socso_No_11~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_12" Name="txt_Organ_Socso_No_12" Value="@Data.Company_Socso_No_12~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_13" Name="txt_Organ_Socso_No_13" Value="@Data.Company_Socso_No_13~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_14" Name="txt_Organ_Socso_No_14" Value="@Data.Company_Socso_No_14~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_15" Name="txt_Organ_Socso_No_15" Value="@Data.Company_Socso_No_15~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_16" Name="txt_Organ_Socso_No_16" Value="@Data.Company_Socso_No_16~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_17" Name="txt_Organ_Socso_No_17" Value="@Data.Company_Socso_No_17~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_18" Name="txt_Organ_Socso_No_18" Value="@Data.Company_Socso_No_18~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_19" Name="txt_Organ_Socso_No_19" Value="@Data.Company_Socso_No_19~"/>
+		<PdfFormField ID="txt_Organ_Socso_No_20" Name="txt_Organ_Socso_No_20" Value="@Data.Company_Socso_No_20~"/>
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_pr_InsTempSocsoBorang8A">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+				<SPParameter SPParamDirection="Input" ID="Page" SPParamSize="0" SPParamType="dt-200" Value="@Request.Page~"/>
+			</SPParameters>
+			<GroupFilter DataType="Text" Hierarchical="True" ID="GroupBy" KeepGroupedRows="True" GroupColumn="Code,Company_Name,Page_No,SPID,Lot,Company_Addr_2,Phone_No,Company_Socso_No"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams OrganID="JAVA" month="12" year="2007" SPID="50" Type="BRG2" paytype="MONTHLY" Location="PENINSULA" Module="REPORTS" userID="HRSA"/>
+</Template>

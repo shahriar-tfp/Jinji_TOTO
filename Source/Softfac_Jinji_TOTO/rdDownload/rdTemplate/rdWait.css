@@ -1,0 +1,17 @@
+body {
+	vertical-align: middle;
+	text-align: center;
+	background-color: #F6F6F6;
+}
+
+.rdWaitClass {
+	vertical-align: absmiddle;
+}
+
+#rdWaitMsg  {
+	font: 9pt Verdana, Helvetica, sans serif;
+	color:#000000;
+	vertical-align: absmiddle;
+	margin-left: 5px;
+	margin-right: 15px;
+}

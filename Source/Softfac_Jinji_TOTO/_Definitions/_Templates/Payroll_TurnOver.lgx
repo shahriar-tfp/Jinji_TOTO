@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_TurnOver" SavedBy="Tester" SavedAt="7/9/2014 4:00:21 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="TurnOverbyDepartment.xlt" ID="Payroll_TurnOver" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock Worksheet="TurnoverByDept" FirstRow="1" LastRow="9" ID="TurnOverByDept">
+			<DataLayer Type="SP" Command="sp_pr_TurnoverByDepartment" ConnectionID="HCRMConnection" ID="CallTurnOverByDept" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS3"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Title" Value="TurnOver By Department : @Data.Title_Level~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Print Date" Value="Print Date : @Data.PrintDate~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="3" ID="Columns" Value="@Data.Month_text~"/>
+			<SubPatternBlock FirstRow="4" LastRow="4" ID="TurnOverByDeptDetails" DisposableFirstRow="5" DisposableLastRow="5" FillMode="Insert">
+				<SubDataLayer ID="TurnOverByDeptSDL">
+					<SubDataLayerRelationColumn ID="TurnOverByDeptSDLRC" ChildColumn="Title_Level" ParentColumn="Title_Level"/>
+					<DataLayer Type="SP" Command="sp_pr_TurnoverByDepartment" ConnectionID="HCRMConnection" ID="CallTurnOverByDeptDetails">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="DepartmentManage" Value="@Data.HOD~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpCount" Value="@Data.EmpCount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

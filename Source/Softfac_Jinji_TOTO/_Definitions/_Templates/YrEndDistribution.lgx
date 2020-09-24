@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="YrEndDistribution" SavedBy="Tester" SavedAt="12/11/2014 6:55:20 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="YrEndDistribution.xlt" ID="YrEndDistribution" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="YrEndDistribution" FirstRow="1" LastRow="9" Worksheet="Yearly" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" Command="sp_pr_RptYrEndDistribution" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="Job_Level" SPParamSize="0" SPParamType="dt-200" Value="@Request.Category~"/>
+					<SPParameter SPParamDirection="Input" ID="Perc" SPParamSize="0" SPParamType="dt-200" Value="@Request.minday~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Month" Value="Yearly : @Data.Month_text~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Job_level" Value="Job Level : @Data.Job_name~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="4" ID="CostBlock" Value="HOD : @Data.HOD~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="Details" DisposableFirstRow="7" DisposableLastRow="7" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_RptYrEndDistribution" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="Job_Level" SPParamSize="0" SPParamType="dt-200" Value="@Request.Category~"/>
+							<SPParameter SPParamDirection="Input" ID="Perc" SPParamSize="0" SPParamType="dt-200" Value="@Request.minday~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="CostBlock" ChildColumn="HOD" ParentColumn="HOD"/>
+					<SubDataLayerRelationColumn ID="Job_Level" ChildColumn="Job_Level" ParentColumn="Job_Level"/>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="CostBlock" Value="@Data.CostBlock~" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SuperCode" Value="@Data.SuperCode~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="HOD" Value="@Data.HOD~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.EmpBadge~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="EmpName" PatternBlockRow="1" Column="E" Value="@Data.EmpName~"/>
+				<PatternBlockCell ID="Position" Column="F" PatternBlockRow="1" Value="@Data.Position~"/>
+				<PatternBlockCell ID="DateJoin" Column="G" PatternBlockRow="1" Value="@Data.DateJoin~"/>
+				<PatternBlockCell ID="JobGrade" Column="H" PatternBlockRow="1" Value="@Data.JobGrade~"/>
+				<PatternBlockCell ID="Marks" Column="I" PatternBlockRow="1" Value="@Data.Marks~"/>
+				<PatternBlockCell ID="CcYrInc" Column="J" PatternBlockRow="1" Value="@Data.CcYrInc~"/>
+				<PatternBlockCell ID="CcYrIncPerc" Column="K" PatternBlockRow="1" Value="@Data.CcYrIncPerc~"/>
+				<PatternBlockCell ID="CcYrMidInc" Column="L" PatternBlockRow="1" Value="@Data.CcYrMidInc~"/>
+				<PatternBlockCell ID="CcYrMidIncPerc" Column="M" PatternBlockRow="1" Value="@Data.CcYrMidIncPerc~"/>
+				<PatternBlockCell ID="PromoHis" Column="N" PatternBlockRow="1" Value="@Data.PromoHis~"/>
+				<PatternBlockCell ID="Salary" Column="O" PatternBlockRow="1" Value="@Data.Salary~"/>
+				<PatternBlockCell ID="NewMark" Column="P" PatternBlockRow="1" Value="@Data.NewMark~"/>
+				<PatternBlockCell ID="NewYrInc" Column="Q" PatternBlockRow="1" Value="@Data.NewYrInc~"/>
+				<PatternBlockCell ID="NewYrPreAdj" Column="S" PatternBlockRow="1" Value="@Data.NewYrPreAdj~"/>
+				<PatternBlockCell ID="NewYrUpdgrade" Column="U" PatternBlockRow="1" Value="@Data.NewYrUpdgrade~"/>
+				<PatternBlockCell ID="SpecAdj" Column="Y" PatternBlockRow="1" Value="@Data.SpecAdj~"/>
+				<PatternBlockCell ID="Year" Column="AA" PatternBlockRow="1" Value="@Request.Year~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

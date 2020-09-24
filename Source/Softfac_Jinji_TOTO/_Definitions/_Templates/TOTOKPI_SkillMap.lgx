@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="TOTOKPI_SkillMap" SavedBy="Tester" SavedAt="3/8/2017 1:50:32 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="TOTO_SKILL_MAP.xlt" ExcelTemplateMode="OneWorksheetPerDataRow" ID="TOTOKPI_SkillMap">
+		<PatternBlock FirstRow="1" LastRow="9" Worksheet="Skill Map" ID="Header">
+			<DataLayer Type="SP" Command="sp_totoKPI_RptSkillMap" ConnectionID="HCRMConnection" ID="Header">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByType~"/>
+					<SPParameter SPParamDirection="Input" ID="ByReport" SPParamSize="0" SPParamType="dt-200" Value="Header"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="C" PatternBlockRow="3" ID="EmpCode" Value="@Data.EmpCode~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="4" ID="EmpName" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="5" ID="JobGrade" Value="@Data.JobGrade~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="6" ID="DateJoin" Value="@Data.DateJoin~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="5" ID="TotalSkill" Value="@Data.TotalSkill~"/>
+			<SubPatternBlock FirstRow="8" LastRow="8" DisposableFirstRow="9" DisposableLastRow="9" ID="Details">
+				<SubDataLayer ID="sdlc">
+					<DataLayer Type="SP" Command="sp_totoKPI_RptSkillMap" ConnectionID="HCRMConnection" ID="Details">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SPID~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByType~"/>
+							<SPParameter SPParamDirection="Input" ID="ByReport" SPParamSize="0" SPParamType="dt-200" Value="Details"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="EmpCode" ParentColumn="EmpCode" ID="sdlrc"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="MasterSkillCode" Value="@Data.MasterSkillCode~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Processname" Value="@Data.ProcessName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="SubProcessName" Value="@Data.SubProcessName~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="QuaterCode" Value="@Data.QuaterCode~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="SpecialPoint" Value="@Data.SpecialPoint~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="ComSkill1Point" Value="@Data.ComSkill1Point~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="ComSkill2Point" Value="@Data.ComSkill2Point~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="ComSkill3Point" Value="@Data.ComSkill3Point~"/>
+				<PatternBlockCell Column="V" PatternBlockRow="1" ID="ComSkill4Point" Value="@Data.ComSkill4Point~"/>
+				<PatternBlockCell Column="Z" PatternBlockRow="1" ID="ComSkill5Point" Value="@Data.ComSkill5Point~"/>
+				<PatternBlockCell Column="AD" PatternBlockRow="1" ID="ComSkill6Point" Value="@Data.ComSkill6Point~"/>
+				<PatternBlockCell Column="AH" PatternBlockRow="1" ID="ComSkill7Point" Value="@Data.ComSkill7Point~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="byEmployee_AllInfo_logicXML" SavedBy="Tester" SavedAt="10/24/2014 3:42:40 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="byEmployee_AllInfo_logicXML.xlt" ID="byEmployee_AllInfo_logicXML" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="AllInfo_logicXML" FirstRow="2" LastRow="2" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" Command="sp_is_byEmployee_AllInfo_logicXML" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="Company_Profile_Code" Column="B" PatternBlockRow="1" Value="@Data.Company_Profile_Code~"/>
+			<PatternBlockCell Column="C" ID="EmployeeID" PatternBlockRow="1" Value="@Data.EmployeeID~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="EmployeeCodeName" Value="@Data.EmployeeCodeName~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Title" Value="@Data.Title~"/>
+			<PatternBlockCell ID="EmployeeCode" Column="F" PatternBlockRow="1" Value=" @Data.EmployeeCode~"/>
+			<PatternBlockCell ID="EmployeeName" Value="@Data.EmployeeName~" Column="G" PatternBlockRow="1"/>
+			<PatternBlockCell ID="Name2" Value="@Data.Name2~" PatternBlockRow="1" Column="H"/>
+			<PatternBlockCell ID="MiddleName" Column="I" PatternBlockRow="1" Value="@Data.MiddleName~"/>
+			<PatternBlockCell ID="LastName" Value="@Data.LastName~" Column="J" PatternBlockRow="1"/>
+			<PatternBlockCell ID="FirstName2" Value="@Data.FirstName2~" Column="K" PatternBlockRow="1"/>
+			<PatternBlockCell ID="MiddleName2" Value="@Data.MiddleName2~" Column="L" PatternBlockRow="1"/>
+			<PatternBlockCell ID="LastName2" Value="@Data.LastName2~" Column="M" PatternBlockRow="1"/>
+			<PatternBlockCell ID="IdentityNo" Value="@Data.IdentityNo~" Column="N" PatternBlockRow="1"/>
+			<PatternBlockCell ID="DateOfBirth" Value="@Data.DateOfBirth~" Column="O" PatternBlockRow="1"/>
+			<PatternBlockCell ID="Age" Value="@Data.Age~" Column="P" PatternBlockRow="1"/>
+			<PatternBlockCell ID="PlaceOfBirth" Value="@Data.PlaceOfBirth~" Column="Q" PatternBlockRow="1"/>
+			<PatternBlockCell ID="Religion" Value="@Data.Religion~" Column="R" PatternBlockRow="1"/>
+			<PatternBlockCell ID="MaritalStatus" Value="@Data.MaritalStatus~" Column="S" PatternBlockRow="1"/>
+			<PatternBlockCell ID="Sex" Value="@Data.Sex~" Column="T" PatternBlockRow="1"/>
+			<PatternBlockCell ID="Citizenship" Value="@Data.Citizenship~" Column="U" PatternBlockRow="1"/>
+			<PatternBlockCell ID="Race" Value="@Data.Race~" Column="V" PatternBlockRow="1"/>
+			<PatternBlockCell ID="JoinDate" Value="@Data.JoinDate~" Column="W" PatternBlockRow="1"/>
+			<PatternBlockCell ID="YOS" Column="X" PatternBlockRow="1" Value="@Data.YOS~"/>
+			<PatternBlockCell ID="ConfirmDate" Column="Y" PatternBlockRow="1" Value="@Data.ConfirmDate~"/>
+			<PatternBlockCell ID="ResignDate" Column="Z" PatternBlockRow="1" Value="@Data.ResignDate~"/>
+			<PatternBlockCell ID="SubmitDate" Column="AA" PatternBlockRow="1" Value="@Data.SubmitDate~"/>
+			<PatternBlockCell ID="ResignType" Column="AB" PatternBlockRow="1" Value="@Data.ResignType~"/>
+			<PatternBlockCell ID="ResignFlag" Column="AC" PatternBlockRow="1" Value="@Data.ResignFlag~"/>
+			<PatternBlockCell ID="Remark" PatternBlockRow="1" Value="@Data.Remark~" Column="AD"/>
+			<PatternBlockCell ID="BasicSalary" PatternBlockRow="1" Value="@Data.BasicSalary~" Column="AE"/>
+			<PatternBlockCell ID="BasicCurrency" PatternBlockRow="1" Value="@Data.BasicCurrency~" Column="AF"/>
+			<PatternBlockCell ID="PayTo" Column="AG" PatternBlockRow="1" Value="@Data.PayTo~"/>
+			<PatternBlockCell ID="PayType" Column="AH" PatternBlockRow="1" Value="@Data.PayType~"/>
+			<PatternBlockCell ID="PayCycle" Column="AI" PatternBlockRow="1" Value="@Data.PayCycle~"/>
+			<PatternBlockCell ID="Divsion" Column="AJ" PatternBlockRow="1" Value="@Data.Divsion~"/>
+			<PatternBlockCell ID="Department" Column="AK" PatternBlockRow="1" Value="@Data.Department~"/>
+			<PatternBlockCell ID="Section" Column="AL" PatternBlockRow="1" Value="@Data.Section~"/>
+			<PatternBlockCell ID="Line" Column="AM" PatternBlockRow="1" Value="@Data.Line~"/>
+			<PatternBlockCell ID="OcpIdGROUP" Column="AN" PatternBlockRow="1" Value="@Data.OcpIdGROUP~"/>
+			<PatternBlockCell ID="Process" Column="AO" PatternBlockRow="1" Value="@Data.Process~"/>
+			<PatternBlockCell ID="CostCenter" Column="AQ" PatternBlockRow="1" Value="@Data.CostCenter~"/>
+			<PatternBlockCell ID="TMS" Column="AR" PatternBlockRow="1" Value="@Data.TMS~"/>
+			<PatternBlockCell ID="JobGrade" Column="AS" PatternBlockRow="1" Value="@Data.JobGrade~"/>
+			<PatternBlockCell ID="JobTitle" Column="AT" PatternBlockRow="1" Value="@Data.JobTitle~"/>
+			<PatternBlockCell ID="Appraisal" Column="AU" PatternBlockRow="1" Value="@Data.Appraisal~"/>
+			<PatternBlockCell ID="EmployeeGroup" Column="AV" PatternBlockRow="1" Value="@Data.EmployeeGroup~"/>
+			<PatternBlockCell ID="EmploymentType" Column="AW" PatternBlockRow="1" Value="@Data.EmploymentType~"/>
+			<PatternBlockCell ID="FormulaType" Column="AX" PatternBlockRow="1" Value="@Data.FormulaType~"/>
+			<PatternBlockCell ID="PayFormula" Column="AY" PatternBlockRow="1" Value="@Data.PayFormula~"/>
+			<PatternBlockCell ID="ChildWorking" Column="AZ" PatternBlockRow="1" Value="@Data.ChildWorking~"/>
+			<PatternBlockCell ID="ChildNonWorking" Column="BA" PatternBlockRow="1" Value="@Data.ChildNonWorking~"/>
+			<PatternBlockCell ID="SpouseWorking" Column="BB" PatternBlockRow="1" Value="@Data.SpouseWorking~"/>
+			<PatternBlockCell ID="BarcodeNo" Column="BC" PatternBlockRow="1" Value="@Data.BarcodeNo~"/>
+			<PatternBlockCell ID="PrevCompanyYear" Column="BD" PatternBlockRow="1" Value="@Data.PrevCompanyYear~"/>
+			<PatternBlockCell ID="PrevCompanyIncome" Column="BE" PatternBlockRow="1" Value="@Data.PrevCompanyIncome~"/>
+			<PatternBlockCell ID="PrevCompanyEPF" Column="BF" PatternBlockRow="1" Value="@Data.PrevCompanyEPF~"/>
+			<PatternBlockCell ID="PrevCompanyTAX" Column="BG" PatternBlockRow="1" Value="@Data.PrevCompanyTAX~"/>
+			<PatternBlockCell ID="PrevCompanyZAKAT" Column="BH" PatternBlockRow="1" Value="@Data.PrevCompanyZAKAT~"/>
+			<PatternBlockCell ID="EmployeeEpfNo" Column="BI" PatternBlockRow="1" Value="@Data.EmployeeEpfNo~"/>
+			<PatternBlockCell ID="EmployeeEPF" Column="BJ" PatternBlockRow="1" Value="@Data.EmployeeEPF~"/>
+			<PatternBlockCell ID="EmployeeTaxNo" Column="BK" PatternBlockRow="1" Value="@Data.EmployeeTaxNo~"/>
+			<PatternBlockCell ID="EmployeeTAX" Column="BL" PatternBlockRow="1" Value="@Data.EmployeeTAX~"/>
+			<PatternBlockCell ID="EmployeeSocsoNo" Column="BM" PatternBlockRow="1" Value="@Data.EmployeeSocsoNo~"/>
+			<PatternBlockCell ID="EmployeeSOCSO" Column="BN" PatternBlockRow="1" Value="@Data.EmployeeSOCSO~"/>
+			<PatternBlockCell ID="BankCode" Column="BO" PatternBlockRow="1" Value="@Data.BankCode~"/>
+			<PatternBlockCell ID="BankAccNo" Column="BP" PatternBlockRow="1" Value="@Data.BankAccNo~"/>
+			<PatternBlockCell ID="PaymentCurrency" Column="BQ" PatternBlockRow="1" Value="@Data.PaymentCurrency~"/>
+			<PatternBlockCell ID="AllowDateFrom" Column="BR" PatternBlockRow="1" Value="@Data.AllowDateFrom~"/>
+			<PatternBlockCell ID="AllowDateTo" Column="BS" PatternBlockRow="1" Value="@Data.AllowDateTo~"/>
+			<PatternBlockCell ID="AllowanceType" Column="BT" PatternBlockRow="1" Value="@Data.AllowanceType~"/>
+			<PatternBlockCell ID="AllowanceAmt" Column="BU" PatternBlockRow="1" Value="@Data.AllowanceAmt~"/>
+			<PatternBlockCell ID="PayType" Column="BV" PatternBlockRow="1" Value="@Data.PayType~"/>
+			<PatternBlockCell ID="PayCycle" Column="BW" PatternBlockRow="1" Value="@Data.PayCycle~"/>
+			<PatternBlockCell ID="Qualification" Column="BX" PatternBlockRow="1" Value="@Data.Qualification~"/>
+			<PatternBlockCell ID="Major" Column="BY" PatternBlockRow="1" Value="@Data.Major~"/>
+			<PatternBlockCell ID="Certification" Column="BZ" PatternBlockRow="1" Value="@Data.Certification~"/>
+			<PatternBlockCell ID="IncrementEffectiveDate" Column="CA" PatternBlockRow="1" Value="@Data.IncrementEffectiveDate~"/>
+			<PatternBlockCell ID="IncrementType" Column="CB" PatternBlockRow="1" Value="@Data.IncrementType~"/>
+			<PatternBlockCell ID="OldSalary" Column="CC" PatternBlockRow="1" Value="@Data.OldSalary~"/>
+			<PatternBlockCell ID="NewSalary" Column="CD" PatternBlockRow="1" Value="@Data.NewSalary~"/>
+			<PatternBlockCell ID="Increment" Column="CE" PatternBlockRow="1" Value="@Data.Increment~"/>
+			<PatternBlockCell ID="Promotion" Column="CF" PatternBlockRow="1" Value="@Data.Promotion~"/>
+			<PatternBlockCell ID="AddPermanent" Column="CG" PatternBlockRow="1" Value="@Data.AddPermanent~"/>
+			<PatternBlockCell ID="Address1" Column="CH" PatternBlockRow="1" Value="@Data.Address1~"/>
+			<PatternBlockCell ID="Address2" Column="CI" PatternBlockRow="1" Value="@Data.Address2~"/>
+			<PatternBlockCell ID="Poscode" Column="CJ" PatternBlockRow="1" Value="@Data.Poscode~"/>
+			<PatternBlockCell ID="States" Column="CK" PatternBlockRow="1" Value="@Data.States~"/>
+			<PatternBlockCell ID="Country" Column="CL" PatternBlockRow="1" Value="@Data.Country~"/>
+			<PatternBlockCell ID="HouseNo" Column="CM" PatternBlockRow="1" Value="@Data.HouseNo~"/>
+			<PatternBlockCell ID="MobileNo" Column="CN" PatternBlockRow="1" Value="@Data.MobileNo~"/>
+			<PatternBlockCell ID="Fax" Column="CO" PatternBlockRow="1" Value="@Data.Fax~"/>
+			<PatternBlockCell ID="Email" Column="CP" PatternBlockRow="1" Value="@Data.Email~"/>
+			<PatternBlockCell Column="CQ" PatternBlockRow="1" ID="EmpStatus" Value="@Data.EmpStatus~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="500" User_Profile_Code="rwem"/>
+</Template>

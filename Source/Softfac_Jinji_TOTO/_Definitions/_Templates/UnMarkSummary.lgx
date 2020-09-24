@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="UnMarkSummary" SavedBy="Tester" SavedAt="3/21/2014 9:29:32 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="HOD_SUMMARY.xlt" ID="UnMarkSummary">
+		<PatternBlock FirstRow="2" LastRow="2" DisposableFirstRow="3" DisposableLastRow="3" Worksheet="DATA" ID="Data">
+			<DataLayer Type="SP" Command="sp_sch_MarkSummary" ID="GetData" ConnectionID="HCRMConnection">
+				<SPParameters>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="HOD" Value="@Data.HOD~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="SubSup" Value="@Data.Subsup~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Superior" Value="@Data.Superior~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Date" Value="@Data.Date~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="OverTime_Summary" SavedBy="Tester" SavedAt="6/17/2014 11:26:26 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="OverTime Summary.xltx" ID="Overtime">
+		<PatternBlock ID="Header" FirstRow="1" LastRow="12">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="GetHeader" Command="sp_pr_rptotsummary2">
+				<SPParameters IdeDisplayStatus="Collapsed">
+					<SPParameter/>
+				</SPParameters>
+			</DataLayer>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

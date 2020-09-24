@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ActiveReportsLayout Version="3.2" PrintWidth="11952" DocumentName="ActiveReports Document" ScriptLang="C#" MasterReport="0">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; color: Black; text-align: left; vertical-align: top; ddo-char-set: 186" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader1" Height="1227.36" BackColor="16777215">
+      <Control Type="AR.Field" Name="txtCompany" DataField="ComName" Tag=" + &quot; - &quot; + ComRegisno" Left="321.12" Top="0" Width="8395.2" Height="470.88" Text="Company" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 18pt; text-align: right; vertical-align: middle; white-space: nowrap; ddo-char-set: 0; ddo-wrap-mode: nowrap" />
+      <Control Type="AR.Label" Name="lblEmpID" Left="326.8683" Top="590.3731" Width="1440" Height="240.5066" Caption="EMPID /  NAME" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" Multiline="0" />
+      <Control Type="AR.Field" Name="txtBankAc" DataField="BankAc" Left="8951.04" Top="900" Width="2880" Height="288" Text="BankAc" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtEmpID" DataField="=EmpCode + &quot; / &quot; + EmpName" Left="2054.88" Top="604.8" Width="5312.161" Height="269.3082" Text="Staff_Name" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtPaymode" DataField="PayMode" Left="2054.88" Top="900" Width="1088.638" Height="288" Text="PayMode" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblPaymode" Left="305.28" Top="900" Width="1584" Height="288" Caption="PAYMENT MODE" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" Multiline="0" />
+      <Control Type="AR.Label" Name="lblBankAc" Left="7277.76" Top="900" Width="1440" Height="288" Caption="BANK A/C NO " Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtIC" DataField="ICNo" Left="8951.027" Top="635.067" Width="2880" Height="224.6682" Text="IC_No" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblIC" Left="7367.041" Top="603.36" Width="1440" Height="256.3466" Caption=" NRIC" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblBankAcMark" Left="8808.479" Top="900" Width="143.9999" Height="288" Caption=":" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblEmpIDMark" Left="1910.88" Top="604.773" Width="144" Height="180.0017" Caption=":" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblPaymodeMark" Left="1910.88" Top="874.08" Width="144" Height="288" Caption=":" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: top; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblICMark" Left="8807.028" Top="665.3069" Width="144" Height="180.0017" Caption=":" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="Label1" Left="3539.52" Top="900" Width="1216.8" Height="288" Caption="PAYSLIP FOR" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" Multiline="0" />
+      <Control Type="AR.Label" Name="Label2" Left="4848.48" Top="900" Width="143.9999" Height="288" Caption=":" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="TextBox7" DataField="PrintName" Left="5081.76" Top="900" Width="2196" Height="288" Text="PrintName" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="TextBox20" DataField="PrintDate" Left="10113.12" Top="0" Width="1634.4" Height="135.36" Text="Prindate" OutputFormat="#,##0.00" Style="font-family: Arial Narrow; font-size: 5.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox30" DataField="ComRegisno" Tag="" Left="8746.56" Top="0" Width="2400.48" Height="365.76" Text="CompanyRegisno" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 12pt; font-weight: bold; text-align: left; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="360" DataField="EmpCode" GroupKeepTogether="2" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Field" Name="TextBox18" Left="4703.041" Top="89.28001" Width="4050.72" Height="227.5202" Text="DEDUCTIONS" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; text-align: center; vertical-align: middle; ddo-char-set: 1" PaddingLeft="3" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine5" Left="4703.041" Top="74.88013" Right="4703.041" Bottom="626.4" />
+      <Control Type="AR.Field" Name="TextBox14" Left="273.6" Top="73.44009" Width="4429.44" Height="243.3601" Text="EARNINGS / ALLOWANCES" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; text-align: center; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine7" Left="252" Top="57.60009" Right="252" Bottom="626.4" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine2" Left="8814.24" Top="60.48009" Right="8814.24" Bottom="610.5601" />
+      <Control Type="AR.Field" Name="TextBox3" Left="8814.24" Top="102.24" Width="2054.881" Height="227.5202" Text="YEAR TO DATE" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 9pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" PaddingLeft="3" />
+      <Control Type="AR.Line" Name="Line4" X1="228.96" Y1="329.76" X2="11842.56" Y2="329.76" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line6" X1="273.6" Y1="73.44" X2="11887.2" Y2="73.44" LineWeight="2" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine4" Left="11887.2" Top="102.24" Right="11887.2" Bottom="626.4" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="318" RepeatToFill="1" BackColor="16777215">
+      <Control Type="AR.Field" Name="TextBox21" DataField="Deduction_AA" Left="7613.281" Top="46.08009" Width="1080" Height="201.6" Text="D1" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox22" DataField="OCP_Name_Deduction" Left="4703.041" Top="72.00008" Width="2880" Height="201.6" Text="@D1Details" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; vertical-align: middle; white-space: nowrap; ddo-char-set: 0; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox23" DataField="Allowance_AA" Left="3352.32" Top="57.60009" Width="1350.72" Height="201.6" Text="E1" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; text-justify: auto; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox24" DataField="OCP_Name_Allowance" Left="273.5999" Top="46.08009" Width="2985.12" Height="217.44" Text="@E1Details" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; vertical-align: middle; white-space: nowrap; ddo-char-set: 0; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox4" DataField="OCP_Name_Other" Left="8814.24" Top="72" Width="2054.88" Height="201.6" Text="@YTD" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; vertical-align: middle; white-space: nowrap; ddo-char-set: 0; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox6" DataField="Other_Amount" Left="10869.12" Top="72" Width="1010.88" Height="201.6" Text="YTD1" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="2358.84" BackColor="16777215">
+      <Control Type="AR.Label" Name="Label9" Left="9679.68" Top="2052" Width="2221.92" Height="240.4803" Caption="EMPLOYEE SIGNATURE" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="Label8" Left="2998.08" Top="626.4" Width="1955.52" Height="226.0799" Caption="Other Leave" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="Label7" Left="6707.52" Top="626.4" Width="905.76" Height="300.96" Caption="Taken" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="Label5" Left="7613.28" Top="927.3601" Width="845.2807" Height="217.4399" Caption="EPF" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="Label4" Left="7613.28" Top="626.4" Width="2960.64" Height="300.96" Caption="Employer's deduction" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblANL" Left="273.6" Top="927.3601" Width="1800" Height="254.88" Caption="ANNUAL LEAVE" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblLeaveTaken" Left="2001.6" Top="626.4" Width="905.76" Height="300.96" Caption="Taken" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="TextBox54" Left="267.84" Top="57.60009" Width="2730.24" Height="180" Text="TOTAL (X)" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox51" DataField="TotalDeduct" Left="7613.281" Top="57.60009" Width="1140.484" Height="180" Text="TotalDeduction" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox53" DataField="TotalAllow" Left="3241.441" Top="57.60009" Width="1365.12" Height="180" Text="TotalEarning" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox100" Left="4703.041" Top="352.8001" Width="2880" Height="180" Text="NET PAY ( X - Y )" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox52" Left="4703.041" Top="59.04009" Width="2910.24" Height="180" Text="TOTAL (Y)" Multiline="0" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox99" DataField="NetPay" Left="7613.281" Top="322.5601" Width="1200.964" Height="210.48" Text="Net_Salary" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 9pt; text-align: right; vertical-align: middle" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox8" Left="8814.24" Top="322.56" Width="2054.88" Height="180" Text="NET PAID" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; vertical-align: middle; ddo-char-set: 1" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox11" DataField="YTDNetPay" Left="10869.12" Top="352.8" Width="961.9208" Height="210.48" Text="YTD_Salary" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 9pt; text-align: right; vertical-align: middle" PaddingRight="3" />
+      <Control Type="AR.Label" Name="lblLeave" Left="273.6" Top="626.4" Width="905.76" Height="300.96" Caption="Leave" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="Label3" Left="273.6" Top="1228.32" Width="1728" Height="227.5201" Caption="MEDICAL LEAVE" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="TextBox12" DataField="ALTaken" Left="2001.6" Top="927.3601" Width="888.4798" Height="217.44" Text="ANLTaken" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; vertical-align: middle; white-space: nowrap; ddo-char-set: 0; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox13" DataField="MCTaken" Left="2001.6" Top="1238.4" Width="888.4798" Height="217.44" Text="MCTaken" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; vertical-align: middle; white-space: nowrap; ddo-char-set: 0; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Label" Name="Label6" Left="7613.28" Top="1144.8" Width="845.2807" Height="263.5201" Caption="SOCSO" Style="font-size: 9pt; font-weight: bold; text-decoration: none; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="TextBox16" DataField="EPFEmployer" Left="8591.04" Top="964.8" Width="1634.4" Height="180" Text="EPFER" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Field" Name="TextBox19" DataField="SOCSOEmployer" Left="8591.04" Top="1228.32" Width="1634.4" Height="180" Text="SOCSOER" OutputFormat="#,##0.00" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: right; vertical-align: middle; ddo-char-set: 0" PaddingRight="3" />
+      <Control Type="AR.Line" Name="Line5" X1="252" Y1="927.3601" X2="11880" Y2="927.3601" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line3" X1="266.4" Y1="626.4" X2="11880" Y2="626.4" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line1" X1="273.6" Y1="280.8" X2="11887.2" Y2="280.8" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line2" X1="273.6" Y1="28.8" X2="11887.2" Y2="28.8" LineWeight="2" />
+      <Control Type="AR.Field" Name="TextBox25" DataField="OCP_Name_Leave1" Left="2998.08" Top="964.8" Width="2985.12" Height="217.44" Text="Leave1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox26" DataField="OCP_Name_Leave2" Left="2998.08" Top="1182.24" Width="2985.12" Height="217.44" Text="Leave1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox27" DataField="OCP_Name_Leave3" Left="2998.08" Top="1399.68" Width="2985.12" Height="217.44" Text="Leave1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox28" DataField="OCP_Name_Leave4" Left="2998.08" Top="1617.12" Width="2985.12" Height="217.44" Text="Leave1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="TextBox29" DataField="OCP_Name_Leave5" Left="2998.08" Top="1834.56" Width="2985.12" Height="217.44" Text="Leave1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="LeaveTaken1" DataField="LeaveTaken1" Left="6724.8" Top="964.8" Width="888.4798" Height="217.44" Text="Leavetaken1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="LeaveTaken2" DataField="LeaveTaken2" Left="6724.8" Top="1182.24" Width="888.4798" Height="217.44" Text="Leavetaken2" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="LeaveTaken3" DataField="LeaveTaken3" Left="6724.8" Top="1399.68" Width="888.4798" Height="217.44" Text="Leavetaken1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="LeaveTaken4" DataField="LeaveTaken4" Left="6724.8" Top="1617.12" Width="888.4798" Height="217.44" Text="Leavetaken1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Field" Name="LeaveTaken5" DataField="LeaveTaken5" Left="6724.8" Top="1834.56" Width="888.4798" Height="217.44" Text="Leavetaken1" CanGrow="0" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: normal; vertical-align: middle; white-space: nowrap; ddo-char-set: 1; ddo-wrap-mode: nowrap" PaddingLeft="3" />
+      <Control Type="AR.Line" Name="Line7" X1="273.6" Y1="2052" X2="11901.6" Y2="2052" LineWeight="2" />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter1" Height="0" BackColor="16777215" CanGrow="0">
+      <Control Type="AR.Field" Name="TextBox109" Left="8128.801" Top="950.1613" Width="1080" Height="288" Text="" Style="font-family: Times New Roman; font-size: 9pt; text-align: right; vertical-align: middle" PaddingRight="3" />
+    </Section>
+  </Sections>
+  <ReportComponentTray />
+  <Script><![CDATA[public void PageHeader1_Format()
+{
+	
+}
+
+
+public void ActiveReport_ReportStart()
+{
+	
+}
+
+
+public void GroupFooter1_Format()
+{
+
+}
+
+]]></Script>
+  <PageSettings LeftMargin="288" RightMargin="720" TopMargin="720" BottomMargin="288" PaperSize="0" PaperWidth="12240" PaperHeight="7920" PaperName="Custom paper" />
+  <Parameters />
+</ActiveReportsLayout>

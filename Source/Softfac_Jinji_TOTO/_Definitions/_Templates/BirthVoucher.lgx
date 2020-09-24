@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="BirthVoucher" SavedBy="Tester" SavedAt="8/15/2014 3:31:37 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="BirthVoucher.pdf" ID="BirthVoucher" PdfFormMode="OneFormPerDataRow">
+		<DataLayer Type="SP" ID="CallLetter" ConnectionID="HCRMConnection" Command="sp_is_rptBirthVoucher">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+				<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+			</SPParameters>
+			<SortFilter SortColumn="Serial" DataType="Text" ID="Softby Serial" SortSequence="Ascending"/>
+		</DataLayer>
+		<PdfFormField Name="txtSerial" ID="txtSerial" Value="@Data.Serial~"/>
+		<PdfFormField Name="txtName" ID="txtName" Value="@Data.Name~"/>
+		<PdfFormField Name="txtBadge" ID="txtBadge" Value="@Data.Badge~"/>
+		<PdfFormField Name="txtCostblock" ID="txtCostblock" Value="@Data.CostBlock~"/>
+		<PdfFormField Name="txtBirth" ID="txtBirth" Value="@Data.DateOfBirth~"/>
+		<PdfFormField Name="txtSuperior" ID="txtSuperior" Value="@Data.Superior~"/>
+		<PdfFormField Name="txtExpiry" ID="txtExpiry" Value="@Data.ExpiryDate~"/>
+	</PdfForm>
+</Template>

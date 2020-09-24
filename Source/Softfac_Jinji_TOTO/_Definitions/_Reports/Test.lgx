@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Report ID="Test" SavedBy="Tester" SavedAt="12/6/2011 12:25:09 PM" EngineVersion="8.0.30" lgxKey="Report.1" idePositioning="Absolute">
+	<StyleSheet StyleSheet="Blue.css" lgxKey="Report.1/StyleSheet.1"/>
+	<ReportHeader ShowModes="Interactive" lgxKey="Report.1/ReportHeader.2">
+		<Label ID="lblCompanyName" Caption="JAVA INCORPORATED BHD (2511-M)" Class="rptHeaderLogoText" lgxKey="Report.1/ReportHeader.2/Label.1"/>
+	</ReportHeader>
+	<Body lgxKey="Report.1/Body.3"/>
+	<ReportFooter lgxKey="Report.1/ReportFooter.4"/>
+	<PrintablePaging PageHeight="9.5" PageWidth="6.5" lgxKey="Report.1/PrintablePaging.5">
+		<PageHeader lgxKey="Report.1/PrintablePaging.5/PageHeader.1">
+			<Label Caption="JAVA INCORPORATED BHD (2511-M)" ID="lblCompanyName" Class="rptHeaderLogoText" lgxKey="Report.1/PrintablePaging.5/PageHeader.1/Label.1"/>
+		</PageHeader>
+	</PrintablePaging>
+</Report>

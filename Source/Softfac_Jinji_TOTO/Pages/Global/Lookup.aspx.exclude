@@ -1,0 +1,33 @@
+<%@ Page Language="VB" AutoEventWireup="false" EnableEventValidation="false" CodeFile="Lookup.aspx.vb" Inherits="Pages_Global_Lookup" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Lookup Page</title>
+    <link href="../../App_Themes/hcrmStyles1.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form_lookup" runat="server">
+    <div>
+        <asp:literal id="ltrValue" runat="server"></asp:literal>
+		<div style="width: 340px; overflow: auto; border-top-style: double; border-right-style: double; border-left-style: double; border-bottom-style: double;border-color :#00115C;" align="center">	
+			<asp:gridview id="grdLookup" Width="100%" runat="server" cellpadding="4" AllowPaging="True" AutoGenerateColumns="False"
+				BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px">
+				<SelectedRowStyle Font-Bold="True" ForeColor="#CCFF99" BackColor="#009999" />
+				<RowStyle Font-Names="Tahoma" ForeColor="#003399" CssClass="fontSize10" BackColor="White" />
+				<HeaderStyle Font-Names="Tahoma" Font-Bold="True" Height="17px" ForeColor="#FFFFFF" CssClass="fontSize12" BackColor="#003399"></HeaderStyle>
+				<FooterStyle Height="15px" />
+				<PagerSettings Mode="NumericFirstLast" />
+				<PagerStyle BackColor="#003399" ForeColor="#FFFFFF" Height="15px" CssClass="fontSize12" />
+				<Columns>
+					<asp:ButtonField Visible="false" Text="Select" CommandName="Select"/>
+					<asp:BoundField HeaderText="Display" DataField="Display" Visible="false"  />
+					<asp:BoundField HeaderText="Code" DataField="Code" ItemStyle-HorizontalAlign="Left" />
+					<asp:BoundField HeaderText="Name" DataField="Name" ItemStyle-HorizontalAlign="Left" />
+				</Columns>
+		</asp:gridview></DIV>
+    </div>
+    </form>
+</body>
+</html>

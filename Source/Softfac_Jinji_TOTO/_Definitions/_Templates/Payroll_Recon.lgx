@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_Recon" SavedBy="Tester" SavedAt="3/21/2019 2:47:59 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Payroll_Recon.xlt" ID="Payroll_Recon" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_Summary_logicXML" FirstRow="1" LastRow="65536" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where company_Profile_Code = {*apos;*}@Request.Company_Profile_Code~{*apos;*} and code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_RptPayrollReconciliation" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Company_Profile_Code" Column="B" PatternBlockRow="1" Value="@Data.CompanyName~"/>
+				<PatternBlockCell Column="C" ID="EmployeeID" PatternBlockRow="1" Value="@Data.Employee_Profile_ID~"/>
+				<PatternBlockCell ID="EmployeeCode" Column="D" PatternBlockRow="1" Value="@Data.EmpCode~"/>
+				<PatternBlockCell ID="EmployeeName" Value="@Data.EmpName~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Month" Value="@Data.month~" PatternBlockRow="1" Column="F"/>
+				<PatternBlockCell ID="Year" Column="G" PatternBlockRow="1" Value="@Data.Year~"/>
+				<PatternBlockCell ID="option_pay_Mode" Value="@Data.PayMode~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Div" Value="@Data.Division~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Dept" Value="@Data.Department~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Sect" Value="@Data.Section~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Line" Value="@Data.Line~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Group" Value="@Data.GroupLine~" Column="M" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Process" Value="@Data.Process~" Column="N" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Finance" Value="@Data.CostCenter~" Column="O" PatternBlockRow="1"/>
+				<PatternBlockCell ID="TMS" Value="@Data.TMS~" Column="P" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Job_Grade" Value="@Data.JobGrade~" Column="Q" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Job_Title" Value="@Data.Position~" Column="R" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Option_Allowance_Deduction" Column="S" PatternBlockRow="1" Value="@Data.Option_Allowance_Deduction~"/>
+				<PatternBlockCell ID="ProcessID" Column="T" PatternBlockRow="1" Value="@Data.SalaryCodeName~"/>
+				<PatternBlockCell ID="DateJoin" Column="U" PatternBlockRow="1" Value="@Data.DateJoin~"/>
+				<PatternBlockCell ID="DateResign" Column="V" PatternBlockRow="1" Value="@Data.DateResign~"/>
+				<PatternBlockCell ID="CurrentMonthAmount" Column="W" PatternBlockRow="1" Value="@Data.CurrentMonthAmount~"/>
+				<PatternBlockCell ID="LastMonthAmount" Column="X" PatternBlockRow="1" Value="@Data.LastMonthAmount~"/>
+				<PatternBlockCell ID="DifferentAmount" Column="Y" PatternBlockRow="1" Value="@Data.DifferentAmount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

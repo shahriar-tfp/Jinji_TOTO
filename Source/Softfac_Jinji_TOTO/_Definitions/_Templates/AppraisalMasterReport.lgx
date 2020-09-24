@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="AppraisalMasterReport" SavedBy="Tester" SavedAt="11/17/2015 1:57:02 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AppraisalMasterReport.xlt" ID="AppraisalMasterReport" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="10" ID="Header">
+			<DataLayer Type="SP" Command="sp_ap_RptAppraisalMaster" ID="Header" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Period" SPParamSize="0" SPParamType="dt-200" Value="@Request.Period~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="F" PatternBlockRow="2" ID="Period" Value="@Data.AppraisalPeriod~"/>
+			<SubPatternBlock FirstRow="8" LastRow="8" ID="Details" DisposableFirstRow="9" DisposableLastRow="9" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="SDL" IdeDisplayStatus="Collapsed">
+					<DataLayer Type="SP" Command="sp_ap_RptAppraisalMaster" ID="Details" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Period" SPParamSize="0" SPParamType="dt-200" Value="@Request.Period~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="Details"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="AppraisalPeriod" ParentColumn="AppraisalPeriod" ID="sdlPeriod"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Num" Value="@Data.number~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpID" Value="@Data.empcode~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Empname" Value="@Data.empname~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="Stafflevel" Value="@Data.Slevel~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="Position" Value="@Data.Position~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="Dept" Value="@Data.Dept~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="Category" Value="@Data.Category~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="JoinDate" Value="@Data.Joindate~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="YOS" Value="@Data.YOS~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="DOB" Value="@Data.DateofBirth~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="Age" Value="@Data.Age~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="CSalary" Value="@Data.CSalary~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="PTRanking" Value="@Data.PTRanking~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="Appraiser_1st" Value="@Data.Appraiser_1st~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="Weight_1_1" Value="@Data.Weighting_1_1st~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="Points_1_1" Value="@Data.Point_1_1st~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="Weight_2_1" Value="@Data.Weighting_2_1st~"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="Points_2_1" Value="@Data.Point_2_1st~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="Weight_3_1" Value="@Data.Weighting_3_1st~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="Points_3_1" Value="@Data.Point_3_1st~"/>
+				<PatternBlockCell Column="V" PatternBlockRow="1" ID="Achievement_1" Value="@Data.Achivement_Point_1st~"/>
+				<PatternBlockCell Column="W" PatternBlockRow="1" ID="Skill_Point_1" Value="@Data.Skill_Point_1st~"/>
+				<PatternBlockCell Column="Y" PatternBlockRow="1" ID="Ranking_1" Value="@Data.Ranking_1st~"/>
+				<PatternBlockCell Column="Z" PatternBlockRow="1" ID="Appraiser_2nd" Value="@Data.Appraiser_2nd~"/>
+				<PatternBlockCell Column="AA" PatternBlockRow="1" ID="Weight_1_2" Value="@Data.Weighting_1_2nd~"/>
+				<PatternBlockCell Column="AB" PatternBlockRow="1" ID="Points_1_2" Value="@Data.Point_1_2nd~"/>
+				<PatternBlockCell Column="AC" PatternBlockRow="1" ID="Weight_2_2" Value="@Data.Weighting_2_2nd~"/>
+				<PatternBlockCell Column="AD" PatternBlockRow="1" ID="Points_2_2" Value="@Data.Point_2_2nd~"/>
+				<PatternBlockCell Column="AE" PatternBlockRow="1" ID="Weight_3_2" Value="@Data.Weighting_3_2nd~"/>
+				<PatternBlockCell Column="AF" PatternBlockRow="1" ID="Points_3_2" Value="@Data.Point_3_2nd~"/>
+				<PatternBlockCell Column="AG" PatternBlockRow="1" ID="Achievement_2" Value="@Data.Achivement_Point_2nd~"/>
+				<PatternBlockCell Column="AH" PatternBlockRow="1" ID="Skill_Point_2" Value="@Data.Skill_Point_2nd~"/>
+				<PatternBlockCell Column="AJ" PatternBlockRow="1" ID="Ranking_2" Value="@Data.Ranking_2nd~"/>
+				<PatternBlockCell Column="AZ" PatternBlockRow="1" ID="P1Increment" Value="@Data.P1Increment~"/>
+				<PatternBlockCell Column="BA" PatternBlockRow="1" ID="P1Bonus" Value="@Data.P1Bonus~"/>
+				<PatternBlockCell Column="BB" PatternBlockRow="1" ID="P1Rate" Value="@Data.P1Rate~"/>
+				<PatternBlockCell Column="BC" PatternBlockRow="1" ID="P2Increment" Value="@Data.P2Increment~"/>
+				<PatternBlockCell Column="BD" PatternBlockRow="1" ID="P2Bonus" Value="@Data.P2Bonus~"/>
+				<PatternBlockCell Column="BE" PatternBlockRow="1" ID="P2Rate" Value="@Data.P2Rate~"/>
+				<PatternBlockCell Column="BF" PatternBlockRow="1" ID="P3Increment" Value="@Data.P3Increment~"/>
+				<PatternBlockCell Column="BG" PatternBlockRow="1" ID="P3Bonus" Value="@Data.P3Bonus~"/>
+				<PatternBlockCell Column="BH" PatternBlockRow="1" ID="P3Rate" Value="@Data.P3Rate~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

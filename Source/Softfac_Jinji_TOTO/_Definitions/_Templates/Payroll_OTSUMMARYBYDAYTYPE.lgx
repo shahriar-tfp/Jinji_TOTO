@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_OTSUMMARYBYDAYTYPE" SavedBy="Tester" SavedAt="6/27/2014 5:13:05 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="OTSummaryBYDayType.xlt" ID="OTSummaryBYDayType" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock Worksheet="Operator" FirstRow="1" LastRow="8" ID="PhaseHeader">
+			<DataLayer Type="SP" Command="sp_pr_OTSUMMARYBYDayTYPE" ConnectionID="HCRMConnection" ID="CallPhaseHeader" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Month" Value="OT SUMMARY FOR @Data.Month_text~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Print Date" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="PhaseDetails" DisposableFirstRow="6" DisposableLastRow="6" FillMode="Insert">
+				<SubDataLayer ID="PhaseSDL">
+					<SubDataLayerRelationColumn ID="PhaseSDLRC" ChildColumn="ComName" ParentColumn="ComName"/>
+					<DataLayer Type="SP" Command="sp_pr_OTSUMMARYBYDayTYPE" ConnectionID="HCRMConnection" ID="CallPhaseDetails">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Month" Value="@Request.Month~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="DayType" Value="@Data.DAYTYPE~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="TotalHour" Value="@Data.totalhour~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="TotalPaid" Value="@Data.TotalPaid~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock Worksheet="Staff" FirstRow="1" LastRow="8" ID="TMSHeader">
+			<DataLayer Type="SP" Command="sp_pr_OTSUMMARYBYDayTYPE" ConnectionID="HCRMConnection" ID="CallTMSHeader" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Month" Value="OT SUMMARY FOR @Data.Month_text~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="2" ID="Print Date" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="TMSDetails" DisposableFirstRow="6" DisposableLastRow="6" FillMode="Insert">
+				<SubDataLayer ID="TMSSDL">
+					<SubDataLayerRelationColumn ID="TMSSDLRC" ChildColumn="ComName" ParentColumn="ComName"/>
+					<DataLayer Type="SP" Command="sp_pr_OTSUMMARYBYDayTYPE" ConnectionID="HCRMConnection" ID="CallTMSDetails">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+						</SPParameters>
+					</DataLayer>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Month" Value="@Request.Month~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="DayType" Value="@Data.DAYTYPE~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="TotalHour" Value="@Data.totalhour~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="TotalPaid" Value="@Data.TotalPaid~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

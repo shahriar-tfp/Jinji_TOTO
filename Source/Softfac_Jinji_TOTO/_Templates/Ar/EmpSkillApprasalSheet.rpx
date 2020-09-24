@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3.2" PrintWidth="10800" DocumentName="ActiveReports Document" ScriptLang="C#" MasterReport="0">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; color: Black; text-align: left; vertical-align: top; ddo-char-set: 1" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader" Height="740.518" BackColor="16777215">
+      <Control Type="AR.Label" Name="lblAppraiserCommentSheet" Left="144.0002" Top="365.76" Width="4469.76" Height="288" Caption="Employee's Skill Appraisal Sheet : Staff" Style="font-family: Times New Roman; font-size: 12pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtcompanyname" DataField="ComName" Left="144.0002" Top="0" Width="5954.281" Height="285" Text="txtCompanyName" Style="font-family: Times New Roman; font-size: 14.25pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtStaffcategory" DataField="category" Left="4304.16" Top="360" Width="5339.521" Height="255" Text="TextBox1" Style="font-family: Times New Roman; font-size: 12pt; font-weight: bold" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="14190" DataField="empname" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Label" Name="lblitem10" DataField="Skill_10" Left="446.4" Top="11928.96" Width="1249.92" Height="1036.801" Caption="Personal Attitude" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblno" Left="115.2" Top="905.76" Width="331.2" Height="619.2" Caption="No." Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; text-align: center; text-decoration: none; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem" Left="432" Top="907.2" Width="1296" Height="619.2" Caption="Item" Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; text-align: center; text-decoration: none; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblDescription" Left="1728" Top="911.52" Width="7372.8" Height="619.2" Caption="Description" Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; text-align: center; text-decoration: none; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblSGB1st" Left="9849.601" Top="1091.52" Width="777.6" Height="432" Caption="1st Appraiser" Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblSGBEmp" Left="9086.4" Top="1094.4" Width="734.4" Height="432" Caption="Employee" Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Shape" Name="Shape2" Left="100.8004" Top="13011.84" Width="10549.44" Height="339.8413" BackColor="16777215" LineWeight="2" RoundingRadius="9.999999" />
+      <Control Type="AR.Label" Name="lbl9des5" DataField="Skill_9_5" Left="1728" Top="11640.96" Width="7344" Height="172.8" Caption="lbl9des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line1" X1="108" Y1="1488.96" X2="10644.48" Y2="1488.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="lblNo4" Left="115.2" Top="5016.96" Width="331.2" Height="213.12" Caption="4" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app10" DataField="Point_1stAppraiser_10" Left="9969.12" Top="11928.96" Width="614.8801" Height="783.36" Text="txtsgb1app10" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl1Marks" Left="1815.84" Top="13848.48" Width="1215.36" Height="288" Caption="5 - Excellent" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl10des3" DataField="Skill_10_3" Left="1728" Top="12360.96" Width="7344" Height="172.8" Caption="lbl10des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp2" DataField="Point_Appraisee_2" Left="9145.442" Top="2712.96" Width="614.8801" Height="783.36" Text="txtsgbemp2" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl8des5" DataField="Skill_8_5" Left="1728" Top="10488.96" Width="7344" Height="172.8" Caption="lbl8des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line12" X1="102.2404" Y1="7248.96" X2="10644.48" Y2="7248.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="Label1" Left="5954.399" Top="13419.36" Width="3729.6" Height="243.36" Caption="Total Points Given By 2nd Appraiser :" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; text-align: right; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtYOS" DataField="YOS" Left="9933.121" Top="331.2" Width="688.3196" Height="288" Text="txtYOS" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl6des3" DataField="Skill_6_3" Left="1728" Top="7752.96" Width="7344" Height="172.8" Caption="lbl6des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblNo7" Left="115.2" Top="8472.96" Width="331.2" Height="213.12" Caption="7" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl1des4" DataField="Skill_1_4" Left="1728" Top="2208.96" Width="7344" Height="172.8" Caption="lbl1des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app8" DataField="Point_1stAppraiser_8" Left="9917.278" Top="9624.96" Width="614.8801" Height="783.36" Text="txtsgb1app8" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line16" X1="102.2404" Y1="11856.96" X2="10651.68" Y2="11856.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="lblNo9" Left="115.2" Top="10776.96" Width="331.2" Height="213.12" Caption="9" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblNo3" Left="115.2" Top="3864.96" Width="331.2" Height="213.12" Caption="3" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl9des1" DataField="Skill_9_1" Left="1728" Top="10776.96" Width="7344" Height="172.8" Caption="lbl9des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app1" DataField="Point_1stAppraiser_1" Left="9921.601" Top="1560.96" Width="614.8801" Height="783.36" Text="txtsgb1app1" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl10des4" DataField="Skill_10_4" Left="1728" Top="12576.96" Width="7344" Height="172.8" Caption="lbl10des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line15" X1="102.2404" Y1="10704.96" X2="10651.68" Y2="10704.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="lbl9des3" DataField="Skill_9_3" Left="1728" Top="11208.96" Width="7344" Height="172.8" Caption="lbl9des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl2des3" DataField="Skill_2_3" Left="1728" Top="3144.96" Width="7344" Height="172.8" Caption="lbl2des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl10des1" DataField="Skill_10_1" Left="1728" Top="11928.96" Width="7344" Height="172.8" Caption="lbl10des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtDesignation" DataField="Designation" Left="7040.159" Top="129.6" Width="3611.521" Height="288" Text="txtDesignation" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl7des1" DataField="Skill_7_1" Left="1728" Top="8472.96" Width="7344" Height="172.8" Caption="lbl7des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp6" DataField="Point_Appraisee_6" Left="9129.601" Top="7320.961" Width="614.8801" Height="783.36" Text="txtsgbemp6" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem6" DataField="Skill_6" Left="446.4" Top="7320.96" Width="1231.2" Height="1036.8" Caption="Discipline" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblNo8" Left="115.2" Top="9624.96" Width="331.2" Height="213.12" Caption="8" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app4" DataField="Point_1stAppraiser_4" Left="9933.122" Top="5016.961" Width="614.8801" Height="783.36" Text="txtsgb1app4" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem7" DataField="Skill_7" Left="446.4" Top="8472.96" Width="1261.44" Height="1036.8" Caption="Responsibilities &amp; Commitments" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line2" X1="9080.641" Y1="1094.4" X2="10644.48" Y2="1094.4" LineWeight="2" />
+      <Control Type="AR.Label" Name="Label5" Left="424.8" Top="13831.2" Width="1228.32" Height="216" Caption="Scores  :" Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtsgbemp10" DataField="Point_Appraisee_10" Left="9181.44" Top="11928.96" Width="614.8801" Height="783.36" Text="txtsgbemp10" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl5des4" DataField="Skill_5_4" Left="1728" Top="6816.96" Width="7344" Height="172.8" Caption="lbl5des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl3des5" DataField="Skill_3_5" Left="1728" Top="4728.96" Width="7344" Height="172.8" Caption="lbl3des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl2des1" DataField="Skill_2_1" Left="1728" Top="2712.96" Width="7344" Height="172.8" Caption="lbl2des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl2des5" DataField="Skill_2_5" Left="1728" Top="3576.96" Width="7344" Height="172.8" Caption="lbl2des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl6des5" DataField="Skill_6_5" Left="1728" Top="8184.96" Width="7344" Height="172.8" Caption="lbl6des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl2des2" DataField="Skill_2_2" Left="1728" Top="2928.96" Width="7344" Height="172.8" Caption="lbl2des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app2" DataField="Point_1stAppraiser_2" Left="9933.121" Top="2712.96" Width="614.8801" Height="783.36" Text="txtsgb1app2" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl3Marks" Left="5149.44" Top="13848.48" Width="1860.48" Height="288" Caption="3 - Average" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtsgb1apptp" DataField="Tol_1stAppraiser_Point" Left="9983.52" Top="13095.36" Width="614.8801" Height="214.5607" Text="txtsgb1apptp" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app7" DataField="Point_1stAppraiser_7" Left="9917.278" Top="8472.961" Width="614.8801" Height="783.36" Text="txtsgb1app7" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl7des2" DataField="Skill_7_2" Left="1728" Top="8688.96" Width="7344" Height="172.8" Caption="lbl7des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp3" DataField="Point_Appraisee_3" Left="9145.442" Top="3864.96" Width="614.8801" Height="783.36" Text="txtsgbemp3" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem3" DataField="Skill_3" Left="446.4" Top="3864.96" Width="1261.44" Height="1036.8" Caption="Technical" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblNo5" Left="115.2003" Top="6168.96" Width="331.2" Height="213.12" Caption="5" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl1des1" DataField="Skill_1_1" Left="1728" Top="1560.96" Width="7344" Height="172.8" Caption="lbl1des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl4des4" DataField="Skill_4_4" Left="1728" Top="5664.96" Width="7344" Height="172.8" Caption="lbl4des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl10des5" DataField="Skill_10_5" Left="1728" Top="12792.96" Width="7344" Height="172.8" Caption="lbl10des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtStaffLevel" DataField="Stafflevel" Left="7041.599" Top="331.2" Width="1440" Height="288" Text="txtStaffLevel" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl8des1" DataField="Skill_8_1" Left="1728" Top="9624.96" Width="7344" Height="172.8" Caption="lbl8des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="Txtsgb1app5" DataField="Point_1stAppraiser_5" Left="9918.72" Top="6168.96" Width="614.8801" Height="783.36" Text="Txtsgb1app5" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblsgb" Left="9086.4" Top="905.7599" Width="1548" Height="187.2" Caption="Scores Given By" Style="background-color: LightGrey; font-family: Times New Roman; font-size: 8pt; font-weight: bold; text-align: center; text-decoration: none; vertical-align: middle; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl6des2" DataField="Skill_6_2" Left="1728" Top="7536.96" Width="7344" Height="172.8" Caption="lbl6des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txsgbemptp" DataField="Tol_Appraisee_Point" Left="9195.841" Top="13095.36" Width="614.8801" Height="214.5607" Text="txsgbemptp" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl8des4" DataField="Skill_8_4" Left="1728" Top="10272.96" Width="7344" Height="172.8" Caption="lbl8des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem2" DataField="Skill_2" Left="446.4" Top="2712.96" Width="1231.2" Height="1036.8" Caption="Skill Ability" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem1" DataField="Skill_1" Left="446.4" Top="1560.96" Width="1261.44" Height="1036.8" Caption="Communication" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl6des4" DataField="Skill_6_4" Left="1728" Top="7968.96" Width="7344" Height="172.8" Caption="lbl6des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblTP" Left="2926.08" Top="13066.56" Width="1261.44" Height="243.36" Caption="Total Points :" Style="font-family: Times New Roman; font-size: 8.25pt; font-weight: bold; text-align: left; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblitem8" DataField="Skill_8" Left="446.4" Top="9624.96" Width="1249.92" Height="1036.8" Caption="Supervisory &amp; Coordination Skill" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl3des1" DataField="Skill_3_1" Left="1728" Top="3864.96" Width="7344" Height="172.8" Caption="lbl3des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl3des3" DataField="Skill_3_3" Left="1728" Top="4296.96" Width="7344" Height="172.8" Caption="lbl3des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl7des5" DataField="Skill_7_5" Left="1728" Top="9336.96" Width="7344" Height="172.8" Caption="lbl7des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Shape" Name="Shape9" Left="403.2" Top="13779.36" Width="10033.92" Height="311.0399" BackColor="16777215" RoundingRadius="9.999999" />
+      <Control Type="AR.Label" Name="lbl5des5" DataField="Skill_5_5" Left="1728" Top="7032.96" Width="7344" Height="172.8" Caption="lbl5des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblAppraiseesName" Left="100.8002" Top="201.6" Width="2249.28" Height="216" Caption="Appraisee's Name      :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="txtsgbemp8" DataField="Point_Appraisee_8" Left="9129.601" Top="9624.96" Width="614.8801" Height="783.36" Text="txtsgbemp8" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp7" DataField="Point_Appraisee_7" Left="9129.601" Top="8472.961" Width="614.8801" Height="783.36" Text="txtsgbemp7" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl7des4" DataField="Skill_7_4" Left="1728" Top="9120.96" Width="7344" Height="172.8" Caption="lbl7des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb2apptp" DataField="Appraiser_2nd_Points" Left="9849.601" Top="13448.16" Width="614.8801" Height="214.5607" Text="txtsgb2apptp" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="Txtsgb1app6" DataField="Point_1stAppraiser_6" Left="9917.278" Top="7320.961" Width="614.8801" Height="783.36" Text="txtsgb1app6" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl4Marks" Left="7043.04" Top="13848.48" Width="1634.4" Height="288" Caption="2 - Below Average" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblitem4" DataField="Skill_4" Left="446.4" Top="5016.96" Width="1249.92" Height="1036.8" Caption="Quality of Work" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl8des3" DataField="Skill_8_3" Left="1728" Top="10056.96" Width="7344" Height="172.8" Caption="lbl8des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl1stAppraiser" Left="100.8002" Top="604.8" Width="2249.28" Height="285" Caption="1st Appraiser              :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl1des3" DataField="Skill_1_3" Left="1728" Top="1992.96" Width="7344" Height="172.8" Caption="lbl1des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line11" X1="102.2404" Y1="6096.961" X2="10651.68" Y2="6096.961" LineWeight="2" />
+      <Control Type="AR.Label" Name="lbl2des4" DataField="Skill_2_4" Left="1728" Top="3360.96" Width="7344" Height="172.8" Caption="lbl2des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl4des5" DataField="Skill_4_5" Left="1728" Top="5880.96" Width="7344" Height="172.8" Caption="lbl4des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblDeptSecProject" Left="100.8002" Top="403.2" Width="2249.28" Height="285" Caption="Dept / Sec / Project    :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblAppraisalPeriod" Left="100.8002" Top="0" Width="2160" Height="216" Caption="Appraisal Period        :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblNo10" Left="115.2" Top="11928.96" Width="331.2" Height="213.12" Caption="10" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl5Marks" Left="9211.682" Top="13848.48" Width="884.1601" Height="288" Caption="1 - Poor" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblYOS" Left="8364.961" Top="331.2" Width="1738.081" Height="285" Caption="Year(s) of Service :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl4des1" DataField="Skill_4_1" Left="1728" Top="5016.96" Width="7344" Height="172.8" Caption="lbl4des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem5" DataField="Skill_5" Left="446.4" Top="6168.96" Width="1313.28" Height="1036.8" Caption="Time Management" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app3" DataField="Point_1stAppraiser_3" Left="9933.121" Top="3864.96" Width="614.8801" Height="783.36" Text="txtsgb1app3" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtappraisalPriod" DataField="appraisal" Left="1972.8" Top="0" Width="3780" Height="288" Text="txtappraisalPriod" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Line" Name="Line13" X1="102.2404" Y1="8400.961" X2="10644.48" Y2="8400.961" LineWeight="2" />
+      <Control Type="AR.Label" Name="lblNo6" Left="115.2" Top="7320.96" Width="331.2" Height="213.12" Caption="6" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl6des1" DataField="Skill_6_1" Left="1728" Top="7320.96" Width="7344" Height="172.8" Caption="lbl6des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp5" DataField="Point_Appraisee_5" Left="9131.042" Top="6168.96" Width="614.8801" Height="783.36" Text="txtsgbemp5" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl8des2" DataField="Skill_8_2" Left="1728" Top="9840.96" Width="7344" Height="172.8" Caption="lbl8des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl7des3" DataField="Skill_7_3" Left="1728" Top="8904.96" Width="7344" Height="172.8" Caption="lbl7des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl3des4" DataField="Skill_3_4" Left="1728" Top="4512.96" Width="7344" Height="172.8" Caption="lbl3des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl4des2" DataField="Skill_4_2" Left="1728" Top="5232.96" Width="7344" Height="172.8" Caption="lbl4des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtappraiseeName" DataField="empname" Left="1972.8" Top="201.6" Width="3699.36" Height="288" Text="txtappraiseeName" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Line" Name="Line9" X1="108" Y1="3792.96" X2="10651.68" Y2="3792.96" LineWeight="2" />
+      <Control Type="AR.Field" Name="txtsgbemp9" DataField="Point_Appraisee_9" Left="9195.841" Top="10776.96" Width="614.8801" Height="783.36" Text="txtsgbemp9" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp1" DataField="Point_Appraisee_1" Left="9145.441" Top="1560.96" Width="614.8801" Height="783.36" Text="txtsgbemp1" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgbemp4" DataField="Point_Appraisee_4" Left="9145.442" Top="5016.961" Width="614.8801" Height="783.36" Text="txtsgbemp4" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl5des1" DataField="Skill_5_1" Left="1728" Top="6168.96" Width="7344" Height="172.8" Caption="lbl5des1" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtsgb1app9" DataField="Point_1stAppraiser_9" Left="9983.52" Top="10776.96" Width="614.8801" Height="783.36" Text="txtsgb1app9" Style="font-size: 8.25pt; text-align: center; vertical-align: middle; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblitem9" DataField="Skill_9" Left="446.4" Top="10776.96" Width="1231.2" Height="1036.801" Caption="Creativity &amp; Innovative" Style="font-family: Times New Roman; font-size: 6.75pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txt1stAppraiser" DataField="Appraiser_1st" Left="1972.8" Top="604.8" Width="3699.36" Height="288" Text="txt1stAppraiser" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl5des3" DataField="Skill_5_3" Left="1728" Top="6600.96" Width="7344" Height="172.8" Caption="lbl5des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl1des2" DataField="Skill_1_2" Left="1728" Top="1776.96" Width="7344" Height="172.8" Caption="lbl1des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line10" X1="102.24" Y1="4944.96" X2="10644.48" Y2="4944.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="lbl4des3" DataField="Skill_4_3" Left="1728" Top="5448.96" Width="7344" Height="172.8" Caption="lbl4des3" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblDesignation" Left="5672.16" Top="129.6" Width="2249.28" Height="216" Caption="Designation       :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Line" Name="Line8" X1="108" Y1="2640.96" X2="10644.48" Y2="2640.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="lbl9des2" DataField="Skill_9_2" Left="1728" Top="10992.96" Width="7344" Height="172.8" Caption="lbl9des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl2ndAppraiser" Left="5672.16" Top="532.8" Width="2249.28" Height="216" Caption="2nd Appraiser   :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblStaffLevel" Left="5672.16" Top="331.2" Width="2249.28" Height="285" Caption="Staff Level         :" Style="font-family: Times New Roman; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Shape" Name="Shape3" Left="100.8004" Top="13351.68" Width="10549.44" Height="339.8413" BackColor="16777215" LineWeight="2" RoundingRadius="9.999999" />
+      <Control Type="AR.Line" Name="Line14" X1="102.2404" Y1="9552.96" X2="10651.68" Y2="9552.96" LineWeight="2" />
+      <Control Type="AR.Label" Name="lbl10des2" DataField="Skill_10_2" Left="1728" Top="12144.96" Width="7344" Height="172.8" Caption="lbl10des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblNo1" Left="115.2" Top="1560.96" Width="331.2" Height="288" Caption="1" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txt2stAppraiser" DataField="Appraiser_2nd" Left="7040.159" Top="532.8" Width="3604.321" Height="288" Text="txt2stAppraiser" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl3des2" DataField="Skill_3_2" Left="1728" Top="4080.96" Width="7344" Height="172.8" Caption="lbl3des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl1des5" DataField="Skill_1_5" Left="1728" Top="2424.96" Width="7344" Height="172.8" Caption="lbl1des5" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lblNo2" Left="115.2" Top="2712.96" Width="331.2" Height="213.12" Caption="2" Style="font-family: Times New Roman; font-size: 8.25pt; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtDeptSecProject" DataField="Dept" Left="1972.8" Top="403.2" Width="3699.36" Height="288" Text="txtDeptSecProject" Style="font-family: Times New Roman; font-size: 8pt; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lbl5des2" DataField="Skill_5_2" Left="1728" Top="6384.96" Width="7344" Height="172.8" Caption="lbl5des2" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl9des4" DataField="Skill_9_4" Left="1728" Top="11424.96" Width="7344" Height="172.8" Caption="lbl9des4" Style="font-family: Times New Roman; font-size: 6pt; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Label" Name="lbl2Marks" Left="3438.72" Top="13848.48" Width="1080" Height="288" Caption="4 -Good" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Line" Name="Line4" X1="432" Y1="875.5201" X2="432" Y2="13361.76" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line3" X1="9086.4" Y1="892.8" X2="9086.4" Y2="13361.76" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line6" X1="9849.601" Y1="1091.52" X2="9849.601" Y2="13662.72" LineWeight="2" />
+      <Control Type="AR.Line" Name="Line5" X1="1728" Y1="875.5201" X2="1728" Y2="13361.76" LineWeight="2" />
+      <Control Type="AR.Shape" Name="Shape1" Left="100.8" Top="875.5201" Width="10543.68" Height="12090.24" BackColor="16777215" LineWeight="2" RoundingRadius="9.999999" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="0" BackColor="16777215" KeepTogether="1" />
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="0" BackColor="16777215" KeepTogether="1" />
+    <Section Type="PageFooter" Name="PageFooter" Height="0" BackColor="16777215" />
+  </Sections>
+  <ReportComponentTray />
+  <Script><![CDATA[public void PageHeader_Format()
+{
+	
+}
+
+
+]]></Script>
+  <PageSettings RightMargin="288" TopMargin="288" BottomMargin="288" PaperSize="1" PaperWidth="12240" PaperHeight="15840" PaperName="" />
+  <Parameters />
+</ActiveReportsLayout>

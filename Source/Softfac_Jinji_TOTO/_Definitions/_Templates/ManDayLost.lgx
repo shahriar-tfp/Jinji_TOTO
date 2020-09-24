@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ManDayLost" SavedBy="Tester" SavedAt="6/27/2014 9:19:48 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="ManDayLost.xlt" ExcelTemplateMode="OneWorksheet" ID="ManDayLost">
+		<PatternBlock ID="Details" Worksheet="ManDayLostData" FirstRow="2" LastRow="2" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" ID="GetDetails" Command="[sp_tms_ManDayLost] " ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="Cnt" PatternBlockRow="1" Value="@Data.cnt~" Column="A"/>
+			<PatternBlockCell ID="Month" Column="B" PatternBlockRow="1" Value="@Data.Month~"/>
+			<PatternBlockCell ID="EmployeeGroup" Column="C" PatternBlockRow="1" Value="@Data.EmployeeGroup~"/>
+			<PatternBlockCell ID="OptionType" Column="D" PatternBlockRow="1" Value="@Data.OptionType~"/>
+			<PatternBlockCell ID="PrintDate" Column="E" PatternBlockRow="1" Value="@Data.PrintDate~"/>
+			<PatternBlockCell ID="PrintMonth" Column="F" PatternBlockRow="1" Value="@Data.PrintMonth~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

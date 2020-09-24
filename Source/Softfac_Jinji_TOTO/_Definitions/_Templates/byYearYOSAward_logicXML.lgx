@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="byYearYOSAward_logicXML" SavedBy="winson-sfc" SavedAt="12-Oct-11 10:25:15 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="byYearYOSAward_logicXML.xlt" ID="byYearYOSAward_logicXML" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="byYearYOSAward_logicXML" FirstRow="1" LastRow="4000" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select code from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_byYearYOSAward_logicXML" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Period" Column="A" PatternBlockRow="1" Value="@Data.Period~"/>
+				<PatternBlockCell ID="YOS" Column="B" PatternBlockRow="1" Value="@Data.YOS~"/>
+				<PatternBlockCell ID="JoinDate" Value="@Data.JoinDate~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="ConfirmDate" Column="D" PatternBlockRow="1" Value="@Data.ConfirmDate~"/>
+				<PatternBlockCell ID="Company_Profile_Code" Column="E" PatternBlockRow="1" Value="@Data.COMPANY_PROFILE_CODE~"/>
+				<PatternBlockCell Column="F" ID="EmployeeID" PatternBlockRow="1" Value="@Data.Employee_Profile_ID~"/>
+				<PatternBlockCell ID="Divsion" Column="G" PatternBlockRow="1" Value="@Data.OCP_ID_DIVISION~"/>
+				<PatternBlockCell ID="Department" Column="H" PatternBlockRow="1" Value="@Data.OCP_ID_DEPARTMENT~"/>
+				<PatternBlockCell ID="Section" Column="I" PatternBlockRow="1" Value="@Data.OCP_ID_SECTION~"/>
+				<PatternBlockCell ID="Line" Column="J" PatternBlockRow="1" Value="@Data.OCP_ID_LINE~"/>
+				<PatternBlockCell ID="OcpIdGROUP" Column="K" PatternBlockRow="1" Value="@Data.OCP_ID_GROUP~"/>
+				<PatternBlockCell ID="Process" Column="L" PatternBlockRow="1" Value="@Data.OCP_ID_PROCESS~"/>
+				<PatternBlockCell ID="CostCenter" Column="M" PatternBlockRow="1" Value="@Data.OCP_ID_FINANCE~"/>
+				<PatternBlockCell ID="TMS" Column="N" PatternBlockRow="1" Value="@Data.OCP_ID_TMS~"/>
+				<PatternBlockCell ID="JobGrade" Column="O" PatternBlockRow="1" Value="@Data.OCP_ID_JOB_GRADE~"/>
+				<PatternBlockCell ID="JobTitle" Column="P" PatternBlockRow="1" Value="@Data.OCP_ID_JOB_TITLE~"/>
+				<PatternBlockCell ID="Appraisal" Column="Q" PatternBlockRow="1" Value="@Data.OCP_ID_APPRAISAL~"/>
+				<PatternBlockCell ID="EmployeeGroup" Column="R" PatternBlockRow="1" Value="@Data.OPTION_EMPLOYEE_GROUP~"/>
+				<PatternBlockCell ID="EmploymentType" Column="S" PatternBlockRow="1" Value="@Data.OPTION_EMPLOYMENT_TYPE~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR"/>
+</Template>

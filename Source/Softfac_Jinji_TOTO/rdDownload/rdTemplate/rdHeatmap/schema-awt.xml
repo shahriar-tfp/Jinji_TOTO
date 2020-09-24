@@ -1,0 +1,2096 @@
+<schema>
+   <types>
+
+      <!--======================================================================================-->
+      <!--                                         BORDERS                                      -->
+      <!--======================================================================================-->
+      <border switch="type" default="none">
+
+         <bevel class="com.labescape.common.awtui.framework.TPIBevelBorder"
+                constructorParameters="${this@bevelType}"
+                constructorClasses="int">
+
+            <bevelType reference="schema.types.bevelTypes" />
+
+         </bevel>
+
+         <etched class="com.labescape.common.awtui.framework.TPIEtchedBorder"
+                 constructorParameters="${this@etchType}"
+                 constructorClasses="int">
+
+            <etchType reference="schema.types.bevelTypes" />
+
+         </etched>
+
+         <line class="com.labescape.common.awtui.framework.TPILineBorder"
+               constructorParameters="${this@color},${this@thickness},${this@roundedCorners}"
+               constructorClasses="Color,int,boolean">
+
+            <color          class="Color"   defaultValue="#000000" />
+            <thickness      class="int"     defaultValue="1"       />
+            <roundedCorners class="boolean" defaultValue="false"   />
+
+         </line>
+
+         <matte class="com.labescape.common.awtui.framework.TPIMatteBorder"
+                constructorParameters="${this@top},${this@left},${this@bottom},${this@right},${this@color}"
+                constructorClasses="int,int,int,int,Color">
+
+            <top    class="int"   defaultValue="1" />
+            <left   class="int"   defaultValue="1" />
+            <bottom class="int"   defaultValue="1" />
+            <right  class="int"   defaultValue="1" />
+            <color  class="Color" defaultValue="#000000" />
+
+         </matte>
+
+         <compound class="com.labescape.common.awtui.framework.TPICompoundBorder"
+                   constructorParameters="${this.outsideBorder},${this.insideBorder}"
+                   constructorClasses="javax.swing.border.Border,javax.swing.border.Border">
+
+            <insideBorder  reference="schema.types.border" />
+
+            <outsideBorder reference="schema.types.border" />
+
+         </compound>
+
+         <gutter class="com.labescape.common.baseui.border.GutterBorder"
+                 constructorParameters="${this.outsideBorder|this.defaultOutsideBorder},${this.insideBorder|this.defaultInsideBorder},${this.margins},${this@color},${this...},${this@gutterPosition}"
+                 constructorClasses="javax.swing.border.Border,javax.swing.border.Border,java.awt.Insets,java.awt.Color,com.labescape.common.baseui.settings.CellSettings,int">
+
+            <color class="Color" defaultValue="#6666FF" />
+
+            <gutterPosition class="int" propertyClasses="int" defaultValue="top" mapValues="distinct">
+                <top    value="0" />
+                <left   value="1" />
+                <bottom value="2" />
+                <right  value="3" />
+            </gutterPosition>
+
+            <insideBorder  reference="schema.types.border" />
+
+            <outsideBorder reference="schema.types.border" />
+
+            <margins class="java.awt.Insets"
+                     constructorParameters="${this@top},${this@left},${this@bottom},${this@right}"
+                     constructorClasses="int,int,int,int" 
+                     defaultCondition="always">
+
+                <top    class="int"   defaultValue="1" />
+                <left   class="int"   defaultValue="1" />
+                <bottom class="int"   defaultValue="1" />
+                <right  class="int"   defaultValue="1" />
+
+            </margins>
+
+            <defaultOutsideBorder class="com.labescape.common.awtui.framework.TPIBevelBorder"
+                                  constructorParameters="${this@bevelType},${this.highlight},${this.shadow}"
+                                  constructorClasses="int,java.awt.Color,java.awt.Color"  
+                                  defaultCondition="always" >
+
+                <bevelType reference="schema.types.bevelTypes" defaultValue="raised" />
+
+                <highlight class="com.labescape.common.baseui.DerivedColor" 
+                           constructorClasses="Color,int"
+                           constructorParameters="${this...@color},${this@transform}" 
+                           defaultCondition="always" >
+
+                    <transform reference="schema.types.colorTransformations" defaultValue="brighter" />
+                </highlight>
+
+                <shadow class="com.labescape.common.baseui.DerivedColor" 
+                        constructorClasses="Color,int"
+                        constructorParameters="${this...@color},${this@transform}" 
+                        defaultCondition="always" >
+
+                    <transform reference="schema.types.colorTransformations" defaultValue="darker" />
+                </shadow>
+
+            </defaultOutsideBorder>
+
+            <defaultInsideBorder class="com.labescape.common.awtui.framework.TPIBevelBorder"
+                                 constructorParameters="${this@bevelType},${this.highlight},${this.shadow}"
+                                 constructorClasses="int,java.awt.Color,java.awt.Color"  
+                                 defaultCondition="always" >
+
+                <bevelType reference="schema.types.bevelTypes" defaultValue="lowered" />
+
+                <highlight class="com.labescape.common.baseui.DerivedColor" 
+                           constructorClasses="Color,int"
+                           constructorParameters="${this...@color},${this@transform}" 
+                           defaultCondition="always" >
+
+                    <transform reference="schema.types.colorTransformations" defaultValue="brighter" />
+                </highlight>
+
+                <shadow class="com.labescape.common.baseui.DerivedColor" 
+                        constructorClasses="Color,int"
+                        constructorParameters="${this...@color},${this@transform}" 
+                        defaultCondition="always" >
+
+                    <transform reference="schema.types.colorTransformations" defaultValue="darker" />
+                </shadow>
+
+            </defaultInsideBorder>
+
+         </gutter>
+
+         <empty class="com.labescape.common.awtui.framework.TPIEmptyBorder"
+                constructorParameters="${this@top},${this@left},${this@bottom},${this@right}"
+                constructorClasses="int,int,int,int">
+
+             <top    class="int" defaultValue="0" />
+             <left   class="int" defaultValue="0" />
+             <bottom class="int" defaultValue="0" />
+             <right  class="int" defaultValue="0" />
+
+         </empty>
+
+         <none class="com.labescape.common.awtui.framework.TPIEmptyBorder"
+               constructorParameters="${this@noTop},${this@noLeft},${this@noBottom},${this@noRight}"
+               constructorClasses="int,int,int,int">
+
+             <noTop    class="int" defaultValue="0" />
+             <noLeft   class="int" defaultValue="0" />
+             <noBottom class="int" defaultValue="0" />
+             <noRight  class="int" defaultValue="0" />
+
+         </none>
+
+      </border>
+
+      <emptyBorder class="com.labescape.common.awtui.framework.TPIEmptyBorder"
+                   constructorParameters="${this@top},${this@left},${this@bottom},${this@right}"
+                   constructorClasses="int,int,int,int"
+                   defaultCondition="always">
+
+         <top    class="int" defaultValue="0" />
+         <left   class="int" defaultValue="4" />
+         <bottom class="int" defaultValue="0" />
+         <right  class="int" defaultValue="4" />
+
+      </emptyBorder>
+
+      <bevelTypes class="int" 
+                  defaultValue="raised" 
+                  mapValues="distinct">
+
+         <raised  value="0" />
+         <lowered value="1" />
+
+      </bevelTypes>
+
+      <colorTransformations class="int" 
+                  defaultValue="darker" 
+                  mapValues="distinct">
+
+         <darker   value="0" />
+         <brighter value="1" />
+
+      </colorTransformations>
+
+      <compositeTypes class="int" 
+                  defaultValue="alpha" 
+                  mapValues="distinct">
+
+         <none   value="0" />
+         <alpha  value="1" />
+
+      </compositeTypes>
+      <labelAlignments class="int" 
+                       defaultValue="default" 
+                       mapValues="distinct">
+
+         <default value="-1" />
+         <left    value="2" />
+         <center  value="0" />
+         <right   value="4" />
+
+      </labelAlignments>
+
+      <labelLocations class="int" 
+                      defaultValue="center" 
+                      mapValues="distinct">
+
+         <center      value = "0"/>
+         <top         value = "1"/>
+         <topRight    value = "2"/>
+         <right       value = "3"/>
+         <bottomRight value = "4"/>
+         <bottom      value = "5"/>
+         <bottomLeft  value = "6"/>
+         <left        value = "7"/>
+         <topLeft     value = "8"/>
+
+      </labelLocations>
+
+
+      <!--======================================================================================-->
+      <!--                                          FONTS                                       -->
+      <!--======================================================================================-->
+      <fontStyle class="com.labescape.common.baseui.settings.FontStyle"
+                 elements="font"
+                 attributes="color,shadow,shadowColor">
+
+          <font class="java.awt.Font"
+                constructorParameters="${this..@name},${this..@style},${this..@size}"
+                constructorClasses="String,int,int"
+                propertySetCondition="always"
+                defaultCondition="always" />
+
+          <name        class="String" 
+                       defaultValue="Arial" />
+
+          <size        class="int"
+                       defaultValue="10" />
+
+          <style       reference="schema.types.fontStyles" />
+
+          <color       class="Color"   
+                       propertyName="fontColor"
+                       defaultValue="#FFFFFF" />
+
+          <shadow      class="boolean" 
+                       propertyName="fontShadow"
+                       propertyClasses="boolean" 
+                       defaultValue="true"    />
+
+          <shadowColor class="Color"
+                       propertyName="fontShadowColor"
+                       defaultValue="#000000" />
+
+      </fontStyle>
+
+      <font class="java.awt.Font"
+            constructorParameters="${this@name},${this@style},${this@size}"
+            constructorClasses="String,int,int">
+
+         <name  class="String" defaultValue="Arial" />
+         <size  class="int"    defaultValue="10"    />
+
+         <style reference="schema.types.fontStyles" />
+
+         <!-- @note The color attribute is only used by the 'table.style' element for the table panel. -->
+
+         <color class="Color"  defaultValue="#000000" />
+
+      </font>
+
+      <fontStyles class="int" mapValues="bitwise" defaultValue="plain">
+         <plain  value="0" />
+         <bold   value="1" />
+         <italic value="2" />
+      </fontStyles>
+
+
+      <!--======================================================================================-->
+      <!--                                        CONTROLS                                      -->
+      <!--======================================================================================-->
+      <control switch="type" default="custom">
+
+         <dataSelector class="com.labescape.treemap.awtui.control.DataSelectorControl"
+                       attributes="noSelectionLabel"
+                       elements="include,exclude"
+                       constructorClasses="com.labescape.treemap.baseui.TreeMap,int"
+                       constructorParameters="${config.treemap},${this@field}">
+
+            <field class="int" 
+                   propertyClasses="int"
+                   mapValues="distinct">
+
+                <color value="0" />
+                <size  value="1" />
+                <label value="2" />
+
+            </field>
+
+            <include class="java.lang.String" 
+                     constructorParameters="${this.text()}" 
+                     constructorClasses="java.lang.String" 
+                     propertyName="includeFields" 
+                     propertyClasses="java.lang.String[]" 
+                     propertyParameters="${this.array()}" />
+
+            <exclude class="java.lang.String" 
+                     constructorParameters="${this.text()}" 
+                     constructorClasses="java.lang.String" 
+                     propertyName="excludeFields" 
+                     propertyClasses="java.lang.String[]" 
+                     propertyParameters="${this.array()}" />
+
+         </dataSelector>
+
+         <colorSchemeSelector class="com.labescape.treemap.awtui.control.ColorSchemeSelectorControl"
+                              constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                              constructorParameters="${config.treemap}" 
+                              elements="colorScheme">
+
+               <colorScheme class="com.labescape.common.render.ColorScheme"
+                            propertyName="colorSchemes"
+                            propertyClasses="com.labescape.common.render.ColorScheme[]"
+                            propertyParameters="${config.treemap.colorScheme.array()}" />
+
+         </colorSchemeSelector>
+
+         <renderDepthSelector class="com.labescape.treemap.awtui.control.RenderDepthSelectorControl"
+                              attributes="allLabel"
+                              constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                              constructorParameters="${config.treemap}" />
+
+         <groupHierarchySelector class="com.labescape.treemap.awtui.control.GroupHierarchySelectorControl"
+                       attributes="noSelectionLabel"
+                       elements="include,exclude"
+                       constructorClasses="com.labescape.treemap.baseui.TreeMap,int"
+                       constructorParameters="${config.treemap},${this@level}">
+
+            <noSelectionLabel class="java.lang.String" defaultValue="" />
+
+            <level class="int" propertyClasses="int" defaultValue="1" />
+
+            <include class="java.lang.String" 
+                     constructorParameters="${this.text()}" 
+                     constructorClasses="java.lang.String" 
+                     propertyName="includeFields" 
+                     propertyClasses="java.lang.String[]" 
+                     propertyParameters="${this.array()}" />
+
+            <exclude class="java.lang.String" 
+                     constructorParameters="${this.text()}" 
+                     constructorClasses="java.lang.String" 
+                     propertyName="excludeFields" 
+                     propertyClasses="java.lang.String[]" 
+                     propertyParameters="${this.array()}" />
+
+         </groupHierarchySelector>
+
+         <dataConfigSelector class="com.labescape.treemap.awtui.control.DataConfigSelectorControl"
+                       elements="config"
+                       constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                       constructorParameters="${config.treemap}">
+
+             <config reference="schema.types.dataConfig"
+                     propertyMethod="addItem"
+                     propertyClasses="java.lang.Object" />
+
+         </dataConfigSelector>
+
+         <custom class="${this@class.source()}" />
+
+      </control>
+
+
+      <!--======================================================================================-->
+      <!--                                          PANELS                                      -->
+      <!--======================================================================================-->
+      <panel switch="type" default="default">
+
+         <default class="${this@class.source()|'com.labescape.treemap.awtui.AWTPopupPanel'}" 
+                  attributes="name,backgroundColor"
+                  elements="realBorder,maximumSize,title,titleFormat,description,descriptionFormat,contents,context">
+
+               <name class="String" 
+                     propertyClasses="String" />
+
+               <backgroundColor class="Color"
+                                propertyName="background" />
+
+               <maximumWidth  class="int" defaultValue="300" />
+               <maximumHeight class="int" defaultValue="600" />
+
+               <maximumSize   class="java.awt.Dimension"
+                              constructorParameters="${this..@maximumWidth},${this..@maximumHeight}"
+                              constructorClasses="int,int"
+                              defaultCondition="always" />
+
+               <realBorder class="com.labescape.common.awtui.framework.TPICompoundBorder"
+                           propertyName="border"
+                           propertyClasses="javax.swing.border.Border"
+                           constructorParameters="${this..border},${this..margins}"
+                           constructorClasses="javax.swing.border.Border,javax.swing.border.Border"
+                           defaultCondition="always" />
+
+               <margins reference="schema.types.emptyBorder"
+                        propertyClasses="javax.swing.border.Border" />
+
+               <border  reference="schema.types.border"
+                        propertyClasses="javax.swing.border.Border" />
+
+               <context reference="schema.types.contextRule"
+                        propertyName="contextRule"
+                        propertyClasses="com.labescape.common.baseui.ContextRule" />
+
+               <!-- @todo-later Implement font color for title and description -->
+
+               <title reference="schema.types.textBlock"
+                      propertyName="titleComponent"
+                      propertyClasses="com.labescape.common.awtui.framework.TPILabel" />
+
+               <titleFormat instance="${this..title.format.text()}" />
+
+
+               <description class="com.labescape.common.awtui.AWTTextBlock"
+                            attributes="backgroundColor"
+                            elements="font,border"
+                            propertyName="descriptionComponent"
+                            propertyClasses="com.labescape.common.awtui.framework.TPILabel">
+
+                  <backgroundColor class="Color"
+                                   propertyName="background" />
+
+                  <font            reference="schema.types.font"   />
+
+                  <border          reference="schema.types.border"
+                                   propertyClasses="javax.swing.border.Border" />
+
+               </description>
+
+               <descriptionFormat instance="${this..description.format.text()}" />
+
+               <body reference="schema.types.panel"
+                     propertyName="contentsPanel"
+                     propertyClasses="com.labescape.common.awtui.framework.TPIPanel" />
+
+               <contents reference="schema.types.panel"
+                         propertyName="contentsComponent"
+                         propertyClasses="com.labescape.common.awtui.framework.TPIComponent" />
+
+          </default>
+
+          <multiple class="${this@class|'com.labescape.common.awtui.AWTUIElementContainer'}" 
+                    attributes="name,backgroundColor"
+                    elements="realBorder,maximumSize,panel">
+
+               <name class="String" 
+                     propertyClasses="String" />
+
+               <backgroundColor class="Color"
+                                propertyName="background" />
+
+               <maximumWidth  class="int" defaultValue="300" />
+               <maximumHeight class="int" defaultValue="600" />
+
+               <maximumSize   class="java.awt.Dimension"
+                              constructorParameters="${this..@maximumWidth},${this..@maximumHeight}"
+                              constructorClasses="int,int"
+                              defaultCondition="always" />
+
+               <realBorder class="com.labescape.common.awtui.framework.TPICompoundBorder"
+                           propertyName="border"
+                           propertyClasses="javax.swing.border.Border"
+                           constructorParameters="${this..border},${this..margins}"
+                           constructorClasses="javax.swing.border.Border,javax.swing.border.Border"
+                           defaultCondition="always" />
+ 
+               <margins reference="schema.types.emptyBorder"
+                        propertyClasses="javax.swing.border.Border" />
+
+               <border  reference="schema.types.border"
+                        propertyClasses="javax.swing.border.Border" />
+
+               <panel reference="schema.types.panel"
+                      arrayClass="com.labescape.common.awtui.framework.TPIComponent"
+                      propertyMethod="setElements"
+                      propertyClasses="com.labescape.common.awtui.framework.TPIComponent[]"
+                      propertyParameters="${this.array()}" />
+
+          </multiple>
+
+          <gridTable class="${this@class.source()|'com.labescape.treemap.awtui.AWTTablePanel'}" 
+                     attributes="backgroundColor"
+                     elements="realBorder,maximumSize,table,context">
+
+               <name class="String" 
+                     propertyClasses="String" />
+
+               <backgroundColor class="Color"
+                                propertyName="background" />
+
+               <maximumWidth  class="int" defaultValue="300" />
+               <maximumHeight class="int" defaultValue="600" />
+
+               <maximumSize   class="java.awt.Dimension"
+                              constructorParameters="${this..@maximumWidth},${this..@maximumHeight}"
+                              constructorClasses="int,int"
+                              defaultCondition="always" />
+
+               <realBorder class="com.labescape.common.awtui.framework.TPICompoundBorder"
+                           propertyName="border"
+                           propertyClasses="javax.swing.border.Border"
+                           constructorParameters="${this..border},${this..margins}"
+                           constructorClasses="javax.swing.border.Border,javax.swing.border.Border"
+                           defaultCondition="always" />
+
+               <margins reference="schema.types.emptyBorder"
+                        propertyClasses="javax.swing.border.Border" />
+
+               <border  reference="schema.types.border"
+                        propertyClasses="javax.swing.border.Border" />
+
+               <context reference="schema.types.contextRule"
+                        propertyName="contextRule"
+                        propertyClasses="com.labescape.common.baseui.ContextRule" />
+
+               <table class="com.labescape.treemap.baseui.settings.TableSettings"
+                      attributes="cellSpacing,type"
+                      elements="tr"
+                      propertyName="tableSettings">
+
+                   <cellSpacing class="int" propertyClasses="int" defaultValue="1" />
+
+                   <type reference="schema.types.tableTypes" propertyClasses="int" />
+
+                   <style reference="schema.types.tableStyle" />
+ 
+                   <tr class="com.labescape.treemap.baseui.settings.TableRowSettings"
+                       elements="td"
+                       propertyName="rows" 
+                       propertyClasses="com.labescape.treemap.baseui.settings.TableRowSettings[]" 
+                       propertyParameters="${this.array()}">
+
+                       <style reference="schema.types.tableStyle" />
+
+                       <td class="com.labescape.treemap.baseui.settings.TableCellSettings"
+                           attributes="align,valign,width,colspan,rowspan,nowrap"
+                           elements="cellComponent"
+                           propertyName="cells" 
+                           propertyClasses="com.labescape.treemap.baseui.settings.TableCellSettings[]" 
+                           propertyParameters="${this.array()}">
+
+                           <style reference="schema.types.tableStyle" />
+
+                           <cellComponent instance="${this..img|this..textBlock}"
+                                          propertyClasses="com.labescape.common.baseui.LightweightComponent" />
+
+                           <img reference="schema.types.image" />
+
+                           <textBlock class="${this..style@class|this...style@class|this....style@class|'com.labescape.treemap.awtui.AWTExpressionBlock'}"
+                                          constructorParameters="${this..contents.text()|this..text()}"
+                                          constructorClasses="String"
+                                          attributes="backgroundColor,color"
+                                          elements="font,border"
+                                          propertyClasses="com.labescape.common.baseui.LightweightComponent"
+                                          defaultCondition="always">
+
+                              <color           instance="${this..style.font@color|this...style.font@color|this....style.font@color}" 
+                                               propertyName="foreground" />
+
+                              <backgroundColor instance="${this..style@backgroundColor|this...style@backgroundColor|this....style@backgroundColor}"
+                                               propertyName="background" />
+
+                              <font            instance="${this...style.font|this....style.font|this.....style.font}"   />
+
+                              <border          instance="${this...style.border|this....style.border|this.....style.border}"
+                                               propertyClasses="javax.swing.border.Border" />
+
+                           </textBlock>
+
+                           <align class="int" mapValues="distinct" defaultValue="left"
+                                  propertyClasses="int" propertyName="horizontalAlignment">
+
+                              <left   value="1" />
+                              <center value="0" />
+                              <right  value="2" />
+
+                           </align>
+
+                           <valign class="int" mapValues="distinct" defaultValue="center"
+                                   propertyClasses="int" propertyName="verticalAlignment">
+
+                              <top    value="3" />
+                              <center value="0" />
+                              <bottom value="4" />
+
+                           </valign>
+
+                           <width class="com.labescape.common.lang.FormattedDouble" />
+
+                           <colspan class="int" propertyName="columnSpan" propertyClasses="int" />
+
+                           <rowspan class="int" propertyName="rowSpan" propertyClasses="int" />
+
+                           <nowrap class="boolean" propertyName="noWrap" propertyClasses="boolean" />
+                       </td>
+                   </tr>
+              </table>
+
+          </gridTable>
+
+          <custom class="${this@class.source()}" 
+                  attributes="name"
+                  propertyMethod="setElement"
+                  propertyParameters="${this@name.source()},${this}"
+                  propertyClasses="String,java.awt.Component">
+
+               <name class="String" 
+                     propertyClasses="String" />
+
+          </custom>
+
+      </panel>
+
+      <contextRule switch="type" default="default">
+         <default class="com.labescape.treemap.baseui.DefaultContextRule"
+                  attributes="level,noFocus">
+
+            <level class="int" propertyClasses="int" defaultValue="all" mapValues="distinct">
+               <all  value="-2" />
+               <leaf value="-1" />
+            </level>
+
+            <noFocus class="boolean" propertyClasses="boolean" />
+
+         </default>
+
+         <dataField class="com.labescape.treemap.baseui.DataFieldContextRule"
+                    attributes="field,selected">
+
+            <field class="int" 
+                   propertyClasses="int"
+                   mapValues="distinct">
+
+                <color value="0" />
+                <size  value="1" />
+                <label value="2" />
+
+            </field>
+
+         </dataField>
+
+         <compare class="com.labescape.treemap.baseui.ComparisonContextRule"
+                  attributes="leftOperand,rightOperand,operator,nullCompare">
+
+            <operator class="int" propertyClasses="int" defaultValue="equals" mapValues="distinct">
+                <equals              value="1" />
+                <notEquals           value="2" />
+                <greaterThan         value="3" />
+                <greaterThanOrEquals value="4" />
+                <lessThan            value="5" />
+                <lessThanOrEquals    value="6" />
+                <contains            value="7" />
+                <notContains         value="8" />
+                <equivalent          value="9" />
+                <notEquivalent       value="10" />
+            </operator>
+
+            <nullCompare class="int" propertyClasses="int" defaultValue="bothNull" mapValues="distinct" propertyName="nullComparisonReturnsTrue">
+                <never       value="0" />
+                <eitherNull  value="1" />
+                <bothNull    value="2" />
+                <leftNull    value="3" />
+                <rightNull   value="4" />
+            </nullCompare>
+
+         </compare>
+
+         <compound class="com.labescape.treemap.baseui.CompoundContextRule"
+                   attributes="join"
+                   elements="context">
+
+            <join class="int" propertyClasses="int" defaultValue="and" mapValues="distinct">
+                <and value="1" />
+                <or  value="2" />
+            </join>
+
+            <context reference="schema.types.contextRule"
+                     arrayClass="com.labescape.common.baseui.ContextRule"
+                     propertyName="contextRules"
+                     propertyClasses="com.labescape.common.baseui.ContextRule[]"
+                     propertyParameters="${this.array()}" />
+                   
+         </compound>
+      </contextRule>
+
+
+      <!--======================================================================================-->
+      <!--                                      DATA & PARSERS                                  -->
+      <!--======================================================================================-->
+      <parser switch="type" default="csv">
+
+         <xml class="com.labescape.common.data.tree.XMLTreeDataParser" 
+              attributes="dataSource,encoding">
+
+            <dataSource class="java.net.URL"
+                        constructorClasses="java.net.URL,String"
+                        constructorParameters="${applet.documentBase.currentValue()},${this@dataSource.source()}"
+                        propertySetCondition="always" />
+
+         </xml>
+
+         <csv class="com.labescape.common.data.tree.CSVTreeDataParser" 
+              attributes="nullString,encoding,dataSource,keyField,parentKeyField">
+
+            <keyField       instance="${this..@keyField.source()}"       />
+            <parentKeyField instance="${this..@parentKeyField.source()}" />
+
+            <dataSource class="java.net.URL"
+                        constructorClasses="java.net.URL,String"
+                        constructorParameters="${applet.documentBase.currentValue()},${this@dataSource.source()}"
+                        propertySetCondition="always" />
+
+         </csv>
+
+         <sql class="com.labescape.common.data.tree.SQLTreeDataParser" 
+              attributes="dataSource,driver,database,username,password"
+              elements="query">
+
+            <query class="String" propertyClasses="String" propertyParameters="${this.text()}" />
+
+         </sql>
+
+      </parser>
+
+      <dataConfig class="com.labescape.common.baseui.settings.DataConfigSettings"
+                  attributes="label,labelField,sizeField,colorField"
+                  elements="parser,hierarchy"
+                  constructorClasses=""
+                  constructorParameters="">
+
+           <parser reference="schema.types.parser" 
+                   propertyClasses="com.labescape.common.data.tree.TreeDataParser" />
+
+           <hierarchy reference="schema.types.hierarchyBuilder" 
+                      arrayClass="com.labescape.common.data.tree.HierarchyBuilder"
+                      propertyName="hierarchyBuilders"
+                      propertyClasses="com.labescape.common.data.tree.HierarchyBuilder[]"
+                      propertyParameters="${this.array()}" />
+
+      </dataConfig>
+
+
+      <!--======================================================================================-->
+      <!--                                   HIERARCHY BUILDERS                                 -->
+      <!--======================================================================================-->
+      <hierarchyBuilder switch="type">
+
+          <group class="com.labescape.common.data.tree.GroupHierarchyBuilder"
+              constructorParameters="${config.treemap.dataModel},${this@field}" 
+              constructorClasses="com.labescape.common.data.tree.DefaultTreeDataModel,String" >
+          </group>
+
+          <parentChild class="com.labescape.common.data.tree.ParentChildHierarchyBuilder"
+              constructorParameters="${config.treemap.dataModel},${this@keyField},${this@parentKeyField}" 
+              constructorClasses="com.labescape.common.data.tree.DefaultTreeDataModel,String,String" >
+          </parentChild>
+
+          <empty class="com.labescape.common.data.tree.EmptyHierarchyBuilder"
+              constructorParameters="${config.treemap.dataModel}"
+              constructorClasses="com.labescape.common.data.tree.DefaultTreeDataModel" >
+          </empty>
+
+      </hierarchyBuilder>
+
+
+      <!--======================================================================================-->
+      <!--                                        LABELS                                        -->
+      <!--======================================================================================-->
+      <textBlock class="com.labescape.common.awtui.AWTTextBlock"
+                 attributes="backgroundColor,fontColor,text,align"
+                 elements="font,border,preferredSize">
+
+         <preferredSize class="java.awt.Dimension"
+                        constructorParameters="${this@width},${this@height}"
+                        constructorClasses="int,int">
+
+             <width  class="int" />
+             <height class="int" />
+
+         </preferredSize>
+
+         <backgroundColor class="Color"
+                          propertyName="background" />
+
+         <fontColor       class="Color"
+                          propertyParameters="${this.font@color}"
+                          propertyName="foreground" />
+
+         <align           class="int"
+                          propertyClasses="int"
+                          propertyName="horizontalAlignment"
+                          mapValues="distinct">
+
+            <left   value="0" />
+            <center value="1" />
+            <right  value="2" />
+
+         </align>
+
+         <font            reference="schema.types.font"   />
+
+         <border          reference="schema.types.border"
+                          propertyClasses="javax.swing.border.Border" />
+
+      </textBlock>
+
+
+      <!--======================================================================================-->
+      <!--                                        IMAGES                                        -->
+      <!--======================================================================================-->
+      <image class="com.labescape.treemap.awtui.AWTImage"
+             attributes="width,height"
+             constructorParameters="${this@src},${applet}"
+             constructorClasses="String,java.applet.Applet">
+
+         <width class="int" propertyClasses="int" />
+
+         <height class="int" propertyClasses="int" />
+
+      </image>
+
+
+      <!--======================================================================================-->
+      <!--                                     CELL LAYOUTS                                     -->
+      <!--======================================================================================-->
+      <cellLayout switch="type" default="squarified">
+
+          <squarified class="com.labescape.treemap.render.SquarifiedTreeMapLayout"
+                      constructorParameters="${config.treemap}"
+                      constructorClasses="com.labescape.treemap.baseui.TreeMap">
+
+              <level reference="schema.types.renderLevels" />
+
+          </squarified>
+
+          <strip class="com.labescape.treemap.render.StripTreeMapLayout"
+                 attributes="orientation"
+                 constructorParameters="${config.treemap}"
+                 constructorClasses="com.labescape.treemap.baseui.TreeMap">
+
+              <level reference="schema.types.renderLevels" />
+
+              <orientation class="int" propertyClasses="int" defaultValue="horizontal" mapValues="distinct">
+                  <horizontal value="0" />
+                  <vertical   value="1" />
+              </orientation>
+
+          </strip>
+
+          <sliceAndDice class="com.labescape.treemap.render.SliceAndDiceTreeMapLayout"
+                        attributes="orientation,sizeMapping,sizeOptions"
+                        constructorParameters="${config.treemap}"
+                        constructorClasses="com.labescape.treemap.baseui.TreeMap">
+
+              <level reference="schema.types.renderLevels" />
+
+              <orientation class="int" propertyClasses="int" defaultValue="horizontal" mapValues="distinct">
+                  <horizontal value="0" />
+                  <vertical   value="1" />
+              </orientation>
+
+              <sizeMapping class="int" propertyClasses="int" defaultValue="default" mapValues="distinct">
+                  <default               value="0" />
+                  <allSameSize           value="1" />
+                  <oppositeToOrientation value="2" />
+              </sizeMapping>
+
+              <sizeOptions class="int" propertyClasses="int" defaultValue="absolute" mapValues="bitwise">
+                  <absolute   value="1" />
+                  <byParent   value="2" />
+              </sizeOptions>
+
+          </sliceAndDice>
+
+          <byLevel class="com.labescape.treemap.render.LevelTreeMapLayout"
+                   attributes="leafOverridesLevel,useAbsoluteLevels"
+                   elements="layout"
+                   constructorParameters="${config.treemap}"
+                   constructorClasses="com.labescape.treemap.baseui.TreeMap">
+
+              <level reference="schema.types.renderLevels" />
+
+              <leafOverridesLevel class="boolean" propertyClasses="boolean" defaultValue="true" />
+
+              <useAbsoluteLevels class="boolean" propertyClasses="boolean" defaultValue="true" />
+
+              <layout reference="schema.types.cellLayout"
+                      propertyMethod="setLevelLayout"
+                      propertyClasses="int,com.labescape.treemap.render.TreeMapLayout"
+                      propertyParameters="${this@level},${this}" />
+
+          </byLevel>
+
+          <!--
+               @todo Make AlternatingTreeMapLayout take an arbitrary number of layouts and rotate
+                     between those. Then change the 'layout1' and 'layout2' to just 'layout'
+                     and pass the 'layout.array()' into the constructor. [twl 13. Nov.05]
+            -->
+          <alternating class="com.labescape.treemap.render.AlternatingTreeMapLayout"
+                       constructorParameters="${config.treemap},${this.layout1|this.horizontal},${this.layout2|this.vertical}"
+                       constructorClasses="com.labescape.treemap.baseui.TreeMap,com.labescape.treemap.render.TreeMapLayout,com.labescape.treemap.render.TreeMapLayout">
+
+              <level reference="schema.types.renderLevels" />
+
+              <layout1 reference="schema.types.cellLayout" />
+
+              <layout2 reference="schema.types.cellLayout" />
+
+              <horizontal class="com.labescape.treemap.render.StripTreeMapLayout"
+                          constructorParameters="${config.treemap}"
+                          constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                          attributes="orientation"
+                          defaultCondition="always">
+
+                  <orientation class="int" propertyClasses="int" defaultValue="0" />
+              </horizontal>
+
+              <vertical class="com.labescape.treemap.render.StripTreeMapLayout"
+                        constructorParameters="${config.treemap}"
+                        attributes="orientation"
+                        constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                        defaultCondition="always">
+
+                  <orientation class="int" propertyClasses="int" defaultValue="1" />
+              </vertical>
+          </alternating>
+
+      </cellLayout>
+
+
+      <!--======================================================================================-->
+      <!--                                          MISC                                        -->
+      <!--======================================================================================-->
+      <renderLevels class="int" 
+                    defaultValue="all" 
+                    mapValues="distinct">
+
+         <all  value="-2" />
+         <leaf value="-1" />
+
+      </renderLevels>
+
+      <trigger switch="event" default="mouse">
+
+           <mouse class="com.labescape.common.baseui.controller.MouseTrigger"
+                  constructorClasses="int,int,int,int,int"
+                  constructorParameters="${this@type},${this@button},${this@clickCount},${this@modifiers},${this@popup}"
+                  propertyMethod="registerMouseTrigger"
+                  propertyClasses="com.labescape.common.baseui.controller.MouseTrigger,java.awt.event.MouseListener"
+                  propertyParameters="${this},${this@action}">
+
+              <type class="int" defaultValue="click" mapValues="distinct">
+                 <all     value="-1"  />
+                 <click   value="500" />
+                 <press   value="501" />
+                 <release value="502" />
+                 <move    value="503" />
+                 <enter   value="504" />
+                 <exit    value="505" />
+                 <drag    value="506" />
+              </type>
+
+              <button class="int" defaultValue="left" mapValues="distinct">
+                 <all    value="-1" />
+                 <none   value="0"  />
+                 <left   value="1"  />
+                 <middle value="2"  />
+                 <right  value="4"  />
+              </button>
+
+              <clickCount class="int" defaultValue="1" mapValues="distinct">
+                 <all value="-1" />
+              </clickCount>
+
+              <modifiers class="int" defaultValue="none" mapValues="bitwise">
+                 <all     value="-1" />
+                 <none    value="0"  />
+                 <shift   value="1"  />
+                 <control value="2"  />
+                 <meta    value="4"  />
+                 <alt     value="8"  />
+              </modifiers>
+
+              <popup class="int" defaultValue="all" mapValues="distinct">
+                 <all value="-1" />
+                 <off value="0"  />
+                 <on  value="1"  />
+              </popup>
+
+           </mouse>
+
+           <key class="com.labescape.common.baseui.controller.KeyTrigger"
+                constructorClasses="int,char,int,int"
+                constructorParameters="${this@type},${this@keyChar},${this@keyCode},${this@actionKey}"
+                propertyMethod="registerKeyTrigger"
+                propertyClasses="com.labescape.common.baseui.controller.KeyTrigger,java.awt.event.KeyListener"
+                propertyParameters="${this},${this@action}">
+
+              <type class="int" defaultValue="type" mapValues="distinct">
+                 <all     value="-1"  />
+                 <type    value="400" />
+                 <press   value="401" />
+                 <release value="402" />
+              </type>
+
+              <keyChar class="char" defaultValue="" />
+
+              <keyCode class="int" defaultValue="-1" />
+
+              <actionKey class="int" defaultValue="all" mapValues="distinct">
+                 <all value="-1" />
+                 <off value="0"  />
+                 <on  value="1"  />
+              </actionKey>
+
+           </key>
+
+           <action class="com.labescape.common.baseui.controller.ActionTrigger"
+                   constructorClasses="String,int,String,java.lang.Object"
+                   constructorParameters="${this@actionCommand.source()},${this@modifiers},${this@sourceClass.source()},${this@sourceInstance}"
+                   propertyMethod="registerActionTrigger"
+                   propertyClasses="com.labescape.common.baseui.controller.ActionTrigger,java.awt.event.ActionListener"
+                   propertyParameters="${this},${this@action}">
+
+              <modifiers class="int" defaultValue="none" mapValues="bitwise">
+                 <all     value="-1" />
+                 <none    value="0"  />
+                 <shift   value="1"  />
+                 <control value="2"  />
+                 <meta    value="4"  />
+                 <alt     value="8"  />
+              </modifiers>
+
+           </action>
+
+       </trigger>
+
+       <sidePanel class="com.labescape.common.awtui.DockedPanel"
+                  attributes="backgroundColor,doubleBuffered"
+                  elements="layoutManager,preferredSize,panel,maximumSize"
+                  defaultCondition="never">
+
+            <backgroundColor class="Color"
+                             propertyName="background"
+                             defaultValue="#DDDDDD" />
+
+            <doubleBuffered class="boolean" propertyClasses="boolean" defaultValue="true" />
+
+            <layoutManager class="java.awt.BorderLayout" 
+                          propertyName="layout"
+                          propertyClasses="java.awt.LayoutManager"
+                          defaultCondition="always" />
+
+            <panel propertyMethod="add" 
+                   propertyClasses="java.awt.Component"
+                   propertyParameters="${config.treemap.uiElements.panel}" />
+ 
+            <preferredWidth  class="int" defaultValue="160" />
+            <preferredHeight class="int" defaultValue="400" />
+
+            <preferredSize   class="java.awt.Dimension"
+                             constructorParameters="${this..@preferredWidth},${this..@preferredHeight}"
+                             constructorClasses="int,int"
+                             defaultCondition="always" />
+
+            <maximumSize     class="java.awt.Dimension"
+                             constructorParameters="${this..@preferredWidth},${this..@preferredHeight}"
+                             constructorClasses="int,int"
+                             defaultCondition="always" />
+
+       </sidePanel>
+
+       <tableStyle>
+          <backgroundColor class="Color"
+                           propertyName="background" />
+
+          <font            reference="schema.types.font"   />
+
+          <border          reference="schema.types.border"
+                           propertyClasses="javax.swing.border.Border" />
+       </tableStyle>
+
+       <tableTypes class="int" 
+                   defaultValue="default" 
+                   mapValues="distinct">
+
+          <default   value = "0"/>
+          <childList value = "1"/>
+          <fieldList value = "2"/>
+
+       </tableTypes>
+
+   </types>
+
+   <definition>
+      <config attributes="root">
+
+
+         <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+         <!-- ELEMENT: layout                                -->
+         <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+         <layout switch="type" default="border">
+
+              <flow class="com.labescape.common.awtui.TransparentPanel" 
+                    attributes="backgroundColor" 
+                    elements="border,layoutManager,label,control,panel,treemap,layout,img">
+
+                <backgroundColor class="Color"
+                                 propertyName="background" />
+  
+                <border          reference="schema.types.border"
+                                 propertyClasses="javax.swing.border.Border" />
+
+                <layoutManager   class="java.awt.FlowLayout" 
+                                 propertyName="layout"
+                                 propertyClasses="java.awt.LayoutManager"
+                                 defaultCondition="always" />
+
+                <control         reference="schema.types.control"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <label           reference="schema.types.textBlock"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <img             reference="schema.types.image"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <!-- @todo-later Because the tree map always exists, it will be set on every 'layout'
+                                 element if the property parameters are:
+
+                                     propertyParameters="${config.treemap}" 
+
+                                 By adding the constraint parameter, even though FlowLayout doesn't 
+                                 use it, we force the tree map to only be added when it exists in 
+                                 the configuration file AND (as a hack) has a constraint attribute 
+                                 set. Ultimately we should extend the propertySetCondition to 
+                                 include an 'exists' or 'existsNotNull' parameter.
+                  -->
+
+                <treemap         class="com.labescape.treemap.awtui.AWTTreeMap"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${config.treemap},${this@constraint.source()}" />
+
+                <panel           reference="schema.types.sidePanel"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <layout          reference="schema.definition.config.layout"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+              </flow>
+
+              <border class="com.labescape.common.awtui.TransparentPanel" 
+                      attributes="backgroundColor" 
+                      elements="border,layoutManager,label,control,panel,treemap,layout">
+
+                <backgroundColor class="Color"
+                                 propertyName="background" />
+
+                <border          reference="schema.types.border"
+                                 propertyClasses="javax.swing.border.Border" />
+
+                <layoutManager   class="java.awt.BorderLayout" 
+                                 propertyName="layout"
+                                 propertyClasses="java.awt.LayoutManager"
+                                 defaultCondition="always" />
+
+                <control         reference="schema.types.control"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${this},${this@constraint.source()}" />
+
+                <label           reference="schema.types.textBlock"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${this},${this@constraint.source()}" />
+
+                <img             reference="schema.types.image"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${this},${this@constraint.source()}" />
+
+                <treemap         class="com.labescape.treemap.awtui.AWTTreeMap"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${config.treemap},${this@constraint.source()}" />
+
+                <panel           reference="schema.types.sidePanel"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${this},${this@constraint.source()}" />
+
+                <layout          reference="schema.definition.config.layout"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${this},${this@constraint.source()}" />
+
+              </border>
+
+              <box class="com.labescape.common.awtui.TransparentPanel" 
+                   attributes="backgroundColor" 
+                   elements="border,layoutManager,label,control,panel,treemap,layout">
+
+                <backgroundColor class="Color"
+                                 propertyName="background" />
+
+                <border          reference="schema.types.border"
+                                 propertyClasses="javax.swing.border.Border" />
+
+                <layoutManager   class="com.labescape.common.awtui.framework.LineLayout" 
+                                 constructorClasses="int"
+                                 constructorParameters="${this..@axis}"
+                                 propertyName="layout"
+                                 propertyClasses="java.awt.LayoutManager"
+                                 defaultCondition="always" />
+
+                <axis            class="int" 
+                                 defaultValue="x" 
+                                 mapValues="distinct">
+
+                   <x            value="0" />
+                   <y            value="1" />
+                   <line         value="0" />
+                   <page         value="1" />
+                   <horizontal   value="0" />
+                   <vertical     value="1" />
+
+                </axis>
+
+                <control         reference="schema.types.control"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <label           reference="schema.types.textBlock"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <img             reference="schema.types.image"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <!-- @todo-later Read the comment in the FlowLayout for this hack. -->
+
+                <treemap         class="com.labescape.treemap.awtui.AWTTreeMap"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component,java.lang.Object"
+                                 propertyParameters="${config.treemap},${this@constraint.source()}" />
+
+                <panel           reference="schema.types.sidePanel"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+                <layout          reference="schema.definition.config.layout"
+                                 propertyMethod="add" 
+                                 propertyClasses="java.awt.Component" />
+
+              </box>
+
+              <gridTable class="${this@class.source()|'com.labescape.treemap.awtui.AWTTablePanel'}" 
+                         attributes="backgroundColor"
+                         elements="border,table">
+
+                  <name class="String" 
+                        propertyClasses="String" />
+
+                  <backgroundColor class="Color"
+                                   propertyName="background"
+                                   defaultValue="#DDDDDD" />
+
+                  <border  reference="schema.types.border"
+                           propertyClasses="javax.swing.border.Border" />
+
+                  <table class="com.labescape.treemap.baseui.settings.TableSettings"
+                         attributes="cellSpacing,type"
+                         elements="tr"
+                         propertyName="tableSettings">
+
+                      <cellSpacing class="int" propertyClasses="int" defaultValue="1" />
+
+                      <type reference="schema.types.tableTypes" propertyClasses="int" />
+
+                      <style reference="schema.types.tableStyle" />
+ 
+                      <tr class="com.labescape.treemap.baseui.settings.TableRowSettings"
+                          elements="td"
+                          propertyName="rows" 
+                          propertyClasses="com.labescape.treemap.baseui.settings.TableRowSettings[]" 
+                          propertyParameters="${this.array()}">
+
+                          <style reference="schema.types.tableStyle" />
+
+                          <td class="com.labescape.treemap.baseui.settings.TableCellSettings"
+                              attributes="align,valign,width,colspan,rowspan,nowrap"
+                              elements="cellComponent"
+                              propertyName="cells" 
+                              propertyClasses="com.labescape.treemap.baseui.settings.TableCellSettings[]" 
+                              propertyParameters="${this.array()}">
+
+                              <style reference="schema.types.tableStyle" />
+
+                              <cellComponent instance="${this..label|this..control|this..panel|this..img|this..layout|this..textBlock}"
+                                             propertyClasses="com.labescape.common.baseui.LightweightComponent" />
+
+                              <label   reference="schema.types.textBlock"/>
+                              <control reference="schema.types.control" />
+                              <panel   reference="schema.types.sidePanel" />
+                              <img     reference="schema.types.image" />
+                              <layout  reference="schema.definition.config.layout" />
+<!--
+                              <treemap instance="class="com.labescape.treemap.awtui.AWTTreeMap" />
+-->
+
+                              <textBlock class="${this..style@class|this...style@class|this....style@class|'com.labescape.treemap.awtui.AWTExpressionBlock'}"
+                                             constructorParameters="${this..contents.text()|this..text()}"
+                                             constructorClasses="String"
+                                             attributes="backgroundColor,color"
+                                             elements="font,border"
+                                             propertyClasses="com.labescape.common.baseui.LightweightComponent"
+                                             defaultCondition="always">
+
+                                 <color           instance="${this..style.font@color|this...style.font@color|this....style.font@color}" 
+                                                  propertyName="foreground" />
+
+                                 <backgroundColor instance="${this..style@backgroundColor|this...style@backgroundColor|this....style@backgroundColor}"
+                                                  propertyName="background" />
+
+                                 <font            instance="${this...style.font|this....style.font|this.....style.font}"   />
+
+                                 <border          instance="${this...style.border|this....style.border|this.....style.border}"
+                                                  propertyClasses="javax.swing.border.Border" />
+
+                              </textBlock>
+
+                              <align class="int" mapValues="distinct" defaultValue="left"
+                                     propertyClasses="int" propertyName="horizontalAlignment">
+
+                                 <left   value="1" />
+                                 <center value="0" />
+                                 <right  value="2" />
+
+                              </align>
+
+                              <valign class="int" mapValues="distinct" defaultValue="center"
+                                      propertyClasses="int" propertyName="verticalAlignment">
+
+                                 <top    value="3" />
+                                 <center value="0" />
+                                 <bottom value="4" />
+
+                              </valign>
+
+                              <width class="com.labescape.common.lang.FormattedDouble" />
+
+                              <colspan class="int" propertyName="columnSpan" propertyClasses="int" />
+
+                              <rowspan class="int" propertyName="rowSpan" propertyClasses="int" />
+
+                              <nowrap class="boolean" propertyName="noWrap" propertyClasses="boolean" />
+                          </td>
+                      </tr>
+                 </table>
+
+              </gridTable>
+
+         </layout>
+
+
+
+         <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+         <!-- ELEMENT: treemap                               -->
+         <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+         <treemap class="${this@class.source()|'com.labescape.treemap.awtui.AWTTreeMap'}" 
+                  attributes="licenseKey,brightness,renderDepth,zoomOptions,labelField,colorField,sizeField"
+                  elements="cellRenderer,uiElements,controller,cellColorModel,cellSizeModel,dataModel,selectionModel,relativeRenderDepthManager,cellLayout">
+
+
+            <!-- @todo-later There is a bug in the setting of the propertyClasses based on the class
+                             of the property. If I don't use the propertyClasses attribute, the 
+                             configuration system attempts to use setBrightness(Integer) to set the 
+                             brightness. This is probably because ints get wrapped as Integers for the
+                             parameters. [twl 28.Mar.04] -->
+
+            <brightness class="int"
+                        propertyClasses="int" />
+
+            <!-- @note We're actually not setting the focus here. We just want to trigger a property change
+                       event for the FOCUS property so any default instruction-type panels will display before
+                       a user rolls over the treemap with the mouse. [twl 6.Apr.05] -->
+
+            <focus class="java.lang.Object" propertySetCondition="always" />
+
+            <renderDepth class="int"
+                         propertyClasses="int" />
+
+            <relativeRenderDepth class="int"
+                                 propertyClasses="int" />
+
+            <relativeRenderDepthManager class="com.labescape.treemap.manager.RelativeRenderDepthManager" 
+                                        attributes="relativeRenderDepth"
+                                        constructorParameters="${config.treemap}"
+                                        constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                                        propertyMethod="getRenderDepth"
+                                        propertyClasses=""
+                                        propertyParameters=""
+                                        defaultCondition="always">
+
+                <relativeRenderDepth instance="${this..@relativeRenderDepth}" propertyClasses="int" />
+
+            </relativeRenderDepthManager>
+
+            <drillableDataManager class="com.labescape.treemap.manager.DrillableDataManager"
+                                  elements="config"
+                                  constructorParameters="${config.treemap}"
+                                  constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                                  defaultCondition="always">
+
+                <config reference="schema.types.dataConfig"
+                        propertyName="configs" 
+                        propertyClasses="com.labescape.common.baseui.settings.DataConfigSettings[]" 
+                        propertyParameters="${this.array()}" />
+
+            </drillableDataManager>
+
+            <zoomOptions class="int"
+                         propertyClasses="int"
+                         mapValues="bitwise"
+                         defaultValue="maintainFocus">
+
+                <maintainFocus     value="1" />
+                <resetFocus        value="2" />
+                <clearFocus        value="4" />
+                <ignoreRenderDepth value="8" />
+
+            </zoomOptions>
+
+            <licenseKey instance="${config@licenseKey}" />
+
+            <labelField class="String"
+                        propertyParameters="${this.dataModel@labelField.source()}" />
+
+            <sizeField  class="String"
+                        propertyParameters="${this.dataModel@sizeField.source()}" />
+
+            <colorField class="String"
+                        propertyParameters="${this.dataModel@colorField.source()}" />
+
+            <cellLayout reference="schema.types.cellLayout" 
+                        propertyClasses="com.labescape.treemap.render.TreeMapLayout" />
+
+            <dataModel class="${this@class.source()|'com.labescape.common.data.tree.DefaultTreeDataModel'}"
+                       elements="parser,hierarchy,load"
+                       propertyClasses="com.labescape.common.data.tree.TreeDataModel">
+
+               <keyField class="String" />
+
+               <parentKeyField class="String" />
+
+               <parser reference="schema.types.parser" 
+                       propertyClasses="com.labescape.common.data.tree.TreeDataParser" />
+
+               <hierarchy reference="schema.types.hierarchyBuilder" 
+                          arrayClass="com.labescape.common.data.tree.HierarchyBuilder"
+                          propertyName="hierarchyBuilders"
+                          propertyClasses="com.labescape.common.data.tree.HierarchyBuilder[]"
+                          propertyParameters="${this.array()}" />
+
+               <load propertyMethod="refresh" propertyParameters="" propertyClasses=""/>
+
+            </dataModel>
+
+            <selectionModel class="${this@class.source()|'com.labescape.common.selection.TreeDataSelectionModel'}" 
+                            constructorClasses="com.labescape.common.data.tree.TreeDataModel"
+                            constructorParameters="${this..dataModel}"
+                            propertyClasses="com.labescape.common.selection.ObjectSelectionModel" 
+                            attributes="mode,ancestorDepth" >
+
+                <mode class="int" propertyClasses="int" mapValues="bitwise" propertyName="selectionMode">
+                    <none             value="0" />
+                    <multiple         value="1" />
+                    <single           value="2" />
+                    <leaf             value="4" />
+                    <nonleaf          value="8" />
+                    <restrictAncestry value="16" />
+                    <restrictLevel    value="32" />
+                </mode>
+
+                <ancestorDepth class="int" propertyClasses="int" />
+
+            </selectionModel>
+
+            <controller instance="${config.treemap.controller.currentValue()}"
+                        class="com.labescape.treemap.baseui.TreeMapController" 
+                        constructorParameters="${config.treemap}"
+                        constructorClasses="com.labescape.treemap.baseui.TreeMap" 
+                        elements="noTrigger,trigger"
+                        propertyClasses="com.labescape.common.baseui.controller.Controller">
+
+               <noTrigger reference="schema.types.trigger"
+                          propertyMethod="unregisterMatchingTrigger"
+                          propertyClasses="com.labescape.common.baseui.controller.EventTrigger"
+                          propertyParameters="${this}" />
+
+               <trigger   reference="schema.types.trigger" />
+
+            </controller>
+
+            <!-- 
+                 @todo-later Once defaultCondition is implemented using expressions, make the default
+                             condition: defaultCondition="${this..colorScheme.exists()}", and then 
+                             re-test the minimal-config without color schemes. [twl 19.Oct.04]
+              -->
+            <cellColorModel class="${this@class.source()|'com.labescape.treemap.render.TreeMapCellColorModel'}"
+                            constructorParameters="${config.treemap},${config.treemap.colorScheme}"
+                            constructorClasses="com.labescape.treemap.baseui.TreeMap,com.labescape.common.render.ColorScheme" 
+                            attributes="autoscaleToZoom"
+                            propertyClasses="com.labescape.common.render.CellColorModel"
+                            defaultCondition="always" >
+
+                <autoscaleToZoom class="boolean" propertyClasses="boolean" defaultValue="false" />
+
+            </cellColorModel>
+
+            <cellSizeModel class="${this@class.source()|'com.labescape.treemap.render.TreeMapCellSizeModel'}"
+                           constructorParameters="${config.treemap}"
+                           constructorClasses="com.labescape.treemap.baseui.TreeMap" 
+                           attributes="ignoringSign,inverted,mapping,relativeRatio"
+                           propertyClasses="com.labescape.common.render.CellSizeModel">
+
+               <!-- @todo-later See the bug above regarding the brightness attribute of treemap -->
+
+               <ignoringSign class="boolean" propertyClasses="boolean" defaultValue="false" />
+
+               <inverted     class="boolean" propertyClasses="boolean" defaultValue="false" />
+
+               <relativeRatio class="int" propertyClasses="int" />
+
+               <mapping class="int" propertyClasses="int" mapValues="distinct" default="absolute">
+                   <relative value="0" />
+                   <absolute value="1" />
+               </mapping>
+
+            </cellSizeModel>
+
+            <colorScheme class="${this@class.source()|'com.labescape.common.render.DefaultColorScheme'}" 
+                         arrayClass="com.labescape.common.render.DefaultColorScheme"
+                         attributes="label,type,absoluteMinimum,absoluteMaximum,belowMinimumColor,aboveMaximumColor,nullColor" 
+                         elements="colorPoint"
+                         defaultCondition="always">
+
+               <label class="String" propertyClasses="String" />
+
+               <type class="int" mapValues="distinct" default="spectrum" 
+                     propertyClasses="int" propertyName="mode">
+                   <spectrum value="1" />
+                   <discrete value="2" />
+               </type>
+
+               <absoluteMinimum class="Double" propertyClasses="java.lang.Number" />
+               <absoluteMaximum class="Double" propertyClasses="java.lang.Number" />
+
+               <belowMinimumColor class="Color" />
+               <aboveMaximumColor class="Color" />
+               <nullColor         class="Color" />
+
+               <colorPoint class="com.labescape.common.render.ColorPoint"
+                           attributes="color,position,value,locked"
+                           propertyName="colorPoints"
+                           propertyClasses="com.labescape.common.render.ColorPoint[]"
+                           propertyParameters="${this.array()}">
+
+                  <color    class="Color"   propertyClasses="Color" />
+                  <position class="Double"  propertyClasses="java.lang.Number" />
+                  <value    class="Double"  propertyClasses="java.lang.Number" />
+                  <locked   class="boolean" propertyClasses="boolean" />
+
+               </colorPoint>
+
+            </colorScheme>
+
+
+            <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+            <!-- Cell Renderer                                  -->
+            <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+            <cellRenderer class="${this@class.source()|'com.labescape.treemap.awtui.AWTTreeMapCellRenderer'}" 
+                          elements="style,state,backgroundRenderer"
+                          attributes="leafOverridesLevel"
+                          propertyClasses="com.labescape.treemap.render.TreeMapCellRenderer">
+
+                <leafOverridesLevel class="boolean" propertyClasses="boolean" defaultValue="true" />
+
+                <backgroundRenderer class="com.labescape.treemap.render.DefaultTreeMapCellBackgroundRenderer" 
+                                    attributes="applet,url,compositeFactor,compositeType"
+                                    propertyMethod="setCellBackgroundRenderer"
+                                    propertyClasses="com.labescape.treemap.render.TreeMapCellBackgroundRenderer">
+
+                    <applet instance="${applet}"
+                            propertyClasses="java.applet.Applet" />
+
+                    <url class="String" propertyName="urlFormat" />
+
+                    <compositeFactor class="float" propertyClasses="float" />
+
+                    <compositeType reference="schema.types.compositeTypes" propertyClasses="int" />
+
+                </backgroundRenderer>
+
+                <style key="renderLevel" 
+                       class="com.labescape.common.baseui.settings.CellSettings"
+                       elements="cell,label"
+                       propertyMethod="setLevelSettings"
+                       propertyClasses="int,com.labescape.common.baseui.settings.CellSettings"
+                       propertyParameters="${this@renderLevel},${this}">
+
+                    <renderLevel reference="schema.types.renderLevels" />
+
+                    <cell class="com.labescape.common.baseui.settings.ComponentStyle"
+                          elements="border"
+                          propertyName="cellStyle">
+
+                       <border reference="schema.types.border"
+                               propertyClasses="javax.swing.border.Border" />
+
+                    </cell>
+
+                    <label class="com.labescape.common.baseui.settings.LabelStyle"
+                           elements="border,font"
+                           attributes="visible,format,backgroundColor,scaleToFit,minimumFontSize,maximumFontSize,alignment,location"
+                           propertyName="labelStyle">
+
+                       <border reference="schema.types.border"
+                               propertyClasses="javax.swing.border.Border" />
+
+                       <font   reference="schema.types.fontStyle"
+                               propertyName="fontStyle"
+                               defaultCondition="always" />
+
+                       <visible class="boolean"
+                                propertyClasses="boolean"
+                                defaultValue="true" />
+
+                       <format class="String" />
+
+                       <backgroundColor class="Color" />
+
+                       <scaleToFit class="boolean"
+                                   propertyClasses="boolean"
+                                   defaultValue="false" />
+
+                       <minimumFontSize class="int"
+                                        propertyClasses="int" />
+
+                       <maximumFontSize class="int"
+                                        propertyClasses="int" />
+
+                       <alignment reference="schema.types.labelAlignments"
+                                  propertyClasses="int"
+                                  defaultValue="default" />
+
+                       <location reference="schema.types.labelLocations"
+                                 propertyClasses="int"
+                                 defaultValue="center" />
+
+                    </label>
+
+                </style>
+
+                <state key="name" 
+                       class="com.labescape.common.baseui.settings.CellSettings"
+                       elements="cell,label"
+                       propertyMethod="setStateSettings"
+                       propertyClasses="String,com.labescape.common.baseui.settings.CellSettings"
+                       propertyParameters="${this@name.source()},${this}">
+
+                    <cell class="com.labescape.common.baseui.settings.ComponentStyle"
+                          elements="border"
+                          propertyName="cellStyle">
+
+                       <border reference="schema.types.border"
+                               propertyClasses="javax.swing.border.Border" />
+
+                    </cell>
+
+                    <label class="com.labescape.common.baseui.settings.LabelStyle"
+                           elements="border,font"
+                           attributes="visible,format,backgroundColor"
+                           propertyName="labelStyle">
+
+                       <border reference="schema.types.border"
+                               propertyClasses="javax.swing.border.Border" />
+
+                       <font   reference="schema.types.fontStyle"
+                               propertyName="fontStyle"
+                               defaultCondition="always" />
+
+                       <visible class="boolean"
+                                propertyClasses="boolean"
+                                defaultValue="true" />
+
+                       <format class="String" />
+
+                       <backgroundColor class="Color" />
+
+                    </label>
+
+                </state>
+
+            </cellRenderer>
+
+
+            <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+            <!-- Elements                                       -->
+            <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+            <uiElements instance="${config.treemap.uIElementManager.currentValue()}"
+                        class="com.labescape.common.baseui.UIElementManager"
+                        elements="panel,menu"
+                        propertyMethod="setUIElementManager"
+                        constructorClasses="java.awt.Container"
+                        constructorParameters="${this..instance()}">
+
+                <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+                <!-- Info Panels                                    -->
+                <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+                <panel reference="schema.types.panel"
+                       propertyMethod="setElement"
+                       propertyParameters="${this@name.source()},${this}"
+                       propertyClasses="String,java.awt.Component" />
+
+
+                <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+                <!-- Menus                                          -->
+                <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+                <menu class="${this@class.source()|'com.labescape.common.awtui.AWTPopupMenu'}" 
+                      attributes="name,backgroundColor"
+                      elements="border,menuItem,size,controller"
+                      propertyMethod="setElement"
+                      propertyParameters="${this@name.source()},${this}"
+                      propertyClasses="String,java.awt.Component">
+
+                   <name class="String" />
+
+                   <backgroundColor class="Color"
+                                    propertyName="background"
+                                    defaultValue="#DDDDDD" />
+
+                   <border reference="schema.types.border"
+                           propertyClasses="javax.swing.border.Border" />
+
+                   <size class="java.awt.Dimension"
+                         propertyClasses="java.awt.Dimension" 
+                         propertyParameters="${this..preferredSize.currentValue()}" />
+
+                   <controller instance="${this....controller}"
+                               propertyMethod="addActionListener"
+                               propertyClasses="java.awt.event.ActionListener" />
+
+                   <menuItem class="${this@class.source()|'com.labescape.treemap.awtui.AWTMenuItem'}"
+                             attributes="name,text,action,backgroundColor,actionCommand"
+                             elements="font,border,textFormat"
+                             propertyMethod="add"
+                             propertyClasses="java.awt.Component">
+
+                      <action propertyClasses="javax.swing.Action" />
+
+                      <backgroundColor class="Color"
+                                       propertyName="background"
+                                       propertyParameters="${this@backgroundColor|this..@backgroundColor}" />
+
+                      <!-- @note Setting the defaultValue here for the text property helps the menu to
+                                 be sized properly if a user only defines the textExpression or defines
+                                 an action. -->
+
+                      <text class="String" defaultValue="Menu Item" />
+
+                      <textFormat instance="${this.text()}" />
+
+                      <actionCommand propertyParameters="${this@actionCommand.source()|this@name.source()}" />
+
+                      <font reference="schema.types.font" />
+
+                   </menuItem>
+
+                </menu>
+
+            </uiElements>
+
+         </treemap>
+
+
+         <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+         <!-- ELEMENT: action                                -->
+         <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+         <action switch="type" default="custom">
+
+            <multiple key="name" 
+                      class="com.labescape.common.action.ActionListAction"
+                      attributes="enableMode,label"
+                      constructorClasses="javax.swing.Action[]"
+                      constructorParameters="${this.action.array()}">
+
+                <action reference="schema.definition.config.action"
+                        arrayClass="javax.swing.Action" />
+
+                <enableMode class="int" propertyClasses="int" defaultValue="all" mapValues="distinct">
+                   <never  value="0" />
+                   <always value="1" />
+                   <all    value="2" />
+                   <any    value="3" />
+                </enableMode>
+
+                <!-- @todo-later Once we implement 'exists' or 'existsNotNull' for the propertySetCondition,
+                           then we need to add propertySetCondition="exists" for this element. Right
+                           now this is always being called, so if the label field is missing, it is
+                           being explicitly set to null. Which prevents the default behavior of this
+                           class which is to take the label of the first action.
+                  -->
+                <label class="String" 
+                       propertyMethod="putValue"
+                       propertyClasses="String,java.lang.Object"
+                       propertyParameters="Name,${this@label.source()}" />
+
+            </multiple>
+
+            <zoomTo  key="name" 
+                     class="com.labescape.treemap.action.ZoomToAction"
+                     attributes="label"
+                     constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                     constructorParameters="${config.treemap}">
+
+                <label   class="String" 
+                         propertyMethod="setLabelFormat"
+                         propertyClasses="String"
+                         propertyParameters="${this@label.source()}" />
+
+            </zoomTo>
+
+            <zoomIn  key="name" 
+                     class="com.labescape.treemap.action.ZoomInAction"
+                     attributes="label"
+                     constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                     constructorParameters="${config.treemap}">
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </zoomIn>
+
+            <zoomOut key="name" 
+                     class="com.labescape.treemap.action.ZoomOutAction"
+                     attributes="label"
+                     constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                     constructorParameters="${config.treemap}">
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </zoomOut>
+
+            <drillDown  key="name" 
+                        class="com.labescape.treemap.action.DrillDownAction"
+                        attributes="label"
+                        constructorClasses="com.labescape.treemap.manager.DrillableDataManager"
+                        constructorParameters="${config.treemap.drillableDataManager}">
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </drillDown>
+
+            <drillUp key="name" 
+                     class="com.labescape.treemap.action.DrillUpAction"
+                     attributes="label"
+                     constructorClasses="com.labescape.treemap.manager.DrillableDataManager"
+                     constructorParameters="${config.treemap.drillableDataManager}">
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </drillUp>
+
+            <select  key="name" 
+                     class="com.labescape.treemap.action.SelectAction"
+                     attributes="action,label"
+                     constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                     constructorParameters="${config.treemap}">
+
+                <action   class="int"
+                          propertyClasses="int"
+                          defaultValue="set"
+                          mapValues="distinct">
+
+                    <set    value="1" />
+                    <modify value="2" />
+
+                </action>
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </select>
+
+            <changeFocus key="name" 
+                         class="com.labescape.treemap.action.ChangeFocusAction"
+                         attributes="action,label">
+
+                <action   class="int"
+                          propertyClasses="int"
+                          defaultValue="expand"
+                          mapValues="distinct">
+
+                    <expand   value="1" />
+                    <contract value="2" />
+
+                </action>
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </changeFocus>
+
+            <contextMenu key="name" 
+                         class="com.labescape.treemap.action.ContextMenuAction"
+                         attributes="action,menuName,panelName,label">
+
+                <action   class="int"
+                          propertyClasses="int"
+                          defaultValue="show"
+                          mapValues="distinct">
+
+                    <show value="1" />
+                    <hide value="2" />
+
+                </action>
+
+                <menuName class="String" />
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </contextMenu>
+
+            <gotoUrl key="name" 
+                     class="com.labescape.treemap.action.GotoUrlAction"
+                     elements="treeMap,applet"
+                     attributes="url,target,label">
+
+                <treeMap instance="${config.treemap}"                
+                         propertyClasses="com.labescape.treemap.baseui.TreeMap"  />
+
+                <applet  instance="${applet}"
+                         propertyClasses="java.applet.Applet" />
+
+                <url     class="String"
+                         propertyName="urlFormat" />
+
+                <target  class="String" />
+
+                <label   class="String" 
+                         propertyMethod="putValue"
+                         propertyClasses="String,java.lang.Object"
+                         propertyParameters="Name,${this@label.source()}" />
+
+            </gotoUrl>
+
+            <submitSelection key="name" 
+                             class="com.labescape.treemap.action.SubmitSelectionAction"
+                             elements="treeMap,selectionModel,applet,param"
+                             attributes="baseUrl,target,encodeParameters,label">
+
+                <treeMap          propertyClasses="com.labescape.treemap.baseui.TreeMap"
+                                  instance="${config.treemap}"                />
+
+                <selectionModel   propertyClasses="com.labescape.common.selection.ObjectSelectionModel"
+                                  instance="${config.treemap.selectionModel}" />
+
+                <applet           instance="${applet}"
+                                  propertyClasses="java.applet.Applet" />
+
+                <baseUrl          class="java.net.URL"
+                                  constructorClasses="java.net.URL,String"
+                                  constructorParameters="${applet.documentBase.currentValue()},${this@baseUrl.source()}" />
+
+                <target           class="String" />
+
+                <label            class="String" 
+                                  propertyMethod="putValue"
+                                  propertyClasses="String,java.lang.Object"
+                                  propertyParameters="Name,${this@label.source()}" />
+
+                <param            class="String"
+                                  propertyMethod="addParameter"
+                                  propertyClasses="String,String"
+                                  propertyParameters="${this@name.source()},${this@value.source()}" />
+
+                <encodeParameters class="boolean" 
+                                  propertyClasses="boolean"
+                                  mapValues="distinct"
+                                  propertyName="encodingParametersSeparately">
+
+                    <separately   value="true" />
+                    <together     value="false" />
+
+                </encodeParameters>
+
+            </submitSelection>
+
+            <changeRenderDepth  key="name" 
+                                class="com.labescape.treemap.action.ChangeRenderDepthAction"
+                                attributes="increment,label"
+                                constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                                constructorParameters="${config.treemap}">
+
+                <increment class="int" propertyClasses="int" defaultValue="1" />
+
+                <label class="String" 
+                       propertyMethod="putValue"
+                       propertyClasses="String,java.lang.Object"
+                       propertyParameters="Name,${this@label.source()}" />
+
+            </changeRenderDepth>
+
+            <setRenderDepth  key="name" 
+                             class="com.labescape.treemap.action.SetRenderDepthAction"
+                             attributes="renderDepth,label"
+                             constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                             constructorParameters="${config.treemap}">
+
+                <renderDepth class="int" propertyClasses="int" defaultValue="byKeystroke" mapValues="distinct">
+                    <all         value="-1" />
+                    <byKeystroke value="-2" />
+                </renderDepth>
+
+                <label class="String" 
+                       propertyMethod="putValue"
+                       propertyClasses="String,java.lang.Object"
+                       propertyParameters="Name,${this@label.source()}" />
+
+            </setRenderDepth>
+
+            <dataConfig class="com.labescape.treemap.action.DataConfigAction"
+                        elements="config"
+                        attributes="label"
+                        constructorClasses="com.labescape.treemap.baseui.TreeMap"
+                        constructorParameters="${config.treemap}">
+
+                <config reference="schema.types.dataConfig" />
+
+                <label class="String" 
+                       propertyMethod="putValue"
+                       propertyClasses="String,java.lang.Object"
+                       propertyParameters="Name,${this@label.source()}" />
+
+            </dataConfig>
+
+            <custom key="name" 
+                    class="${this@class.source()}" />
+         </action>
+
+      </config>
+   </definition>
+</schema>

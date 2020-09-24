@@ -1,0 +1,30 @@
+    Inherits System.Web.UI.Page
+#Region "Public Declaration"
+    Private WithEvents mySQL As New clsSQL, myDS As New DataSet, myDS2 As New DataSet, mySetting As New clsGlobalSetting
+    Private WithEvents myFileReader As New clsReadFile(System.AppDomain.CurrentDomain.BaseDirectory & "App_GlobalResources\Setup\Setup.ini")
+    Public ssql As String, i As Integer, j As Integer, SearchByPage As Boolean, RecFound As Boolean, CountRecord As Integer
+    Public AllowView As Boolean, AllowInsert As Boolean, AllowUpdate As Boolean, AllowDelete As Boolean, AllowPrint As Boolean
+    Public _currentPageNumber As Integer, _totalPage As Double = 1, _totalRecords As Integer
+    Public myDE As New DictionaryEntry, myHT As Hashtable
+    Public myDataType As New clsGlobalSetting.DataType, SearchByFilter As Boolean = False
+    Dim intColumn As Integer
+#End Region
+#Region "Private Declaration"
+    Private WithEvents myDT1 As New DataTable, myDT2 As New DataTable
+    Dim myDR1 As DataRow, myDR2 As DataRow, rcPerPage As Integer, autonum As Integer
+    Dim ssql2 As String, ssql3 As String, ssql4 As String
+    Dim rowPosition As String = "R_", rowPositionM As String = "RM_", panelPosition As String = "Display_"
+    Dim buttonPosition1 As String = "B1_", buttonPosition2 As String = "B2_", buttonPosition3 As String = "B3_", labelPosition1 As String = "L1_"
+    Dim btnColourDef, btnColourAlt As String
+    Dim strPath As String = "../../Images"
+    Dim logic As Boolean
+#End Region
+#Region "Page Setting"
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Session.IsNewSession Then
+            Response.Redirect("../Global/SessionTimeOut.aspx")
+        End If
+        If Not IsPostBack Then
+            Response.CacheControl = "no-cache"
+            Response.AddHeader("Pragma", "no-cache")
+            Response.Expires = -1

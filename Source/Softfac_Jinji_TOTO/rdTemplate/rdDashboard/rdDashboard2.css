@@ -1,0 +1,114 @@
+A
+{
+	color:Blue
+}
+.rdDashboard
+{
+	background-color:#EEEEEE;
+}
+
+TD.rdDashboard
+{
+	background-color:#EEEEEE;
+}
+
+.rdDashboardMenu
+{
+	background-color:#EEEEEE;
+}
+TD.rdDashboardMenu
+{
+	background-color:#EEEEEE;
+	text-align:right;
+}
+
+.rdDashboardColumn
+{
+	vertical-align:top;
+	padding:5;
+	background-color:#EEEEEE;
+}
+.rdDashboardPanel
+{
+	border-style:solid;
+	border-color:#888888;
+	border-width:thin;
+	background-color:white;
+}
+
+.rdDashboardTitle
+{
+	background-color:#EEEEFF;
+}
+.rdDashboardTitleCaption
+{
+	font-weight:bolder;
+}
+
+.rdDashboardListAdded
+{
+ color:Gray;
+}
+
+TD.rdDashboardControl
+{
+	background-color:#EEEEFF;
+	text-align:right;
+}
+
+.rdDashboardParams
+{
+	background-color:#EEEEEE;
+}
+TD.rdDashboardParams
+{
+	background-color:#EEEEEE;
+}
+TD.rdDashboardParamsSave
+{
+	vertical-align:bottom;
+	text-align:right;
+	background-color:#EEEEEE;
+	padding-right: 3;
+	padding-left: 3;
+}
+.rdDashboardText
+{
+}
+TD.rdDashboardText
+{
+}
+
+.rdDashboardCommand
+{
+	vertical-align:bottom;
+	background-color: #FFFFFF;
+	border-top: 1px solid #888888;
+	border-bottom: 1px solid #888888;
+	border-right: 1px solid #888888;
+	border-left: 1px solid #888888;
+	padding-right: 3;
+	padding-left: 3;
+}
+
+.rdDashboardContent
+{
+}
+
+.rdDashboardDropZone
+{
+	background-color:#EEEEEE;
+	height:15;
+}
+
+TD.rdDashboardTitleColumn
+{
+	font-weight:bolder;
+}
+
+.rdDashboardHidden
+{
+	 display:none;
+}
+
+	

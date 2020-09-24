@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Medical_Summary" SavedBy="Tester" SavedAt="11/11/2014 5:03:09 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Medical_Summary.xlt" ID="Medical_Summary" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Medical_Summary" FirstRow="1" LastRow="12" Worksheet="MedicalSummary">
+			<DataLayer Type="SP" Command="sp_md_RptMedicalTransaction" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="PanelDoctor" SPParamSize="0" SPParamType="dt-200" Value="@Request.PanelDoctor~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="MEDICAL EXPENSES SUMMARY FOR  @Data.Month_text~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="3" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="7" LastRow="7" ID="details" DisposableFirstRow="8" DisposableLastRow="8">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_md_RptMedicalTransaction" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+							<SPParameter SPParamDirection="Input" ID="PanelDoctor" SPParamSize="0" SPParamType="dt-200" Value="@Request.PanelDoctor~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="MedicalType" Value="@Data.MedicalType~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Operator" Value="@Data.Operator~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Staff_Per" Value="@Data.Staff_Per~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="Staff_fam" Value="@Data.Staff_fam~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Exec_Per" Value="@Data.Exec_Per~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Exec_fam" Value="@Data.Exec_fam~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Mgt_Per" Value="@Data.Mgt_Per~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Mgt_fam" Value="@Data.Mgt_fam~" Column="I" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

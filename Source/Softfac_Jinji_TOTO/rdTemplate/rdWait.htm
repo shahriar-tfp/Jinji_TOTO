@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+ <head>
+  <title>Please Wait</title>
+  <link rel="stylesheet" type="text/css" href="rdWaitStyle" />
+ </head>
+ <body onload="rdGetReport('rdUID')" class="rdWaitClass" >
+  <table width="100%" height="100%"><tr><td align="center" valign="middle" >
+  <table border="0" cellspacing="0" cellpadding="2" ID="Table1">
+    <tr>
+      <td bgcolor="#6E6E6E">
+     
+    <table height="60" border="0" cellpadding="0" cellspacing="0" ID="Table2">
+        <tr>
+          <td width="70"><img src="rdTemplate/rdWait01.gif" alt="rdWaitCaption" width="70" height="60" id="rdLogo"></td>
+          <td bgcolor="#FFFFFF"><span id="rdWaitMsg">rdWaitCaption</span></td>
+        </tr>
+      </table>
+  </td>
+    </tr>
+ </table>
+ </td></tr></table>
+  <form id="rdForm" name="rdForm" method="post">
+   <rdHidden />
+   </form>
+   
+  <SCRIPT language="javascript">
+  function rdGetReport(sUID) {
+   if (sUID==getCookie2("rdShowWaitUID")) {
+    //User pressed Back.
+    if (history.length<3) {
+     //The report opened a new window, nowhere to go back to.
+     history.forward(1)
+    } else {
+     //Go back past this page.
+     history.back(-1)
+    }
+   } else {
+    setCookie2("rdShowWaitUID",sUID)
+   
+    var frm = document.getElementById("rdForm")
+    frm.action = 'rdUrl'
+    frm.submit()
+    
+    if ('rdHTTPS'!='on') {  //Don't animate with HTTPS. Images aren't cached.
+		setTimeout("rdAnimate()",200);
+	}
+   }
+  }
+  
+  function rdAnimate() {
+   var img = document.getElementById("rdLogo")
+   if (img.src.indexOf("rdWait01.gif")!=-1) {
+    img.src="rdTemplate/rdWait02.gif"
+   } else if (img.src.indexOf("rdWait02.gif")!=-1) {
+    img.src="rdTemplate/rdWait03.gif"
+   } else if (img.src.indexOf("rdWait03.gif")!=-1) {
+    img.src="rdTemplate/rdWait04.gif"
+   } else if (img.src.indexOf("rdWait04.gif")!=-1) {
+    img.src="rdTemplate/rdWait05.gif"
+   } else if (img.src.indexOf("rdWait05.gif")!=-1) {
+    img.src="rdTemplate/rdWait06.gif"
+   } else {
+    img.src="rdTemplate/rdWait01.gif"
+   }
+   setTimeout("rdAnimate()",200);
+  }
+ 
+  </SCRIPT>
+  <SCRIPT language="javascript" src="rdTemplate/rdCookie.js">
+  </SCRIPT>
+
+ </body>
+</html>

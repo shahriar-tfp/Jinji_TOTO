@@ -1,0 +1,135 @@
+SMBC                                              16012015020000234<Jauhari             
+SMBC                                              16012015080200361<361                 
+SMBC                                              16012015082700036<Sheila              
+SMBC                                              16012015093400096<KW Choo             
+SMBC                                              16012015093700096<KW Choo             
+SMBC                                              16012015111400234<Jauhari             
+SMBC                                              16012015131400252<Uematsu             
+SMBC                                              16012015173000036<Sheila              
+SMBC                                              16012015190100008<Mohamad             
+SMBC                                              16012015190300361<361                 
+SMBC                                              16012015192900234<Jauhari             
+SMBC                                              16012015202200096<KW Choo             
+SMBC                                              17012015072500361<361                 
+SMBC                                              17012015135800252<Uematsu             
+SMBC                                              17012015173900361<361                 
+SMBC                                              17012015215800252<Uematsu             
+SMBC                                              18012015081700234<Jauhari             
+SMBC                                              18012015180100234<Jauhari             
+SMBC                                              19012015080000361<361                 
+SMBC                                              19012015082400036<Sheila              
+SMBC                                              19012015084800344<Tsukuda             
+SMBC                                              19012015085000096<KW Choo             
+SMBC                                              19012015123900252<Uematsu             
+SMBC                                              19012015170500036<Sheila              
+SMBC                                              19012015173400036<Sheila              
+SMBC                                              19012015185700361<361                 
+SMBC                                              19012015190200008<Mohamad             
+SMBC                                              19012015210100096<KW Choo             
+SMBC                                              19012015220800252<Uematsu             
+SMBC                                              20012015075500361<361                 
+SMBC                                              20012015082900036<Sheila              
+SMBC                                              20012015083100344<Tsukuda             
+SMBC                                              20012015083400234<Jauhari             
+SMBC                                              20012015130800252<Uematsu             
+SMBC                                              20012015173200036<Sheila              
+SMBC                                              20012015193200361<361                 
+SMBC                                              20012015193600234<Jauhari             
+SMBC                                              21012015034700252<Uematsu             
+SMBC                                              21012015080000361<361                 
+SMBC                                              21012015084100234<Jauhari             
+SMBC                                              21012015091700036<Sheila              
+SMBC                                              21012015131000252<Uematsu             
+SMBC                                              21012015173300036<Sheila              
+SMBC                                              21012015184300234<Jauhari             
+SMBC                                              21012015201400361<361                 
+SMBC                                              22012015014800252<Uematsu             
+SMBC                                              22012015080400361<361                 
+SMBC                                              22012015091900036<Sheila 
+SMBC                                              22012015110300234<Jauhari             
+SMBC                                              22012015125300252<Uematsu             
+SMBC                                              22012015141000036<Sheila              
+SMBC                                              22012015211700361<361                 
+SMBC                                              22012015222100252<Uematsu 
+SMBC                                              23012015021500234<Jauhari            
+SMBC                                              23012015081300008<Mohamad             
+SMBC                                              23012015081800361<361                 
+SMBC                                              23012015082300036<Sheila              
+SMBC                                              23012015093300234<Jauhari             
+SMBC                                              23012015124900252<Uematsu             
+SMBC                                              23012015173300036<Sheila              
+SMBC                                              23012015190900008<Mohamad             
+SMBC                                              23012015201700234<Jauhari             
+SMBC                                              23012015203500361<361                 
+SMBC                                              23012015225100096<KW Choo             
+SMBC                                              23012015225200252<Uematsu             
+SMBC                                              24012015073200361<361                 
+SMBC                                              24012015080600234<Jauhari             
+SMBC                                              24012015182200361<361                 
+SMBC                                              24012015195900234<Jauhari             
+SMBC                                              25012015083100252<Uematsu             
+SMBC                                              25012015184700252<Uematsu             
+SMBC                                              26012015080200361<361                 
+SMBC                                              26012015084700096<KW Choo             
+SMBC                                              26012015084800344<Tsukuda             
+SMBC                                              26012015085000234<Jauhari             
+SMBC                                              26012015102900036<Sheila              
+SMBC                                              26012015124600252<Uematsu             
+SMBC                                              26012015173700036<Sheila              
+SMBC                                              26012015193000008<Mohamad             
+SMBC                                              26012015194700234<Jauhari             
+SMBC                                              26012015211800361<361                 
+SMBC                                              26012015211900344<Tsukuda             
+SMBC                                              26012015212100096<KW Choo             
+SMBC                                              27012015000400252<Uematsu             
+SMBC                                              27012015081000008<Mohamad             
+SMBC                                              27012015083100036<Sheila              
+SMBC                                              27012015083100361<361                 
+SMBC                                              27012015083200234<Jauhari             
+SMBC                                              27012015101900096<KW Choo             
+SMBC                                              27012015125800252<Uematsu             
+SMBC                                              27012015173300036<Sheila              
+SMBC                                              27012015185500008<Mohamad             
+SMBC                                              27012015192800234<Jauhari             
+SMBC                                              27012015200200361<361                 
+SMBC                                              27012015201500096<KW Choo             
+SMBC                                              27012015214900252<Uematsu             
+SMBC                                              28012015080100361<361                 
+SMBC                                              28012015082900036<Sheila              
+SMBC                                              28012015083000234<Jauhari             
+SMBC                                              28012015124200252<Uematsu             
+SMBC                                              28012015145400036<Sheila              
+SMBC                                              28012015184700008<Mohamad             
+SMBC                                              28012015193200234<Jauhari             
+SMBC                                              28012015215200361<361                 
+SMBC                                              28012015235600252<Uematsu             
+SMBC                                              29012015080000361<361                 
+SMBC                                              29012015082400036<Sheila 
+SMBC                                              29012015082500234<Jauhari             
+SMBC                                              29012015084900096<KW Choo             
+SMBC                                              29012015124800252<Uematsu             
+SMBC                                              29012015173200036<Sheila              
+SMBC                                              29012015182500008<Mohamad             
+SMBC                                              29012015185600234<Jauhari             
+SMBC                                              29012015192400344<Tsukuda             
+SMBC                                              29012015201600361<361                 
+SMBC                                              29012015204900096<KW Choo             
+SMBC                                              29012015205600252<Uematsu             
+SMBC                                              30012015080000008<Mohamad             
+SMBC                                              30012015080400036<Sheila              
+SMBC                                              30012015080500361<361                 
+SMBC                                              30012015083800344<Tsukuda             
+SMBC                                              30012015084900234<Jauhari             
+SMBC                                              30012015105600252<Uematsu             
+SMBC                                              30012015173000036<Sheila              
+SMBC                                              30012015182200008<Mohamad             
+SMBC                                              30012015191700234<Jauhari             
+SMBC                                              30012015205900252<Uematsu             
+SMBC                                              30012015210000361<361                 
+SMBC                                              30012015210100096<KW Choo             
+SMBC                                              31012015082600361<361                 
+SMBC                                              31012015095100096<KW Choo             
+SMBC                                              31012015124600252<Uematsu             
+SMBC                                              31012015185800252<Uematsu             
+SMBC                                              31012015185900361<361                 
+SMBC                                              31012015190300096<KW Choo             

@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="OpenReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="version" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="culture" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportPath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="acceptedFormats" type="tns:ArrayOfReportBinaryKind" />
+            <s:element minOccurs="1" maxOccurs="1" name="lifeTime" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReportBinaryKind">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReportBinaryKind" type="tns:ReportBinaryKind" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ReportBinaryKind">
+        <s:restriction base="s:string">
+          <s:enumeration value="Rdf" />
+          <s:enumeration value="Ddf" />
+          <s:enumeration value="Xaml" />
+          <s:enumeration value="Image" />
+          <s:enumeration value="Pdf" />
+          <s:enumeration value="Html" />
+          <s:enumeration value="Word" />
+          <s:enumeration value="Xls" />
+          <s:enumeration value="Xml" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="OpenReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenReportResult" type="tns:RetValueBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RetValueBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:Error" />
+          <s:element minOccurs="1" maxOccurs="1" name="Token" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Error">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="tns:ErrorCodes" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ErrorCodes">
+        <s:restriction base="s:string">
+          <s:enumeration value="InvalidCulture" />
+          <s:enumeration value="InvalidVersion" />
+          <s:enumeration value="UnknownReportType" />
+          <s:enumeration value="NoSuchReport" />
+          <s:enumeration value="ParametersNotSet" />
+          <s:enumeration value="RuntimeIsBusy" />
+          <s:enumeration value="InternalError" />
+          <s:enumeration value="ParameterNotExists" />
+          <s:enumeration value="NoAcceptableFormats" />
+          <s:enumeration value="InvalidToken" />
+          <s:enumeration value="UnsupportedFormat" />
+          <s:enumeration value="InvalidSetOfParameters" />
+          <s:enumeration value="MethodNotSupported" />
+          <s:enumeration value="NoValidLicenseFound" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="OpenDrillthroughReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportPath" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lifeTime" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenDrillthroughReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenDrillthroughReportResult" type="tns:RunReportResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RunReportResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ParameterCollection" type="tns:ArrayOfParameterSurrogate" />
+              <s:element minOccurs="1" maxOccurs="1" name="HasDelayedContent" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AutoRun" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfParameterSurrogate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParameterSurrogate" nillable="true" type="tns:ParameterSurrogate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParameterSurrogate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParameterType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prompt" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nullable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MultiLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MultiValue" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowEmpty" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+          <s:element minOccurs="0" maxOccurs="1" name="AvailableValues" type="tns:ArrayOfReportParameterValue" />
+          <s:element minOccurs="0" maxOccurs="1" name="DependantParameters" type="tns:ArrayOfParameterSurrogate" />
+          <s:element minOccurs="0" maxOccurs="1" name="Values" type="tns:ArrayOfReportParameterValue" />
+          <s:element minOccurs="1" maxOccurs="1" name="State" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtendedErrorInfo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReportParameterValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReportParameterValue" nillable="true" type="tns:ReportParameterValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReportParameterValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RunReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunReportResult" type="tns:RunReportResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusResult" type="tns:GetStatusResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetStatusResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LoadState" type="tns:LoadState" />
+              <s:element minOccurs="1" maxOccurs="1" name="AvailablePages" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LoadState">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotStarted" />
+          <s:enumeration value="InProgress" />
+          <s:enumeration value="Completed" />
+          <s:enumeration value="Cancelling" />
+          <s:enumeration value="Cancelled" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetTocTree">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TocTreeNode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nodes" type="tns:ArrayOfTocTreeNode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTocTreeNode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TocTreeNode" nillable="true" type="tns:TocTreeNode" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTocTreeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTocTreeResult" type="tns:GetTocTreeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetTocTreeResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="TocTree" type="tns:ArrayOfTocTreeNode" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetBookmarks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="parentId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromChild" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BookmarkResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Page" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Location" type="tns:PointF" />
+          <s:element minOccurs="1" maxOccurs="1" name="Size" type="tns:SizeF" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildrenCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PointF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SizeF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBookmarkResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BookmarkResult" nillable="true" type="tns:BookmarkResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBookmarksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookmarksResult" type="tns:GetBookmarksResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetBookmarksResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FromChild" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ChildrenCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Bookmarks" type="tns:ArrayOfBookmarkResult" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetRenderedReportLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RenderedReportLink">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Kind" type="tns:ReportBinaryKind" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRenderedReportLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRenderedReportLinkResult" type="tns:ExportReportResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExportReportResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ReportLink" type="tns:RenderedReportLink" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ValidateParameter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="surrogate" type="tns:ParameterSurrogate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateParameterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateParameterResult" type="tns:ValidateParameterResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidateParameterResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ParameterCollection" type="tns:ArrayOfParameterSurrogate" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SetParameters">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametersSetAtClient" type="tns:ArrayOfParameterSurrogate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetParametersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetParametersResult" type="tns:SetParametersResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SetParametersResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ParameterCollection" type="tns:ArrayOfParameterSurrogate" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetExportedReportLink">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="format" type="tns:ReportBinaryKind" />
+            <s:element minOccurs="0" maxOccurs="1" name="exportingParameters" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageRange" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExportedReportLinkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExportedReportLinkResult" type="tns:ExportReportResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloseReportResult" type="tns:RetValueBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessOnClick">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessOnClickResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessOnClickResult" type="tns:RetValueBase" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="token" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="options" type="tns:FindOptions" />
+            <s:element minOccurs="0" maxOccurs="1" name="startFrom" type="tns:SearchResult" />
+            <s:element minOccurs="1" maxOccurs="1" name="numberOfResults" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FindOptions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MatchCase" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="WholeWord" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SearchBackward" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemArea" type="tns:RectangleF" />
+          <s:element minOccurs="1" maxOccurs="1" name="TextStart" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TextLen" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RectangleF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Location" type="tns:PointF" />
+          <s:element minOccurs="1" maxOccurs="1" name="Size" type="tns:SizeF" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SearchResult" nillable="true" type="tns:SearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:SearchResultResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SearchResultResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RetValueBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SearchResults" type="tns:ArrayOfSearchResult" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="OpenReportSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenReport" />
+  </wsdl:message>
+  <wsdl:message name="OpenReportSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenDrillthroughReportSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenDrillthroughReport" />
+  </wsdl:message>
+  <wsdl:message name="OpenDrillthroughReportSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenDrillthroughReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunReportSoapIn">
+    <wsdl:part name="parameters" element="tns:RunReport" />
+  </wsdl:message>
+  <wsdl:message name="RunReportSoapOut">
+    <wsdl:part name="parameters" element="tns:RunReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTocTreeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTocTree" />
+  </wsdl:message>
+  <wsdl:message name="GetTocTreeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTocTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookmarksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookmarks" />
+  </wsdl:message>
+  <wsdl:message name="GetBookmarksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookmarksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRenderedReportLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRenderedReportLink" />
+  </wsdl:message>
+  <wsdl:message name="GetRenderedReportLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRenderedReportLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateParameterSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateParameter" />
+  </wsdl:message>
+  <wsdl:message name="ValidateParameterSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetParametersSoapIn">
+    <wsdl:part name="parameters" element="tns:SetParameters" />
+  </wsdl:message>
+  <wsdl:message name="SetParametersSoapOut">
+    <wsdl:part name="parameters" element="tns:SetParametersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExportedReportLinkSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExportedReportLink" />
+  </wsdl:message>
+  <wsdl:message name="GetExportedReportLinkSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExportedReportLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseReportSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseReport" />
+  </wsdl:message>
+  <wsdl:message name="CloseReportSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessOnClickSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessOnClick" />
+  </wsdl:message>
+  <wsdl:message name="ProcessOnClickSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessOnClickResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportServiceSoap">
+    <wsdl:operation name="OpenReport">
+      <wsdl:input message="tns:OpenReportSoapIn" />
+      <wsdl:output message="tns:OpenReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenDrillthroughReport">
+      <wsdl:input message="tns:OpenDrillthroughReportSoapIn" />
+      <wsdl:output message="tns:OpenDrillthroughReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunReport">
+      <wsdl:input message="tns:RunReportSoapIn" />
+      <wsdl:output message="tns:RunReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input message="tns:GetStatusSoapIn" />
+      <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTocTree">
+      <wsdl:input message="tns:GetTocTreeSoapIn" />
+      <wsdl:output message="tns:GetTocTreeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmarks">
+      <wsdl:input message="tns:GetBookmarksSoapIn" />
+      <wsdl:output message="tns:GetBookmarksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRenderedReportLink">
+      <wsdl:input message="tns:GetRenderedReportLinkSoapIn" />
+      <wsdl:output message="tns:GetRenderedReportLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateParameter">
+      <wsdl:input message="tns:ValidateParameterSoapIn" />
+      <wsdl:output message="tns:ValidateParameterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetParameters">
+      <wsdl:input message="tns:SetParametersSoapIn" />
+      <wsdl:output message="tns:SetParametersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExportedReportLink">
+      <wsdl:input message="tns:GetExportedReportLinkSoapIn" />
+      <wsdl:output message="tns:GetExportedReportLinkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseReport">
+      <wsdl:input message="tns:CloseReportSoapIn" />
+      <wsdl:output message="tns:CloseReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOnClick">
+      <wsdl:input message="tns:ProcessOnClickSoapIn" />
+      <wsdl:output message="tns:ProcessOnClickSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportServiceSoap" type="tns:ReportServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OpenReport">
+      <soap:operation soapAction="http://tempuri.org/OpenReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenDrillthroughReport">
+      <soap:operation soapAction="http://tempuri.org/OpenDrillthroughReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunReport">
+      <soap:operation soapAction="http://tempuri.org/RunReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://tempuri.org/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTocTree">
+      <soap:operation soapAction="http://tempuri.org/GetTocTree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmarks">
+      <soap:operation soapAction="http://tempuri.org/GetBookmarks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRenderedReportLink">
+      <soap:operation soapAction="http://tempuri.org/GetRenderedReportLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateParameter">
+      <soap:operation soapAction="http://tempuri.org/ValidateParameter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetParameters">
+      <soap:operation soapAction="http://tempuri.org/SetParameters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportedReportLink">
+      <soap:operation soapAction="http://tempuri.org/GetExportedReportLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseReport">
+      <soap:operation soapAction="http://tempuri.org/CloseReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOnClick">
+      <soap:operation soapAction="http://tempuri.org/ProcessOnClick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportServiceSoap12" type="tns:ReportServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OpenReport">
+      <soap12:operation soapAction="http://tempuri.org/OpenReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenDrillthroughReport">
+      <soap12:operation soapAction="http://tempuri.org/OpenDrillthroughReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunReport">
+      <soap12:operation soapAction="http://tempuri.org/RunReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTocTree">
+      <soap12:operation soapAction="http://tempuri.org/GetTocTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookmarks">
+      <soap12:operation soapAction="http://tempuri.org/GetBookmarks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRenderedReportLink">
+      <soap12:operation soapAction="http://tempuri.org/GetRenderedReportLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateParameter">
+      <soap12:operation soapAction="http://tempuri.org/ValidateParameter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetParameters">
+      <soap12:operation soapAction="http://tempuri.org/SetParameters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExportedReportLink">
+      <soap12:operation soapAction="http://tempuri.org/GetExportedReportLink" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseReport">
+      <soap12:operation soapAction="http://tempuri.org/CloseReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessOnClick">
+      <soap12:operation soapAction="http://tempuri.org/ProcessOnClick" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="http://tempuri.org/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportService">
+    <wsdl:port name="ReportServiceSoap" binding="tns:ReportServiceSoap">
+      <soap:address location="http://localhost:49864/Softfac_Jinji_unisem/ActiveReports.ReportService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportServiceSoap12" binding="tns:ReportServiceSoap12">
+      <soap12:address location="http://localhost:49864/Softfac_Jinji_unisem/ActiveReports.ReportService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

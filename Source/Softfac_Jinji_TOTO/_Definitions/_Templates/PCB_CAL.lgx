@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="PCB_CAL" SavedBy="sy.tey" SavedAt="10/04/2009 9:51:45 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="PCB_CAL.xlt" ID="PCB_CAL" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="PCB_CAL_IS" FirstRow="1" LastRow="130">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="GetData" Command="sp_pr_GetPCBDataRpt">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Employee_Profile_ID" SPParamSize="1000" SPParamType="dt-200" Value="@Request.Employee_Profile_ID~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="2" SPParamType="dt-3" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="4" SPParamType="dt-3" Value="@Request.Year~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" ID="Employee_Name" PatternBlockRow="4" Value="@Data.Employee_Name~"/>
+			<PatternBlockCell ID="IC" Column="B" PatternBlockRow="5" Value="'@Data.Identity_No~"/>
+			<PatternBlockCell Column="B" ID="Month" PatternBlockRow="6" Value="@Data.Month~   @Data.Year~"/>
+			<PatternBlockCell Column="B" ID="Citizen" PatternBlockRow="8" Value="@Data.Citizenship~"/>
+			<PatternBlockCell ID="Marital_status" Column="B" PatternBlockRow="9" Value="@Data.Marital_Status~"/>
+			<PatternBlockCell ID="Individu" Column="B" PatternBlockRow="10" Value="@Data.Individu_Disable~"/>
+			<PatternBlockCell ID="Spouse" Column="B" PatternBlockRow="11" Value="@Data.No_Individu_Disable~"/>
+			<PatternBlockCell ID="Child_Below" Column="b" PatternBlockRow="13" Value="@Data.Child_Below~"/>
+			<PatternBlockCell ID="Child_Above" Value="@Data.Child_Above~" Column="b" PatternBlockRow="14"/>
+			<PatternBlockCell ID="Child_Diploma" Column="b" PatternBlockRow="15" Value="@Data.Child_Diploma~"/>
+			<PatternBlockCell ID="Child_disable" Column="b" PatternBlockRow="16" Value="@Data.Child_Disable~"/>
+			<PatternBlockCell ID="Child_Disable_Diploma" Column="B" PatternBlockRow="17" Value="@Data.Child_Disable_Diploma~"/>
+			<PatternBlockCell ID="Y" Column="B" PatternBlockRow="68" Value="@Data.Y~"/>
+			<PatternBlockCell ID="K" Column="B" PatternBlockRow="70" Value="@Data.K~"/>
+			<PatternBlockCell ID="Y1" Column="B" PatternBlockRow="72" Value="@Data.Y1~"/>
+			<PatternBlockCell ID="K1" Column="B" PatternBlockRow="74" Value="@Data.K1~"/>
+			<PatternBlockCell ID="Yt" Column="B" PatternBlockRow="80" Value="@Data.Yt~"/>
+			<PatternBlockCell ID="Kt" Column="B" PatternBlockRow="82" Value="@Data.Kt~"/>
+			<PatternBlockCell ID="pbs01" Value="@Data.PBS01~" Column="B" PatternBlockRow="37"/>
+			<PatternBlockCell ID="pbs02" Column="B" PatternBlockRow="38" Value="@Data.PBS02~"/>
+			<PatternBlockCell ID="pbs03" Column="B" PatternBlockRow="39" Value="@Data.PBS03~"/>
+			<PatternBlockCell ID="pbs04" Column="B" PatternBlockRow="40" Value="@Data.PBS04~"/>
+			<PatternBlockCell ID="pbs05" Column="B" PatternBlockRow="41" Value="@Data.PBS05~"/>
+			<PatternBlockCell ID="pbs06" Column="B" PatternBlockRow="42" Value="@Data.PBS06~"/>
+			<PatternBlockCell ID="pbs07" Column="B" PatternBlockRow="43" Value="@Data.PBS07~"/>
+			<PatternBlockCell ID="pbs08" Column="B" PatternBlockRow="44" Value="@Data.PBS08~"/>
+			<PatternBlockCell ID="pbs09" Column="B" PatternBlockRow="45" Value="@Data.PBS09~"/>
+			<PatternBlockCell ID="pbs10" Column="B" PatternBlockRow="46" Value="@Data.PBS10~"/>
+			<PatternBlockCell ID="pbs11" Column="B" PatternBlockRow="47" Value="@Data.PBS11~"/>
+			<PatternBlockCell ID="pbs12" Column="B" PatternBlockRow="48" Value="@Data.PBS12~"/>
+			<PatternBlockCell ID="ZC" Column="B" PatternBlockRow="51" Value="@Data.ZC~"/>
+			<PatternBlockCell ID="Fi" Column="B" PatternBlockRow="52" Value="@Data.Fi~"/>
+			<PatternBlockCell ID="ELP" Column="B" PatternBlockRow="55" Value="@Data.ELP~"/>
+			<PatternBlockCell ID="X" Column="B" PatternBlockRow="56" Value="@Data.X~"/>
+			<PatternBlockCell ID="Z" Column="B" PatternBlockRow="57" Value="@Data.Z~"/>
+			<PatternBlockCell ID="Y2" Column="b" PatternBlockRow="76" Value="@Data.Y2~"/>
+			<PatternBlockCell ID="K2" Column="b" PatternBlockRow="78" Value="@Data.K2~"/>
+			<PatternBlockCell ID="n" Column="b" PatternBlockRow="84" Value="@Data.n~"/>
+			<PatternBlockCell ID="D" Column="b" PatternBlockRow="88" Value="@Data.D~"/>
+			<PatternBlockCell ID="S" Column="b" PatternBlockRow="90" Value="@Data.S~"/>
+			<PatternBlockCell ID="C" Column="b" PatternBlockRow="92" Value="@Data.C~"/>
+			<PatternBlockCell ID="M" Column="b" PatternBlockRow="99" Value="@Data.M~"/>
+			<PatternBlockCell ID="R" Column="b" PatternBlockRow="100" Value="@Data.R~"/>
+			<PatternBlockCell ID="B" Column="b" PatternBlockRow="101" Value="@Data.B~"/>
+			<PatternBlockCell ID="Y2B" Column="B" PatternBlockRow="113" Value="@Data.Y2B~"/>
+			<PatternBlockCell ID="K2B" Column="B" PatternBlockRow="114" Value="@Data.K2B~"/>
+			<PatternBlockCell ID="NetRound" Column="B" PatternBlockRow="128" Value="@Data.NetPCB~"/>
+			<PatternBlockCell ID="LP1" Column="b" PatternBlockRow="96" Value="@Data.LP1~"/>
+			<PatternBlockCell ID="P" Column="B" PatternBlockRow="98" Value="@Data.P~"/>
+			<PatternBlockCell ID="PB" Column="B" PatternBlockRow="115" Value="@Data.PB~"/>
+			<PatternBlockCell ID="MB" Column="B" PatternBlockRow="116" Value="@Data.MB~"/>
+			<PatternBlockCell ID="RB" Column="B" PatternBlockRow="117" Value="@Data.RB~"/>
+			<PatternBlockCell ID="BB" Column="B" PatternBlockRow="118" Value="@Data.BB~"/>
+			<PatternBlockCell ID="PA" Column="A" PatternBlockRow="98" Value="P=[E(@Data.Y~-@Data.K~)+(@Data.Y1~-@Data.K1~)+[(@Data.Y2~-@Data.K2~)X@Data.n~]+(0-0)]-[@Data.D~+@Data.S~+@Data.C~+(@Data.ELP~+@Data.LP1~)]"/>
+			<PatternBlockCell ID="PB" Column="A" PatternBlockRow="115" Value="P=[E(@Data.Y~-@Data.K~)+(@Data.Y1~-@Data.K1~)+[(@Data.Y2B~-@Data.K2B~)X@Data.n~]+(@Data.Yt~-@Data.Kt~)]-[@Data.D~+@Data.S~+@Data.C~+(@Data.ELP~+@Data.LP1~)]"/>
+			<PatternBlockCell ID="CS" Column="A" PatternBlockRow="119" Value="CS = (@Data.PB~-@Data.MB~)*@Data.RB~+@Data.BB~"/>
+			<PatternBlockCell ID="PCB_Semasa" Column="A" PatternBlockRow="105" Value="PCB Bulan Semasa : [(@Data.P~-@Data.M~)X@Data.R~+@Data.B~]-(@Data.Z~+@Data.X~)/@Data.n~+1 = @Data.PCBC~"/>
+			<PatternBlockCell ID="PCB_Semasa_Final" Column="C" PatternBlockRow="105" Value="@Data.PCBC~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Employee_Profile_ID="00003 [SAMPLE3]" Month="4" Year="2009"/>
+</Template>

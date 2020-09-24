@@ -1,0 +1,80 @@
+﻿BODY
+{
+    BACKGROUND-COLOR: white;
+	font-size : 11px;
+	font-family : Arial Unicode MS;
+	font-weight : 700;
+    LETTER-SPACING: normal;
+    TEXT-TRANSFORM: none;
+    WORD-SPACING: normal
+}
+
+H1, H2, H3, H4, H5, TH, THEAD, TFOOT
+{
+    COLOR: #003366;
+}
+A:link	{	
+	text-decoration:	none;
+	color:	#3333cc;
+	}	
+		
+A:visited	{	
+	text-decoration:	none;
+	color:	#333399;
+	}	
+		
+A:active	{	
+	text-decoration:	none;
+	color:	#333399;
+	}	
+		
+A:hover	{	
+	text-decoration:	underline;
+	color:	#3333cc;
+	}
+font{
+
+}	
+.button_style{
+    margin: 0px 0px 0px 10px;
+    text-align:center ;
+    cursor:hand;
+    font-family: Arial Unicode MS;
+    font-weight:700;
+    font-size:11px; 
+    height:20px;
+    color:#3e3e3e;
+    width:70px; 
+    background:#ebf7f7;
+    border-width:1px;
+    border-style:solid; 
+    border-color:#7793b1 #7793b1 #7793b1 #7793b1;
+}
+.reportTitle_style{
+	color:blue;
+	font-weight:bold;
+	font-family:Arial CE;
+}
+.divforum{
+	background-color:#1d8a0f; 
+	width:100%;
+}
+.divpagesize{
+	background-color:#b7dfd5;
+}
+.divtopbottomcontent{
+	background-color:#f1f1f1; 
+}
+.showuser{
+	border-width:3px;
+	border-style:solid;
+	padding:10px 10px 10px 10px;
+	border-color:#b7dfd5 #b7dfd5 #b7dfd5 #b7dfd5;    
+	background-color:#f1f1f1;
+	position:absolute;	
+}
+.filtertxt
+{
+	border-style:groove;
+	width : 80px;
+}

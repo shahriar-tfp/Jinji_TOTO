@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovEForm" SavedBy="Tester" SavedAt="12/27/2012 3:53:01 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovEForm_2015.pdf" ID="pr_GovEForm" PdfFormMode="OneForm">
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_RptEForm">
+			<SPParameters>
+				<SPParameter ID="Company_Profile_Code" Value="@Request.Company_Profile_Code~" SPParamDirection="Input" SPParamSize="20" SPParamType="dt-202"/>
+				<SPParameter ID="year" Value="@Request.year~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-3"/>
+				<SPParameter ID="PicID" Value="@Request.PicID~" SPParamDirection="Input" SPParamSize="10" SPParamType="dt-202"/>
+				<SPParameter SPParamDirection="Input" ID="OCP_ID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OCP_ID~"/>
+			</SPParameters>
+		</DataLayer>
+		<PdfFormField ID="txt_B1_Amount" Name="txt_B1_Amount" Value="@Data.Totalgrosstax~"/>
+		<PdfFormField ID="txt_b11" Name="txt_b11" Value="@Data.b11~"/>
+		<PdfFormField ID="txt_b110" Name="txt_b110" Value="@Data.b110~"/>
+		<PdfFormField ID="txt_b111" Name="txt_b111" Value="@Data.b111~"/>
+		<PdfFormField ID="txt_b12" Name="txt_b12" Value="@Data.b12~"/>
+		<PdfFormField ID="txt_b13" Name="txt_b13" Value="@Data.b13~"/>
+		<PdfFormField ID="txt_b14" Name="txt_b14" Value="@Data.b14~"/>
+		<PdfFormField ID="txt_b15" Name="txt_b15" Value="@Data.b15~"/>
+		<PdfFormField ID="txt_b16" Name="txt_b16" Value="@Data.b16~"/>
+		<PdfFormField ID="txt_b17" Name="txt_b17" Value="@Data.b17~"/>
+		<PdfFormField ID="txt_b18" Name="txt_b18" Value="@Data.b18~"/>
+		<PdfFormField ID="txt_b19" Name="txt_b19" Value="@Data.b19~"/>
+		<PdfFormField ID="txt_B2_Amount" Name="txt_B2_Amount" Value="@Data.Taxamt~"/>
+		<PdfFormField ID="txt_b21" Name="txt_b21" Value="@Data.b21~"/>
+		<PdfFormField ID="txt_b210" Name="txt_b210" Value="@Data.b210~"/>
+		<PdfFormField ID="txt_b211" Name="txt_b211" Value="@Data.b211~"/>
+		<PdfFormField ID="txt_b212" Name="txt_b212" Value="@Data.b212~"/>
+		<PdfFormField ID="txt_b22" Name="txt_b22" Value="@Data.b22~"/>
+		<PdfFormField ID="txt_b23" Name="txt_b23" Value="@Data.b23~"/>
+		<PdfFormField ID="txt_b24" Name="txt_b24" Value="@Data.b24~"/>
+		<PdfFormField ID="txt_b25" Name="txt_b25" Value="@Data.b25~"/>
+		<PdfFormField ID="txt_b26" Name="txt_b26" Value="@Data.b26~"/>
+		<PdfFormField ID="txt_b27" Name="txt_b27" Value="@Data.b27~"/>
+		<PdfFormField ID="txt_b28" Name="txt_b28" Value="@Data.b28~"/>
+		<PdfFormField ID="txt_b29" Name="txt_b29" Value="@Data.b29~"/>
+		<PdfFormField ID="txt_B3_Amount" Name="txt_B3_Amount" Value="@Data.Tax~"/>
+		<PdfFormField ID="txt_b31" Name="txt_b31" Value="@Data.b31~"/>
+		<PdfFormField ID="txt_b310" Name="txt_b310" Value="@Data.b310~"/>
+		<PdfFormField ID="txt_b311" Name="txt_b311" Value="@Data.b311~"/>
+		<PdfFormField ID="txt_b312" Name="txt_b312" Value="@Data.b312~"/>
+		<PdfFormField ID="txt_b32" Name="txt_b32" Value="@Data.b32~"/>
+		<PdfFormField ID="txt_b33" Name="txt_b33" Value="@Data.b33~"/>
+		<PdfFormField ID="txt_b34" Name="txt_b34" Value="@Data.b34~"/>
+		<PdfFormField ID="txt_b35" Name="txt_b35" Value="@Data.b35~"/>
+		<PdfFormField ID="txt_b36" Name="txt_b36" Value="@Data.b36~"/>
+		<PdfFormField ID="txt_b37" Name="txt_b37" Value="@Data.b37~"/>
+		<PdfFormField ID="txt_b38" Name="txt_b38" Value="@Data.b38~"/>
+		<PdfFormField ID="txt_b39" Name="txt_b39" Value="@Data.b39~"/>
+		<PdfFormField ID="txt_B4_Amount" Name="txt_B4_Amount"/>
+		<PdfFormField ID="txt_b41" Name="txt_b41" Value="@Data.b41~"/>
+		<PdfFormField ID="txt_b410" Name="txt_b410" Value="@Data.b410~"/>
+		<PdfFormField ID="txt_b411" Name="txt_b411" Value="@Data.b411~"/>
+		<PdfFormField ID="txt_b412" Name="txt_b412" Value="@Data.b412~"/>
+		<PdfFormField ID="txt_b42" Name="txt_b42" Value="@Data.b42~"/>
+		<PdfFormField ID="txt_b43" Name="txt_b43" Value="@Data.b43~"/>
+		<PdfFormField ID="txt_b44" Name="txt_b44" Value="@Data.b44~"/>
+		<PdfFormField ID="txt_b45" Name="txt_b45" Value="@Data.b45~"/>
+		<PdfFormField ID="txt_b46" Name="txt_b46" Value="@Data.b46~"/>
+		<PdfFormField ID="txt_b47" Name="txt_b47" Value="@Data.b47~"/>
+		<PdfFormField ID="txt_b48" Name="txt_b48" Value="@Data.b48~"/>
+		<PdfFormField ID="txt_b49" Name="txt_b49" Value="@Data.b49~"/>
+		<PdfFormField ID="txt_B5_Amount" Name="txt_B5_Amount"/>
+		<PdfFormField ID="txt_b51" Name="txt_b51" Value="@Data.b51~"/>
+		<PdfFormField ID="txt_b510" Name="txt_b510" Value="@Data.b510~"/>
+		<PdfFormField ID="txt_b511" Name="txt_b511" Value="@Data.b511~"/>
+		<PdfFormField ID="txt_b512" Name="txt_b512" Value="@Data.b512~"/>
+		<PdfFormField ID="txt_b52" Name="txt_b52" Value="@Data.b52~"/>
+		<PdfFormField ID="txt_b53" Name="txt_b53" Value="@Data.b53~"/>
+		<PdfFormField ID="txt_b54" Name="txt_b54" Value="@Data.b54~"/>
+		<PdfFormField ID="txt_b55" Name="txt_b55" Value="@Data.b55~"/>
+		<PdfFormField ID="txt_b56" Name="txt_b56" Value="@Data.b56~"/>
+		<PdfFormField ID="txt_b57" Name="txt_b57" Value="@Data.b57~"/>
+		<PdfFormField ID="txt_b58" Name="txt_b58" Value="@Data.b58~"/>
+		<PdfFormField ID="txt_b59" Name="txt_b59" Value="@Data.b59~"/>
+		<PdfFormField ID="txt_HCount_Active" Name="txt_HCount_Active" Value="@Data.a~"/>
+		<PdfFormField ID="txt_HCount_New_Join" Name="txt_HCount_New_Join" Value="@Data.b~"/>
+		<PdfFormField ID="txt_HCount_PCB" Name="txt_HCount_PCB" Value="@Data.d~"/>
+		<PdfFormField ID="txt_HCount_Resign" Name="txt_HCount_Resign" Value="@Data.c~"/>
+		<PdfFormField ID="txt_Organ_Addr_1" Name="txt_Organ_Addr_1" Value="@Data.Lot~"/>
+		<PdfFormField ID="txt_Organ_Addr_2" Name="txt_Organ_Addr_2" Value="@Data.Street~"/>
+		<PdfFormField ID="txt_Organ_City" Name="txt_Organ_City" Value="@Data.Address_City_Code~"/>
+		<PdfFormField ID="txt_Organ_Code" Name="txt_Organ_Code" Value="@Data.Company_Regisno~"/>
+		<PdfFormField ID="txt_Organ_Email" Name="txt_Organ_Email" Value="@Data.Email_Address~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Name~"/>
+		<PdfFormField ID="txt_Organ_Name_2" Name="txt_Organ_Name_2" Value="@Data.Name1~"/>
+		<PdfFormField ID="txt_Organ_Name_3" Name="txt_Organ_Name_3" Value="@Data.comname~"/>
+		<PdfFormField ID="txt_Organ_Name_4" Name="txt_Organ_Name_4" Value="@Data.comname~"/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.Company_PCB_No~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_2" Name="txt_Organ_PCB_No_2" Value="@Data.Company_PCB_No~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_3" Name="txt_Organ_PCB_No_3" Value="@Data.Company_PCB_No~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_4" Name="txt_Organ_PCB_No_4" Value="@Data.Company_PCB_No~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.Phone_No~"/>
+		<PdfFormField ID="txt_Organ_Postal" Name="txt_Organ_Postal" Value="@Data.Postal~"/>
+		<PdfFormField ID="txt_Organ_State" Name="txt_Organ_State" Value="@Data.Address_State_Code~"/>
+		<PdfFormField ID="txt_PIC_IC_No" Name="txt_PIC_IC_No" Value="@Data.PIC_IC_No~"/>
+		<PdfFormField ID="txt_PIC_Name" Name="txt_PIC_Name" Value="@Data.PICName~"/>
+		<PdfFormField ID="txt_PIC_Position" Name="txt_PIC_Position" Value="@Data.PIC_Job_Grade~"/>
+		<PdfFormField ID="txt_Print_Date" Name="txt_Print_Date" Value="@Data.cdate~"/>
+		<PdfFormField Name="txt_Year_1" ID="txt_Year_1" Value="@Request.year~"/>
+	</PdfForm>
+	<ideTestParams Company_Profile_Code="TAP" Year="2007" PicID="159" year="2009"/>
+</Template>

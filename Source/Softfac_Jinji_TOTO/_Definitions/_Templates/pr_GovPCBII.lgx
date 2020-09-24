@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovPCBII" SavedBy="Tester" SavedAt="3/28/2013 12:48:13 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_PCB2.pdf" ID="PCBII" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField Name="txt_Current_Date" ID="txt_Current_Date" Value="@Data.PrintDate~"/>
+		<PdfFormField Name="txt_GOV_Address_1" ID="txt_GOV_Address_1" Value="@Data.govnm1~"/>
+		<PdfFormField Name="txt_Com_Name" ID="txt_Com_Name" Value="@Data.orgname~"/>
+		<PdfFormField Name="txt_Com_Add_1" ID="txt_Com_Add_1" Value="@Data.govaddr1~"/>
+		<PdfFormField Name="txt_Com_Add_2" ID="txt_Com_Add_2" Value="@Data.govaddr2~"/>
+		<PdfFormField Name="txt_Year" ID="txt_Year" Value="@Data.year~"/>
+		<PdfFormField Name="txt_Emp_Name" ID="txt_Emp_Name" Value="@Data.empnm~"/>
+		<PdfFormField ID="txt_Emp_IC_No" Name="txt_Emp_IC_No" Value="@Data.nric~"/>
+		<PdfFormField Name="txt_Emp_PCB_No" ID="txt_Emp_PCB_No" Value="@Data.emppcbno~"/>
+		<PdfFormField Name="txt_Emp_ID" ID="txt_Emp_ID" Value="@Data.Employee_Profile_ID~"/>
+		<PdfFormField Name="txt_Organ_PCB_No" ID="txt_Organ_PCB_No" Value="@Data.orgpcbno~"/>
+		<PdfFormField Name="txt_PCB_Year" ID="txt_PCB_Year" Value="@Data.year~"/>
+		<PdfFormField Name="txt_Emp_PCB_Amount" ID="txt_Emp_PCB_Amount" Value="@Data.PCBamt~"/>
+		<PdfFormField Name="txt_Emp_CP38_Amount" ID="txt_Emp_CP38_Amount" Value="@Data.CP38amt~"/>
+		<PdfFormField Name="txt_Emp_PCB_Receipt_No" ID="txt_Emp_PCB_Receipt_No" Value="@Data.recp~"/>
+		<PdfFormField Name="txt_Emp_CP38_Receipt_No" ID="txt_Emp_CP38_Receipt_No" Value="@Data.recp~"/>
+		<PdfFormField Name="txt_Emp_PCB_Date_Receipt" ID="txt_Emp_PCB_Date_Receipt" Value="@Data.dt~"/>
+		<PdfFormField Name="txt_Emp_CP38_Date_Receipt" ID="txt_Emp_CP38_Date_Receipt" Value="@Data.dt~"/>
+		<PdfFormField Name="txt_Emp_Total_PCB_Amount" ID="txt_Emp_Total_PCB_Amount" Value="@Data.TotalPCB~"/>
+		<PdfFormField Name="txt_Emp_Total_CP38_Amount" ID="txt_Emp_Total_CP38_Amount" Value="@Data.TotalCP38~"/>
+		<PdfFormField Name="txt_PIC_Name" ID="txt_PIC_Name" Value="@Data.orgpic~"/>
+		<PdfFormField Name="txt_PIC_Job_Title" ID="txt_PIC_Job_Title" Value="@Data.orgpos~"/>
+		<PdfFormField Name="txt_PIC_Phone_No" ID="txt_PIC_Phone_No" Value="@Data.orgtel~"/>
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_pr_RptPCB2">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+				<SPParameter ID="SpID" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-131" Value="@Request.SpID~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200" Value="@Request.PIC~"/>
+			</SPParameters>
+			<GroupFilter GroupColumn="Employee_Profile_ID,empnm,nric,emppcbno,year,orgpic,orgpos,orgpcbno,orgtel,govnm1,govnm2,govaddr1,govaddr2,govpostcd,govcity,govstate,govpic,orgname,PrintDate,PreAllowance,PreMonth,PreYear,CP39A,PreReceipt,PreDate" DataType="Text" Hierarchical="True" ID="GroupBy" KeepGroupedRows="True">
+				<GroupAggregateColumn AggregateColumn="PCBamt" AggregateFunction="SUM" ID="TotalPCB" DataType="Number"/>
+				<GroupAggregateColumn AggregateColumn="CP38amt" AggregateFunction="SUM" ID="TotalCP38" DataType="Number"/>
+			</GroupFilter>
+		</DataLayer>
+		<PdfFormField Name="txt_Allowance" ID="txt_Allowance" Value="@Data.PreAllowance~"/>
+		<PdfFormField Name="txt_Pre_month" ID="txt_Pre_month" Value="@Data.PreMonth~"/>
+		<PdfFormField Name="txt_Pre_year" ID="txt_Pre_year" Value="@Data.PreYear~"/>
+		<PdfFormField Name="txt_CP39A" ID="txt_CP39A" Value="@Data.CP39A~"/>
+		<PdfFormField Name="txt_Pre_Receipt_no" ID="txt_Pre_Receipt_no" Value="@Data.PreReceipt~"/>
+		<PdfFormField Name="txt_Pre_Receipt_Date" ID="txt_Pre_Receipt_Date" Value="@Data.PreDate~"/>
+	</PdfForm>
+	<ideTestParams Company_Profile_Code="TABJ" Year="2010" SpID="1" Location="PENINSULA" Type="ADD" User_Profile_Code="TABJ" PIC=""/>
+</Template>

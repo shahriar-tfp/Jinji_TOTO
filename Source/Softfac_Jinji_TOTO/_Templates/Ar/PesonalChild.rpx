@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3.2" PrintWidth="9360" DocumentName="ActiveReports Document" ScriptLang="C#" MasterReport="0">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; color: Black; text-align: left; vertical-align: top; ddo-char-set: 1" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader" Height="150.48" BackColor="16777215" />
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="798.48" DataField="EmpCode" BackColor="16777215">
+      <Control Type="AR.Label" Name="Label5" Left="6907.681" Top="420.48" Width="2370.24" Height="288" Caption="INC TAX CHILD RELIEF?" />
+      <Control Type="AR.Label" Name="Label3" Left="4409.279" Top="420.48" Width="944.6401" Height="288" Caption="DOB" />
+      <Control Type="AR.Label" Name="lblChildHeader" Left="224.6395" Top="4.291534E-05" Width="2669.76" Height="288" Caption="CHILDREN INFORMATION" Style="font-size: 8pt; text-decoration: underline" />
+      <Control Type="AR.Label" Name="Label1" Left="224.6395" Top="420.48" Width="944.6401" Height="288" Caption="NAME" />
+      <Control Type="AR.Label" Name="Label2" Left="3457.44" Top="420.48" Width="951.84" Height="288" Caption="SEX" />
+      <Control Type="AR.Label" Name="Label4" Left="5182.561" Top="420.48" Width="1725.12" Height="288" Caption="BIRTH CERT/IC#" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="345.6" BackColor="16777215">
+      <Control Type="AR.Label" Name="Label6" DataField="ChildName" Left="224.64" Top="0" Width="3232.8" Height="288" Caption="ChildName" Style="font-size: 8pt" />
+      <Control Type="AR.Label" Name="Label7" DataField="ChildSex" Left="3457.44" Top="0" Width="951.8398" Height="288" Caption="ChildSex" Style="font-size: 8pt" />
+      <Control Type="AR.Label" Name="Label8" DataField="ChildDOB" Left="4409.28" Top="0" Width="951.8398" Height="288" Caption="ChildDOB" Style="font-size: 8pt" />
+      <Control Type="AR.Label" Name="Label9" DataField="ChildIC" Left="5182.561" Top="0" Width="1725.12" Height="288" Caption="ChildIC" Style="font-size: 8pt" />
+      <Control Type="AR.Label" Name="Label10" DataField="ChildStatus" Left="6907.681" Top="0" Width="2220.48" Height="288" Caption="ChildStatus" Style="font-size: 8pt" />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="360" BackColor="16777215" />
+    <Section Type="PageFooter" Name="PageFooter" Height="360" BackColor="16777215" />
+  </Sections>
+  <ReportComponentTray />
+  <PageSettings />
+  <Parameters />
+</ActiveReportsLayout>

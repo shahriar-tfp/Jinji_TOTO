@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_EmpVWpayslip" SavedBy="TFP-HR01" SavedAt="9/30/2009 3:38:32 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="EmpVWPayslip.XLT" ID="EmpVWPayslip">
+		<PatternBlock FirstRow="2" LastRow="8" ID="Empdetail">
+		</PatternBlock>
+		<PatternBlock FirstRow="15" ID="PayDetail" LastRow="15" DisposableFirstRow="16" DisposableLastRow="16">
+			<DataLayer Type="SP" Command="sp_EMPMonthly_Payslip" ID="paydetail" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter ID="OrganID" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+					<SPParameter ID="EmpID" SPParamDirection="Input" Value="@Request.EmpID~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter ID="Month" SPParamDirection="Input" SPParamType="dt-200" Value="@Request.Month~" SPParamSize="0"/>
+					<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" Value="@Request.Year~" SPParamType="dt-200"/>
+				</SPParameters>
+				<GroupFilter GroupColumn="Year" DataType="Date"/>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Allowance" Value="@Data.OCP_Name_Allowance~"/>
+			<PatternBlockCell Column="D" ID="Deduction" Value="@Data.OCP_Name_Deduction~" PatternBlockRow="1"/>
+			<PatternBlockCell Column="C" ID="AllowAmt" PatternBlockRow="1" Value="@Data.Allowance_Amount~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="DeductAmt" Value="@Data.Deduction_Amount~"/>
+			<PatternBlockCell Value="@Data.Year~" Column="f" PatternBlockRow="1" ID="Year"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams month="08" year="2009" OrganID="TAE" paytype="" SPID="58" Option_Pay_Cycle="MONTHLY" PayType="MONTHLY" Paymode="BANK" EmpID="15" empID="15" Year="2009" Month="07"/>
+</Template>

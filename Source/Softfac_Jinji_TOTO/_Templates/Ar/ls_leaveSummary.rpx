@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3.2" PrintWidth="16848" DocumentName="ActiveReports Document" ScriptLang="C#" MasterReport="0">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; color: Black; text-align: left; vertical-align: top; ddo-char-set: 1" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader" Height="1931.4" BackColor="16777215">
+      <Control Type="AR.Field" Name="txtCompanyName" DataField="CompanyName" Left="689.7601" Top="252" Width="3312" Height="288" Text="CompanyName" Style="font-size: 9.75pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtCompanyRegisno" DataField="Regisno" Left="3837.6" Top="252" Width="3448.8" Height="288" Text="CompanyRegisno" Style="font-size: 8pt" />
+      <Control Type="AR.Field" Name="txtHeader" Left="689.7601" Top="540.0001" Width="3539.52" Height="213.1199" Text="SCHEDULE SUMMARY REPORT" Style="font-size: 8pt; font-weight: bold; text-align: left" />
+      <Control Type="AR.Field" Name="txtDate" DataField="Date" Left="1873.44" Top="830.88" Width="3810.24" Height="213.1199" Text="Date" Style="font-size: 8pt; font-weight: bold; text-align: left" />
+      <Control Type="AR.Field" Name="lblDate" Left="689.7601" Top="830.88" Width="1183.68" Height="213.1199" Text="Date As At :" Style="font-size: 8pt; font-weight: bold; text-align: left" />
+      <Control Type="AR.Field" Name="lblEmpName" Left="887.0401" Top="1542.24" Width="3610.08" Height="213.1199" Text="Employee Name" Style="font-size: 8pt; font-weight: bold; text-align: left" />
+      <Control Type="AR.Field" Name="lblNo" Left="288" Top="1542.24" Width="599.0401" Height="213.1199" Text="No." Style="font-size: 8pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.Line" Name="Line1" X1="288" Y1="1845" X2="15840" Y2="1845" />
+      <Control Type="AR.Field" Name="lblPeriod1" Left="4497.12" Top="1542.24" Width="2039.04" Height="213.1199" Text="Period" Style="font-size: 8pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.ReportInfo" Name="ReportInfo2" Left="12556.8" Top="252" Width="3195.36" Height="288" FormatString="Printed: {RunDateTime}" Style="font-size: 6pt; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="lblALEn" Left="6536.16" Top="1542.24" Width="973.4404" Height="302.4001" Text="Entitlement" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblALTaken" Left="7434.721" Top="1542.24" Width="734.3999" Height="302.4001" Text="Taken" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblALBal" Left="8169.121" Top="1542.24" Width="688.3198" Height="302.4001" Text="Balance" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblOFEn" Left="8857.44" Top="1542.24" Width="973.4404" Height="302.4001" Text="Earned" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblOFBal" Left="10490.4" Top="1542.24" Width="688.3198" Height="302.4001" Text="Balance" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblOFTaken" Left="9756" Top="1542.24" Width="734.3999" Height="302.4001" Text="Taken" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblHLBal" Left="12811.68" Top="1542.24" Width="688.3198" Height="302.4001" Text="Balance" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblHLEn" Left="11178.72" Top="1542.24" Width="973.439" Height="302.4001" Text="Entitlement" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblHLTaken" Left="12077.28" Top="1542.24" Width="734.3999" Height="302.4001" Text="Taken" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblMCEn" Left="13500" Top="1542.24" Width="973.4404" Height="302.4001" Text="Entitlement" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblMCTaken" Left="14398.56" Top="1542.24" Width="734.3999" Height="302.4001" Text="Taken" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblMCBal" Left="15132.96" Top="1542.24" Width="688.3198" Height="302.4001" Text="Balance" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblAL" Left="6536.16" Top="1196.64" Width="2321.28" Height="345.6001" Text="Annual Leave" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblOF" Left="8857.44" Top="1196.64" Width="2321.28" Height="345.6001" Text="Offset Leave" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblHL" Left="11178.72" Top="1196.64" Width="2321.28" Height="345.6001" Text="Expatriate Home Leave" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblMC" Left="13500" Top="1196.64" Width="2321.28" Height="345.6001" Text="Medical Leave" Style="font-size: 8pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Line" Name="Line3" X1="6536.16" Y1="1196.64" X2="6536.16" Y2="1845" />
+      <Control Type="AR.Line" Name="Line4" X1="8857.44" Y1="1196.64" X2="8859.12" Y2="1845" />
+      <Control Type="AR.Line" Name="Line5" X1="11178.72" Y1="1196.64" X2="11180.4" Y2="1845" />
+      <Control Type="AR.Line" Name="Line6" X1="13500" Y1="1196.64" X2="13501.68" Y2="1845" />
+      <Control Type="AR.Line" Name="Line7" X1="15821.28" Y1="1196.64" X2="15822.96" Y2="1845" />
+      <Control Type="AR.Line" Name="Line2" X1="6536.16" Y1="1196.64" X2="15822.72" Y2="1196.64" />
+      <Control Type="AR.Line" Name="Line8" X1="7509.601" Y1="1542.24" X2="7509.601" Y2="1845" />
+      <Control Type="AR.Line" Name="Line9" X1="6536.16" Y1="1542.24" X2="15822.72" Y2="1542.24" />
+      <Control Type="AR.Line" Name="Line10" X1="8169.121" Y1="1542.24" X2="8169.121" Y2="1845" />
+      <Control Type="AR.Line" Name="Line11" X1="9830.88" Y1="1542.24" X2="9830.88" Y2="1845" />
+      <Control Type="AR.Line" Name="Line12" X1="10490.4" Y1="1542.24" X2="10490.4" Y2="1845" />
+      <Control Type="AR.Line" Name="Line13" X1="12152.16" Y1="1542.24" X2="12152.16" Y2="1845" />
+      <Control Type="AR.Line" Name="Line14" X1="12811.68" Y1="1542.24" X2="12811.68" Y2="1845" />
+      <Control Type="AR.Line" Name="Line15" X1="14473.44" Y1="1542.24" X2="14473.44" Y2="1845" />
+      <Control Type="AR.Line" Name="Line16" X1="15132.96" Y1="1542.24" X2="15132.96" Y2="1845" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="0" GroupKeepTogether="2" BackColor="16777215" KeepTogether="1" />
+    <Section Type="Detail" Name="Detail" Height="426.2399" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Field" Name="txtNo" DataField="No" Left="287.9997" Top="0" Width="599.0403" Height="213.1199" Text="No." Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtPeriod1" DataField="Period" Left="4497.12" Top="0" Width="2039.04" Height="213.1199" Text="Period" Style="font-size: 8.25pt; font-weight: normal; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtEmpName" DataField="EmpName" Left="887.0401" Top="0" Width="3610.08" Height="213.1199" Text="EmpName" Style="font-size: 8.25pt; font-weight: normal; text-align: left; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtALEn" DataField="AL_Ent" Left="6536.16" Top="0" Width="898.5603" Height="213.1199" Text="Entitlement" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtALTaken" DataField="AL_Approved" Left="7509.601" Top="0" Width="659.5204" Height="213.1199" Text="Taken" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtALBal" DataField="AL_Balance" Left="8169.121" Top="0" Width="688.3198" Height="213.1199" Text="Balance" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtOFEn" DataField="OL_Ent" Left="8857.44" Top="0" Width="898.5603" Height="213.1199" Text="Earned" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtOFBal" DataField="OL_Balance" Left="10490.4" Top="0" Width="688.3198" Height="213.1199" Text="Balance" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtOFTaken" DataField="OL_Approved" Left="9830.88" Top="0" Width="659.5204" Height="213.1199" Text="Taken" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtHLBal" DataField="EHL_Balance" Left="12811.68" Top="0" Width="688.3198" Height="213.1199" Text="Balance" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtHLEn" DataField="EHL_Ent" Left="11178.72" Top="0" Width="898.5603" Height="213.1199" Text="Entitlement" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtHLTaken" DataField="EHL_Approved" Left="12152.16" Top="0" Width="659.5204" Height="213.1199" Text="Taken" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtMCBal" DataField="MC_Balance" Left="15132.96" Top="0" Width="688.3198" Height="213.1199" Text="Balance" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtMCTaken" DataField="MC_Approved" Left="14473.44" Top="0" Width="659.5204" Height="213.1199" Text="Taken" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtMCEn" DataField="MC_Ent" Left="13500" Top="0" Width="898.5603" Height="213.1199" Text="Entitlement" Style="font-size: 8.25pt; font-weight: normal; text-align: center; ddo-char-set: 0" />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="0" BackColor="16777215" KeepTogether="1" />
+    <Section Type="PageFooter" Name="PageFooter" Height="360" BackColor="16777215">
+      <Control Type="AR.ReportInfo" Name="ReportInfo1" Left="5355.36" Top="72" Width="4409.28" Height="288" FormatString="Page {PageNumber} of {PageCount}" Style="text-align: center" />
+    </Section>
+  </Sections>
+  <ReportComponentTray />
+  <PageSettings LeftMargin="0" RightMargin="0" TopMargin="288" BottomMargin="288" PaperSize="9" PaperWidth="11906" PaperHeight="16838" PaperName="" Orientation="2" />
+  <Parameters />
+</ActiveReportsLayout>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config root="config.layout">
+   <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+   <!-- Tree Map                                       -->
+   <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+   <treemap brightness="0">
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <!-- Data                                           -->
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <dataModel class="com.logixml.labescape.CustomTreeDataModel" labelField="adName" colorField="" sizeField="">
+         <parser type="xml" dataSource="?.xml"/>
+      </dataModel>
+      
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <!-- Size Model                                     -->
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <cellSizeModel inverted="false" ignoringSign="true" />
+
+
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <!-- Color Schemes                                  -->
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <colorScheme>
+         <colorPoint position="0"   color="#FF0000" />
+         <colorPoint position="50"  color="#000000" />
+         <colorPoint position="100" color="#00FF00" />
+      </colorScheme>
+
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <!-- UI Elements                                    -->
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <uiElements>
+
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <!-- Context Menu                                   -->
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <menu name="defaultMenu" backgroundColor="#EEEEEE">
+             <menuItem name="zoomIn"    action="${config.action['zoomIn']}" >
+				<textFormat>Zoom In</textFormat>
+             </menuItem>
+             <menuItem name="zoomOut"   action="${config.action['zoomOut']}" >
+				<textFormat>Zoom Out</textFormat>
+             </menuItem>
+             <border type="line" color="#000000" thickness="1" />
+          </menu>
+
+
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <!-- Info Panel                                     -->
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <panel name="defaultPanel" 
+                 backgroundColor="#EEEEEE" maximumWidth="1000" maximumHeight="2000">
+
+             <title SAMPLE_backgroundColor="#FFEECC">
+                <format>${data['Name']}</format>
+                <font name="arial" size="14" style="bold" />
+
+                <border type="matte" top="0" bottom="2" right="0" left="0" color="#000000" />
+             </title>
+
+             <description SAMPLE_backgroundColor="#EEFFCC">
+                <format>${data['Short Description']}</format>
+                <font name="arial" size="10" style="plain" />
+                <border type="empty" top="2" bottom="2" right="2" left="2" />
+             </description>
+
+             <margins top="5" bottom="5" right="5" left="5" />
+
+             <border type="none" color="#000000" thickness="1" />
+
+             <SAMPLE_border type="line"  color="#000000" thickness="1" roundedCorners="false" />
+             <SAMPLE_border type="empty" top="2" bottom="2" right="2" left="2" />
+             <SAMPLE_border type="bevel" />
+
+          </panel>
+
+      </uiElements>
+
+
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <!-- Rendering Styles                               -->
+      <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+      <cellRenderer>
+
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <!-- By Level                                       -->
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <style renderLevel="all">
+             <cell>
+                <border type="line" thickness="1" color="#333333" />
+             </cell>
+          </style>
+
+          <style renderLevel="0">
+             <cell>
+                <border type="matte" right="2" bottom="2" color="#000000" />
+             </cell>
+          </style>
+
+          <style renderLevel="1">
+             <cell>
+                <border type="gutter" color="#CCCCCC">
+                  <outsideBorder type="line" thickness="1" color="#CCCCCC" />
+                  <insideBorder type="matte" bottom="1"    color="#CCCCCC" />
+
+                  <margins top="2" left="2" right="0" bottom="0" />
+                </border>
+             </cell>
+
+             <label visible="true" format="${node['name']}">
+                <font name="Arial" size="12" color="#000000" style="bold" shadow="false" />
+             </label>
+          </style>
+
+          <style renderLevel="2">
+             <cell>
+                <border type="gutter" color="#EEEEEE">
+                  <outsideBorder type="line" thickness="1" color="#EEEEEE" />
+                  <insideBorder type="matte" bottom="1"    color="#EEEEEE" />
+
+                  <margins top="2" left="2" right="0" bottom="0" />
+                </border>
+             </cell>
+
+             <label visible="true" format="${node['name']}">
+                <font name="Arial" size="11" color="#000000" style="bold" shadow="false" />
+             </label>
+          </style>
+
+          <style renderLevel="3">
+             <cell>
+                <border type="gutter" color="#FFFFFF">
+                  <outsideBorder type="line" thickness="1" color="#FFFFFF" />
+                  <insideBorder type="matte" bottom="1"    color="#FFFFFF" />
+
+                  <margins top="2" left="2" right="0" bottom="0" />
+                </border>
+             </cell>
+
+             <label visible="true" format="${node['name']}">
+                <font name="Arial" size="10" color="#000000" style="bold" shadow="false" />
+             </label>
+          </style>
+
+          <style renderLevel="leaf">
+             <cell>
+                <border type="line" thickness="1" color="#000000" />
+             </cell>
+
+             <label visible="true" format="${node['name']}">
+                <font name="Arial" size="10" color="#FFFFFF" style="bold" shadow="true" shadowColor="#000000" />
+             </label>
+          </style>
+          <style renderLevel="4">
+             <cell>
+                <border type="gutter" color="#FFFFFF">
+                  <outsideBorder type="line" thickness="1" color="#FFFFFF" />
+                  <insideBorder type="matte" bottom="1"    color="#FFFFFF" />
+
+                  <margins top="2" left="2" right="0" bottom="0" />
+                </border>
+             </cell>
+
+             <label visible="true" format="${node['name']}">
+                <font name="Arial" size="10" color="#000000" shadow="false" />
+             </label>
+          </style>
+
+          <style renderLevel="leaf">
+             <cell>
+                <border type="line" thickness="1" color="#000000" />
+             </cell>
+
+             <label visible="true" format="${node['name']}">
+                <font name="Arial" size="10" color="#FFFFFF" style="bold" shadow="true" shadowColor="#000000" />
+             </label>
+          </style>
+
+
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <!-- By State                                       -->
+          <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+          <state name="focus">
+             <cell>
+                <border type="line" thickness="2" color="#FFFFFF" />
+             </cell>
+          </state>
+
+      </cellRenderer>
+      
+   </treemap>
+   
+   <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+   <!-- Layout                                         -->
+   <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+   <layout backgroundColor="#EEEEEE">
+      <layout rdId="ControlPanel" type="box" axis="horizontal" constraint="West"  >
+
+		 <rdControlLocation/>
+	     <rdInfoPanelLocation2/>
+
+      </layout>
+	  <rdInfoPanelLocation1/>
+      
+      <treemap constraint="Center" />
+
+   </layout>
+   
+   <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+   <!-- Actions                                        -->
+   <!-- :::::::::::::::::::::::::::::::::::::::::::::: -->
+   <action name="zoomIn"  type="zoomIn" />
+   <action name="zoomOut" type="zoomOut" />
+
+</config>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Head_Count" SavedBy="Tester" SavedAt="11/4/2014 4:57:38 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Head_Count.xlt" ID="Head_Count" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" ID="Head_Count" LastRow="50">
+			<DataLayer Type="SQL" ID="GetHeader" Source="Select Code,&quot;Name&quot;,dbo.fn_displayDate(dbo.fn_getCurrentDate(getdate()),'@Request.OrganID~','PAYROLL') as &quot;Date&quot;,dbo.fn_displayDateTime(dbo.fn_getCurrentDateTime(getdate()),'@Request.OrganID~','PAYROLL') as &quot;Print_Date&quot; , case when @Request.month~ = 1 then 'JANUARY' when @Request.month~ = 2 then 'FEBRUARY' when @Request.month~ = 3 then 'MARCH' when @Request.month~ = 4 then 'APRIL' when @Request.month~ = 5 then 'MAY' when @Request.month~ = 6 then 'JUN' when @Request.month~ = 7 then 'JULY' when @Request.month~ = 8 then 'AUGUST'	when @Request.month~ = 9 then 'SEPTEMBER' when @Request.month~ = 10 then 'OCTOBER'	when @Request.month~ = 11 then 'NOVEMBER' when @Request.month~ = 12 then 'DECEMBER' end as Long_month, type = 'BY JOB GRADE',subtype = 'JOB GRADE' from Company_Profile where Code = '@Request.OrganID~' union Select Code,&quot;Name&quot;,dbo.fn_displayDate(dbo.fn_getCurrentDate(getdate()),'@Request.OrganID~','PAYROLL') as &quot;Date&quot;,dbo.fn_displayDateTime(dbo.fn_getCurrentDateTime(getdate()),'@Request.OrganID~','PAYROLL') as &quot;Print_Date&quot; , case when @Request.month~ = 1 then 'JANUARY' when @Request.month~ = 2 then 'FEBRUARY' when @Request.month~ = 3 then 'MARCH' when @Request.month~ = 4 then 'APRIL' when @Request.month~ = 5 then 'MAY' when @Request.month~ = 6 then 'JUN' when @Request.month~ = 7 then 'JULY' when @Request.month~ = 8 then 'AUGUST'	when @Request.month~ = 9 then 'SEPTEMBER' when @Request.month~ = 10 then 'OCTOBER'	when @Request.month~ = 11 then 'NOVEMBER' when @Request.month~ = 12 then 'DECEMBER' end as Long_month, type = 'BY PAY MODE',subtype = 'PAY MODE' from Company_Profile where Code = '@Request.OrganID~'" ConnectionID="HCRMConnection"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Company_Name" Value="@Data.Name~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="3" ID="Title" Value="For @Data.Long_month~ @Request.year~"/>
+			<SubPatternBlock FirstRow="7" LastRow="7" ID="Head_Count_Details" DisposableFirstRow="8" DisposableLastRow="8">
+				<SubDataLayer ID="GetDetails" IdeDisplayStatus="Collapsed">
+					<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_is_RptHeadCountAnalysis">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.month~"/>
+							<SPParameter SPParamDirection="Input" ID="year" SPParamSize="0" SPParamType="dt-200" Value="@Request.year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="organname" ParentColumn="Name" ID="relJobGrade"/>
+					<SubDataLayerRelationColumn ID="reltype" ChildColumn="type" ParentColumn="type"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" ID="JobGrade" PatternBlockRow="1" Value="@Data.jobgrade~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="2MonthEmp" Value="@Data.monthemployee2~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="2MonthPayroll" Value="@Data.monthpayroll2~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="1MonthEmp" Value="@Data.monthemployee1~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="1MonthPayroll" Value="@Data.monthpayroll1~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="NewEmp" Value="@Data.newemployee~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="NewPayroll" Value="@Data.newpayroll~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="ResignEmp" Value="@Data.resignemployee~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="ResignPayroll" Value="@Data.resignpayroll~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="NowEmp" Value="@Data.monthemployee~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="NowPayroll" Value="@Data.monthpayroll~"/>
+			</SubPatternBlock>
+			<PatternBlockCell Column="B" PatternBlockRow="11" ID="Preparebay" Value="Prepare By :"/>
+			<PatternBlockCell Column="B" PatternBlockRow="12" ID="Date" Value="Print Date : @Data.Date~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="Print_date_time" Value="Printed Date : @Data.Print_Date~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="2" ID="Print_By" Value="Print by : @Request.UserID~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="5" ID="ByGroup" Value="@Data.type~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="6" ID="BySubGroup" Value="@Data.subtype~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams OrganID="tash" month="07" year="2009" MONTH="" YEAR="" UserID="tash"/>
+</Template>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Government.PR_CP22" SavedBy="ls.chew" SavedAt="9/27/2007 11:20:18 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="pr_cp212.xlt" ID="etCP22" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="pbPersonal">
+			<DataLayer Type="XMLFile" ID="dlXML" XMLFile="PR_CP22.XML"/>
+			<PatternBlockCell Column="C" ID="pbcEmployeeName" PatternBlockRow="25" Value="@Data.Employee_Profile_ID~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

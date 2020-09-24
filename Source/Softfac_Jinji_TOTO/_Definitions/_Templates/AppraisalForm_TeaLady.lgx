@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="AppraisalForm_TeaLady" SavedBy="Tester" SavedAt="11/18/2015 4:21:09 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AppraisalForm_TeaLady.xlt" ID="AppraisalForm_TeaLady" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="60" ID="Details">
+			<DataLayer Type="SP" Command="sp_ap_RptAppraisalLetter" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Period" SPParamSize="0" SPParamType="dt-200" Value="@Request.Period~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="G" PatternBlockRow="4" Value="@Data.EmpName~" ID="EmpName"/>
+			<PatternBlockCell Column="AH" PatternBlockRow="4" Value="@Data.YOS~" ID="YOS"/>
+			<PatternBlockCell Column="J" PatternBlockRow="5" Value="@Data.Appraiser_1st~" ID="Appraiser_1st"/>
+			<PatternBlockCell Column="K" PatternBlockRow="38" Value="@Data.Appraiser_1st~" ID="1stApp"/>
+			<PatternBlockCell Column="G" PatternBlockRow="43" Value="@Data.Appraiser_1st~" ID="1stApp2"/>
+			<PatternBlockCell Column="AD" PatternBlockRow="43" Value="@Data.Appraiser_1st_Position~" ID="1stAppPosition"/>
+			<PatternBlockCell Column="L" PatternBlockRow="46" Value="@Data.Appraiser_2nd~" ID="2ndApp"/>
+			<PatternBlockCell Column="G" PatternBlockRow="51" Value="@Data.Appraiser_2nd~" ID="2ndApp2"/>
+			<PatternBlockCell Column="AD" PatternBlockRow="51" Value="@Data.Appraiser_2nd_Position~" ID="2ndAppPosition"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

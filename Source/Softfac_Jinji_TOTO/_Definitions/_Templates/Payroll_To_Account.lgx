@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_To_Account" SavedBy="Tester" SavedAt="3/25/2014 7:52:34 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Payroll_To_Account.xlt" ID="Payroll_To_Account" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_To_Account" FirstRow="1" LastRow="65536" Worksheet="Account">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where company_Profile_Code = {*apos;*}@Request.Company_Profile_Code~{*apos;*} and code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_rptToAccount" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="YYM" Value="@Data.YYM~"/>
+				<PatternBlockCell ID="DIV_CD" Column="D" PatternBlockRow="1" Value="@Data.DIV_CD~"/>
+				<PatternBlockCell ID="JIN_KBN" Column="E" PatternBlockRow="1" Value="@Data.JIN_KBN~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="JIN_20" Value="@Data.JIN_20~"/>
+				<PatternBlockCell ID="JIN_CHINGIN" Column="G" PatternBlockRow="1" Value="@Data.JIN_CHINGIN~"/>
+				<PatternBlockCell ID="JIN_WARI" Column="H" PatternBlockRow="1" Value="@Data.JIN_WARI~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

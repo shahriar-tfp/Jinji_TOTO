@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovPCB" SavedBy="Tester" SavedAt="9/20/2011 12:01:10 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_PCB.pdf" ID="pr_GovPCB" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Emp_Country_Code" Name="txt_Emp_Country_Code"/>
+		<PdfFormField ID="txt_Emp_CP38_Amount" Name="txt_Emp_CP38_Amount" Value="@Data.CP38_Amount~"/>
+		<PdfFormField ID="txt_Emp_Grand_Total" Name="txt_Emp_Grand_Total" Value="@Data.Page_Grand_Total~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_ID" Name="txt_Emp_ID" Value="@Data.Emp_ID~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.Emp_Name~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No" Name="txt_Emp_New_IC_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Emp_Old_IC_No" Name="txt_Emp_Old_IC_No"/>
+		<PdfFormField ID="txt_Emp_PassPort_No" Name="txt_Emp_PassPort_No"/>
+		<PdfFormField ID="txt_Emp_PCB_Amount" Name="txt_Emp_PCB_Amount" Value="@Data.CP39_Amount~"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.Emp_PCB_No~"/>
+		<PdfFormField ID="txt_Emp_Total_CP38_Amount" Name="txt_Emp_Total_CP38_Amount" Value="@Data.Page_Total_CP38~"/>
+		<PdfFormField ID="txt_Emp_Total_PCB_Amount" Name="txt_Emp_Total_PCB_Amount" Value="@Data.Page_Total_CP39~"/>
+		<PdfFormField ID="txt_Grand_Total" Name="txt_Grand_Total" Value="@Data.Grand_Total~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Month_Payment" Name="txt_Month_Payment" Value="@Request.month~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.Company_Lot~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.Company_Street~"/>
+		<PdfFormField ID="txt_Organ_Address_3" Name="txt_Organ_Address_3" Value="@Data.Address_3~"/>
+		<PdfFormField ID="txt_Organ_ID" Name="txt_Organ_ID" Value="@Data.Registration_No~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.Company_Name~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1" Name="txt_Organ_PCB_No_1" Value="@Data.Company_PCB_No_1~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_2" Name="txt_Organ_PCB_No_2" Value="@Data.Company_PCB_No_2~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_3" Name="txt_Organ_PCB_No_3" Value="@Data.Company_PCB_No_3~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_4" Name="txt_Organ_PCB_No_4" Value="@Data.Company_PCB_No_4~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_5" Name="txt_Organ_PCB_No_5" Value="@Data.Company_PCB_No_5~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_6" Name="txt_Organ_PCB_No_6" Value="@Data.Company_PCB_No_6~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_7" Name="txt_Organ_PCB_No_7" Value="@Data.Company_PCB_No_7~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_8" Name="txt_Organ_PCB_No_8" Value="@Data.Company_PCB_No_8~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_9" Name="txt_Organ_PCB_No_9" Value="@Data.Company_PCB_No_9~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_10" Name="txt_Organ_PCB_No_10" Value="@Data.Company_PCB_No_10~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_1" Name="txt_Organ_PCB_No_1_1" Value="@Data.Company_PCB_No_1~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_2" Name="txt_Organ_PCB_No_1_2" Value="@Data.Company_PCB_No_2~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_3" Name="txt_Organ_PCB_No_1_3" Value="@Data.Company_PCB_No_3~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_4" Name="txt_Organ_PCB_No_1_4" Value="@Data.Company_PCB_No_4~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_5" Name="txt_Organ_PCB_No_1_5" Value="@Data.Company_PCB_No_5~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_6" Name="txt_Organ_PCB_No_1_6" Value="@Data.Company_PCB_No_6~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_7" Name="txt_Organ_PCB_No_1_7" Value="@Data.Company_PCB_No_7~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_8" Name="txt_Organ_PCB_No_1_8" Value="@Data.Company_PCB_No_8~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_9" Name="txt_Organ_PCB_No_1_9" Value="@Data.Company_PCB_No_9~"/>
+		<PdfFormField ID="txt_Organ_PCB_No_1_10" Name="txt_Organ_PCB_No_1_10" Value="@Data.Company_PCB_No_10~"/>
+		<PdfFormField ID="txt_Page_No" Name="txt_Page_No" Value="@Data.Page_No~"/>
+		<PdfFormField ID="txt_Sequence_No" Name="txt_Sequence_No" Value="@Data.Number~"/>
+		<PdfFormField ID="txt_Total_CP38_Amount" Name="txt_Total_CP38_Amount" Value="@Data.Total_CP38_Amount~"/>
+		<PdfFormField ID="txt_Total_CP38_Emp" Name="txt_Total_CP38_Emp" Value="@Data.CP38_Count~"/>
+		<PdfFormField ID="txt_Total_PCB_Amount" Name="txt_Total_PCB_Amount" Value="@Data.Total_PCB_Amount~"/>
+		<PdfFormField ID="txt_Total_PCB_Emp" Name="txt_Total_PCB_Emp" Value="@Data.PCB_Count~"/>
+		<PdfFormField ID="txt_Year_Payment" Name="txt_Year_Payment" Value="@Request.year~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_InsDelTempPCB" ID="CallSP">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+			</SPParameters>
+			<SequenceColumn ID="Number"/>
+			<AggregateColumn AggregateColumn="CP39_Amount" AggregateFunction="SUM" ID="Total_PCB_Amount" DataType="Number"/>
+			<AggregateColumn AggregateColumn="CP38_Amount" AggregateFunction="SUM" ID="Total_CP38_Amount" DataType="Number"/>
+			<CalculatedColumn ID="Grand_Total" Formula="@Data.Total_CP38_Amount~ + @Data.Total_PCB_Amount~"/>
+			<CalculatedColumn ID="Page_Grand_Total" Formula="@Data.Page_Total_CP38~ + @Data.Page_Total_CP39~"/>
+			<GroupFilter ID="GroupBy" GroupColumn="Registration_No,Company_Name,Company_PCB_No_1,Company_PCB_No_2,Company_PCB_No_3,Company_PCB_No_4,Company_PCB_No_5,Company_PCB_No_6,Company_PCB_No_7,Company_PCB_No_8,Company_PCB_No_9,Company_PCB_No_10,Company_Lot,Company_Street,Address_3,PCB_Count,CP38_Count,Page_No" Hierarchical="True" DataType="Text" KeepGroupedRows="True"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams OrganID="JAVA" Month="1" Year="2008" SPID="50" Type="ADD" month="1" year="2008" paytype="MONTHLY" Location="PENINSULA" Module="REPORTS" userID="HRSA"/>
+</Template>

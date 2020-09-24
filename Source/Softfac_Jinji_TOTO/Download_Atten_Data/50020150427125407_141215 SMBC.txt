@@ -1,0 +1,146 @@
+SMBC                                              01122014072500361>361                 
+SMBC                                              01122014081200096>KW Choo             
+SMBC                                              01122014081900234>Jauhari             
+SMBC                                              01122014082300008>Mohamad             
+SMBC                                              01122014083100060>GK Shim             
+SMBC                                              01122014120700252>Uematsu             
+SMBC                                              01122014183900008>Mohamad             
+SMBC                                              01122014200800234>Jauhari             
+SMBC                                              01122014202300361>361                 
+SMBC                                              01122014202500060>GK Shim             
+SMBC                                              01122014231600096>KW Choo             
+SMBC                                              02122014075200361>361                 
+SMBC                                              02122014075300237>Ando                
+SMBC                                              02122014082100234>Jauhari             
+SMBC                                              02122014082100344>Tsukuda             
+SMBC                                              02122014082300008>Mohamad             
+SMBC                                              02122014082300060>GK Shim             
+SMBC                                              02122014082300096>KW Choo             
+SMBC                                              02122014121900252>Uematsu             
+SMBC                                              02122014125800016>Subhas              
+SMBC                                              02122014144900016<Subhas              
+SMBC                                              02122014182600361<361                 
+SMBC                                              02122014190000008<Mohamad             
+SMBC                                              02122014200200234<Jauhari             
+SMBC                                              02122014203100060<GK Shim             
+SMBC                                              02122014221400252<Uematsu             
+SMBC                                              02122014221400096<KW Choo             
+SMBC                                              03122014074200361<361                 
+SMBC                                              03122014081500060<GK Shim             
+SMBC                                              03122014081500237<Ando                
+SMBC                                              03122014081600344<Tsukuda             
+SMBC                                              03122014111300008<Mohamad             
+SMBC                                              03122014123000252<Uematsu             
+SMBC                                              03122014191900008<Mohamad             
+SMBC                                              03122014192000361<361                 
+SMBC                                              03122014194500344<Tsukuda             
+SMBC                                              03122014200300060<GK Shim             
+SMBC                                              03122014220400096<KW Choo             
+SMBC                                              03122014231800252<Uematsu             
+SMBC                                              04122014075500361<361                 
+SMBC                                              04122014081700060<GK Shim             
+SMBC                                              04122014081700237<Ando                
+SMBC                                              04122014082300234<Jauhari             
+SMBC                                              04122014082800008<Mohamad             
+SMBC                                              04122014085000096<KW Choo             
+SMBC                                              04122014123500252<Uematsu             
+SMBC                                              04122014181900060<GK Shim             
+SMBC                                              04122014184700361<361                 
+SMBC                                              04122014185700234<Jauhari             
+SMBC                                              04122014191600008<Mohamad             
+SMBC                                              04122014191900344<Tsukuda             
+SMBC                                              04122014191900344<Tsukuda             
+SMBC                                              04122014213000096<KW Choo             
+SMBC                                              05122014065200252<Uematsu             
+SMBC                                              05122014080100361<361                 
+SMBC                                              05122014081800060<GK Shim             
+SMBC                                              05122014082000237<Ando                
+SMBC                                              05122014082000234<Jauhari             
+SMBC                                              05122014083400096<KW Choo             
+SMBC                                              05122014084100008<Mohamad             
+SMBC                                              05122014125100252<Uematsu             
+SMBC                                              05122014130200060<GK Shim             
+SMBC                                              05122014181700361<361                 
+SMBC                                              05122014182200008<Mohamad             
+SMBC                                              05122014191100234<Jauhari             
+SMBC                                              05122014220200096<KW Choo             
+SMBC                                              06122014010900252<Uematsu             
+SMBC                                              06122014084100096<KW Choo             
+SMBC                                              06122014212600096<KW Choo             
+SMBC                                              07122014082400252<Uematsu             
+SMBC                                              07122014182300252<Uematsu             
+SMBC                                              08122014075100361<361                 
+SMBC                                              08122014081900234<Jauhari             
+SMBC                                              08122014090500096<KW Choo             
+SMBC                                              08122014105200344<Tsukuda             
+SMBC                                              08122014105200237<Ando                
+SMBC                                              08122014123600252<Uematsu             
+SMBC                                              08122014190300361<361                 
+SMBC                                              08122014210800096<KW Choo             
+SMBC                                              08122014223600237<Ando                
+SMBC                                              08122014224300252<Uematsu             
+SMBC                                              08122014224300344<Tsukuda             
+SMBC                                              08122014224300344<Tsukuda             
+SMBC                                              09122014075800361<361                 
+SMBC                                              09122014081500237<Ando                
+SMBC                                              09122014081500234<Jauhari             
+SMBC                                              09122014083900096<KW Choo             
+SMBC                                              09122014124100252<Uematsu             
+SMBC                                              09122014184400361<361                 
+SMBC                                              09122014193700234<Jauhari             
+SMBC                                              09122014225700252<Uematsu             
+SMBC                                              09122014225700344<Tsukuda             
+SMBC                                              09122014225900096<KW Choo             
+SMBC                                              10122014080400361<361                 
+SMBC                                              10122014081900234<Jauhari             
+SMBC                                              10122014082100008<Mohamad             
+SMBC                                              10122014083200344<Tsukuda             
+SMBC                                              10122014084200096<KW Choo             
+SMBC                                              10122014120900237<Ando                
+SMBC                                              10122014123900252<Uematsu             
+SMBC                                              10122014183000361<361                 
+SMBC                                              10122014190100008<Mohamad             
+SMBC                                              10122014200300234<Jauhari             
+SMBC                                              10122014220500096<KW Choo             
+SMBC                                              10122014225000252<Uematsu             
+SMBC                                              11122014075300361<361                 
+SMBC                                              11122014085800008<Mohamad             
+SMBC                                              11122014085800234<Jauhari             
+SMBC                                              11122014141600252<Uematsu             
+SMBC                                              11122014174700008<Mohamad             
+SMBC                                              11122014181600361<361                 
+SMBC                                              11122014190100234<Jauhari             
+SMBC                                              12122014015900252<Uematsu             
+SMBC                                              12122014075200361<361                 
+SMBC                                              12122014082100008<Mohamad             
+SMBC                                              12122014082200344<Tsukuda             
+SMBC                                              12122014082700234<Jauhari             
+SMBC                                              12122014082800096<KW Choo             
+SMBC                                              12122014123900252<Uematsu             
+SMBC                                              12122014181100361<361                 
+SMBC                                              12122014191300234<Jauhari             
+SMBC                                              12122014192400008<Mohamad             
+SMBC                                              12122014214600096<KW Choo             
+SMBC                                              13122014015200252<Uematsu             
+SMBC                                              13122014075900361<361                 
+SMBC                                              13122014090200234<Jauhari             
+SMBC                                              13122014095600096<KW Choo             
+SMBC                                              13122014171900234<Jauhari             
+SMBC                                              13122014180400361<361                 
+SMBC                                              13122014234600096<KW Choo             
+SMBC                                              14122014075700361<361                 
+SMBC                                              14122014081800252<Uematsu             
+SMBC                                              14122014181000361<361                 
+SMBC                                              14122014200800252<Uematsu             
+SMBC                                              15122014074400036<Sheila              
+SMBC                                              15122014080700361<361                 
+SMBC                                              15122014082000008<Mohamad             
+SMBC                                              15122014083200234<Jauhari             
+SMBC                                              15122014083600096<KW Choo             
+SMBC                                              15122014104100036<Sheila              
+SMBC                                              15122014120900036<Sheila              
+SMBC                                              15122014122500252<Uematsu             
+SMBC                                              15122014182700361<361                 
+SMBC                                              15122014191100234<Jauhari             
+SMBC                                              15122014192500008<Mohamad             
+SMBC                                              15122014201100096<KW Choo             

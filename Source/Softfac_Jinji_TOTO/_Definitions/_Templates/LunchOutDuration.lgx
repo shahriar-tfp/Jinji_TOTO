@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="LunchOutDuration" SavedBy="Tester" SavedAt="10/29/2014 7:38:07 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="LunchOutDuration.xlt" ID="LunchOutDuration">
+		<PatternBlock ID="LunchOutDuration" FirstRow="1" LastRow="8">
+			<DataLayer Type="SP" Command="sp_tms_rptInOutListing" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="@Data.Month_text~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" ID="details" DisposableFirstRow="7" DisposableLastRow="7">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_tms_rptInOutListing" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="ComName" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpBadge" Value="@Data.Badge~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="EmpName" Value="@Data.Name~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DATE" Value="@Data.Date~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="TmsGroup" Value="@Data.TmsGroup~" PatternBlockRow="1" Column="E"/>
+				<PatternBlockCell ID="ShiftCode" PatternBlockRow="1" Column="F" Value="@Data.ShiftCode~"/>
+				<PatternBlockCell ID="Out_1" Column="G" PatternBlockRow="1" Value="@Data.Out_1~"/>
+				<PatternBlockCell ID="In_2" Column="H" PatternBlockRow="1" Value="@Data.In_2~"/>
+				<PatternBlockCell ID="OF1" Column="I" PatternBlockRow="1" Value="@Data.OF1~"/>
+				<PatternBlockCell ID="Out_2" Column="J" PatternBlockRow="1" Value="@Data.Out_2~"/>
+				<PatternBlockCell ID="In_3" Column="K" PatternBlockRow="1" Value="@Data.In_3~"/>
+				<PatternBlockCell ID="OF2" Column="L" PatternBlockRow="1" Value="@Data.OF2~"/>
+				<PatternBlockCell ID="Out_3" Column="M" PatternBlockRow="1" Value="@Data.Out_3~"/>
+				<PatternBlockCell ID="In_4" Column="N" PatternBlockRow="1" Value="@Data.In_4~"/>
+				<PatternBlockCell ID="OF3" Column="O" PatternBlockRow="1" Value="@Data.OF3~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

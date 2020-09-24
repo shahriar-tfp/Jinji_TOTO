@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="MidYearReviewLetter" SavedBy="Tester" SavedAt="12/23/2014 12:45:06 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="MidYearReviewLetter.xlt" ID="MidYearReviewLetter" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="42" ID="Header" Worksheet="Letter">
+			<DataLayer Type="SP" ID="CallLetter" ConnectionID="HCRMConnection" Command="sp_tms_EmployeeIncrement">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<SubPatternBlock FirstRow="1" LastRow="42" ID="Details" FillMode="Overwrite">
+				<SubDataLayer ID="sdlc">
+					<DataLayer Type="SP" ID="CallLetter" ConnectionID="HCRMConnection" Command="sp_tms_EmployeeIncrement">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="EmployeeCode" ParentColumn="EmployeeCode" ID="sdlcemp"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="6" ID="Date" Value="@Data.PrintDate~"/>
+				<PatternBlockCell Column="A" PatternBlockRow="10" ID="Name" Value="@Data.EmployeeName~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="11" ID="Nric" Value="@Data.IdentityCard~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="12" ID="Badge" Value="@Data.EmployeeCode~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="13" ID="Costblock" Value="@Data.CostBlock~"/>
+				<PatternBlockCell Column="A" PatternBlockRow="13" ID="HOD" Value="HOD :"/>
+				<PatternBlockCell Column="A" PatternBlockRow="17" ID="Year" Value="MID YEAR REVIEW FOR @Request.Year~"/>
+				<PatternBlockCell Column="A" PatternBlockRow="20" ID="Position" Value="to RM  @Data.NewSalary~ per month effective from  @Data.EffectiveDate~."/>
+				<PatternBlockCell Column="A" PatternBlockRow="22" ID="Basic" Value="Your designation shall remain as  @Data.JobTitle~ and your Job Grade is  @Data.JobCategory~."/>
+				<PatternBlockCell Column="A" PatternBlockRow="31" ID="ComName" Value="For @Data.ComName~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

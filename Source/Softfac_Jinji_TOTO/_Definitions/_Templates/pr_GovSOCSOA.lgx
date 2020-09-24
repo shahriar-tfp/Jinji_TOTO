@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovSOCSOA" SavedBy="PM1" SavedAt="28/03/2011 4:33:05 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ID="pr_GovSOCSOA" ExcelTemplateFilename="pr_GovSOCSOA.xlt" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Report" FirstRow="1" LastRow="32">
+			<DataLayer Type="SP" ID="GetData" ConnectionID="HCRMConnection" Command="sp_pr_RPTGovSOCSOA" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="input" ID="Option_Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Location~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="SOCSO_Amount" Value="RM @Data.SOCSO_Amount~" Column="I" PatternBlockRow="15"/>
+			<PatternBlockCell ID="SOCSO_NO" Column="E" PatternBlockRow="19" Value="@Data.SOCSO_Value~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="21" ID="OrganName" Value="@Data.OrganName~"/>
+			<PatternBlockCell ID="OrganAddr1" Column="E" PatternBlockRow="23" Value="@Data.OrganAddr1~"/>
+			<PatternBlockCell ID="OrganAddr2" Column="E" PatternBlockRow="25" Value="@Data.OrganAddr2~, @Data.OrganPostal~ @Data.OrganCity~, @Data.OrganState~ @Data.OrganCountry~"/>
+			<PatternBlockCell ID="Cheque" Column="D" PatternBlockRow="15" Value="@Request.Cheque~"/>
+			<PatternBlockCell ID="PIC_Name" Column="E" PatternBlockRow="30" Value="@Request.PICName~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="32" ID="PIC_TELNO" Value="@Request.PICTelNo~"/>
+			<PatternBlockCell ID="CountEmp" Column="G" PatternBlockRow="10" Value="@Data.CountEmp~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="5" ID="PayFor" Value="CARUMAN MENGGUNAKAN DISKET UNTUK  TEMPOH @Data.ThisMonth~ @Data.ThisYear~"/>
+			<PatternBlockCell ID="PrintDate" Column="H" PatternBlockRow="7" Value="@Data.PrintDate~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

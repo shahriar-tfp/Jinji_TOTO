@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="AbsentListing" SavedBy="Tester" SavedAt="10/16/2014 6:43:34 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AbsentListing.xlt" ID="AbsentListing" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="5" LastRow="5" ID="DETAILS" Worksheet="Absent Analysis" DisposableFirstRow="6" DisposableLastRow="6">
+			<DataLayer Type="SP" ID="CallDetails" ConnectionID="HCRMConnection" Command="sp_tms_AbsenteeListing">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmployeeCode" Value="@Data.EmployeeCode~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmployeeName" Value="@Data.EmployeeName~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="LeaveType" Value="@Data.LeaveType~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="LeaveDate" Value="@Data.LeaveDate~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Section" Value="@Data.Section~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="DepartmentHead" Value="@Data.DepartmentHead~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="Position" Value="@Data.Position~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="JobCategory" Value="@Data.JobCategory~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="TMSCode" Value="@Data.TMSCode~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="CostBlock" Value="@Data.CostBlock~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="Supervisor" Value="@Data.Supervisor~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="EmpGroup" Value="@Data.EmpGroup~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="BirthDate" Value="@Data.BirthDate~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="Age" Value="@Data.Age~"/>
+			<PatternBlockCell Column="Q" PatternBlockRow="1" ID="DateJoin" Value="@Data.DateJoin~"/>
+			<PatternBlockCell Column="R" PatternBlockRow="1" ID="ResignDate" Value="@Data.ResignDate~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="EmpStatus" Value="@Data.EmpStatus~"/>
+			<PatternBlockCell Column="T" PatternBlockRow="1" ID="Gender" Value="@Data.Gender~"/>
+			<PatternBlockCell Column="U" PatternBlockRow="1" ID="MaritalStatus" Value="@Data.MaritalStatus~"/>
+			<PatternBlockCell Column="V" PatternBlockRow="1" ID="Citizenship" Value="@Data.Citizenship~"/>
+			<PatternBlockCell Column="W" PatternBlockRow="1" ID="Religion" Value="@Data.Religion~"/>
+			<PatternBlockCell Column="X" PatternBlockRow="1" ID="Race" Value="@Data.Race~"/>
+		</PatternBlock>
+		<PatternBlock FirstRow="1" LastRow="3" ID="Header" Worksheet="Absent Analysis">
+			<DataLayer Type="SP" ID="CallDetails" ConnectionID="HCRMConnection" Command="sp_tms_AbsenteeListing">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Title" Value="Absent Listing for @Data.Month_text~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="3" ID="Company" Value="Print Date : @Data.PrintDate~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

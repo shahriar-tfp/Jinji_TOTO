@@ -1,0 +1,239 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ASPUnhandledException
+</name>
+</assembly>
+<members>
+<member name="T:ASPUnhandledException.UehSoapExtension">
+	<summary>
+ Implements ASP unhandled exception manager as a SoapExtension
+ </summary>
+	<remarks>
+ to use:
+ 
+    1) place ASPUnhandledException.dll in the \bin folder
+    2) add this section to your Web.config under the &lt;webServices&gt; element:
+			&lt;!-- Adds our error handler to the SOAP pipeline. --&gt;
+		    &lt;soapExtensionTypes&gt;
+				&lt;add type="ASPUnhandledException.UehSoapExtension, ASPUnhandledException"
+				     priority="1" group="0" /&gt;
+			&lt;/soapExtensionTypes&gt;
+  Jeff Atwood
+  http://www.codinghorror.com/
+ </remarks>
+</member><member name="M:ASPUnhandledException.Config.GetInteger(System.String,System.Int32)">
+	<summary>
+ retrieves integer value from the 
+ &lt;UnhandledException&gt; custom NameValueCollection .config section
+ </summary>
+</member><member name="M:ASPUnhandledException.Config.GetBoolean(System.String,System.Boolean)">
+	<summary>
+ retrieves boolean value from the 
+ &lt;UnhandledException&gt; custom NameValueCollection .config section
+ </summary>
+</member><member name="M:ASPUnhandledException.Config.GetString(System.String,System.String)">
+	<summary>
+ retrieves string value from the 
+ &lt;UnhandledException&gt; custom NameValueCollection .config section
+ </summary>
+</member><member name="M:ASPUnhandledException.Config.GetPath(System.String)">
+	<summary>
+ retrieves relative or absolute path string from the 
+ &lt;UnhandledException&gt; custom NameValueCollection .config section
+ </summary>
+</member><member name="T:ASPUnhandledException.Config">
+	<summary>
+ Minimal class for retrieving typed values from the 
+ &lt;UnhandledException&gt; custom NameValueCollection .config section
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.StackFrameToString(System.Diagnostics.StackFrame)">
+	<summary>
+ turns a single stack frame object into an informative string
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.EnhancedStackTrace(System.Diagnostics.StackTrace,System.String)">
+	<summary>
+ enhanced stack trace generator
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.EnhancedStackTrace(System.Exception)">
+	<summary>
+ enhanced stack trace generator, using existing exception as start point
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.EnhancedStackTrace">
+	<summary>
+ enhanced stack trace generator, using current execution as start point
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.HandleWebServiceException(System.Web.Services.Protocols.SoapMessage)">
+	<summary>
+ ASP.Net web-service specific exception handler, to be called from UehSoapExtension
+ </summary>
+	<returns>
+ string with "&lt;detail&gt;&lt;/detail&gt;" XML element, suitable for insertion into SOAP message
+ </returns>
+	<remarks>
+ existing SOAP detail message, prior to insertion, looks like:
+ 
+   &lt;soap:Fault&gt;
+     &lt;faultcode&gt;soap:Server&lt;/faultcode&gt;
+     &lt;faultstring&gt;Server was unable to process request.&lt;/faultstring&gt;
+     &lt;detail /&gt;    &lt;==  
+   &lt;/soap:Fault&gt;
+ </remarks>
+</member><member name="M:ASPUnhandledException.Handler.HandleException(System.Exception)">
+	<summary>
+ ASP.Net exception handler, to be called from UehHttpModule
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.FormatExceptionForUser">
+	<summary>
+ turns exception into a formatted string suitable for display to a (technical) user
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.ExceptionToEventLog">
+	<summary>
+ write an exception to the Windows NT event log
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.FormatDisplayString(System.String)">
+	<summary>
+ replace generic constants in display strings with specific values
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.WriteLine(System.String)">
+	<summary>
+ writes text plus newline to http response stream
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.ExceptionToPage">
+	<summary>
+ writes current exception info to a web page
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.ExceptionToFile">
+	<summary>
+ write current exception info to a text file; 
+ requires write permissions for the target folder
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.CurrentWindowsIdentity">
+	<summary>
+ exception-safe WindowsIdentity.GetCurrent retrieval; returns "domain\username"
+ </summary>
+	<remarks>
+ per MS, this can sometimes randomly fail with "Access Denied" on NT4
+ </remarks>
+</member><member name="M:ASPUnhandledException.Handler.CurrentEnvironmentIdentity">
+	<summary>
+ exception-safe System.Environment "domain\username" retrieval
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.ProcessIdentity">
+	<summary>
+ retrieve Process identity with fallback on error to safer method
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.AllAssemblyDetailsToString">
+	<summary>
+ returns brief summary info for all assemblies in the current AppDomain
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.SysInfoToString(System.Boolean)">
+	<summary>
+ gather some system information that is helpful in diagnosing exceptions
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.ExceptionToString(System.Exception)">
+	<summary>
+ translate an exception object to a formatted string, with additional system info
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.ExceptionToStringPrivate(System.Exception,System.Boolean)">
+	<summary>
+ private version, called recursively for nested exceptions (inner, outer, etc)
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.AssemblyLastWriteTime(System.Reflection.Assembly)">
+	<summary>
+ exception-safe file attrib retrieval; we don't care if this fails
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.AssemblyBuildDate(System.Reflection.Assembly,System.Boolean)">
+	<summary>
+ returns build datetime of assembly, using calculated build time if possible, or filesystem time if not
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.AssemblyAttribs(System.Reflection.Assembly)">
+	<summary>
+ returns string name / string value pair of all attribs for the specified assembly
+ </summary>
+	<remarks>
+ note that Assembly* values are pulled from AssemblyInfo file in project folder
+ Trademark       = AssemblyTrademark string
+ Debuggable      = True
+ GUID            = 7FDF68D5-8C6F-44C9-B391-117B5AFB5467
+ CLSCompliant    = True
+ Product         = AssemblyProduct string
+ Copyright       = AssemblyCopyright string
+ Company         = AssemblyCompany string
+ Description     = AssemblyDescription string
+ Title           = AssemblyTitle string
+ </remarks>
+</member><member name="M:ASPUnhandledException.Handler.GetAssemblyFromName(System.String)">
+	<summary>
+ matches assembly by Assembly.GetName.Name; returns nothing if no match
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.HttpVarsToString(System.Web.HttpCookieCollection)">
+	<summary>
+ returns formatted string of all ASP.NET Cookies
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.HttpVarsToString(System.Web.HttpApplicationState)">
+	<summary>
+ returns formatted summary string of all ASP.NET app vars
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.HttpVarsToString(System.Web.Caching.Cache)">
+	<summary>
+ returns formatted summary string of all ASP.NET Cache vars
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.HttpVarsToString(System.Collections.Specialized.NameValueCollection,System.String,System.Boolean,System.String)">
+	<summary>
+ returns formatted string of an arbitrary ASP.NET NameValueCollection
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.AppendLine(System.Text.StringBuilder,System.String,System.Object)">
+	<summary>
+ attempts to coerce the value object using the .ToString method if possible, 
+ then appends a formatted key/value string pair to a StringBuilder. 
+ will display the type name if the object cannot be coerced.
+ </summary>
+</member><member name="M:ASPUnhandledException.Handler.AppendLine(System.Text.StringBuilder,System.String,System.String)">
+	<summary>
+ appends a formatted key/value string pair to a StringBuilder
+ </summary>
+</member><member name="T:ASPUnhandledException.Handler">
+	<summary>
+ Generic Unhandled error handling class for ASP.NET websites and web services. 
+ Intended as a last resort for errors which crash our application, so we can get feedback on what 
+ caused the error. Can log errors to a web page, to the event log, a local text file, or via email.
+ </summary>
+	<remarks>
+ to use:
+ 
+ 1) in ASP.NET applications:
+ 
+     Reference the HttpModule UehHttpModule in web.config:
+         &lt;httpModules&gt;
+	 	        &lt;add name="ASPUnhandledException" 
+                  type="ASPUnhandledException.UehHttpModule, ASPUnhandledException" /&gt;
+		    &lt;/httpModules&gt;
+ 2) in .NET Web Services:
+     Reference the SoapExtension UehSoapExtension in web.config:
+		    &lt;soapExtensionTypes&gt;
+				&lt;add type="ASPUnhandledException.UehSoapExtension, ASPUnhandledException"
+				     priority="1" group="0" /&gt;
+			&lt;/soapExtensionTypes&gt;
+ more background information on Exceptions at:
+   http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnbda/html/exceptdotnet.asp
+  Jeff Atwood
+  http://www.codinghorror.com/
+ </remarks>
+</member><member name="T:ASPUnhandledException.UehHttpModule">
+	<summary>
+ Implements ASP unhandled exception manager as a HttpModule
+ </summary>
+	<remarks>
+ to use:
+    1) place ASPUnhandledException.dll in the \bin folder
+    2) add this section to your Web.config under the &lt;system.web&gt; element:
+         &lt;httpModules&gt;
+	 	        &lt;add name="ASPUnhandledException" 
+                 type="ASPUnhandledException.UehHttpModule, ASPUnhandledException" /&gt;
+		    &lt;/httpModules&gt;
+ </remarks>
+</member>
+</members>
+</doc>

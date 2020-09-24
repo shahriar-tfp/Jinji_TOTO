@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="TOTOKPI_Final" SavedBy="Tester" SavedAt="4/18/2018 3:50:10 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="KPI_Final.xlt" ID="TOTOKPI_Final" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="5" ID="Header">
+			<DataLayer Type="SP" Command="sp_KPI_RptFinalAssess" ConnectionID="HCRMConnection" ID="CallFinal">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Category" SPParamSize="0" SPParamType="dt-200" Value="@Request.Direct~"/>
+					<SPParameter SPParamDirection="Input" ID="OCP_ID_Department" SPParamSize="0" SPParamType="dt-200" Value="@Request.Department~"/>
+					<SPParameter SPParamDirection="Input" ID="OCP_ID_Section" SPParamSize="0" SPParamType="dt-200" Value="@Request.Section~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Model" SPParamSize="0" SPParamType="dt-200" Value="@Request.Model~"/>
+					<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SpID~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<SubPatternBlock FirstRow="3" LastRow="3" ID="Detail" DisposableFirstRow="4" DisposableLastRow="4">
+				<SubDataLayer ID="SDLC">
+					<DataLayer Type="SP" Command="sp_KPI_RptFinalAssess" ConnectionID="HCRMConnection" ID="CallFinal">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Category" SPParamSize="0" SPParamType="dt-200" Value="@Request.Direct~"/>
+							<SPParameter SPParamDirection="Input" ID="OCP_ID_Department" SPParamSize="0" SPParamType="dt-200" Value="@Request.Department~"/>
+							<SPParameter SPParamDirection="Input" ID="OCP_ID_Section" SPParamSize="0" SPParamType="dt-200" Value="@Request.Section~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Model" SPParamSize="0" SPParamType="dt-200" Value="@Request.Model~"/>
+							<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SpID~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="FINAL"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="PageNo" ParentColumn="PageNo" ID="SDCLC"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="EmpCode" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="DepartmentName" Value="@Data.DepartmentName~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="SectionName" Value="@Data.SectionName~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="JobGradeName" Value="@Data.JobGradeName~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="PositionName" Value="@Data.PositionName~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="Level" Value="@Data.Level~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="ProcessName" Value="@Data.ProcessName~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="ItemName" Value="@Data.ItemName~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="ModelName" Value="@Data.ModelName~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="CountryName" Value="@Data.CountryName~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="StationName" Value="@Data.StationName~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="RegDate" Value="@Data.RegDate~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="Recerdate" Value="@Data.Recerdate~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="Canceldate" Value="@Data.Canceldate~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="REASS1DATE" Value="@Data.REASS1DATE~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="REASS2DATE" Value="@Data.REASS2DATE~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="REASS3DATE" Value="@Data.REASS3DATE~"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="REASS4DATE" Value="@Data.REASS4DATE~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="REASS5DATE" Value="@Data.REASS5DATE~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="SYSCANCELDATE" Value="@Data.SYSCANCELDATE~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

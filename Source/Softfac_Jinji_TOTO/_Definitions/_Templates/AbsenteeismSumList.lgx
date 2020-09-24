@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="AbsenteeismSumList" SavedBy="Tester" SavedAt="5/8/2014 8:04:47 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="AbsenteeismSumList.xlt" ExcelTemplateMode="OneWorksheetPerDataRow" ID="AbsenteeismSumList">
+		<PatternBlock ID="Header" Worksheet="Absenteeism" FirstRow="1" LastRow="13">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="[sp_tms_AbsenteeismSumList]">
+				<SPParameters IdeDisplayStatus="Collapsed">
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="Header" Column="C" PatternBlockRow="2" Value="Absenteeism Summary Listing As Of On @Data.MonthName~ @Request.Year~"/>
+			<PatternBlockCell ID="PrintDate" Column="F" PatternBlockRow="3" Value=": @Data.PrintDate~"/>
+			<SubPatternBlock ID="Details" FirstRow="7" LastRow="7" DisposableFirstRow="8" DisposableLastRow="8">
+				<SubDataLayer ID="sdl">
+					<DataLayer Type="SP" ID="GetDetails" Command="[sp_tms_AbsenteeismSumList]" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+						<SPParameters IdeDisplayStatus="Collapsed">
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="sdlc" ChildColumn="PrintDate" ParentColumn="PrintDate"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Employee_Code" PatternBlockRow="1" Value="@Data.EmployeeCode~" Column="B"/>
+				<PatternBlockCell ID="Employee_Name" Column="C" PatternBlockRow="1" Value="@Data.EmployeeName~"/>
+				<PatternBlockCell ID="Date" Column="D" PatternBlockRow="1" Value="@Data.Date~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

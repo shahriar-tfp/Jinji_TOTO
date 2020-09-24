@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ACTIVE_HC" SavedBy="Tester" SavedAt="10/15/2014 6:11:36 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Active_HC.xlt" ID="ACTIVE_HC" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="Listing" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" ID="CallDetails" ConnectionID="HCRMConnection" Command="sp_is_rptActiveHeadCount">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="DateFrom" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="DateTo" SPParamSize="0" SPParamType="dt-200" Value="@Request.ToDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Badge" Value="@Data.Badge~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Name" Value="@Data.Name~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Costblock" Value="@Data.Costblock~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Section" Value="@Data.Section~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="SupervisorID" Value="@Data.SupervisorID~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="HOD" Value="@Data.HOD~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="TmsGroup" Value="@Data.TmsGroup~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Jobtitle" Value="@Data.Jobtitle~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="Jobgrade" Value="@Data.Jobgrade~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="Datejoin" Value="@Data.Datejoin~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="Citizenship" Value="@Data.Citizenship~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="Race" Value="@Data.Race~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="Religion" Value="@Data.Religion~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="Dateofbirth" Value="@Data.Dateofbirth~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="Gender" Value="@Data.Gender~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="Marital_Status" Value="@Data.Marital_Status~"/>
+			<PatternBlockCell Column="Q" PatternBlockRow="1" ID="LastWorkingDate" Value="@Data.LastWorkingDate~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovPTPTND" SavedBy="Tester" SavedAt="5/22/2014 12:42:12 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovPTPTND.pdf" ID="pr_GovPTPTND" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Emp_Country_Code" Name="txt_Emp_Country_Code"/>
+		<PdfFormField ID="txt_Emp_CP38_Amount" Name="txt_Emp_CP38_Amount" Value="@Data.CP38_Amount~"/>
+		<PdfFormField ID="txt_Emp_Grand_Total" Name="txt_Emp_Grand_Total" Value="@Data.Page_Grand_Total~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_ID" Name="txt_Emp_ID" Value="@Data.Emp_ID~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.Emp_Name~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No" Name="txt_Emp_New_IC_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Emp_Old_IC_No" Name="txt_Emp_Old_IC_No"/>
+		<PdfFormField ID="txt_Emp_PassPort_No" Name="txt_Emp_PassPort_No"/>
+		<PdfFormField ID="txt_Emp_PCB_Amount" Name="txt_Emp_PCB_Amount" Value="@Data.CP39_Amount~"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.Emp_PCB_No~"/>
+		<PdfFormField ID="txt_Emp_Total_CP38_Amount" Name="txt_Emp_Total_CP38_Amount" Value="@Data.Page_Total_CP38~"/>
+		<PdfFormField ID="txt_Emp_Total_PCB_Amount" Name="txt_Emp_Total_PCB_Amount" Value="@Data.Page_Total_CP39~"/>
+		<PdfFormField ID="txt_Page_No" Name="txt_Page_No" Value="@Data.Page_No~"/>
+		<PdfFormField ID="txt_Sequence_No" Name="txt_Sequence_No" Value="@Data.Number~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_InsDelTempPTPTN" ID="CallSP">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-3" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="SPID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="paytype" SPParamSize="0" SPParamType="dt-200" Value="@Request.paytype~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Module" SPParamSize="0" SPParamType="dt-200" Value="@Request.Module~"/>
+				<SPParameter SPParamDirection="Input" ID="userID" SPParamSize="0" SPParamType="dt-200" Value="@Request.userID~"/>
+				<SPParameter SPParamDirection="Input" ID="Part" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+			</SPParameters>
+			<SequenceColumn ID="Number"/>
+			<CalculatedColumn ID="Page_Grand_Total" Formula="@Data.Page_Total_CP38~ + @Data.Page_Total_CP39~"/>
+			<GroupFilter ID="GroupBy" GroupColumn="Page_No" Hierarchical="True" DataType="Text" KeepGroupedRows="True" SortSequence="Ascending"/>
+			<SortFilter SortColumn="Page_No,Number" DataType="Number" ID="SortBy" SortSequence="Ascending"/>
+		</DataLayer>
+	</PdfForm>
+</Template>

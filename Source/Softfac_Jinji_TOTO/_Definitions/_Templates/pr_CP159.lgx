@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_CP159" SavedBy="Tester" SavedAt="2/1/2012 3:05:19 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovCp159.pdf" ID="pr_GovCp159" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Branch" Name="txt_Branch"/>
+		<PdfFormField ID="txt_Current_date" Name="txt_Current_date" Value="@Data.cdate~"/>
+		<PdfFormField ID="txt_File_No" Name="txt_File_No"/>
+		<PdfFormField ID="txt_Final_Year" Name="txt_Final_Year" Value="@Data.year~"/>
+		<PdfFormField ID="txt_Head_Count" Name="txt_Head_Count" Value="@Data.hcount~"/>
+		<PdfFormField ID="txt_Nature_Bisness" Name="txt_Nature_Bisness"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.comaddr1~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.comaddr2~"/>
+		<PdfFormField ID="txt_Organ_Fax_No" Name="txt_Organ_Fax_No" Value="@Data.comfaxno~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_1" Name="txt_Organ_Gross_Amount_1" Value="@Data.grossamt1~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_10" Name="txt_Organ_Gross_Amount_10" Value="@Data.grossamt10~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_11" Name="txt_Organ_Gross_Amount_11" Value="@Data.grossamt11~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_12" Name="txt_Organ_Gross_Amount_12" Value="@Data.grossamt12~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_2" Name="txt_Organ_Gross_Amount_2" Value="@Data.grossamt2~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_3" Name="txt_Organ_Gross_Amount_3" Value="@Data.grossamt3~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_4" Name="txt_Organ_Gross_Amount_4" Value="@Data.grossamt4~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_5" Name="txt_Organ_Gross_Amount_5" Value="@Data.grossamt5~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_6" Name="txt_Organ_Gross_Amount_6" Value="@Data.grossamt6~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_7" Name="txt_Organ_Gross_Amount_7" Value="@Data.grossamt7~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_8" Name="txt_Organ_Gross_Amount_8" Value="@Data.grossamt8~"/>
+		<PdfFormField ID="txt_Organ_Gross_Amount_9" Name="txt_Organ_Gross_Amount_9" Value="@Data.grossamt9~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_1" Name="txt_Organ_Gross_Tax_Amount_1" Value="@Data.grosstaxamt1~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_10" Name="txt_Organ_Gross_Tax_Amount_10" Value="@Data.grosstaxamt10~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_11" Name="txt_Organ_Gross_Tax_Amount_11" Value="@Data.grosstaxamt11~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_12" Name="txt_Organ_Gross_Tax_Amount_12" Value="@Data.grosstaxamt12~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_2" Name="txt_Organ_Gross_Tax_Amount_2" Value="@Data.grosstaxamt2~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_3" Name="txt_Organ_Gross_Tax_Amount_3" Value="@Data.grosstaxamt3~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_4" Name="txt_Organ_Gross_Tax_Amount_4" Value="@Data.grosstaxamt4~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_5" Name="txt_Organ_Gross_Tax_Amount_5" Value="@Data.grosstaxamt5~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_6" Name="txt_Organ_Gross_Tax_Amount_6" Value="@Data.grosstaxamt6~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_7" Name="txt_Organ_Gross_Tax_Amount_7" Value="@Data.grosstaxamt7~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_8" Name="txt_Organ_Gross_Tax_Amount_8" Value="@Data.grosstaxamt8~"/>
+		<PdfFormField ID="txt_Organ_Gross_Tax_Amount_9" Name="txt_Organ_Gross_Tax_Amount_9" Value="@Data.grosstaxamt9~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.comname~" Flatten="True"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_1" Name="txt_Organ_PCB_Amount_1" Value="@Data.taxCP38amt1~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_10" Name="txt_Organ_PCB_Amount_10" Value="@Data.taxCP38amt10~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_11" Name="txt_Organ_PCB_Amount_11" Value="@Data.taxCP38amt11~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_12" Name="txt_Organ_PCB_Amount_12" Value="@Data.taxCP38amt12~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_2" Name="txt_Organ_PCB_Amount_2" Value="@Data.taxCP38amt2~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_3" Name="txt_Organ_PCB_Amount_3" Value="@Data.taxCP38amt3~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_4" Name="txt_Organ_PCB_Amount_4" Value="@Data.taxCP38amt4~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_5" Name="txt_Organ_PCB_Amount_5" Value="@Data.taxCP38amt5~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_6" Name="txt_Organ_PCB_Amount_6" Value="@Data.taxCP38amt6~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_7" Name="txt_Organ_PCB_Amount_7" Value="@Data.taxCP38amt7~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_8" Name="txt_Organ_PCB_Amount_8" Value="@Data.taxCP38amt8~"/>
+		<PdfFormField ID="txt_Organ_PCB_Amount_9" Name="txt_Organ_PCB_Amount_9" Value="@Data.taxCP38amt9~"/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.compcbno~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.comtelno~"/>
+		<PdfFormField ID="txt_Organ_Receipt_1" Name="txt_Organ_Receipt_1" Value="@Data.recp1~"/>
+		<PdfFormField ID="txt_Organ_Receipt_10" Name="txt_Organ_Receipt_10" Value="@Data.recp10~"/>
+		<PdfFormField ID="txt_Organ_Receipt_11" Name="txt_Organ_Receipt_11" Value="@Data.recp11~"/>
+		<PdfFormField ID="txt_Organ_Receipt_12" Name="txt_Organ_Receipt_12" Value="@Data.recp12~"/>
+		<PdfFormField ID="txt_Organ_Receipt_2" Name="txt_Organ_Receipt_2" Value="@Data.recp2~"/>
+		<PdfFormField ID="txt_Organ_Receipt_3" Name="txt_Organ_Receipt_3" Value="@Data.recp3~"/>
+		<PdfFormField ID="txt_Organ_Receipt_4" Name="txt_Organ_Receipt_4" Value="@Data.recp4~"/>
+		<PdfFormField ID="txt_Organ_Receipt_5" Name="txt_Organ_Receipt_5" Value="@Data.recp5~"/>
+		<PdfFormField ID="txt_Organ_Receipt_6" Name="txt_Organ_Receipt_6" Value="@Data.recp6~"/>
+		<PdfFormField ID="txt_Organ_Receipt_7" Name="txt_Organ_Receipt_7" Value="@Data.recp7~"/>
+		<PdfFormField ID="txt_Organ_Receipt_8" Name="txt_Organ_Receipt_8" Value="@Data.recp8~"/>
+		<PdfFormField ID="txt_Organ_Receipt_9" Name="txt_Organ_Receipt_9" Value="@Data.recp9~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_1" Name="txt_Organ_Tax_Amount_1" Value="@Data.taxamt1~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_10" Name="txt_Organ_Tax_Amount_10" Value="@Data.taxamt10~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_11" Name="txt_Organ_Tax_Amount_11" Value="@Data.taxamt11~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_12" Name="txt_Organ_Tax_Amount_12" Value="@Data.taxamt12~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_2" Name="txt_Organ_Tax_Amount_2" Value="@Data.taxamt2~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_3" Name="txt_Organ_Tax_Amount_3" Value="@Data.taxamt3~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_4" Name="txt_Organ_Tax_Amount_4" Value="@Data.taxamt4~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_5" Name="txt_Organ_Tax_Amount_5" Value="@Data.taxamt5~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_6" Name="txt_Organ_Tax_Amount_6" Value="@Data.taxamt6~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_7" Name="txt_Organ_Tax_Amount_7" Value="@Data.taxamt7~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_8" Name="txt_Organ_Tax_Amount_8" Value="@Data.taxamt8~"/>
+		<PdfFormField ID="txt_Organ_Tax_Amount_9" Name="txt_Organ_Tax_Amount_9" Value="@Data.taxamt9~"/>
+		<PdfFormField ID="txt_Organ_Total_Gross_Amount" Name="txt_Organ_Total_Gross_Amount" Format="########0.00" Value="@Data.Total_Gross_Amount~"/>
+		<PdfFormField ID="txt_Organ_Total_Gross_Tax_Amount" Name="txt_Organ_Total_Gross_Tax_Amount" Format="########0.00" Value="@Data.Total_Gross_Tax_Amount~"/>
+		<PdfFormField ID="txt_Organ_Total_PCB_Amount" Name="txt_Organ_Total_PCB_Amount" Format="########0.00" Value="@Data.Total_PCB_Amount~"/>
+		<PdfFormField ID="txt_Organ_Total_Tax_Amount" Name="txt_Organ_Total_Tax_Amount" Value="@Data.Total_Tax_Amount~" Format="########0.00"/>
+		<PdfFormField ID="txt_PIC_IC_No" Name="txt_PIC_IC_No" Value="@Data.picicno~"/>
+		<PdfFormField ID="txt_PIC_Job_Title" Name="txt_PIC_Job_Title" Value="@Data.picpos~"/>
+		<PdfFormField ID="txt_PIC_Name" Name="txt_PIC_Name" Value="@Data.picname~"/>
+		<PdfFormField ID="txt_Year" Name="txt_Year" Value="@Data.year~"/>
+		<PdfFormField ID="txt_Year_End" Name="txt_Year_End" Value="@Data.year~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="cp159" Command="sp_pr_RptCp159">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" Value="@Request.Company_Profile_Code~" SPParamSize="0" SPParamType="dt-200"/>
+				<SPParameter SPParamDirection="Input" ID="year" SPParamSize="0" SPParamType="dt-3" Value="@Request.Year~"/>
+				<SPParameter SPParamDirection="Input" ID="PicID" Value="@Request.PicID~" SPParamType="dt-200" SPParamSize="0"/>
+				<SPParameter SPParamDirection="Input" ID="type" SPParamSize="0" SPParamType="dt-200" Value="PRINT"/>
+			</SPParameters>
+			<CalculatedColumn ID="Total_Tax_Amount" Formula="@Data.taxamt1~+@Data.taxamt10~+@Data.taxamt11~+@Data.taxamt12~+@Data.taxamt2~+@Data.taxamt3~+@Data.taxamt4~+@Data.taxamt5~+@Data.taxamt6~+@Data.taxamt7~+@Data.taxamt8~+@Data.taxamt9~"/>
+			<CalculatedColumn ID="Total_PCB_Amount" Formula="@Data.taxCP38amt1~+@Data.taxCP38amt2~+@Data.taxCP38amt3~+@Data.taxCP38amt4~+@Data.taxCP38amt5~+@Data.taxCP38amt6~+@Data.taxCP38amt7~+@Data.taxCP38amt8~+@Data.taxCP38amt9~+@Data.taxCP38amt10~+@Data.taxCP38amt11~+@Data.taxCP38amt12~"/>
+			<CalculatedColumn ID="Total_Gross_Tax_Amount" Formula="@Data.grosstaxamt1~+@Data.grosstaxamt2~+@Data.grosstaxamt3~+@Data.grosstaxamt4~+@Data.grosstaxamt5~+@Data.grosstaxamt6~+@Data.grosstaxamt7~+@Data.grosstaxamt8~+@Data.grosstaxamt9~+@Data.grosstaxamt10~+@Data.grosstaxamt11~+@Data.grosstaxamt12~"/>
+			<CalculatedColumn ID="Total_Gross_Amount" Formula="@Data.grossamt1~+@Data.grossamt2~+@Data.grossamt3~+@Data.grossamt4~+@Data.grossamt5~+@Data.grossamt6~+@Data.grossamt7~+@Data.grossamt8~+@Data.grossamt9~+@Data.grossamt10~+@Data.grossamt11~+@Data.grossamt12~"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams Company_Profile_Code="Java" Year="2008" PicID="11"/>
+</Template>

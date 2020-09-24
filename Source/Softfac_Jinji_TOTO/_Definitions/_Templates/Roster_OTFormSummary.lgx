@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_OTFormSummary" SavedBy="Tester" SavedAt="8/27/2014 3:49:22 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ID="OTForm_Summary" ExcelTemplateMode="OneWorksheetPerDataRow" ExcelTemplateFilename="Overtime_Form_Summary.xlt">
+		<PatternBlock FirstRow="1" LastRow="18" ID="Header" Worksheet="Summary" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" ID="GetHeader" ConnectionID="HCRMConnection" Command="sp_tms_RptOTForm">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+					<SPParameter SPParamDirection="Input" ID="FormID" SPParamSize="0" SPParamType="dt-200" Value="@Request.FormID~"/>
+					<SPParameter SPParamDirection="Input" ID="Group" Value="SUMMARY" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="CompanyName" Value="@Data.Name~"/>
+			<PatternBlockCell ID="FormID" Value="Form ID : @Data.FORMID~" Column="B" PatternBlockRow="4"/>
+			<PatternBlockCell ID="PrintDate" Column="O" PatternBlockRow="4" Value="Print Date : @Data.printdate~"/>
+			<PatternBlockCell ID="ApplyDate" Column="B" PatternBlockRow="5" Value="Date Apply For: @Data.Date~"/>
+			<SubPatternBlock FirstRow="9" LastRow="9" DisposableFirstRow="10" DisposableLastRow="10" FillMode="Insert" ID="Details" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="SubDetails">
+					<DataLayer Type="SP" ID="GetDetails" Command="sp_tms_RptOTForm" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Date" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+							<SPParameter SPParamDirection="Input" ID="FormID" SPParamSize="0" SPParamType="dt-200" Value="@Request.FormID~"/>
+							<SPParameter SPParamDirection="Input" ID="Group" Value="SUMMARY" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="subDate" ChildColumn="Date" ParentColumn="Date"/>
+					<SubDataLayerRelationColumn ID="subFormID" ChildColumn="FORMID" ParentColumn="FORMID"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Name" Value="@Data.Name~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="Noofstaff" Value="@Data.NoofStaff~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="NoofHour" Value="@Data.NoofHour~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="REASON" Value="@Data.REASON~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+		<PatternBlock FirstRow="1" LastRow="18" ID="DHeader" Worksheet="Details" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" ID="DGetHeader" ConnectionID="HCRMConnection" Command="sp_tms_RptOTForm">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+					<SPParameter SPParamDirection="Input" ID="FormID" SPParamSize="0" SPParamType="dt-200" Value="@Request.FormID~"/>
+					<SPParameter SPParamDirection="Input" ID="Group" Value="DETAILS" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="DCompanyName" Value="@Data.Name~"/>
+			<PatternBlockCell ID="DFormID" Value="Form ID : @Data.FORMID~" Column="B" PatternBlockRow="4"/>
+			<PatternBlockCell ID="DPrintDate" Column="O" PatternBlockRow="4" Value="Print Date : @Data.printdate~"/>
+			<PatternBlockCell ID="DApplyDate" Column="B" PatternBlockRow="5" Value="Date Apply For: @Data.Date~"/>
+			<SubPatternBlock FirstRow="9" LastRow="9" DisposableFirstRow="10" DisposableLastRow="10" FillMode="Insert" ID="DDetails">
+				<SubDataLayer ID="DSubDetails">
+					<DataLayer Type="SP" ID="DGetDetails" Command="sp_tms_RptOTForm" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Date" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+							<SPParameter SPParamDirection="Input" ID="FormID" SPParamSize="0" SPParamType="dt-200" Value="@Request.FormID~"/>
+							<SPParameter SPParamDirection="Input" ID="Group" Value="DETAILS" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="DsubDate" ChildColumn="Date" ParentColumn="Date"/>
+					<SubDataLayerRelationColumn ID="DsubFormID" ChildColumn="FORMID" ParentColumn="FORMID"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="DEmpname" Value="@Data.Name~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="DEmpbadge" Value="@Data.Code~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="DBOT" Value="@Data.BOT~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="DAOT" Value="@Data.AOT~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="Dmidnight" Value="@Data.Midnight~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

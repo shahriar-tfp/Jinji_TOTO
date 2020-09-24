@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ManHourReport" SavedBy="Tester" SavedAt="7/27/2018 4:39:51 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="ManHourReport.xlt" ID="ManHourReport" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="17" ID="Header" Worksheet="Report">
+			<DataLayer Type="SP" Command="sp_tms_rptManHourSummary" ID="CallHeader" ConnectionID="HCRMConnection" IdeDisplayStatus="Collapsed">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="month" Value="@Request.Month~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="ProcessID" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+					<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="OrganName" Value="@Data.OrganName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Period" Value="MANHOURS SUMMARY BY DEPARTMENT THE MONTH -  @Data.DateRange~"/>
+			<SubPatternBlock FirstRow="10" LastRow="10" DisposableFirstRow="11" DisposableLastRow="11" ID="Details" FillMode="Insert">
+				<SubDataLayer ID="sdlDetails" IdeDisplayStatus="Collapsed">
+					<DataLayer Type="SP" Command="sp_tms_rptManHourSummary" ID="CallDetail" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="month" Value="@Request.Month~" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter SPParamDirection="Input" ID="ProcessID" SPParamSize="0" SPParamType="dt-200" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="ByType" SPParamSize="0" SPParamType="dt-200" Value="@Request.By_type~"/>
+							<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+						<SortFilter SortColumn="EmpCode, Date_Time_In" DataType="Text" ID="Sort" SortSequence="Ascending"/>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="OrganName" ParentColumn="OrganName" ID="sdlrcDate"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="OCP_ID_Department" Value="@Data.OCP_ID_Department~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="OCP_ID_Finance" Value="@Data.OCP_ID_Finance~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="AverageMan" Value="@Data.AverageMan~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="NDManHour" Value="@Data.NDManHour~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="NDAppot" Value="@Data.NDAppot~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="NIManHour" Value="@Data.NIManHour~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="NIAppot" Value="@Data.NIAppot~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="SDManHour" Value="@Data.SDManHour~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="SDAppot" Value="@Data.SDAppot~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="SIManHour" Value="@Data.SIManHour~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="SIAppot" Value="@Data.SIAppot~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Report ID="Copy_of_PersonalInfo" SavedBy="Tester" SavedAt="12/6/2011 12:33:06 PM" EngineVersion="8.0.30">
+	<StyleSheet/>
+	<ReportHeader>
+		<Label Caption="@Data.CompanyCode~" ID="lblCompany" Class="rptHeaderLogoText"/>
+	</ReportHeader>
+	<Body>
+		<Image Caption="@Data.Image~" ID="Image"/>
+	</Body>
+	<ReportFooter/>
+	<LocalData ID="LocalData"/>
+</Report>

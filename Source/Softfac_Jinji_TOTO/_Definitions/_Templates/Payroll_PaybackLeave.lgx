@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_PaybackLeave" SavedBy="Tester" SavedAt="5/16/2014 10:30:14 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Payroll_PayBackLeave.xlt" ID="Payroll PayBackLeave" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_PayBackLeave_LogicXML" FirstRow="1" LastRow="65536" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where company_Profile_Code = {*apos;*}@Request.Company_Profile_Code~{*apos;*} and code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_RptPaybackLeaveBalance" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmployeeCode" Column="A" PatternBlockRow="1" Value="@Data.EmpCode~"/>
+				<PatternBlockCell ID="EmployeeName" Value="@Data.EmpName~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Join_Date" Value="@Data.Join_Date~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="Resign_Date" Column="D" PatternBlockRow="1" Value="@Data.Resign_Date~"/>
+				<PatternBlockCell ID="Position" Value="@Data.Position~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Leave" Value="@Data.Leave~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="TolEntitle" Value="@Data.TolEntitle~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="LeaveTaken" Value="@Data.LeaveTaken~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="LeaveBalance" Value="@Data.Balance~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Month" Value="@Data.Month~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Year" Value="@Data.Year~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="ComName" Value="@Data.ComName~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="PrintDate" Value="@Data.PrintDate~" Column="M" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

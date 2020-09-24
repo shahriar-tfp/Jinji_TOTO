@@ -1,0 +1,31 @@
+<HTML>
+	<HEAD>
+		<meta name="rdDebug" />
+		<TITLE>rdDebug</TITLE>
+	</HEAD>
+	<LINK rel="stylesheet" type="text/css" href="rdTemplate/rdDebug.css" />
+	<BODY>
+		<H3>LGX Reporting Runtime Information</H3>
+		<rdErrorMsgContent>
+			<rdErrorMessage />
+		</rdErrorMsgContent>
+		<SPAN ID="DetailedReport" style="Display:rdDetailDisplayStyle">
+			<H4 Class="GroupHdr">Application Trace</H4>
+			<TABLE id="Table1" style="HEIGHT: 11px" cellSpacing="1" cellPadding="1" width="100%" border="1">
+				<TR>
+					<TH style="WIDTH: 15%">
+						Event</TH>
+					<TH style="WIDTH: 15%">
+						Object</TH>
+					<TH style="WIDTH: 55%">
+						Value</TH>
+					<TH style="WIDTH: 15%">
+						Duration *<br />
+						(seconds)</TH></TR>
+				<rdCurrentPosition />
+			</TABLE>
+			<P>* Generating this debugger information increases the overall elapsed time.</P>
+			<rdErrorReport />
+		</SPAN>
+	</BODY>
+</HTML>

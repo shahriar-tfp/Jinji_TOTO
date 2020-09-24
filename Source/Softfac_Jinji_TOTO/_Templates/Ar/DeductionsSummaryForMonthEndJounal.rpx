@@ -1,0 +1,2258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3.2" PrintWidth="16560" DocumentName="ActiveReports Document" ScriptLang="VB.NET" MasterReport="0">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; color: Black; text-align: left; vertical-align: top; ddo-char-set: 186" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="ReportHeader" Name="ReportHeader1" Visible="0" Height="2.145767E-05" BackColor="16777215" />
+    <Section Type="PageHeader" Name="PageHeader" Height="2493" BackColor="16777215">
+      <Control Type="AR.Field" Name="TextBox1" DataField="CompanyName" Left="288" Top="72" Width="6164.64" Height="288" Text="Companycode" Style="font-size: 9pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtHeader" Left="288" Top="394.56" Width="1951.2" Height="288" Text="allowance" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="No" Left="318.2402" Top="2093.76" Width="345.6001" Height="288" Text="No." Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="EMPID" Left="707.0403" Top="2093.76" Width="659.52" Height="288" Text="Emp. ID" Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="EmployeeName" Left="1326.24" Top="2093.76" Width="1944" Height="270.7201" Text="Employee Name" Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName1" DataField="SalaryName1" Left="3270.24" Top="1791.36" Width="720" Height="504" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Line" Name="Line1" X1="318.2401" Y1="2364.48" X2="16158.24" Y2="2364.48" LineStyle="2" LineWeight="3" />
+      <Control Type="AR.Field" Name="txtPaydetailMth" DataField="PrintMonth" Left="2239.2" Top="394.56" Width="4020.48" Height="288" Text="PaydetailMth" Style="font-size: 8.25pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="SalaryName2" DataField="SalaryName2" Left="3990.24" Top="1791.36" Width="720" Height="504" Text="SalaryName2" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName3" DataField="SalaryName3" Left="4710.24" Top="1791.36" Width="720" Height="504" Text="SalaryName3" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName4" DataField="SalaryName4" Left="5430.24" Top="1791.36" Width="720" Height="504" Text="SalaryName4" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName5" DataField="SalaryName5" Left="6150.241" Top="1791.36" Width="720" Height="504" Text="SalaryName5" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName6" DataField="SalaryName6" Left="6870.241" Top="1791.36" Width="720" Height="504" Text="SalaryName6" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName7" DataField="SalaryName7" Left="7590.241" Top="1791.36" Width="720" Height="504" Text="SalaryName7" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName8" DataField="SalaryName8" Left="8310.24" Top="1791.36" Width="720" Height="504" Text="SalaryName8" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName9" DataField="SalaryName9" Left="9030.24" Top="1791.36" Width="720" Height="504" Text="SalaryName9" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName10" DataField="SalaryName10" Left="9750.24" Top="1791.36" Width="720" Height="504" Text="SalaryName10" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName11" DataField="SalaryName11" Left="10470.24" Top="1791.36" Width="720" Height="504" Text="SalaryName11" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName12" DataField="SalaryName12" Left="11190.24" Top="1791.36" Width="720" Height="504" Text="SalaryName12" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName13" DataField="SalaryName13" Left="11910.24" Top="1791.36" Width="720" Height="504" Text="SalaryName13" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName14" DataField="SalaryName14" Left="12630.24" Top="1791.36" Width="720" Height="504" Text="SalaryName14" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName15" DataField="SalaryName15" Left="13350.24" Top="1791.36" Width="720" Height="504" Text="SalaryName15" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName16" DataField="SalaryName16" Left="14070.24" Top="1791.36" Width="720" Height="504" Text="SalaryName16" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName17" DataField="SalaryName17" Left="14790.24" Top="1791.36" Width="720" Height="504" Text="SalaryName17" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryName18" DataField="SalaryName18" Left="15510.24" Top="1791.36" Width="720" Height="504" Text="SalaryName18" Style="font-size: 6.75pt; font-weight: bold; text-align: right; vertical-align: bottom; ddo-char-set: 0" />
+      <Control Type="AR.ReportInfo" Name="ReportInfo2" Left="12179.52" Top="478.08" Width="3780.001" Height="197.28" FormatString="Printed: {RunDateTime : dd/MM/yyyy hh:mm:ss tt}" Style="font-size: 6.75pt; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtAllowanceCount" DataField="Allowancecount" Visible="0" Left="7079.041" Top="0" Width="1440" Height="288" Text="8" />
+      <Control Type="AR.Field" Name="txtCheckBy" DataField="CheckBy" Visible="0" Left="8519.041" Top="0" Width="1440" Height="288" Text="DEPARTMENT" />
+      <Control Type="AR.Field" Name="txtByType" DataField="ByType" Visible="0" Left="5804.64" Top="72.00002" Width="1440" Height="288" Text="SUM" />
+      <Control Type="AR.Line" Name="Line6" X1="288" Y1="1951.2" X2="16128" Y2="1951.2" LineStyle="2" LineWeight="3" />
+      <Control Type="AR.Field" Name="txtSalaryName1" DataField="SalaryName1" Left="288" Top="840" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName1" DataField="SalaryLongName1" Left="864.0001" Top="839.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName5" DataField="SalaryLongName5" Left="863.9999" Top="1055.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName5" DataField="SalaryName5" Left="287.9997" Top="1056" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName9" DataField="SalaryLongName9" Left="864.0001" Top="1271.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalarName9" DataField="SalaryName9" Left="287.9999" Top="1272" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName13" DataField="SalaryLongName13" Left="863.9999" Top="1487.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName13" DataField="SalaryName13" Left="287.9997" Top="1488" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName17" DataField="SalaryLongName17" Left="863.9999" Top="1703.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName17" DataField="SalaryName17" Left="287.9997" Top="1704" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName6" DataField="SalaryName6" Left="4134.24" Top="1056" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName2" DataField="SalaryLongName2" Left="4710.24" Top="839.52" Width="2880" Height="216" Text="2" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName10" DataField="SalaryLongName10" Left="4710.24" Top="1271.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName18" DataField="SalaryLongName18" Left="4710.24" Top="1703.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName14" DataField="SalaryName14" Left="4134.24" Top="1488" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName14" DataField="SalaryLongName14" Left="4710.24" Top="1487.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName18" DataField="SalaryName18" Left="4134.24" Top="1704" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName10" DataField="SalaryName10" Left="4134.24" Top="1272" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName2" DataField="SalaryName2" Left="4134.24" Top="840" Width="504" Height="216" Text="SalaryName2" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName6" DataField="SalaryLongName6" Left="4710.24" Top="1055.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName7" DataField="SalaryName7" Left="7601.76" Top="1056" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName3" DataField="SalaryLongName3" Left="8177.761" Top="839.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName11" DataField="SalaryLongName11" Left="8177.761" Top="1271.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName15" DataField="SalaryName15" Left="7601.76" Top="1488" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName15" DataField="SalaryLongName15" Left="8177.761" Top="1487.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName11" DataField="SalaryName11" Left="7601.76" Top="1272" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName3" DataField="SalaryName3" Left="7601.76" Top="840" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName7" DataField="SalaryLongName7" Left="8177.761" Top="1055.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName8" DataField="SalaryName8" Left="11304" Top="1056" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName4" DataField="SalaryLongName4" Left="11880" Top="839.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName12" DataField="SalaryLongName12" Left="11880" Top="1271.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName16" DataField="SalaryName16" Left="11304" Top="1488" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName16" DataField="SalaryLongName16" Left="11880" Top="1487.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName12" DataField="SalaryName12" Left="11304" Top="1272" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryName4" DataField="SalaryName4" Left="11304" Top="840" Width="504" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtSalaryLongName8" DataField="SalaryLongName8" Left="11880" Top="1055.52" Width="2880" Height="216" Text="SalaryName1" Style="font-size: 6.75pt; font-weight: bold" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="345.0001" DataField="GroupID" GroupKeepTogether="2" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Field" Name="Division" DataField="GroupBy" Left="288" Top="72" Width="1444.32" Height="288" Text="Division :" Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtDivision" DataField="GroupID" Left="1772.64" Top="72" Width="6405.12" Height="288" Text="Division :" Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="345" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Field" Name="txtempname" DataField="EmpName" Left="1311.84" Top="64.8" Width="1807.2" Height="288" Text="Employee Name" Style="font-size: 6.75pt; font-weight: normal; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtempid" DataField="EmpCode" Left="663.8401" Top="64.8" Width="659.52" Height="288" Text="Emp. ID" Style="font-size: 6.75pt; font-weight: normal; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtno" Left="275.0401" Top="64.8" Width="345.6001" Height="288" Text="No." Style="font-size: 6.75pt; font-weight: normal; ddo-char-set: 0" SummaryType="3" SummaryFunc="2" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SalaryAmount1" DataField="SalaryAmount1" Left="2880" Top="0" Width="1080" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount2" DataField="SalaryAmount2" Left="3960" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount3" DataField="SalaryAmount3" Left="4680" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount4" DataField="SalaryAmount4" Left="5400" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount5" DataField="SalaryAmount5" Left="6120" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount6" DataField="SalaryAmount6" Left="6840" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount7" DataField="SalaryAmount7" Left="7560" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount8" DataField="SalaryAmount8" Left="8280" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount9" DataField="SalaryAmount9" Left="9000" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount10" DataField="SalaryAmount10" Left="9720" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount11" DataField="SalaryAmount11" Left="10440" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount12" DataField="SalaryAmount12" Left="11160" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount13" DataField="SalaryAmount13" Left="11880" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount14" DataField="SalaryAmount14" Left="12600" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount15" DataField="SalaryAmount15" Left="13320" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount16" DataField="SalaryAmount16" Left="14040" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount17" DataField="SalaryAmount17" Left="14760" Top="0" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="SalaryAmount18" DataField="SalaryAmount18" Left="15480" Top="0" Width="720" Height="288" Text="123456789" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: normal; text-align: right; ddo-char-set: 0" />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="540.2402" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Line" Name="Line4" X1="318.24" Y1="86.4" X2="16128" Y2="86.4" LineWeight="3" />
+      <Control Type="AR.Field" Name="NoofEmp" Left="288" Top="115.2" Width="1316.16" Height="288" Text="No Of Employee : " Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="txtnoofemp" Left="1732.32" Top="115.2" Width="891.3601" Height="288" Text="No Of Employee" Style="color: Black; font-size: 6.75pt; font-weight: normal; ddo-char-set: 0" SummaryType="3" SummaryFunc="2" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal10" DataField="SalaryAmount10" Left="9720" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal9" DataField="SalaryAmount9" Left="9000" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal3" DataField="SalaryAmount3" Left="4680" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal14" DataField="SalaryAmount14" Left="12600" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal15" DataField="SalaryAmount15" Left="13320" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal11" DataField="SalaryAmount11" Left="10440" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal12" DataField="SalaryAmount12" Left="11160" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal16" DataField="SalaryAmount16" Left="14040" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal8" DataField="SalaryAmount8" Left="8280" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal18" DataField="SalaryAmount18" Left="15480" Top="115.2" Width="720" Height="288" Text="0.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; white-space: inherit; ddo-char-set: 0; ddo-shrink-to-fit: none; ddo-wrap-mode: inherit" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal17" DataField="SalaryAmount17" Left="14760" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal2" DataField="SalaryAmount2" Left="3960" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal13" DataField="SalaryAmount13" Left="11880" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal7" DataField="SalaryAmount7" Left="7560" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal4" DataField="SalaryAmount4" Left="5400" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal1" DataField="SalaryAmount1" Left="2880" Top="115.2" Width="1080" Height="288" Text="1234567.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal6" DataField="SalaryAmount6" Left="6840" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="SubTotal5" DataField="SalaryAmount5" Left="6120" Top="115.2" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="3" SummaryRunning="1" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Line" Name="Line5" X1="275.04" Y1="489.6" X2="16084.8" Y2="489.6" LineWeight="3" />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="738.7199" BackColor="16777215">
+      <Control Type="AR.Field" Name="TextBox25" Left="318.24" Top="90.72" Width="3735.36" Height="288" Text="Prepared By :_____________________________" Style="font-size: 8pt" />
+      <Control Type="AR.Field" Name="TextBox26" Left="4965.12" Top="90.72" Width="4095.361" Height="288" Text="Reviewed By :_____________________________" Style="font-size: 8pt" />
+      <Control Type="AR.Field" Name="TextBox27" Left="10110.24" Top="90.72" Width="4095.361" Height="288" Text="Approved By :_____________________________" Style="font-size: 8pt" />
+      <Control Type="AR.ReportInfo" Name="ReportInfo1" Left="5804.64" Top="450.72" Width="3420" Height="288" FormatString="Page {PageNumber} of {PageCount}" Style="font-size: 8pt" />
+    </Section>
+    <Section Type="ReportFooter" Name="ReportFooter1" Height="544.6799" BackColor="16777215">
+      <Control Type="AR.Field" Name="txtTolSalary1" DataField="SalaryAmount1" Left="3270.24" Top="86.4" Width="720" Height="288" Text="1234567.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary14" DataField="SalaryAmount14" Left="12630.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary4" DataField="SalaryAmount4" Left="5430.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary3" DataField="SalaryAmount3" Left="4710.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary5" DataField="SalaryAmount5" Left="6150.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary7" DataField="SalaryAmount7" Left="7590.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary9" DataField="SalaryAmount9" Left="9030.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary16" DataField="SalaryAmount16" Left="14070.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary15" DataField="SalaryAmount15" Left="13350.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary2" DataField="SalaryAmount2" Left="3990.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary6" DataField="SalaryAmount6" Left="6870.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary13" DataField="SalaryAmount13" Left="11910.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary17" DataField="SalaryAmount17" Left="14790.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary8" DataField="SalaryAmount8" Left="8310.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary10" DataField="SalaryAmount10" Left="9750.241" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary18" DataField="SalaryAmount18" Left="15510.24" Top="86.4" Width="720" Height="288" Text="123456789" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary11" DataField="SalaryAmount11" Left="10470.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTolSalary12" DataField="SalaryAmount12" Left="11190.24" Top="86.4" Width="720" Height="288" Text="123456789.00" OutputFormat="#,##0.00" Style="font-size: 6.75pt; font-weight: bold; text-align: right; ddo-char-set: 0" SummaryType="1" SummaryRunning="2" />
+      <Control Type="AR.Line" Name="Line2" X1="288" Y1="43.2" X2="16200" Y2="43.2" LineWeight="3" />
+      <Control Type="AR.Line" Name="Line3" X1="288" Y1="432" X2="16158.24" Y2="432" LineWeight="3" />
+      <Control Type="AR.Field" Name="txtTotalCount" Left="1860.48" Top="86.4" Width="891.3601" Height="288" Text="No Of Employee" Style="color: Black; font-size: 6.75pt; font-weight: normal; ddo-char-set: 0" SummaryType="1" SummaryFunc="2" SummaryRunning="2" />
+      <Control Type="AR.Field" Name="txtTotal" Left="288" Top="86.4" Width="1316.16" Height="288" Text="Total :" Style="font-size: 6.75pt; font-weight: bold; ddo-char-set: 0" />
+    </Section>
+  </Sections>
+  <ReportComponentTray />
+  <Script><![CDATA[
+
+Sub Detail_Format
+	dim p As System.Drawing.PointF
+	dim X , Y , Z , A as Double
+	X = 11.2
+	Y = 0
+	
+	if me.txtAllowanceCount.Text = "2" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount3.visible = false
+		me.SalaryAmount4.visible = false
+		me.SalaryAmount5.visible = false
+		me.SalaryAmount6.visible = false
+		me.SalaryAmount7.visible = false
+		me.SalaryAmount8.visible = false
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "3" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount4.visible = false
+		me.SalaryAmount5.visible = false
+		me.SalaryAmount6.visible = false
+		me.SalaryAmount7.visible = false
+		me.SalaryAmount8.visible = false
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "4" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount5.visible = false
+		me.SalaryAmount6.visible = false
+		me.SalaryAmount7.visible = false
+		me.SalaryAmount8.visible = false
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "5" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount6.visible = false
+		me.SalaryAmount7.visible = false
+		me.SalaryAmount8.visible = false
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "6" Then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount7.visible = false
+		me.SalaryAmount8.visible = false
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "7" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount8.visible = false
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "8" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount9.visible = false
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "9" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount10.visible = false
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "10" then
+		A = 8 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount11.visible = false
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "11" then
+		A = 7 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount12.visible = false
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "12" then
+		A = 6 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount13.visible = false
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount12, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "13" then
+		A = 5 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount14.visible = false
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount13, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount12, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "14" then
+		A = 4 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount15.visible = false
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount14, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount13, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount12, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "15" then
+		A = 3 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount16.visible = false
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount15, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount14, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount13, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount12, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SalaryAmount2, p, Z)
+	elseif me.txtAllowanceCount.Text = "16" then
+		A = 2 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount17.visible = false
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount16, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount15, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount14, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount13, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount12, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.SalaryAmount2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.SalaryAmount1, p, (X - (Z * 14)) - 2.0)
+	elseif me.txtAllowanceCount.Text = "17" then
+		A = 1 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryAmount18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryAmount17, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryAmount16, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryAmount15, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryAmount14, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryAmount13, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryAmount12, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryAmount11, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryAmount10, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryAmount9, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryAmount8, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryAmount7, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryAmount6, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryAmount5, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SalaryAmount4, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.SalaryAmount3, p, Z)
+		p.X = X - (Z * 15)
+		GetWidthX(me.SalaryAmount2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.SalaryAmount1, p, (X - (Z * 15)) - 2.0)
+	End If
+End Sub
+
+public Sub GetWidthX(byval textbox as grapecity.ActiveReports.SectionReportModel.TextBox, byval p As System.Drawing.PointF,byval W as double)
+    textbox.Location = p
+	textbox.Width = W
+end sub
+
+Sub PageHeader_Format
+	if me.txtCheckBy.Text = "SUM" then
+		if me.txtByType.text = "FINANCE" then
+			me.EMPID.Text = "Code"
+			me.EmployeeName.Text = "Cost Center"
+		elseif me.txtByType.text = "ADD" then
+			me.EMPID.text = "Emp. ID"
+			me.EmployeeName.text = "Employee Name"
+		else
+			me.EMPID.Text = "Code"
+			me.EmployeeName.Text = me.txtByType.text
+		End If
+	end if
+	if  me.txtCheckBy.Text = "ALLOW" then
+		me.txtHeader.Text = "Allowance Details For"
+	End If
+	if  me.txtCheckBy.Text = "DEDUCT" then
+		me.txtHeader.Text = "Deduction Details For"
+	End If
+	dim p As System.Drawing.PointF
+	dim X , Y , Z , A as Double
+	X = 11.2
+	Y = 1.244
+	if me.txtAllowanceCount.Text = "2" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName3.visible = false
+		me.SalaryName4.visible = false
+		me.SalaryName5.visible = false
+		me.SalaryName6.visible = false
+		me.SalaryName7.visible = false
+		me.SalaryName8.visible = false
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "3" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName4.visible = false
+		me.SalaryName5.visible = false
+		me.SalaryName6.visible = false
+		me.SalaryName7.visible = false
+		me.SalaryName8.visible = false
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "4" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName5.visible = false
+		me.SalaryName6.visible = false
+		me.SalaryName7.visible = false
+		me.SalaryName8.visible = false
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "5" Then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		
+		me.SalaryName6.visible = false
+		me.SalaryName7.visible = false
+		me.SalaryName8.visible = false
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "6" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName7.visible = false
+		me.SalaryName8.visible = false
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "7" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName8.visible = false
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "8" Then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName9.visible = false
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "9" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName10.visible = false
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "10" Then
+		A = 8 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName11.visible = false
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "11" then
+		A = 7 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName12.visible = false
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "12" then
+		A = 6 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName13.visible = false
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName12, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "13" then
+		A = 5 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1))+ 0.5
+		X = X - Z
+		
+		me.SalaryName14.visible = false
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName13,p,Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName12, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "14" then
+		A = 4 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName15.visible = false
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName14, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName13, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName12, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "15" then
+		A = 3 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName16.visible = false
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName15, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName14, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName13, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName12, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SalaryName2, p, Z)
+	elseif me.txtAllowanceCount.Text = "16" then
+		A = 2 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName17.visible = false
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName16, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName15, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName14, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName13, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName12, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.SalaryName2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.SalaryName1, p, (X - (Z * 14)) - 2.0)
+	elseif me.txtAllowanceCount.Text = "17" then
+		A = 1 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SalaryName18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SalaryName17, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SalaryName16, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SalaryName15, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SalaryName14, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SalaryName13, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SalaryName12, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SalaryName11, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SalaryName10, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SalaryName9, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SalaryName8, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SalaryName7, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SalaryName6, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SalaryName5, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SalaryName4, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.SalaryName3, p, Z)
+		p.X = X - (Z * 15)
+		GetWidthX(me.SalaryName2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.SalaryName1, p, (X - (Z * 15)) - 2.0)
+	End If
+End Sub
+
+
+Sub GroupFooter1_Format
+	dim p As System.Drawing.PointF
+	dim X , Y , Z , A as Double
+	X = 11.2
+	Y = 0.08
+	if me.txtAllowanceCount.Text = "2" then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal3.visible = false
+		me.SubTotal4.visible = false
+		me.SubTotal5.visible = false
+		me.SubTotal6.visible = false
+		me.SubTotal7.visible = false
+		me.SubTotal8.visible = false
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "3" then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal4.visible = false
+		me.SubTotal5.visible = false
+		me.SubTotal6.visible = false
+		me.SubTotal7.visible = false
+		me.SubTotal8.visible = false
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "4" then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal5.visible = false
+		me.SubTotal6.visible = false
+		me.SubTotal7.visible = false
+		me.SubTotal8.visible = false
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "5" then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal6.visible = false
+		me.SubTotal7.visible = false
+		me.SubTotal8.visible = false
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "6" then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal7.visible = false
+		me.SubTotal8.visible = false
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "7" then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal8.visible = false
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "8" Then
+		A = 9 * 0.5
+		Z = cdbl(A / (9 - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal9.visible = false
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "9" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal10.visible = false
+		me.SubTotal11.visible = false
+		Me.SubTotal12.visible = False
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "10" Then
+		A = 8 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal11.visible = false
+		me.SubTotal12.visible = false
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "11" then
+		A = 7 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal12.visible = false
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "12" then
+		A = 6 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		
+		me.SubTotal13.visible = false
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal12, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "13" then
+		A = 5 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal14.visible = false
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal13, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal12, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "14" then
+		A = 4 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal15.visible = false
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal14, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal13, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal12, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "15" then
+		A = 3 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal16.visible = false
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal15, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal14, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal13, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal12, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SubTotal2, p, Z)
+	elseif me.txtAllowanceCount.Text = "16" then
+		A = 2 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text)-1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal17.visible = false
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal16, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal15, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal14, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal13, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal12, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.SubTotal2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.SubTotal1, p, (X - (Z * 14))-2.0)
+	elseif me.txtAllowanceCount.Text = "17" then
+		A = 1 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text)-1)) + 0.5
+		X = X - Z
+		
+		me.SubTotal18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.SubTotal17, p, Z)
+		p.X = X - Z
+		GetWidthX(me.SubTotal16, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.SubTotal15, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.SubTotal14, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.SubTotal13, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.SubTotal12, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.SubTotal11, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.SubTotal10, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.SubTotal9, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.SubTotal8, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.SubTotal7, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.SubTotal6, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.SubTotal5, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.SubTotal4, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.SubTotal3, p, Z)
+		p.X = X - (Z * 15)
+		GetWidthX(me.SubTotal2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.SubTotal1, p, (X - (Z * 15)) - 2.0)
+	End If	
+End Sub
+
+
+Sub ReportFooter1_Format
+	
+	dim p As System.Drawing.PointF
+	dim X , Y , Z , A as Double
+	X = 11.2
+	Y = 0.06
+	if me.txtAllowanceCount.Text = "2" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary3.visible = false
+		me.txtTolSalary4.visible = false
+		me.txtTolSalary5.visible = false
+		me.txtTolSalary6.visible = false
+		me.txtTolSalary7.visible = false
+		me.txtTolSalary8.visible = false
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "3" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary4.visible = false
+		me.txtTolSalary5.visible = false
+		me.txtTolSalary6.visible = false
+		me.txtTolSalary7.visible = false
+		me.txtTolSalary8.visible = false
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "4" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary5.visible = false
+		me.txtTolSalary6.visible = false
+		me.txtTolSalary7.visible = false
+		me.txtTolSalary8.visible = false
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "5" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary6.visible = false
+		me.txtTolSalary7.visible = false
+		me.txtTolSalary8.visible = false
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "6" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary7.visible = false
+		me.txtTolSalary8.visible = false
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "7" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary8.visible = false
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "8" Then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(9) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary9.visible = false
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "9" then
+		A = 9 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary10.visible = false
+		me.txtTolSalary11.visible = false
+		Me.txtTolSalary12.visible = False
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseIf Me.txtAllowanceCount.Text = "10" Then
+		A = 8 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary11.visible = false
+		me.txtTolSalary12.visible = false
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "11" then
+		A = 7 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary12.visible = false
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "12" then
+		A = 6 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		
+		me.txtTolSalary13.visible = false
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary12, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "13" then
+		A = 5 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary14.visible = false
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary13, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary12, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "14" then
+		A = 4 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary15.visible = false
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary14, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary13, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary12, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "15" then
+		A = 3 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary16.visible = false
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary15, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary14, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary13, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary12, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.txtTolSalary2, p, Z)
+	elseif me.txtAllowanceCount.Text = "16" then
+		A = 2 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary17.visible = false
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary16, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary15, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary14, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary13, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary12, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.txtTolSalary2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.txtTolSalary1, p, (X - (Z * 14)) - 2.0)
+	elseif me.txtAllowanceCount.Text = "17" then
+		A = 1 * 0.5
+		Z = cdbl(A / (cint(me.txtAllowanceCount.Text) - 1)) + 0.5
+		X = X - Z
+		
+		me.txtTolSalary18.visible = false
+		p.X = X
+		p.Y = Y
+		GetWidthX(me.txtTolSalary17, p, Z)
+		p.X = X - Z
+		GetWidthX(me.txtTolSalary16, p, Z)
+		p.X = X - (Z * 2)
+		GetWidthX(me.txtTolSalary15, p, Z)
+		p.X = X - (Z * 3)
+		GetWidthX(me.txtTolSalary14, p, Z)
+		p.X = X - (Z * 4)
+		GetWidthX(me.txtTolSalary13, p, Z)
+		p.X = X - (Z * 5)
+		GetWidthX(me.txtTolSalary12, p, Z)
+		p.X = X - (Z * 6)
+		GetWidthX(me.txtTolSalary11, p, Z)
+		p.X = X - (Z * 7)
+		GetWidthX(me.txtTolSalary10, p, Z)
+		p.X = X - (Z * 8)
+		GetWidthX(me.txtTolSalary9, p, Z)
+		p.X = X - (Z * 9)
+		GetWidthX(me.txtTolSalary8, p, Z)
+		p.X = X - (Z * 10)
+		GetWidthX(me.txtTolSalary7, p, Z)
+		p.X = X - (Z * 11)
+		GetWidthX(me.txtTolSalary6, p, Z)
+		p.X = X - (Z * 12)
+		GetWidthX(me.txtTolSalary5, p, Z)
+		p.X = X - (Z * 13)
+		GetWidthX(me.txtTolSalary4, p, Z)
+		p.X = X - (Z * 14)
+		GetWidthX(me.txtTolSalary3, p, Z)
+		p.X = X - (Z * 15)
+		GetWidthX(me.txtTolSalary2, p, Z)
+		p.X = 2.0
+		GetWidthX(me.txtTolSalary1, p, (X - (Z * 15)) - 2.0)
+	End If	
+End Sub
+
+
+]]></Script>
+  <PageSettings LeftMargin="288" RightMargin="288" TopMargin="288" BottomMargin="288" PaperSize="9" PaperWidth="11906" PaperHeight="16838" PaperName="" Orientation="2" />
+  <Parameters />
+</ActiveReportsLayout>

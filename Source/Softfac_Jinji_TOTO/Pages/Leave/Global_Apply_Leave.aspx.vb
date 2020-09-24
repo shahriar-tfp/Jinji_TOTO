@@ -1,0 +1,3836 @@
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.web.Configuration
+
+Partial Class Pages_Leave_Global_Apply_Leave
+    Inherits System.Web.UI.Page
+
+#Region "Public Declaration"
+    Private WithEvents mySQL As New clsSQL, myDS, myDS1, myDS2, myDS3, myDS4, myDS10, myDSDefault, myDSInsert As New DataSet, mySetting As New clsGlobalSetting, myMsg As New clsMessage
+    Private WithEvents myFileReader As New clsReadFile(System.AppDomain.CurrentDomain.BaseDirectory & "App_GlobalResources\Setup\Setup.ini")
+    Public ssql As String, i As Integer, j As Integer, SearchByPage As Boolean, RecFound As Boolean, CountRecord As Integer
+    Public AllowView As Boolean, AllowInsert As Boolean, AllowUpdate As Boolean, AllowDelete As Boolean, AllowPrint As Boolean
+    Public _currentPageNumber As Integer, _totalPage As Double = 1, _totalRecords As Integer
+    Public myDE As New DictionaryEntry, myHT As Hashtable
+    Public myDataType As New clsGlobalSetting.DataType
+    Dim strLeaveType, strFromTime, strToTime As String
+#End Region
+
+#Region "Private Declaration"
+    Private WithEvents myDT1 As New DataTable, myDT2 As New DataTable
+    Dim myDR1 As DataRow, myDR2 As DataRow, rcPerPage As Integer, autonum As Integer
+    Dim ssql1, ssql2, ssql3, ssql5, ssql6 As String, ssql4 As String
+    Dim rowPosition As String = "R_", rowPositionM As String = "RM_", panelPosition As String = "Display_"
+    Dim buttonPosition1 As String = "B1_", buttonPosition2 As String = "B2_", buttonPosition3 As String = "B3_", labelPosition1 As String = "L1_"
+    Dim logic As Boolean
+    Dim grdItem As GridViewRow
+    Dim chkSelected As CheckBox
+    Dim dtSelectedDate As DateTime
+    Dim stPeriod, stDateApplyOn, PrevLeaveID, LeaveID, iID, StopChecking, mstBalance As String
+    Dim ApplicationEnd, ContinueLoop As Boolean
+    Dim Day, TotalDay As Decimal
+    Dim Err1, Err2, Err3, Err4, Err5, Err6, vDate1, vDate2, vDate3, vDate4, vDate5, vDate6, Message As String
+    Dim vCount, vCounter, CountDay, CountSequence, ContinueCount As Integer
+    Dim Action, DateApplyFor, strempid, CurrentDate As String
+    Dim btnColourDef, btnColourAlt As String
+    Dim clsMsg As New clsMessage
+    Dim strPath As String = "../../Images"
+#End Region
+
+#Region "Page Setting"
+
+    Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        If Session.IsNewSession Then
+            Response.Redirect("../Global/SessionTimeOut.aspx")
+        End If
+
+        If Not Page.IsPostBack Then
+            Response.CacheControl = "no-cache"
+            Response.AddHeader("Pragma", "no-cache")
+            Response.Expires = -1
+
+            If Session("ScreenWidth") = 0 Then
+                Session("ScreenWidth") = "1024"
+                Session("GVwidth") = Session("ScreenWidth") - 360
+            End If
+            If Session("ScreenHeight") = 0 Then
+                Session("ScreenHeight") = "768"
+                Session("GVheight") = (Session("ScreenHeight") / 2) - 50
+            End If
+            pnlgridview.Width = CInt(Session("GVwidth"))
+            pnlgridview.Height = CInt(Session("GVheight"))
+
+            PagePreload()
+            'BindGrid()
+            imgBtnAdd_Click(NOTHING,Nothing)
+        Else
+            If IsNumeric(CurrentPage.Text) Then
+                _currentPageNumber = CInt(CurrentPage.Text)
+            Else
+                _currentPageNumber = 1
+            End If
+        End If
+
+    End Sub
+
+    Sub PagePreload()
+
+        btnColourDef = Session("strTheme")
+        btnColourAlt = Session("strThemeAlt")
+        Session("Module") = "Leave"
+        Session("action") = ""
+        Session("FilterField") = ""
+        Session("FilterCriteria") = ""
+        pnledit.Visible = False
+        SearchByPage = False
+        _currentPageNumber = 1
+        Session("currentpage") = _currentPageNumber
+        FirstPage.Enabled = False
+        PrevPage.Enabled = False
+        NextPage.Enabled = False
+        LastPage.Enabled = False
+
+        'get Page Title
+        ssql = "exec sp_sa_GetPageTitle '" & Form.ID & "'"
+        myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+        If myDS.Tables(0).Rows.Count > 0 Then
+            lblTitle.Text = myDS.Tables(0).Rows(0).Item(0)
+            lblTitle.CssClass = "wordstyle4"
+            lblTitle2.Text = myDS.Tables(0).Rows(0).Item(0)
+            lblTitle2.CssClass = "wordstyle4"
+        End If
+        myDS = Nothing
+
+        'label for list box
+        lbllstleft.Text = "Available List"
+        lbllstright.Text = "Selected List"
+        lbllstleft.CssClass = "wordstyle5"
+        lbllstright.CssClass = "wordstyle6"
+
+        mySetting.GetBtnImgUrl(imgBtnSubmit, Session("Company").ToString, btnColourDef, "btnSubmit.png")
+        mySetting.GetBtnImgUrl(imgBtnSearch, Session("Company").ToString, btnColourDef, "btnSearch.png")
+        mySetting.GetBtnImgUrl(imgBtnClear, Session("Company").ToString, btnColourDef, "btnClear.png")
+        mySetting.GetBtnImgUrl(imgBtnCancel, Session("Company").ToString, btnColourDef, "btnCancel.png")
+        mySetting.GetBtnImgUrl(imgBtnAdd, Session("Company").ToString, btnColourDef, "btnAdd.png")
+        mySetting.GetBtnImgUrl(imgBtnFilter, Session("Company").ToString, btnColourDef, "btnFilter.png")
+        mySetting.GetBtnImgUrl(imgBtnDelete, Session("Company").ToString, btnColourDef, "btnDelete.png")
+        mySetting.GetBtnImgUrl(imgBtnUpdate, Session("Company").ToString, btnColourDef, "btnUpdate.png")
+        mySetting.GetBtnImgUrl(imgBtnEdit, Session("Company").ToString, btnColourDef, "btnEdit.png")
+        mySetting.GetBtnImgUrl(imgBtnPrint, Session("Company").ToString, btnColourDef, "btnPrint.png")
+        mySetting.GetBtnImgUrl(imgBtnGoToPage, Session("Company").ToString, btnColourDef, "btngo.png")
+
+        mySetting.GetBtnImgUrl(imgBtnAddAll, Session("Company").ToString, btnColourDef, "addall.png")
+        mySetting.GetBtnImgUrl(imgBtnAddItem, Session("Company").ToString, btnColourDef, "additem.png")
+        mySetting.GetBtnImgUrl(imgBtnRemoveAll, Session("Company").ToString, btnColourDef, "removeall.png")
+        mySetting.GetBtnImgUrl(imgBtnRemoveItem, Session("Company").ToString, btnColourDef, "removeitem.png")
+        mySetting.GetImgBtnUrl(imgBtnEMPLOYEE_PROFILE_ID2, clsGlobalSetting.ImageType._LOOKUP, Session("Company").ToString)
+        mySetting.SetTextBoxPressEnterGoToImageButton(txtGoToPage, imgBtnGoToPage)
+
+        'lookup field value seting
+        ssql = "Exec sp_sa_GetLookupCodeName " & """" & Session("Company").ToString & """," & """" & Session("Module").ToString & """," & """" & Form.ID & """," & """" & "COMPANY_PROFILE_CODE" & """," & """" & """," & """" & Session("EmpID").ToString & """"
+        mySetting.GetLookupValue_ImageButton(imgBtnCOMPANY_PROFILE_CODE, Form.ID, "txtCOMPANY_PROFILE_CODE", "CodeName", ssql)
+        ssql = "Exec sp_sa_GetLookupCodeName " & """" & Session("Company").ToString & """," & """" & Session("Module").ToString & """," & """" & Form.ID & """," & """" & "OCP_ID_LEAVE" & """," & """" & """," & """" & Session("EmpID").ToString & """"
+        mySetting.GetLookupValue_ImageButton(imgBtnOCP_ID_LEAVE, Form.ID, "txtOCP_ID_LEAVE", "CodeName", ssql)
+
+        lblOPTION_TYPE.Visible = True
+        imgOPTION_TYPE.Visible = False
+        imgBtnOPTION_TYPE.Visible = False
+        lblOPTION_TYPE.Text = "Group by"
+        lblOCP_ID.Visible = True
+        imgOCP_ID.Visible = False
+        imgBtnOCP_ID.Visible = False
+        lblOCP_ID.Text = "OCP ID"
+        mySetting.GetDropdownlistValue(Form.ID + "_VW", "OPTION_TYPE", ddlOPTION_TYPE)
+
+        body.Style("background-image") = strPath & "/" & Session("strTheme") & "/background2.jpg"
+
+        myDS = mySetting.GetPageFieldSetting(Session("Company"), Form.ID, Session("EmpID"))
+        If myDS.Tables.Count > 1 Then
+            myDT1 = myDS.Tables(0)
+            myDT2 = myDS.Tables(1)
+
+            If myDT1.Rows.Count > 0 Then
+                myDR1 = myDT1.Rows(0)
+
+                Page.Title = myDR1(1)
+                If myDR1(3) = "YES" Then
+                    AllowView = True
+                Else
+                    AllowView = False
+                    pnlaction.Visible = False
+                    pnledit.Visible = False
+                    pnlgridview.Visible = False
+                    pnlmain.Visible = False
+                    pnlprevnext.Visible = False
+                    pnlresult.Visible = False
+                    ShowMessage("You are not allow to view this page!")
+                    Exit Sub
+                End If
+
+                If myDR1(4) = "YES" Then AllowInsert = True Else AllowInsert = False
+                If myDR1(5) = "YES" Then AllowUpdate = True Else AllowUpdate = False
+                If myDR1(6) = "YES" Then AllowDelete = True Else AllowDelete = False
+                If myDR1(7) = "YES" Then AllowPrint = True Else AllowPrint = False
+
+                Session("AllowView") = AllowView
+                Session("AllowInsert") = AllowInsert
+                Session("AllowUpdate") = AllowUpdate
+                Session("AllowDelete") = AllowDelete
+                Session("AllowPrint") = AllowPrint
+
+                imgBtnAdd.Visible = AllowInsert
+                imgBtnSubmit.Visible = AllowInsert
+                imgBtnEdit.Visible = AllowUpdate
+                imgBtnUpdate.Visible = AllowUpdate
+                imgBtnDelete.Visible = AllowDelete
+                imgBtnSearch.Visible = AllowView
+                imgBtnFilter.Visible = AllowView
+                imgBtnClear.Visible = AllowView
+                imgBtnCancel.Visible = AllowView
+                imgBtnPrint.Visible = AllowPrint
+
+                'Get GV page per record
+                If myDR1(8) <= 0 Then
+                    ssql = "exec sp_sa_getParameter '" & Session("Company") & "', '" & Session("Module") & "', 'NO_OF_RECORD'"
+                    myDS2 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                    If myDS2.Tables(0).Rows.Count > 0 Then
+                        Session("rcPerPage") = myDS2.Tables(0).Rows(0).Item(9)
+                    End If
+                    myDS2 = Nothing
+                Else
+                    Session("rcPerPage") = myDR1(8)
+                End If
+                myGridView.PageSize = Session("rcPerPage")
+            Else
+                lblresult.Text = "[Page Setting Error]: No setting found for this page!"
+                Exit Sub
+            End If
+
+            If myDT2.Rows.Count > 0 Then
+
+                For i = 0 To myDT2.Rows.Count - 1
+                    Dim myLabel As Label = Page.FindControl("lbl" & myDT2.Rows(i).Item(2).ToString)
+                    Dim myImageButton As ImageButton = Page.FindControl("imgBtn" & myDT2.Rows(i).Item(2).ToString)
+                    Dim myImageKey As Image = Page.FindControl("img" & myDT2.Rows(i).Item(2).ToString)
+
+                    If myDT2.Rows(i).Item(9).ToString = "NO" Then
+                        myLabel.Visible = False
+                        myImageKey.Visible = False
+                        myImageButton.Visible = False
+                        Select Case myDT2.Rows(i).Item(6).ToString
+                            Case "OPTION"
+                                Dim myDDL As DropDownList = Page.FindControl("ddl" & myDT2.Rows(i).Item(2).ToString)
+                                mySetting.GetDropdownlistValue(Form.ID, myDT2.Rows(i).Item(2).ToString, myDDL)
+                                myDDL.Visible = False
+                                myDDL = Nothing
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                myTextBox.Visible = False
+                                myTextBox = Nothing
+                        End Select
+                    Else
+                        myLabel.Text = myDT2.Rows(i).Item(3).ToString
+                        mySetting.GetImgUrl(myImageKey, clsGlobalSetting.ImageType._KEY, Session("Company").ToString)
+                        Select Case myDT2.Rows(i).Item(6).ToString
+                            Case "DATE"
+                                mySetting.GetImgBtnUrl(myImageButton, clsGlobalSetting.ImageType._DATE, Session("Company").ToString)
+                            Case "DATETIME"
+                                mySetting.GetImgBtnUrl(myImageButton, clsGlobalSetting.ImageType._DATETIME, Session("Company").ToString)
+                            Case "TIME"
+                                mySetting.GetImgBtnUrl(myImageButton, clsGlobalSetting.ImageType._TIME, Session("Company").ToString)
+                            Case Else
+                                mySetting.GetImgBtnUrl(myImageButton, clsGlobalSetting.ImageType._LOOKUP, Session("Company").ToString)
+                        End Select
+                        Select Case myDT2.Rows(i).Item(6).ToString
+                            Case "OPTION"
+                                Dim myDDL As DropDownList = Page.FindControl("ddl" & myDT2.Rows(i).Item(2).ToString)
+                                mySetting.GetDropdownlistValue(Form.ID, myDT2.Rows(i).Item(2).ToString, myDDL)
+                                myDDL = Nothing
+                            Case "LOOKUP"
+                                'mySetting.GetLookupValue_ImageButton(myImageButton, Form.ID, "txt" & myDT2.Rows(i).Item(2).ToString, "CodeName", "Exec sp_sa_GetLookupCodeName " & """" & Session("Company").ToString & """," & """" & Session("Module").ToString & """," & """" & Form.ID & """," & """" & myDT2.Rows(i).Item(2).ToString & """," & """" & """," & """" & Session("EmpID").ToString & """")
+                                'Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                'myTextBox.MaxLength = CInt(myDT2.Rows(i).Item(7).ToString)
+                                'myTextBox = Nothing
+                            Case "DATE"
+                                mySetting.PopUpCalendar_ImageButton(myImageButton, Form.ID, "txt" & myDT2.Rows(i).Item(2).ToString)
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                myTextBox.MaxLength = CInt(myDT2.Rows(i).Item(7).ToString)
+                                myTextBox = Nothing
+                            Case "DATETIME"
+                                mySetting.DateTimePicker_ImageButton(myImageButton, Form.ID, "txt" & myDT2.Rows(i).Item(2).ToString)
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                myTextBox.MaxLength = CInt(myDT2.Rows(i).Item(7).ToString)
+                                myTextBox = Nothing
+                            Case "TIME"
+                                mySetting.PopUpTime_ImageButton(myImageButton, Form.ID, "txt" & myDT2.Rows(i).Item(2).ToString)
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                myTextBox.MaxLength = CInt(myDT2.Rows(i).Item(7).ToString)
+                                myTextBox = Nothing
+                            Case "DECIMAL", "INTEGER"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                myTextBox.MaxLength = CInt(myDT2.Rows(i).Item(7).ToString)
+                                myTextBox = Nothing
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & myDT2.Rows(i).Item(2).ToString)
+                                myTextBox.MaxLength = CInt(myDT2.Rows(i).Item(7).ToString)
+                                If myDT2.Rows(i).Item(11).ToString.Trim = "YES" Then
+                                    If myDT2.Rows(i).Item(12).ToString = "YES" Then
+                                        myTextBox.TextMode = TextBoxMode.Password
+                                    End If
+                                    If myDT2.Rows(i).Item(4).ToString = "YES" Then
+                                        mySetting.ConvertUppercase(myTextBox)
+                                    End If
+                                End If
+                                myTextBox = Nothing
+                        End Select
+                    End If
+                    myLabel = Nothing
+                    myImageKey = Nothing
+                    myImageButton = Nothing
+                Next
+
+                'Page Editable Setting
+                Dim priNumCount As String = ""
+                Dim edtNumCount As String = ""
+                Dim compareNum1 As String = ""
+                Dim compareNum0 As String = ""
+                For i = 0 To myDT2.Rows.Count - 1
+                    If myDT2.Rows(i).Item(4) = "YES" Then
+                        priNumCount = priNumCount & 1
+                    Else
+                        priNumCount = priNumCount & 0
+                    End If
+                    If myDT2.Rows(i).Item(11) = "YES" Then
+                        edtNumCount = edtNumCount & 1
+                    Else
+                        edtNumCount = edtNumCount & 0
+                    End If
+                Next
+                For i = 1 To Len(priNumCount)
+                    compareNum1 = compareNum1 & 1
+                Next
+                For i = 1 To Len(edtNumCount)
+                    compareNum0 = compareNum0 & 0
+                Next
+                If priNumCount = compareNum1 Or edtNumCount = compareNum0 Then
+                    Session("pageNotEditable") = "YES"
+                Else
+                    Session("pageNotEditable") = "NO"
+                End If
+
+                'Page Filterable Setting
+                priNumCount = ""
+                Dim compareNum As String = ""
+                For i = 0 To myDT2.Rows.Count - 1
+                    If myDT2.Rows(i).Item(13) = "NO" Then
+                        priNumCount = priNumCount & 1
+                    Else
+                        priNumCount = priNumCount & 0
+                    End If
+                Next
+                For i = 1 To Len(priNumCount)
+                    compareNum = compareNum & 1
+                Next
+                If priNumCount = compareNum Then
+                    Session("pageNotFilterable") = "YES"
+                Else
+                    Session("pageNotFilterable") = "NO"
+                End If
+            End If
+            myDS = Nothing
+            myDT1 = Nothing
+            myDT2 = Nothing
+        Else
+            lblresult.Text = "[Field Setting Error]: No setting found for this page!"
+            Exit Sub
+        End If
+
+    End Sub
+
+    Sub BindGrid()
+
+        Try
+            If Session("action") = "search" Then
+                ssql = "exec sp_Generate_Query_Filter_WithSecurity '" & Session("Company").ToString & "','" & Session("EmpID").ToString & "','" & Session("Module") & "','" & Session("ssql1") & "', '" & Session("ssql2") & "' ,'" & Session("ssql3") & "','" & myGridView.PageSize & "','" & Session("currentpage") & "'"
+                ssql1 = "exec sp_Compare_Query_Filter_WithSecurity '" & Session("Company") & "','" & Session("EmpID").ToString & "','" & Session("Module") & "','" & Session("ssql1") & "', '" & Session("ssql2") & "' ,'" & Session("ssql3") & "','" & myGridView.PageSize & "','" & Session("currentpage") & "'"
+            Else
+                ssql = "Exec sp_sa_GetTableRecordsWithSecurity '" & Session("Company").ToString & "','" & Session("EmpID").ToString & "','" & Session("Module").ToString & "','" & Form.ID & "','" & myGridView.PageSize & "','" & Session("currentpage") & "'"
+                ssql1 = "exec sp_sa_compareTableRecords '" & Session("Company") & "','" & Session("EmpID") & "','" & Session("Module") & "','" & Form.ID & "','" & myGridView.PageSize & "','" & Session("currentpage") & "'"
+            End If
+
+            myDS = mySQL.ExecuteSQL(ssql)
+            myDS1 = mySQL.ExecuteSQL(ssql1)
+            pnldescription.Visible = False
+            btnColourDef = Session("strTheme")
+            btnColourAlt = Session("strThemeAlt")
+
+            If myDS.Tables(1).Rows.Count = 0 Then
+                If Session("action") = "search" Then
+                    pnledit.Visible = True
+                    pnlmain.Visible = False
+                    pnldescription.Visible = True
+                    lblresult2.Visible = True
+                    lblresult2.Text = "No Data Found..."
+                Else
+                    pnledit.Visible = False
+                    pnlmain.Visible = True
+                    pnldescription.Visible = False
+                    imgBtnEdit.Enabled = False
+                    imgBtnDelete.Enabled = False
+                    imgBtnFilter.Enabled = False
+                    imgBtnPrint.Enabled = False
+                    imgBtnGoToPage.Enabled = False
+                    mySetting.GetBtnImgUrl(imgBtnEdit, Session("Company").ToString, btnColourAlt, "btnEdit.png")
+                    mySetting.GetBtnImgUrl(imgBtnDelete, Session("Company").ToString, btnColourAlt, "btnDelete.png")
+                    mySetting.GetBtnImgUrl(imgBtnFilter, Session("Company").ToString, btnColourAlt, "btnFilter.png")
+                    mySetting.GetBtnImgUrl(imgBtnPrint, Session("Company").ToString, btnColourAlt, "btnPrint.png")
+                    mySetting.GetBtnImgUrl(imgBtnGoToPage, Session("Company").ToString, btnColourAlt, "btnGo.png")
+                    CurrentPage.Text = myDS.Tables(0).Rows(0).Item(0)
+                    TotalPages.Text = myDS.Tables(0).Rows(0).Item(0)
+                    lbltotal.Text = " ( " & myDS.Tables(0).Rows(0).Item(0) & " record(s) ) "
+                    Session("currentPage") = "0"
+                    myGridView.DataSource = myDS.Tables(1)
+                    myGridView.DataBind()
+                End If
+                Exit Sub
+            Else
+                pnledit.Visible = False
+                pnlmain.Visible = True
+                imgBtnAdd.Enabled = True
+                imgBtnEdit.Enabled = True
+                imgBtnDelete.Enabled = True
+                imgBtnFilter.Enabled = True
+                imgBtnPrint.Enabled = True
+                imgBtnGoToPage.Enabled = True
+                mySetting.GetBtnImgUrl(imgBtnAdd, Session("Company").ToString, btnColourDef, "btnAdd.png")
+                mySetting.GetBtnImgUrl(imgBtnEdit, Session("Company").ToString, btnColourDef, "btnEdit.png")
+                mySetting.GetBtnImgUrl(imgBtnDelete, Session("Company").ToString, btnColourDef, "btnDelete.png")
+                mySetting.GetBtnImgUrl(imgBtnFilter, Session("Company").ToString, btnColourDef, "btnFilter.png")
+                mySetting.GetBtnImgUrl(imgBtnPrint, Session("Company").ToString, btnColourDef, "btnPrint.png")
+                mySetting.GetBtnImgUrl(imgBtnGoToPage, Session("Company").ToString, btnColourDef, "btnGo.png")
+            End If
+
+            If myDS.Tables.Count > 1 And CInt(myDS.Tables(0).Rows(0).Item(0)) > 0 Then
+                myGridView.DataSource = myDS.Tables(1)
+                myGridView.DataBind()
+                myGridView1.DataSource = myDS1.Tables(1)
+                myGridView1.DataBind()
+
+                'GridView Column Width Setting
+                logic = False
+                myDS1 = mySetting.GetGridViewWidth(Form.ID)
+                myDT1 = myDS1.Tables(0)
+                myDT2 = myDS1.Tables(1)
+                Dim value As Decimal
+                If myDT2.Rows.Count > 0 Then
+
+                    If CInt(myDT1.Rows(0).Item(1).ToString) < CInt(Session("GVwidth")) Then
+                        If CInt(myDT1.Rows(0).Item(1).ToString) = 0 Then
+                            logic = True
+                        Else
+                            value = CInt(Session("GVwidth")) / CInt(myDT1.Rows(0).Item(1).ToString)
+                        End If
+                    Else
+                        value = 1
+                        myGridView.Width = CInt(myDT1.Rows(0).Item(1).ToString)
+                    End If
+                    If logic = False Then
+                        For i = 0 To myDT2.Rows.Count - 1
+                            j = CInt(myDT2.Rows(i).Item(0).ToString)
+                            If CInt(myDT2.Rows(i).Item(2).ToString) = 0 Then
+                                myGridView.Rows(0).Cells(j).Width = 50 * value
+                            Else
+                                myGridView.Rows(0).Cells(j).Width = CInt(myDT2.Rows(i).Item(2).ToString) * value
+                            End If
+                        Next
+                    End If
+                End If
+                myDS1 = Nothing
+                myDT1 = Nothing
+                myDT2 = Nothing
+
+                lbltotal.Text = " ( " & myDS.Tables(0).Rows(0).Item(0) & " record(s) ) "
+                CurrentPage.Text = Session("currentPage")
+
+                If Not IsPostBack Then
+                    _totalRecords = myDS.Tables(0).Rows(0).Item(0)
+                    _totalPage = _totalRecords / myGridView.PageSize
+                    TotalPages.Text = (System.Math.Ceiling(_totalPage)).ToString()
+                    Session("TotalPages") = TotalPages.Text
+                Else
+                    _totalRecords = myDS.Tables(0).Rows(0).Item(0)
+                    _totalPage = _totalRecords / myGridView.PageSize
+                    TotalPages.Text = (System.Math.Ceiling(_totalPage)).ToString()
+                    _totalPage = Double.Parse(TotalPages.Text)
+                    Session("TotalPages") = TotalPages.Text
+                End If
+
+                If Session("currentpage") = 1 Then
+                    FirstPage.Enabled = False
+                    PrevPage.Enabled = False
+                    If _totalRecords > myGridView.PageSize Then
+                        NextPage.Enabled = True
+                        LastPage.Enabled = True
+                    Else
+                        NextPage.Enabled = False
+                        LastPage.Enabled = False
+                    End If
+                ElseIf Session("currentpage") > 1 Then
+                    FirstPage.Enabled = True
+                    PrevPage.Enabled = True
+                    If Session("currentpage") = Session("TotalPages") Then
+                        NextPage.Enabled = False
+                        LastPage.Enabled = False
+                    Else
+                        NextPage.Enabled = True
+                        LastPage.Enabled = True
+                    End If
+                End If
+                'If Session("currentpage") + 1 = Session("TotalPages") Then
+                '    NextPage.Enabled = False
+                'End If
+                'If Session("currentpage") - 1 = 1 Then
+                '    PrevPage.Enabled = False
+                'End If
+                myDS = Nothing
+            End If
+        Catch ex As Exception
+            myDS = Nothing
+            myDS1 = Nothing
+            pnlresult.Visible = True
+            lblresult.Text = "[BindGrid]Error: " & ex.Message
+            pnlgridview.Visible = False
+            pnlprevnext.Visible = False
+            pnlaction.Visible = False
+            Exit Sub
+        End Try
+    End Sub
+
+#End Region
+
+#Region "Panel Edit"
+
+    Protected Sub imgBtnSubmit_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnSubmit.Click
+        'ssql1 = "select dbo.fn_ReturnCompanyProfileCode('" & txtCOMPANY_PROFILE_CODE.Text & "'),dbo.fn_ReturnModuleProfileCodeByCodeName('" & txtOCP_ID_LEAVE.Text & "'),dbo.fn_GetUserProfileCode('" & txtUSER_PROFILE_CODE.Text & "')"
+        'myDS = mySQL.ExecuteSQL(ssql1)
+        'If myDS.Tables(0).Rows.Count > 0 Then
+        '    ssql = "Delete from " & Form.ID & " Where Company_profile_Code='" & myDS.Tables(0).Rows(0).Item(0).ToString & "' and OCP_ID_LEAVE='" & myDS.Tables(0).Rows(0).Item(1).ToString & "' and USER_PROFILE_CODE='" & myDS.Tables(0).Rows(0).Item(2).ToString & "' AND APPROVAL_LEVEL = '" & txtAPPROVAL_LEVEL.Text & "'"
+        '    mySQL.ExecuteSQL(ssql)
+        'End If
+        'ssql1 = Nothing
+        'myDS = Nothing
+        'ssql = Nothing
+        Dim vCount As Integer
+        Dim ErrCnt As Integer
+        Dim Message As String
+
+        vCount = 0
+        ErrCnt = 0
+        Message = ""
+        If Validate1() = True Then
+            Do While vCount < lstright.Items.Count
+                Session("curLeaveEmpID") = lstright.Items(vCount).Value.Trim
+                If InsDateRangeApplication(Trim(Left(lstright.Items(vCount).Value.Trim, 10))) = False Then
+                    Message = Message + Chr(13) + (Trim(Left(lstright.Items(vCount).Text, 10)))
+                    ErrCnt = ErrCnt + 1
+                End If
+                vCount = vCount + 1
+            Loop
+            'ClearText()
+            If ErrCnt > 0 Then
+                lblresult2.Text = "Leave Apply successfully..."
+            Else
+                lblresult2.Text = "Leave Apply successfully..."
+            End If
+        End If
+        'If ValidateInsertUpdate() = True Then
+        '    lblresult.Text = "Data add/edit successfully..."
+        '    Session("currentpage") = "1"
+        '    ClearText()
+        '    BindGrid()
+        'End If
+
+    End Sub
+
+    Private Sub MsgBox(ByVal msg As String)
+        Dim strScript As String = "<script language=" & """" & "javascript" & """" & ">"
+        strScript &= "alert('" & msg & "');"
+        strScript &= "<" & "/script>"
+        Page.ClientScript.RegisterClientScriptBlock(Me.GetType, "Error!", strScript)
+    End Sub
+
+    Protected Sub imgBtnSearch_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnSearch.Click
+
+        Try
+            If ValidateSearch() = True Then
+                Session("currentpage") = "1"
+                lblresult.Text = ""
+                BindGrid()
+            End If
+        Catch ex As Exception
+            pnledit.Visible = False
+            pnlmain.Visible = True
+            lblresult.Text = "[imgBtnSearch_Click]Error: " & ex.Message
+        End Try
+
+    End Sub
+
+    'Protected Sub imgBtnUpdate_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnUpdate.Click
+
+    '    Try
+    '        If ValidateUpdate() Then
+    '            mySQL.ExecuteSQL(ssql)
+    '            Session("action") = "update"
+    '            lblresult.Text = "Data update successfully..."
+    '            BindGrid()
+    '        End If
+    '    Catch ex As Exception
+    '        pnledit.Visible = False
+    '        pnlmain.Visible = True
+    '        lblresult.Text = "[imgBtnUpdate_Click]Error: " & ex.Message
+    '    End Try
+
+    'End Sub
+
+    Protected Sub imgBtnClear_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnClear.Click
+
+        Try
+            Dim code As Integer = 2
+            Dim dt As Integer = 6
+            Session("action") = "clear"
+            lblresult2.Text = ""
+            lstleft.Items.Clear()
+            lstright.Items.Clear()
+            ddlOPTION_TYPE.SelectedIndex = 0
+            ddlOCP_ID.SelectedIndex = 0
+
+            myDS = mySetting.GetLabelDescription_(Form.ID)
+            If CInt(myDS.Tables.Count) > 1 Then
+                If CInt(myDS.Tables(1).Rows.Count) > 0 Then
+                    For i = 0 To myDS.Tables(1).Rows.Count - 1
+                        Dim myLabel As Label = Page.FindControl("lbl" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                        Select Case UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString))
+                            Case "OPTION"
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                                If myLabel.Enabled = True Then
+                                    myDropdownlist.SelectedIndex = 0
+                                End If
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                                If myLabel.Enabled = True Then
+                                    myTextBox.Text = ""
+                                End If
+                        End Select
+                    Next
+                End If
+            End If
+            myDS = Nothing
+        Catch ex As Exception
+            lblresult.Text = "[imgBtnClear_Click]Error: " & ex.Message
+            SetFieldToFalse()
+        End Try
+
+    End Sub
+
+    Protected Sub imgBtnCancel_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnCancel.Click
+        Session("action") = "cancel"
+        Session("action_edit") = ""
+        BindGrid()
+    End Sub
+
+    Protected Sub imgBtnEMPLOYEE_PROFILE_ID_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnEMPLOYEE_PROFILE_ID.Click
+
+        If Session("action") <> "filter" Then
+            If ActionValidateFieldCompany() = False Then
+                lblresult2.Text = lblCOMPANY_PROFILE_CODE.Text & " field is required..."
+                Exit Sub
+            End If
+
+            visibleLst()
+            lstleft.Items.Clear()
+            lstright.Items.Clear()
+            txtEMPLOYEE_PROFILE_ID.Text = ""
+            Session("action_edit") = "value"
+            AutoAdjustPosition("2")
+            imgBtnCancel.CssClass = buttonPosition3
+            imgBtnClear.CssClass = buttonPosition2
+            imgBtnSubmit.CssClass = buttonPosition1
+        End If
+        lblresult2.Text = ""
+
+    End Sub
+
+    Protected Sub imgbtnEMPLOYEE_PROFILE_ID2_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnEMPLOYEE_PROFILE_ID2.Click
+        lstleft.Items.Clear()
+        lstright.Items.Clear()
+        ssql = "Exec sp_sa_getListBoxValue 'getGroupByOCPGAL','" & Session("Company") & "','" & ddlOPTION_TYPE.SelectedValue & "','" & ddlOCP_ID.SelectedValue & "','','" & "" & "','" & "" & "',''"
+        myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+        If myDS.Tables(0).Rows.Count > 0 Then
+            lstleft.DataSource = myDS.Tables(0)
+            lstleft.DataTextField = "Name"
+            lstleft.DataValueField = "Code"
+            lstleft.DataBind()
+        End If
+        If myDS.Tables(1).Rows.Count > 0 Then
+            lstright.DataSource = myDS.Tables(1)
+            lstright.DataTextField = "Name"
+            lstright.DataValueField = "Code"
+            lstright.DataBind()
+        End If
+        'disableTxt()
+        'enableLst()
+        lblresult2.Text = ""
+    End Sub
+
+    Protected Sub imgBtnAddAll_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnAddAll.Click
+        AddRemoveAll(lstleft, lstright)
+        lblresult2.Text = ""
+    End Sub
+
+    Protected Sub imgBtnAddItem_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnAddItem.Click
+        AddRemoveItem(lstleft, lstright)
+        lblresult2.Text = ""
+    End Sub
+
+    Protected Sub imgBtnRemoveItem_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnRemoveItem.Click
+        AddRemoveItem(lstright, lstleft)
+        lblresult2.Text = ""
+    End Sub
+
+    Protected Sub imgBtnRemoveAll_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnRemoveAll.Click
+        AddRemoveAll(lstright, lstleft)
+        lblresult2.Text = ""
+    End Sub
+
+    Sub visibleLst()
+        lstleft.Visible = True
+        lstright.Visible = True
+        imgBtnAddAll.Visible = True
+        imgBtnAddItem.Visible = True
+        imgBtnRemoveAll.Visible = True
+        imgBtnRemoveItem.Visible = True
+        lbllstleft.Visible = True
+        lbllstright.Visible = True
+    End Sub
+
+    Sub invisibleLst()
+        lstleft.Visible = False
+        lstright.Visible = False
+        imgBtnAddAll.Visible = False
+        imgBtnAddItem.Visible = False
+        imgBtnRemoveAll.Visible = False
+        imgBtnRemoveItem.Visible = False
+        lbllstleft.Visible = False
+        lbllstright.Visible = False
+    End Sub
+#End Region
+
+#Region "Panel GridView"
+
+    Protected Sub myGridView_RowCancelingEdit(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewCancelEditEventArgs) Handles myGridView.RowCancelingEdit
+
+        lblresult.Text = "Cancel editing..."
+        myGridView.EditIndex = -1
+        BindGrid()
+
+    End Sub
+
+    Protected Sub myGridView_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles myGridView.RowDataBound
+
+        e.Row.Attributes.Add("onmouseover", "this.originalcolor=this.style.backgroundColor; this.style.backgroundColor='silver';")
+        e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=this.originalcolor;")
+
+    End Sub
+
+    Protected Sub myGridView_RowDeleted(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeletedEventArgs) Handles myGridView.RowDeleted
+
+    End Sub
+
+    Protected Sub myGridView_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles myGridView.RowDeleting
+
+        Try
+            ssql = mySetting.GetSQLParameter2(Form.ID, clsGlobalSetting.SQLAction.DELETE_Statement, myGridView, e.RowIndex, Session("Company"), Session("Module"))
+            If ssql <> Nothing Then
+                mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                ssql = Nothing
+                lblresult.Text = "1 data(s) delete successfully..."
+                BindGrid()
+            End If
+        Catch ex As Exception
+            lblresult.Text = ex.Message
+            e.Cancel = True
+        End Try
+
+    End Sub
+
+    Protected Sub myGridView_RowEditing(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewEditEventArgs) Handles myGridView.RowEditing
+
+        If Session("pageNotEditable") = "YES" Then
+            lblresult.Text = "Field(s) not editable..."
+        Else
+            lblresult.Text = "Editing..."
+            myGridView.EditIndex = e.NewEditIndex
+            BindGrid()
+            Session("action") = "edit"
+            SetVisible()
+            'EditItemTemplate()
+
+            'disable button & link
+            FirstPage.Enabled = False
+            PrevPage.Enabled = False
+            NextPage.Enabled = False
+            LastPage.Enabled = False
+            imgBtnAdd.Enabled = False
+            imgBtnEdit.Enabled = False
+            imgBtnDelete.Enabled = False
+            imgBtnFilter.Enabled = False
+            imgBtnGoToPage.Enabled = False
+            mySetting.GetBtnImgUrl(imgBtnAdd, Session("Company").ToString, btnColourAlt, "btnAdd.png")
+            mySetting.GetBtnImgUrl(imgBtnEdit, Session("Company").ToString, btnColourAlt, "btnEdit.png")
+            mySetting.GetBtnImgUrl(imgBtnDelete, Session("Company").ToString, btnColourAlt, "btnDelete.png")
+            mySetting.GetBtnImgUrl(imgBtnFilter, Session("Company").ToString, btnColourAlt, "btnFilter.png")
+            mySetting.GetBtnImgUrl(imgBtnGoToPage, Session("Company").ToString, btnColourAlt, "btnGo.png")
+        End If
+
+    End Sub
+
+    Protected Sub myGridView_RowUpdated(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewUpdatedEventArgs) Handles myGridView.RowUpdated
+
+    End Sub
+
+    Protected Sub myGridView_RowUpdating(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewUpdateEventArgs) Handles myGridView.RowUpdating
+
+        Try
+            ssql = mySetting.GetSQLParameter2(Form.ID, clsGlobalSetting.SQLAction.UPDATE_Statement, myGridView, e.RowIndex, Session("Company"), Session("Module"))
+            If ssql <> Nothing Then
+                mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                ssql = Nothing
+                lblresult.Text = "Data update successfully..."
+            Else
+                e.Cancel = True
+            End If
+            myGridView.EditIndex = -1
+            BindGrid()
+        Catch ex As Exception
+            lblresult.Text = ex.Message
+            e.Cancel = True
+        End Try
+
+    End Sub
+
+#End Region
+
+#Region "Panel Action"
+
+    Public Sub NavigationLink_Click(ByVal sender As Object, ByVal e As CommandEventArgs)
+
+        Select Case e.CommandName
+            Case "First"
+                Session("currentpage") = 1
+            Case "Prev"
+                Session("currentpage") = Integer.Parse(CurrentPage.Text) - 1
+            Case "Next"
+                Session("currentpage") = Integer.Parse(CurrentPage.Text) + 1
+            Case "Last"
+                Session("currentpage") = Integer.Parse(TotalPages.Text)
+        End Select
+        lblresult.Text = ""
+        BindGrid()
+
+    End Sub
+
+    Protected Sub imgBtnGoToPage_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnGoToPage.Click
+
+        If txtGoToPage.Text = "" Then
+            lblresult.Text = "Request failed! Value required..."
+            txtGoToPage.Focus()
+            Exit Sub
+        End If
+
+        Try
+            Dim pagestr As String = Trim(txtGoToPage.Text)
+            Dim pagenum As Integer = CInt(pagestr)
+            Dim firstnum As Integer = 0
+            Dim lastnum As Integer = 0
+
+            If pagenum <= CInt(Session("TotalPages")) And pagenum > 0 Then
+                If pagenum = CInt(Session("currentPage")) Then
+                    lblresult.Text = "Request failed! You are looking for the same page..."
+                    txtGoToPage.Focus()
+                Else
+                    lblresult.Text = ""
+                    Session("currentpage") = pagenum
+                    BindGrid()
+                End If
+                txtGoToPage.Text = ""
+            Else
+                If pagenum = 1 Or pagenum > CInt(Session("TotalPages")) And CInt(Session("TotalPages")) = 1 Then
+                    lblresult.Text = "Request failed! Only one page available..."
+                Else
+                    If CInt(Session("currentPage")) = 1 Then
+                        firstnum = 1
+                    Else
+                        firstnum = 0
+                    End If
+                    If CInt(Session("currentPage")) = CInt(Session("TotalPages")) Then
+                        lastnum = CInt(Session("TotalPages"))
+                    Else
+                        lastnum = CInt(Session("TotalPages")) + 1
+                    End If
+                    lblresult.Text = "Request failed! Page number must between " & firstnum & " and " & lastnum & "..."
+                End If
+                txtGoToPage.Text = ""
+                txtGoToPage.Focus()
+            End If
+
+        Catch ex As Exception
+            lblresult.Text = "Request failed! Invalid value enter..."
+            txtGoToPage.Text = ""
+            txtGoToPage.Focus()
+            Exit Sub
+        End Try
+
+    End Sub
+
+    Protected Sub imgBtnAdd_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnAdd.Click
+
+        'apply copy or default value function
+
+        CountRecord = 0
+        ClearText()
+        For i = 0 To myGridView.Rows.Count - 1
+            Dim chkEdit As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+            If chkEdit.Checked Then
+                CountRecord = CountRecord + 1
+            End If
+        Next
+        If CountRecord = 0 Then
+            'get field default value
+            Dim num As Integer = 0
+            Dim code As Integer = 1
+            Dim dt As Integer = 2
+            Dim op As Integer = 3
+            Dim dv As Integer = 4
+            ssql = "exec sp_sa_get_fields_default_value '" & Session("Company") & "','" & Session("Module") & "','" & Form.ID & "'"
+            myDSDefault = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+            If myDSDefault.Tables(0).Rows.Count > 0 Then
+
+                For j = 0 To myDSDefault.Tables(0).Rows.Count - 1
+                    num = CInt(myDSDefault.Tables(0).Rows(j).Item(0).ToString)
+
+                    If UCase(Trim(myDSDefault.Tables(0).Rows(j).Item(op).ToString)) = "YES" Then
+                        Select Case UCase(Trim(myDSDefault.Tables(0).Rows(j).Item(dt).ToString))
+                            Case "OPTION"
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myDropdownlist.SelectedValue = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case "CHARACTER"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case "DATE"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case "DATETIME"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case "TIME"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case "INTEGER"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case "DECIMAL"
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = Trim(myDSDefault.Tables(0).Rows(j).Item(dv).ToString)
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSDefault.Tables(0).Rows(j).Item(code)))
+                                myTextBox.Text = ""
+                        End Select
+                    End If
+
+                Next
+            End If
+            myDSDefault = Nothing
+        ElseIf CountRecord = 1 Then
+            For i = 0 To myGridView.Rows.Count - 1
+                Dim chkEdit As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+                If chkEdit.Checked Then
+                    chkEdit.Checked = False
+
+                    'get field position
+                    Dim num As Integer = 0
+                    Dim code As Integer = 1
+                    Dim dt As Integer = 3
+                    ssql = "exec sp_sa_get_fields_position '" & Form.ID & "'"
+                    myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+                    If myDS1.Tables(0).Rows.Count > 0 Then
+                        For j = 0 To myDS1.Tables(0).Rows.Count - 1
+                            num = CInt(myDS1.Tables(0).Rows(j).Item(0).ToString)
+
+                            Select Case UCase(Trim(myDS1.Tables(0).Rows(j).Item(dt).ToString))
+                                Case "OPTION"
+                                    Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS1.Tables(0).Rows(j).Item(code)))
+                                    If Trim(myGridView1.Rows(i).Cells(num).Text) = "&nbsp;" Then
+                                        myDropdownlist.SelectedValue = ""
+                                    Else
+                                        mySetting.ArrangeDropdownlistSelectedIndex(myDropdownlist, myGridView1.Rows(i).Cells(num).Text)
+                                    End If
+                                Case Else
+                                    Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS1.Tables(0).Rows(j).Item(code)))
+                                    If Trim(myGridView1.Rows(i).Cells(num).Text) = "&nbsp;" Then
+                                        myTextBox.Text = ""
+                                    Else
+                                        myTextBox.Text = Replace(myGridView1.Rows(i).Cells(num).Text, "amp;", "")
+                                    End If
+                            End Select
+
+                        Next
+                    End If
+                    myDS1 = Nothing
+                    Exit For
+                End If
+            Next
+        ElseIf CountRecord > 1 Then
+            lblresult.Text = "Invalid action: Only 1 row can be selected for adding..."
+            Exit Sub
+        End If
+
+        Session("action") = "add"
+        Session("action_edit") = ""
+        SetFieldToTrue()
+        SetVisible()
+        imgBtnSearch.Visible = False
+        imgBtnUpdate.Visible = False
+        imgBtnSubmit.Visible = True
+        pnldescription.Visible = True
+        invisibleLst()
+        disableLst()
+        AutoAdjustPosition("2")
+
+        'check for addable field
+        If autonum = 0 Then
+            pnledit.Visible = False
+            pnlmain.Visible = True
+            ShowMessage("No addable item found for this page...")
+            Exit Sub
+        End If
+
+        imgBtnCancel.CssClass = buttonPosition3
+        imgBtnClear.CssClass = buttonPosition2
+        imgBtnSubmit.CssClass = buttonPosition1
+        mySetting.GetImgTypeUrl(imgtop, Session("Company"), Session("strTheme"), "backgroundTitleTop_Add.png")
+        mySetting.GetImgTypeUrl(imgbottom, Session("Company"), Session("strTheme"), "backgroundTitleBottom.png")
+
+    End Sub
+
+    Protected Sub imgBtnEdit_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnEdit.Click
+
+        'If Session("pageNotEditable") = "YES" Then
+        '    lblresult.Visible = True
+        '    lblresult.Text = "Field(s) not editable..."
+        '    Exit Sub
+        'End If
+
+        If ActionValidateEdit() = True Then
+            Session("action") = "edit"
+            ClearText()
+            SetFieldToTrue()
+            SetVisible()
+            imgBtnSearch.Visible = False
+            imgBtnSubmit.Visible = True
+            'imgBtnUpdate.Visible = True
+            pnldescription.Visible = True
+            visibleLst()
+            lstleft.Items.Clear()
+            lstright.Items.Clear()
+            Session("action_edit") = "value"
+            AutoAdjustPosition("2")
+
+            imgEMPLOYEE_PROFILE_ID.Enabled = True
+            lblEMPLOYEE_PROFILE_ID.Enabled = True
+            For i = 0 To myGridView.Rows.Count - 1
+                Dim chkEdit As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+                If chkEdit.Checked Then
+                    chkEdit.Checked = False
+
+                    'get field position
+                    Dim num As Integer = 0
+                    Dim code As Integer = 1
+                    Dim dt As Integer = 3
+                    ssql = "exec sp_sa_get_fields_position '" & Form.ID & "'"
+                    myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+                    If myDS1.Tables(0).Rows.Count > 0 Then
+                        For j = 0 To myDS1.Tables(0).Rows.Count - 1
+                            num = CInt(myDS1.Tables(0).Rows(j).Item(0).ToString)
+
+                            Select Case UCase(Trim(myDS1.Tables(0).Rows(j).Item(dt).ToString))
+                                Case "OPTION"
+                                    Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS1.Tables(0).Rows(j).Item(code)))
+                                    If Trim(myGridView1.Rows(i).Cells(num).Text) = "&nbsp;" Then
+                                        myDropdownlist.SelectedValue = ""
+                                    Else
+                                        mySetting.ArrangeDropdownlistSelectedIndex(myDropdownlist, myGridView1.Rows(i).Cells(num).Text)
+                                    End If
+                                Case Else
+                                    Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS1.Tables(0).Rows(j).Item(code)))
+                                    If Trim(myGridView1.Rows(i).Cells(num).Text) = "&nbsp;" Then
+                                        myTextBox.Text = ""
+                                    Else
+                                        myTextBox.Text = Replace(myGridView1.Rows(i).Cells(num).Text, "amp;", "")
+                                    End If
+                            End Select
+
+                        Next
+                    End If
+                    myDS1 = Nothing
+
+                    ssql = "Exec sp_sa_getListBoxValue 'getGroupByOCPGAL','" & Session("Company") & "','" & ddlOPTION_TYPE.SelectedValue & "','" & ddlOCP_ID.SelectedValue & "','','','',''"
+                    myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                    If myDS.Tables(0).Rows.Count > 0 Then
+                        lstleft.DataSource = myDS.Tables(0)
+                        lstleft.DataTextField = "Name"
+                        lstleft.DataValueField = "Code"
+                        lstleft.DataBind()
+                    End If
+                    If myDS.Tables(1).Rows.Count > 0 Then
+                        lstright.DataSource = myDS.Tables(1)
+                        lstright.DataTextField = "Name"
+                        lstright.DataValueField = "Code"
+                        lstright.DataBind()
+                    End If
+
+                    lblresult2.Text = ""
+                    Exit For
+                End If
+            Next
+
+            'check for editable field
+            If autonum = 0 Then
+                pnledit.Visible = False
+                pnlmain.Visible = True
+                ShowMessage("No editable item found for this page...")
+                Exit Sub
+            End If
+
+            imgBtnCancel.CssClass = buttonPosition3
+            imgBtnClear.CssClass = buttonPosition2
+            'imgBtnUpdate.CssClass = buttonPosition1
+            imgBtnSubmit.CssClass = buttonPosition1
+            mySetting.GetImgTypeUrl(imgtop, Session("Company"), Session("strTheme"), "backgroundTitleTop_Edit.png")
+            mySetting.GetImgTypeUrl(imgbottom, Session("Company"), Session("strTheme"), "backgroundTitleBottom.png")
+        End If
+
+    End Sub
+
+    Protected Sub imgBtnDelete_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnDelete.Click
+
+        If ActionValidateDelete() Then
+            Dim getnum As Integer = 0
+            For i = 0 To myGridView.Rows.Count - 1
+                Dim chkDelete As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+                If chkDelete.Checked Then
+                    getnum += 1
+                    ssql = mySetting.GetSQLParameter2(Form.ID, clsGlobalSetting.SQLAction.DELETE_Statement3, myGridView1, i, Session("Company"), Session("Module"))
+                    If ssql <> Nothing Then
+                        mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                        ssql = Nothing
+                    End If
+                    chkDelete.Checked = False
+                End If
+            Next
+            Session("currentpage") = "1"
+            Session("action") = "cancel"
+            lblresult.Text = getnum & " data(s) delete successfully..."
+            BindGrid()
+        End If
+
+    End Sub
+
+    Protected Sub imgBtnFilter_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnFilter.Click
+
+        If Session("pageNotFilterable") = "YES" Then
+            lblresult.Text = "Field(s) not filterable..."
+            Exit Sub
+        End If
+
+        Session("action") = "filter"
+        Session("action_edit") = "any"
+        ClearText()
+        SetFieldToTrue()
+        SetVisible()
+        imgBtnSearch.Visible = True
+        imgBtnSubmit.Visible = False
+        imgBtnUpdate.Visible = False
+        pnldescription.Visible = True
+        invisibleLst()
+        AutoAdjustPosition("2")
+
+        'check for addable field
+        If autonum = 0 Then
+            pnledit.Visible = False
+            pnlmain.Visible = True
+            ShowMessage("No addable item found for this page...")
+            Exit Sub
+        End If
+
+        imgBtnCancel.CssClass = buttonPosition3
+        imgBtnClear.CssClass = buttonPosition2
+        imgBtnSearch.CssClass = buttonPosition1
+        mySetting.GetImgTypeUrl(imgtop, Session("Company"), Session("strTheme"), "backgroundTitleTop_Filter.png")
+        mySetting.GetImgTypeUrl(imgbottom, Session("Company"), Session("strTheme"), "backgroundTitleBottom.png")
+
+    End Sub
+
+#End Region
+
+#Region "Sub & Function"
+
+    Private Function Validate1() As Boolean
+        Validate1 = False
+        If ActionValidateFieldLEAVEProfile() = False Then
+            lblresult2.Text = lblOCP_ID_LEAVE.Text & " field is required..."
+            Exit Function
+        End If
+        If ActionValidateFieldPERIOD() = False Then
+            lblresult2.Text = lblOPTION_PERIOD.Text & " field is required..."
+            Exit Function
+        End If
+        If ActionValidateFieldADVANCE() = False Then
+            lblresult2.Text = lblOPTION_ADVANCE_LEAVE.Text & " field is required..."
+            Exit Function
+        End If
+        If txtREASON.Text = "" Then
+            lblresult2.Text = lblREASON.Text & " field is required..."
+            Exit Function
+        End If
+        If txtFROM_DATE.Text = "" Or mySetting.CheckIsDateNull(txtFROM_DATE.Text) Then
+            lblresult2.Text = lblFROM_DATE.Text & " field is required..."
+            Exit Function
+        End If
+        If txtTO_DATE.Text = "" Or mySetting.CheckIsDateNull(txtTO_DATE.Text) Then
+            lblresult2.Text = lblTO_DATE.Text & " field is required..."
+            Exit Function
+        End If
+        If mySQL.fn_DateDiff("day", mySetting.UnDisplayDateTime(txtFROM_DATE.Text, Session("Company").ToString, Session("Module").ToString), mySetting.UnDisplayDateTime(txtTO_DATE.Text, Session("Company").ToString, Session("Module").ToString)) < 0 Then
+            lblresult2.Text = lblTO_DATE.Text & " field is required..."
+            Exit Function
+        End If
+        If lstright.Items.Count <= 0 Then
+            lblresult2.Text = lblEMPLOYEE_PROFILE_ID.Text & " field is required..."
+            Exit Function
+        End If
+
+        Validate1 = True
+        Return Validate1
+    End Function
+
+    Private Function InsDateRangeApplication(ByVal strEmpID As String) As Boolean
+
+        Try
+            Dim strFromDate As String
+            Dim strToDate As String
+            Dim DateApply As String
+
+            InsDateRangeApplication = False
+            If Trim(strEmpID) = "" Then
+                lblresult2.Text = "Process Terminate! No employee selected..."
+                Exit Function
+            End If
+
+            LeaveID = mySetting.GetOCPIDbyCodeName_ReturnString(Session("Company"), txtOCP_ID_LEAVE.Text)
+            Session("CurLeaveID") = LeaveID
+            Session("CurLeaveName") = txtOCP_ID_LEAVE.Text
+            lstDateApply.Items.Clear()
+            strFromDate = mySetting.UnDisplayDateTime(txtFROM_DATE.Text, Session("Company"), Session("Module"))
+            strToDate = mySetting.UnDisplayDateTime(txtTO_DATE.Text, Session("Company"), Session("Module"))
+            DateApply = strFromDate
+
+            Do Until DateApply = strToDate
+                lstDateApply.Items.Add(DateApply)
+                ssql = "Select dbo.fn_DateAdd('Day',1,'" & DateApply & "')"
+                myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                If Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) <> "" Then
+                    DateApply = myDS1.Tables(0).Rows(0).Item(0).ToString
+                Else
+                    lblresult2.Text = "Process Terminated! No data return..."
+                    myDS1 = Nothing
+                    Exit Function
+                End If
+                myDS1 = Nothing
+            Loop
+
+            lstDateApply.Items.Add(DateApply)
+            If InsEachDateApplication(strEmpID) = True Then
+                InsDateRangeApplication = True
+            Else
+                InsDateRangeApplication = False
+            End If
+
+        Catch ex As Exception
+            lblresult2.Text = "[InsDateRangeApplication]Error: " & ex.Message
+            myDS1 = Nothing
+        End Try
+
+    End Function
+    Private Function InsEachDateApplication(ByVal strEmpID As String) As Boolean
+        Dim vCount As Integer
+
+        If ddlOPTION_PERIOD.SelectedValue = "FULL" Then
+            Day = "1.0"
+        ElseIf ddlOPTION_PERIOD.SelectedValue = "1STHALF" Then
+            Day = "0.5"
+        ElseIf ddlOPTION_PERIOD.SelectedValue = "2NDHALF" Then
+            Day = "0.5"
+        End If
+
+
+        CountDay = lstDateApply.Items.Count
+        TotalDay = CountDay * Day
+        InsEachDateApplication = False
+        CurrentDate = mySetting.UnDisplayDateTime(mySetting.GetCurrentDate(Session("Company"), Session("Module")), Session("Company"), Session("Module"))
+        Session("CurSysDateTime") = CurrentDate
+
+        ssql = "Exec sp_ls_chkGblLeaveApp """ & Session("Company") & """,""" & strEmpID & """,""" _
+               & CurrentDate & """,""" & LeaveID & """,'1','0'"
+        myDS2 = mySQL.ExecuteSQL(ssql, Session("Company"), Session("Module"))
+
+        If myDS2.Tables.Count > 0 Then
+            If myDS2.Tables(0).Rows.Count > 0 Then
+                ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,'',""" & txtREASON.Text & """,'ERROR','Leave Not Entitle',""" & CurrentDate & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                ssql2 = Nothing
+                Exit Function
+            End If
+
+        Else
+
+            ssql = "Exec sp_ls_chkLeaveApplication """ & Session("Company") & """,""" _
+                   & strEmpID & """, """ & LeaveID & """,""" _
+                   & CurrentDate & """,''," & 0 & ",""" _
+                   & Trim(Right(ddlOPTION_PERIOD.SelectedValue, 10)) & """," & TotalDay & ", """ _
+                   & "0" & """,''"
+            myDS3 = mySQL.ExecuteSQL(ssql, Session("Company"), Session("Module"))
+
+            If myDS3.Tables.Count > 0 Then
+                If myDS3.Tables(0).Rows.Count > 0 Then
+                    If myDS3.Tables(0).Rows(0).Item(0).ToString = "1" Then
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,'',""" & txtREASON.Text & """,'ERROR','Total day out of range',""" & CurrentDate & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'ShowSysMessage "244", "", "", "3"  'Total day out of range
+                        Exit Function
+                    ElseIf myDS3.Tables(0).Rows(0).Item(0).ToString = "2" Then
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,'',""" & txtREASON.Text & """,'ERROR','Inter dept transfer record not found',""" & CurrentDate & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'ShowSysMessage "238", "", "", "3"  'Inter dept transfer record not found
+                        Exit Function
+                    ElseIf myDS3.Tables(0).Rows(0).Item(0).ToString = "3" Then
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,'',""" & txtREASON.Text & """,'ERROR','Calendar ID not found',""" & CurrentDate & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'ShowSysMessage "245", "", "", "3"  'Calendar ID not found
+                        Exit Function
+                    End If
+                End If
+            End If
+
+
+            ID = False
+
+            If chkEachDateApplication(strEmpID) = True Then
+                StopChecking = False
+                Action = "ADD"
+                vCounter = 0
+
+                Do Until vCounter = lstDateApply.Items.Count
+                    DateApplyFor = Trim(lstDateApply.Items(vCounter).Value)
+                    If chkLeaveSequence(strEmpID) = True Then
+                        ssql = "Exec sp_ls_insLeaveApplication '" & Session("Company") & "','" _
+                                   & strEmpID & "','" & LeaveID & "','" _
+                                   & Session("CurSysDateTime") & "','" & DateApplyFor & "','" & Day & "','" _
+                                   & ddlOPTION_PERIOD.SelectedValue & "','" & Session("EmpID") & "','" & Trim(txtREASON.Text) & "','','" & Action & "','000000','000000','" & "NO" & "',''"
+                        myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'SUCESS','',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                    Else
+                        Exit Function
+                    End If
+                    vCounter = vCounter + 1
+                Loop
+            Else
+                Exit Function
+            End If
+
+        End If
+
+        InsEachDateApplication = True
+
+    End Function
+
+    Private Function chkLeaveSequence(ByVal strEmpID As String) As Boolean
+
+        Dim CurrentLeaveID As String
+        Dim LeaveIDSequence As Integer
+        Dim CurrentLeaveName As String
+
+
+        chkLeaveSequence = False
+
+        'sp1
+        Try
+            ssql = "Exec sp_ls_selLeaveSequence '" & Session("Company") & "','" & LeaveID & "'"
+            myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+            If Trim(myDS1.Tables(0).Rows.Count) > 0 Then
+                CountSequence = myDS1.Tables(0).Rows(0).Item(0).ToString
+                LeaveIDSequence = myDS1.Tables(0).Rows(0).Item(1).ToString
+            End If
+            myDS1 = Nothing
+        Catch ex As Exception
+            lblresult2.Text = "[chkLeaveSequence:sp1]Error: " & ex.Message
+        End Try
+
+        chkLeaveSequence = False
+        If CountSequence > 0 Then
+
+            If ContinueLoop = True Then
+                vCount = ContinueCount
+            Else
+                vCount = 0
+            End If
+
+            Do Until vCount = CountSequence
+                'sp2
+                Try
+                    ssql = "Exec sp_ls_chkLeaveSequence '" & Session("Company") & "','" _
+                    & strEmpID & "','" & LeaveID & "','" _
+                    & CurrentDate & "','" & DateApplyFor & "','" _
+                    & Day & "','" & ddlOPTION_PERIOD.SelectedValue & "'," & TotalDay & ",'" _
+                    & "0" & "','" & StopChecking & "'," & vCount & ",''"
+
+                    myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                    If Trim(myDS1.Tables(0).Rows.Count) > 0 Then
+                        LeaveID = myDS1.Tables(0).Rows(0).Item(1).ToString
+                        CurrentLeaveID = LeaveID
+                        mstBalance = myDS1.Tables(0).Rows(0).Item(2).ToString
+
+                        If myDS1.Tables(0).Rows(0).Item(0).ToString = "Insert" And CurrentLeaveID <> PrevLeaveID And _
+                            Session("CurLeaveID") <> CurrentLeaveID And LeaveIDSequence < vCount Then
+                            myDS10 = mySetting.GetCodeNamebyOCPID(Session("Company").ToString, CurrentLeaveID)
+
+                            CurrentLeaveName = ""
+                            If myDS10.Tables.Count > 0 Then
+                                CurrentLeaveName = myDS10.Tables(0).Rows(0).Item(0).ToString
+                            End If
+                            myDS10 = Nothing
+
+                            lblresult2.Text = "The leave you apply is not available! Will Apply " & CurrentLeaveName & "!"
+                            MsgBox(lblresult2.Text)
+                            'StopChecking = True
+                            'Action = "CANCEL"
+                            'myDS1 = Nothing
+                            'Exit Function
+                            'StopChecking = True
+                            PrevLeaveID = CurrentLeaveID
+                            Action = "ADD"
+                            If vCount < CountSequence Then
+                                chkLeaveSequence = True
+                                ContinueLoop = True
+                                ContinueCount = vCount
+                                myDS1 = Nothing
+                                Exit Function
+                            End If
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "Insert" And CurrentLeaveID <> PrevLeaveID Then
+                            iID = True
+                            chkLeaveSequence = True
+                            myDS1 = Nothing
+                            Exit Function
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "1" And ddlOPTION_ADVANCE_LEAVE.SelectedValue = "NO" Then
+                            lblresult2.Text = "Balance Is Not Available!"
+                            chkLeaveSequence = True
+                            StopChecking = True
+                            Action = "CANCEL"
+                            myDS1 = Nothing
+                            MsgBox(lblresult2.Text)
+                            Exit Function
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "1" And ddlOPTION_ADVANCE_LEAVE.SelectedValue = "YES" Then
+                            'lblresult2.Text = "Balance Is Not Available!"
+                            chkLeaveSequence = True
+                            StopChecking = True
+                            Action = "ADD"
+                            myDS1 = Nothing
+                            LeaveID = Session("CurLeaveID").ToString
+                            'MsgBox(lblresult2.Text)
+                            Exit Function
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "2" And CurrentLeaveID <> PrevLeaveID Then
+                            lblresult2.Text = "The leave you apply is not available!"
+                            MsgBox(lblresult2.Text)
+                            'StopChecking = True
+                            'Action = "CANCEL"
+                            'myDS1 = Nothing
+                            'Exit Function
+                            'If ShowSysMessage("248", Trim(Left(colText(2), 50)), "", "2") = 7 Then
+                            '    'RetrieveStatusBarText(SBR_Saved_Cancel)
+                            '    lblresult.Text = "The leave you apply is not available!"
+                            '    StopChecking = True
+                            '    Action = "CANCEL"
+                            '    myDS1 = Nothing
+                            '    Exit Function
+                            'Else
+                            '    'StopChecking = True
+                            PrevLeaveID = CurrentLeaveID
+                            Action = "ADD"
+                            If vCount < CountSequence Then
+                                chkLeaveSequence = True
+                                ContinueLoop = True
+                                ContinueCount = vCount
+                                myDS1 = Nothing
+                                Exit Function
+                            End If
+                            'End If
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "2" And CurrentLeaveID = PrevLeaveID _
+                                And myDS1.Tables(0).Rows(0).Item(2).ToString = "False" And vCount = CountSequence - 1 Then
+                            lblresult2.Text = "Leave Balance Is Not Available!"
+                            chkLeaveSequence = True
+                            StopChecking = True
+                            Action = "CANCEL"
+                            myDS1 = Nothing
+                            MsgBox(lblresult2.Text)
+                            Exit Function
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "2" And CurrentLeaveID = PrevLeaveID _
+                                And myDS1.Tables(0).Rows(0).Item(2).ToString = "True" Then
+                            chkLeaveSequence = True
+                            Action = "ADD"
+                            myDS1 = Nothing
+                            Exit Function
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "3" Then
+                            'txtDate_Apply_From.Text = DateApplyFor
+                            'lblresult.Text = "Leave Balance Is Not Available!"
+                            'chkLeaveSequence = True
+                            'Action = "CANCEL"
+                            'myDS1 = Nothing
+                            'Exit Function
+                            'If ShowSysMessage("247", mskFromDate, "", "2") = 7 Then
+                            '    'RetrieveStatusBarText(SBR_Saved_Cancel)
+                            '    Action = "CANCEL"
+                            'Else
+                            chkLeaveSequence = True
+                            StopChecking = True
+                            Action = "ADD"
+                            '    myDS1 = Nothing
+                            '    Exit Function
+                            'End If
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "4" Then
+                            txtFROM_DATE.Text = DateApplyFor
+                            lblresult2.Text = "Leave Balance Is Not Available!"
+                            chkLeaveSequence = True
+                            Action = "CANCEL"
+                            ApplicationEnd = True
+                            myDS1 = Nothing
+                            MsgBox(lblresult2.Text)
+                            Exit Function
+                            'If ShowSysMessage("247", mskFromDate, "", "2") = 7 Then
+                            '    'RetrieveStatusBarText(SBR_Saved_Cancel)
+                            '    Action = "CANCEL"
+                            '    ApplicationEnd = True
+                            '    myDS1 = Nothing
+                            '    Exit Function
+                            'Else
+                            '    chkLeaveSequence = True
+                            '    StopChecking = True
+                            '    Action = "ADD"
+                            '    myDS1 = Nothing
+                            '    Exit Function
+                            'End If
+
+                        ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "0" Or (myDS1.Tables(0).Rows(0).Item(0).ToString = "2" And CurrentLeaveID = PrevLeaveID _
+                                And myDS1.Tables(0).Rows(0).Item(0).ToString = "False") Then
+                            LeaveID = Session("CurLeaveID")
+                        End If
+                    End If
+
+                Catch ex As Exception
+                    lblresult2.Text = "[chkLeaveSequence:sp2]Error: " & ex.Message
+                End Try
+
+                vCount = vCount + 1
+            Loop
+
+        Else
+            'sp3
+            Try
+                ssql = "Exec sp_ls_chkNoLeaveSequence '" & Session("Company") & "','" _
+                & strEmpID & "','" & LeaveID & "','" _
+                & CurrentDate & "','" & DateApplyFor & "','" & Day & "','" _
+                & "0" & "','" & StopChecking & "','',''"
+
+                myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                If Trim(myDS1.Tables.Count) > 0 Then
+                    'move inside
+                    LeaveID = myDS1.Tables(0).Rows(0).Item(1).ToString
+                    If myDS1.Tables(0).Rows(0).Item(0).ToString = "1" Or myDS1.Tables(0).Rows(0).Item(0).ToString = "3" Then
+                        lblresult2.Text = "Leave Balance Is Not Available!"
+                        Action = "CANCEL"
+                        StopChecking = True
+                        myDS1 = Nothing
+                        MsgBox(lblresult2.Text)
+                        Exit Function
+                    ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "2" Then
+                        'txtDate_Apply_From.Text = DateApplyFor
+                        'lblresult.Text = "Leave Balance Is Not Available!"
+                        'StopChecking = False
+                        'Action = "CANCEL"
+                        'myDS1 = Nothing
+                        'Exit Function
+                        'If ShowSysMessage("247", mskFromDate, "", "2") = 7 Then
+                        '    'RetrieveStatusBarText(SBR_Saved_Cancel)
+                        '    StopChecking = False
+                        '    Action = "CANCEL"
+                        '    Exit Function
+                        'Else
+                        chkLeaveSequence = True
+                        StopChecking = True
+                        Action = "ADD"
+                        'End If
+
+                    ElseIf myDS1.Tables(0).Rows(0).Item(0).ToString = "0" Then
+                        'RetrieveStatusBarText(SBR_Saved_Cancel)
+                        Action = "CANCEL"
+                    End If
+                End If
+
+            Catch ex As Exception
+                lblresult2.Text = "[chkLeaveSequence:sp3]Error: " & ex.Message
+            End Try
+
+        End If
+        myDS1 = Nothing
+        chkLeaveSequence = True
+
+    End Function
+    Private Function chkEachDateApplication(ByVal strEmpID As String) As Boolean
+
+        Try
+            Err1 = ""
+            Err2 = ""
+            Err3 = ""
+            Err4 = ""
+            Err5 = ""
+            Err6 = ""
+            vDate1 = ""
+            vDate2 = ""
+            vDate3 = ""
+            vDate4 = ""
+            vDate5 = ""
+            vDate6 = ""
+            Message = ""
+            lblresult2.Text = ""
+
+            chkEachDateApplication = False
+            vCounter = 0
+            'strempid = Session("curLeaveEmpID")
+            'CurrentDate = Session("CurSysDate")
+
+            While vCounter < lstDateApply.Items.Count
+
+                Action = "ADD"
+                DateApplyFor = Trim(lstDateApply.Items(vCounter).ToString)
+
+                If ddlOPTION_PERIOD.SelectedValue = "TIME" Then
+                    ssql = "Exec sp_ls_chkLeaveApplication '" & Session("Company") & "','" _
+                           & strEmpID & "','" & Session("CurLeaveID") & "','" & CurrentDate & "','" _
+                           & DateApplyFor & "','" & Day & "','" _
+                           & ddlOPTION_PERIOD.SelectedValue & "','" & TotalDay & "',0,'','',''"
+                Else
+                    ssql = "Exec sp_ls_chkLeaveApplication '" & Session("Company") & "','" _
+                           & strempid & "','" & Session("CurLeaveID") & "','" & CurrentDate & "','" _
+                           & DateApplyFor & "','" & Day & "','" _
+                           & ddlOPTION_PERIOD.SelectedValue & "','" & TotalDay & "',0,''"
+                End If
+                myDS1 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+                If myDS1.Tables.Count > 0 Then
+                    If Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "5" Then
+                        ssql1 = "Select dbo.fn_DisplayDate('" & DateApplyFor & "','" & Session("Company") & "','" & Session("Module") & "')"
+                        myDS3 = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                        vDate1 = vDate1 & " " & myDS3.Tables(0).Rows(0).Item(0).ToString()
+                        myDS3 = Nothing
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Duplicate Found!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'vDate1 = DateApplyFor & " " & vDate1
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "4" Then
+                        'If tabCalendar.Tab = 1 Then
+                        '    lstDateApply.Items.Remove(vCounter)
+                        'Else
+                        '    vDate2 = DateApplyFor & " " & vDate2
+                        '    lblresut.Text = "Following day(s) is not allow to apply leave"
+                        'End If
+                        lstDateApply.Items.RemoveAt(vCounter)
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Following day(s) is not allow to apply leave!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        ssql1 = "Select dbo.fn_DisplayDate('" & DateApplyFor & "','" & Session("Company") & "','" & Session("Module") & "')"
+                        myDS3 = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                        vDate2 = myDS3.Tables(0).Rows(0).Item(0).ToString() & " " & vDate2
+                        myDS3 = Nothing
+                        vCounter = vCounter - 1
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "6" Then
+                        lblresult2.Text = "Date Apply Must Less Than Or Equal to Current Date"
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Date Apply Must Less Than Or Equal to Current Date!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        Return False
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "1" Then
+                        ssql1 = "Select dbo.fn_DisplayDate('" & DateApplyFor & "','" & Session("Company") & "','" & Session("Module") & "')"
+                        myDS3 = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                        vDate4 = vDate4 & " " & myDS3.Tables(0).Rows(0).Item(0).ToString()
+                        myDS3 = Nothing
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Not Enought balance!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'vDate4 = DateApplyFor & " " & vDate4
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "2" Then
+                        ssql1 = "Select dbo.fn_DisplayDate('" & DateApplyFor & "','" & Session("Company") & "','" & Session("Module") & "')"
+                        myDS3 = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                        vDate5 = vDate5 & " " & myDS3.Tables(0).Rows(0).Item(0).ToString()
+                        myDS3 = Nothing
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Calendar ID Not Found!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'vDate5 = DateApplyFor & " " & vDate5
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "3" Then
+                        ssql1 = "Select dbo.fn_DisplayDate('" & DateApplyFor & "','" & Session("Company") & "','" & Session("Module") & "')"
+                        myDS3 = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                        vDate6 = vDate6 & " " & myDS3.Tables(0).Rows(0).Item(0).ToString()
+                        myDS3 = Nothing
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'vDate6 = DateApplyFor & " " & vDate6
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "7" Then
+                        lblresult2.Text = "This leave (" & Session("CurLeaveName") & ") can not be apply more than one time in a year!"
+                        MsgBox(lblresult2.Text)
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','This Leave can not be apply more than one time in a year!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        Return False
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "8" Then
+                        lblresult2.Text = "Days apply exceed maximum limit that allow in one time!"
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Days apply exceed maximun limit that allow in one time!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        Return False
+
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "9" And ddlOPTION_ADVANCE_LEAVE.SelectedValue = "NO" Then
+                        lblresult2.Text = "Balance Is Not Available!"
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Balance Is Not Available!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        Return False
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "10" Then
+                        ssql1 = "Select decimal_value1 from Parameter where Company_Profile_Code = '" & Session("Company").ToString & "' and Code = 'APPLYBEFORE'and Module_Profile_Code = 'LEAVE'"
+                        myDS3 = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                        If CDbl(myDS3.Tables(0).Rows(0).Item(0).ToString) > 0 Then
+                            lblresult2.Text = "This Leave (" & Session("CurLeaveName") & ") must be apply after (" & myDS3.Tables(0).Rows(0).Item(0).ToString & ") days!"
+                        Else
+                            lblresult2.Text = "This Leave (" & Session("CurLeaveName") & ") must be apply before (" & Math.Abs(Math.Round(CDbl(myDS3.Tables(0).Rows(0).Item(0).ToString), 2)) & ") days!"
+                        End If
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','This Leave must be apply before (" & Math.Abs(Math.Round(CDbl(myDS3.Tables(0).Rows(0).Item(0).ToString), 2)) & ") days!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        'lblresult.Text = "Balance Is Not Available!"
+                        Return False
+                    ElseIf Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) = "12" Then
+                        lblresult2.Text = "Cannot Apply After Resign Date!"
+                        ssql2 = "Exec sp_ls_InsGblLeaveApp """ & Session("Company") & """,""" & Session("EmpID") & """,""" & strEmpID & """,""" _
+                        & LeaveID & """,""" & ddlOPTION_PERIOD.SelectedValue & """,""" & _
+                         DateApplyFor & """,""" & txtREASON.Text & """,'ERROR','Cannot Apply After Resign Date!',""" & Session("CurSysDateTime") & """,""" & ddlOPTION_ADVANCE_LEAVE.SelectedValue & """"
+                        mySQL.ExecuteSQL(ssql2, Session("Company"), Session("Module"))
+                        ssql2 = Nothing
+                        Return False
+                    End If
+                Else
+                    ssql = "Exec sp_sa_chkTransactionLockDate '" & Session("Company") & "','" _
+                           & Session("EmpID").ToString & "','" & DateApplyFor & "'," & 1 & "," & 0
+                    myDS2 = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                    If Trim(myDS2.Tables(0).Rows(0).Item(0).ToString) <> "" Then
+                        vDate3 = DateApplyFor & " " & vDate3
+                    End If
+                    myDS2 = Nothing
+                End If
+                myDS1 = Nothing
+
+                vCounter = vCounter + 1
+            End While
+
+            If vDate1 <> "" Then   ' Duplicate Record
+                Err1 = "The following date not available! (" & vDate1 & ")"
+            End If
+
+            If vDate2 <> "" Then   ' Not Allow to apply Leave
+                Err2 = "Following day(s) is not allow to apply leave! (" & vDate2 & ") "
+                lblresult2.Text = Err2
+                Err2 = ""
+            End If
+
+            If vDate3 <> "" Then   ' Lock Date
+                Err3 = "The following date already locked! (" & vDate3 & ") "
+            End If
+
+            If vDate4 <> "" Then   ' Total Day Out Of Range
+                Err4 = "Total Day Out Of Range! (" & vDate4 & ") "
+            End If
+
+            If vDate5 <> "" Then   ' Inter Department Transfer Record Not Found
+                Err5 = "Inter Department Transfer Record Not Found! (" & vDate5 & ") "
+            End If
+
+            If vDate6 <> "" Then   ' CalendarID Not Found
+                Err6 = "CalendarID Not Found! (" & vDate6 & ")"
+            End If
+
+            If Err1 <> "" Or Err2 <> "" Or Err3 <> "" Or Err4 <> "" Or Err5 <> "" Or Err6 <> "" Then
+                If Err1 <> "" Then Message = Chr(13) + Chr(13) + Err1
+                If Err2 <> "" Then Message = Message + Chr(13) + Chr(13) + Err2
+                If Err3 <> "" Then Message = Message + Chr(13) + Chr(13) + Err3
+                If Err4 <> "" Then Message = Message + Chr(13) + Chr(13) + Err4
+                If Err5 <> "" Then Message = Message + Chr(13) + Chr(13) + Err5
+                If Err6 <> "" Then Message = Message + Chr(13) + Chr(13) + Err6
+
+                lblresult2.Text = Message
+                Action = "CANCEL"
+                'tabCalendar.Tab = 0
+                Return False
+            End If
+
+            Return True
+
+        Catch ex As Exception
+            lblresult2.Text = "[chkEachDateApplication]Error: " & ex.Message
+        End Try
+
+    End Function
+    Private Sub ShowMessage(ByVal message As String)
+
+        Dim scriptString As String = "<script language=JavaScript>"
+        scriptString += "alert('" + message + "');"
+        scriptString += "<" & "/script>"
+        Page.ClientScript.RegisterStartupScript(GetType(Page), "ShowMessage", scriptString)
+
+    End Sub
+
+    Private Function ActionValidateDelete() As Boolean
+
+        RecFound = False
+        For i = 0 To myGridView.Rows.Count - 1
+            Dim chkDelete As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+            If chkDelete.Checked Then
+                RecFound = True
+                Exit For
+            End If
+        Next
+        If RecFound = True Then
+            Return True
+        Else
+            lblresult2.Text = "Invalid action: No row selected for deleting..."
+            Return False
+        End If
+
+    End Function
+
+    Private Function ActionValidateEdit() As Boolean
+        RecFound = False
+        CountRecord = 0
+        For i = 0 To myGridView.Rows.Count - 1
+            Dim chkEdit As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+            If chkEdit.Checked Then
+                RecFound = True
+                CountRecord = CountRecord + 1
+            End If
+        Next
+        If RecFound = True Then
+            If CountRecord > 1 Then
+                lblresult.Text = "Invalid action: Only 1 row can be selected for editing..."
+                Return False
+            Else
+                Return True
+            End If
+        Else
+            lblresult.Text = "Invalid action: No row selected for editing..."
+            Return False
+        End If
+    End Function
+
+    Private Function ActionValidateFieldCompany() As Boolean
+        If txtCOMPANY_PROFILE_CODE.Text <> "" Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Private Function ActionValidateFieldLEAVEProfile() As Boolean
+        If txtOCP_ID_LEAVE.Text <> "" Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Private Function ActionValidateFieldPERIOD() As Boolean
+        If ddlOPTION_PERIOD.SelectedValue <> "" Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Private Function ActionValidateFieldADVANCE() As Boolean
+        If ddlOPTION_ADVANCE_LEAVE.SelectedValue <> "" Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Sub CheckAll()
+        For i = 0 To myGridView.Rows.Count - 1
+            Dim chkDelete As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+            chkDelete.Checked = True
+        Next
+    End Sub
+
+    Sub UncheckAll()
+        For i = 0 To myGridView.Rows.Count - 1
+            Dim chkDelete As CheckBox = myGridView.Rows(i).Cells(0).Controls(1)
+            chkDelete.Checked = False
+        Next
+    End Sub
+
+    Sub disableLst()
+        lstleft.Enabled = False
+        lstright.Enabled = False
+        imgBtnAddAll.Enabled = False
+        imgBtnAddItem.Enabled = False
+        imgBtnRemoveAll.Enabled = False
+        imgBtnRemoveItem.Enabled = False
+    End Sub
+
+    Sub enableLst()
+        lstleft.Enabled = True
+        lstright.Enabled = True
+        imgBtnAddAll.Enabled = True
+        imgBtnAddItem.Enabled = True
+        imgBtnRemoveAll.Enabled = True
+        imgBtnRemoveItem.Enabled = True
+    End Sub
+
+    Private Sub AddRemoveAll(ByVal aSource As ListBox, ByVal aTarget As ListBox)
+
+        Try
+            For i = 0 To aSource.Items.Count - 1
+                aTarget.Items.Add(aSource.Items(i))
+            Next
+            aSource.Items.Clear()
+        Catch ex As Exception
+            lblresult2.Text = "Error: " + ex.Message
+        End Try
+
+
+    End Sub
+
+    Private Sub AddRemoveItem(ByVal aSource As ListBox, ByVal aTarget As ListBox)
+
+        Try
+            For i = 0 To aSource.Items.Count - 1
+                If aSource.Items(i).Selected Then
+                    aTarget.Items.Add(aSource.Items(i))
+                End If
+            Next
+            For i = aSource.Items.Count - 1 To 0 Step -1
+                If aSource.Items(i).Selected = True Then
+                    aSource.Items.Remove(aSource.Items(i))
+                End If
+            Next
+
+        Catch ex As Exception
+            lblresult2.Text = "Error: " + ex.Message
+        End Try
+
+    End Sub
+
+    Sub SetVisible()
+
+        Try 'ModifyOn051106
+            myDS = mySetting.GetPageFieldSetting(Session("Company"), Form.ID, Session("EmpID"))
+            If CInt(myDS.Tables.Count) > 1 Then
+                If CInt(myDS.Tables(1).Rows.Count) > 0 Then
+
+                    Dim en, vv, vw, dt, md, pr, et, fl, ps, code, name, maxlength As Integer
+
+                    For i = 0 To myDS.Tables(1).Columns.Count - 1
+                        If UCase(myDS.Tables(1).Columns(i).ToString) = "CODE" Then
+                            code = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "NAME" Then
+                            name = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_PRIMARY_KEY" Then
+                            pr = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_DATA_TYPE" Then
+                            dt = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "LENGTH" Then
+                            maxlength = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_MANDATORY" Then
+                            md = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_PASSWORD" Then
+                            ps = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_EDITABLE" Then
+                            et = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_SET_FILTER" Then
+                            fl = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_VIEW_LIST" Then
+                            vv = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_VIEW_CARD" Then
+                            vw = i
+                        ElseIf UCase(myDS.Tables(1).Columns(i).ToString) = "OPTION_ENABLED" Then
+                            en = i
+                        End If
+                    Next
+
+                    For i = 0 To myDS.Tables(1).Rows.Count - 1
+                        Dim myImage As Image = Page.FindControl("img" & Trim(myDS.Tables(1).Rows(i).Item(code)))
+                        Dim myLabel As Label = Page.FindControl("lbl" & Trim(myDS.Tables(1).Rows(i).Item(code)))
+                        Dim myImageButton As ImageButton = Page.FindControl("imgBtn" & Trim(myDS.Tables(1).Rows(i).Item(code)))
+                        'labelling
+                        myLabel.Text = myDS.Tables(1).Rows(i).Item(name).ToString
+                        Select Case UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString))
+
+                            Case "OPTION"
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS.Tables(1).Rows(i).Item(code)))
+                                logic = False
+                                If UCase(Trim(myDS.Tables(1).Rows(i).Item(vw).ToString)) = "YES" Then
+                                    If UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString)) <> "LOOKUP" And UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString)) <> "DATETIME" Then
+                                        myImageButton.Visible = False
+                                    End If
+                                    If Session("action") = "add" Or Session("action") = "edit" Then
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(md).ToString)) = "NO" Then
+                                            myImage.Visible = False
+                                        End If
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(en).ToString)) = "NO" Then
+                                            myLabel.Enabled = False
+                                            myDropdownlist.Enabled = False
+                                            myImageButton.Enabled = False
+                                        End If
+                                    End If
+                                    If Session("action") = "edit" Then
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(pr).ToString)) = "YES" Or UCase(Trim(myDS.Tables(1).Rows(i).Item(et).ToString)) = "NO" Then
+                                            myLabel.Enabled = False
+                                            myDropdownlist.Enabled = False
+                                            myImageButton.Enabled = False
+                                        End If
+                                    End If
+                                    If Session("action") = "filter" Then
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(fl).ToString)) = "NO" Then
+                                            logic = True
+                                        End If
+                                        myImage.Visible = False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    myImage.Visible = False
+                                    myLabel.Visible = False
+                                    myDropdownlist.Visible = False
+                                    myImageButton.Visible = False
+                                End If
+
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(1).Rows(i).Item(code)))
+                                logic = False
+                                If UCase(Trim(myDS.Tables(1).Rows(i).Item(vw).ToString)) = "YES" Then
+                                    If UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString)) <> "LOOKUP" And UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString)) <> "DATETIME" And UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString)) <> "DATE" And UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString)) <> "TIME" Then
+                                        myImageButton.Visible = False
+                                    End If
+                                    If Session("action") = "add" Or Session("action") = "edit" Then
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(md).ToString)) = "NO" Then
+                                            myImage.Visible = False
+                                        End If
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(en).ToString)) = "NO" Then
+                                            myLabel.Enabled = False
+                                            myTextBox.Enabled = False
+                                            myImageButton.Enabled = False
+                                        End If
+                                    End If
+                                    If Session("action") = "edit" Then
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(pr).ToString)) = "YES" Or UCase(Trim(myDS.Tables(1).Rows(i).Item(et).ToString)) = "NO" Then
+                                            myLabel.Enabled = False
+                                            myTextBox.Enabled = False
+                                            myImageButton.Enabled = False
+                                        End If
+                                    End If
+                                    If Session("action") = "filter" Then
+                                        If UCase(Trim(myDS.Tables(1).Rows(i).Item(fl).ToString)) = "NO" Then
+                                            logic = True
+                                        End If
+                                        myImage.Visible = False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    myImage.Visible = False
+                                    myLabel.Visible = False
+                                    myTextBox.Visible = False
+                                    myImageButton.Visible = False
+                                End If
+                                'maxlength setting
+                                myTextBox.MaxLength = CInt(myDS.Tables(1).Rows(i).Item(maxlength).ToString)
+                                If Session("action") = "filter" Then
+                                    mySetting.ResetUppercase(myTextBox)
+                                Else
+                                    'upper case setting
+                                    If UCase(Trim(myDS.Tables(1).Rows(i).Item(pr).ToString)) = "YES" Then
+                                        mySetting.ConvertUppercase(myTextBox)
+                                    End If
+                                End If
+                                'password setting
+                                If UCase(Trim(myDS.Tables(1).Rows(i).Item(ps).ToString)) = "YES" Then
+                                    myTextBox.TextMode = TextBoxMode.Password
+                                End If
+
+                        End Select
+                    Next
+
+                End If
+            End If
+            myDS = Nothing
+        Catch ex As Exception
+            lblresult.Text = "[SetVisible]Error: " & ex.Message
+            SetFieldToFalse()
+        End Try
+
+    End Sub
+
+    Sub AutoAdjustPosition(ByVal strSelect As String)
+
+        Dim myPosition As String
+        Dim autonum2 As Integer = 0
+        Select Case strSelect
+            Case "1"
+                myPosition = rowPositionM
+            Case "2"
+                myPosition = rowPosition
+            Case Else
+                myPosition = rowPosition
+        End Select
+
+        'get field position
+        Dim txtWidth As Integer = 0
+        Dim ddlWidth As Integer = 0
+        Dim AblWidth As Integer = 0
+        Dim EctWidth As Integer = 0
+
+        'get width
+        If CInt(Session("GVwidth")) > 680 Then
+            AblWidth = (CInt(Session("GVwidth")) - 680)
+            EctWidth = AblWidth / 2
+            txtWidth = 150 + EctWidth
+            ddlWidth = 157 + EctWidth
+        Else
+            txtWidth = 150
+            ddlWidth = 157
+            EctWidth = 0
+        End If
+
+        ' set all button 2 to false & button 1 to true
+        imgBtnEMPLOYEE_PROFILE_ID2.Visible = False
+        imgBtnEMPLOYEE_PROFILE_ID.Visible = True
+
+        'get field position
+        ssql = "exec sp_sa_get_fields_position '" & Form.ID & "'"
+        myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+        autonum = 0
+        If myDS.Tables(0).Rows.Count > 0 Then
+            For i = 0 To myDS.Tables(0).Rows.Count - 1
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "COMPANY_PROFILE_CODE" Then
+                    If lblCOMPANY_PROFILE_CODE.Visible = True And txtCOMPANY_PROFILE_CODE.Visible = True Then
+                        autonum += 1
+                        imgCOMPANY_PROFILE_CODE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgCOMPANY_PROFILE_CODE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgCOMPANY_PROFILE_CODE.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblCOMPANY_PROFILE_CODE.CssClass = "wordstyle12"
+                        lblCOMPANY_PROFILE_CODE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblCOMPANY_PROFILE_CODE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblCOMPANY_PROFILE_CODE.Style.Add("position", "absolute")
+                        autonum += 1
+                        txtCOMPANY_PROFILE_CODE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        txtCOMPANY_PROFILE_CODE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        txtCOMPANY_PROFILE_CODE.Style.Add("position", "absolute")
+                        txtCOMPANY_PROFILE_CODE.Width = txtWidth
+                        autonum += 1
+                        imgBtnCOMPANY_PROFILE_CODE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgBtnCOMPANY_PROFILE_CODE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgBtnCOMPANY_PROFILE_CODE.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "OCP_ID_LEAVE" Then
+                    If lblOCP_ID_LEAVE.Visible = True And txtOCP_ID_LEAVE.Visible = True Then
+                        autonum += 1
+                        imgOCP_ID_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgOCP_ID_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgOCP_ID_LEAVE.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblOCP_ID_LEAVE.CssClass = "wordstyle12"
+                        lblOCP_ID_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblOCP_ID_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblOCP_ID_LEAVE.Style.Add("position", "absolute")
+                        autonum += 1
+                        txtOCP_ID_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        txtOCP_ID_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        txtOCP_ID_LEAVE.Style.Add("position", "absolute")
+                        txtOCP_ID_LEAVE.Width = txtWidth
+                        autonum += 1
+                        imgBtnOCP_ID_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgBtnOCP_ID_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgBtnOCP_ID_LEAVE.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "OPTION_PERIOD" Then
+                    If lblOPTION_PERIOD.Visible = True And ddlOPTION_PERIOD.Visible = True Then
+                        autonum += 1
+                        imgOPTION_PERIOD.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgOPTION_PERIOD.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgOPTION_PERIOD.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblOPTION_PERIOD.CssClass = "wordstyle12"
+                        lblOPTION_PERIOD.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblOPTION_PERIOD.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblOPTION_PERIOD.Style.Add("position", "absolute")
+                        autonum += 1
+                        ddlOPTION_PERIOD.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        ddlOPTION_PERIOD.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        ddlOPTION_PERIOD.Style.Add("position", "absolute")
+                        ddlOPTION_PERIOD.Width = txtWidth
+                        autonum += 1
+                        imgBtnOPTION_PERIOD.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgBtnOPTION_PERIOD.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgBtnOPTION_PERIOD.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "OPTION_ADVANCE_LEAVE" Then
+                    If lblOPTION_ADVANCE_LEAVE.Visible = True And ddlOPTION_ADVANCE_LEAVE.Visible = True Then
+                        autonum += 1
+                        imgOPTION_ADVANCE_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgOPTION_ADVANCE_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgOPTION_ADVANCE_LEAVE.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblOPTION_ADVANCE_LEAVE.CssClass = "wordstyle12"
+                        lblOPTION_ADVANCE_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblOPTION_ADVANCE_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblOPTION_ADVANCE_LEAVE.Style.Add("position", "absolute")
+                        autonum += 1
+                        ddlOPTION_ADVANCE_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        ddlOPTION_ADVANCE_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        ddlOPTION_ADVANCE_LEAVE.Style.Add("position", "absolute")
+                        ddlOPTION_ADVANCE_LEAVE.Width = txtWidth
+                        autonum += 1
+                        imgbtnOPTION_ADVANCE_LEAVE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgbtnOPTION_ADVANCE_LEAVE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgbtnOPTION_ADVANCE_LEAVE.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "REASON" Then
+                    If lblREASON.Visible = True And txtREASON.Visible = True Then
+                        autonum += 1
+                        imgREASON.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgREASON.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgREASON.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblREASON.CssClass = "wordstyle12"
+                        lblREASON.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblREASON.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblREASON.Style.Add("position", "absolute")
+                        autonum += 1
+                        txtREASON.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        txtREASON.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        txtREASON.Style.Add("position", "absolute")
+                        txtREASON.Width = txtWidth
+                        autonum += 1
+                        imgbtnREASON.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgbtnREASON.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgbtnREASON.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "FROM_DATE" Then
+                    If lblFROM_DATE.Visible = True And txtFROM_DATE.Visible = True Then
+                        autonum += 1
+                        imgFROM_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgFROM_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgFROM_DATE.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblFROM_DATE.CssClass = "wordstyle12"
+                        lblFROM_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblFROM_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblFROM_DATE.Style.Add("position", "absolute")
+                        autonum += 1
+                        txtFROM_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        txtFROM_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        txtFROM_DATE.Style.Add("position", "absolute")
+                        txtFROM_DATE.Width = txtWidth
+                        autonum += 1
+                        imgbtnFROM_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgbtnFROM_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgbtnFROM_DATE.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "TO_DATE" Then
+                    If lblTO_DATE.Visible = True And txtTO_DATE.Visible = True Then
+                        autonum += 1
+                        imgTO_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgTO_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgTO_DATE.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblTO_DATE.CssClass = "wordstyle12"
+                        lblTO_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblTO_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblTO_DATE.Style.Add("position", "absolute")
+                        autonum += 1
+                        txtTO_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        txtTO_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        txtTO_DATE.Style.Add("position", "absolute")
+                        txtTO_DATE.Width = txtWidth
+                        autonum += 1
+                        imgbtnTO_DATE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgbtnTO_DATE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgbtnTO_DATE.Style.Add("position", "absolute")
+                    End If
+                End If
+
+                If UCase(myDS.Tables(0).Rows(i).Item(1).ToString) = "EMPLOYEE_PROFILE_ID" Then
+                    If lblOPTION_TYPE.Visible = True And ddlOPTION_TYPE.Visible = True Then
+                        autonum += 1
+                        imgOPTION_TYPE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgOPTION_TYPE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgOPTION_TYPE.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblOPTION_TYPE.CssClass = "wordstyle12"
+                        lblOPTION_TYPE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblOPTION_TYPE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblOPTION_TYPE.Style.Add("position", "absolute")
+                        autonum += 1
+                        ddlOPTION_TYPE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        ddlOPTION_TYPE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        ddlOPTION_TYPE.Style.Add("position", "absolute")
+                        ddlOPTION_TYPE.Width = ddlWidth
+                        autonum += 1
+                        imgBtnOPTION_TYPE.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgBtnOPTION_TYPE.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgBtnOPTION_TYPE.Style.Add("position", "absolute")
+                    End If
+
+                    If lblOCP_ID.Visible = True And ddlOCP_ID.Visible = True Then
+                        autonum += 1
+                        imgOCP_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgOCP_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgOCP_ID.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblOCP_ID.CssClass = "wordstyle12"
+                        lblOCP_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblOCP_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblOCP_ID.Style.Add("position", "absolute")
+                        autonum += 1
+                        ddlOCP_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        ddlOCP_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        ddlOCP_ID.Style.Add("position", "absolute")
+                        ddlOCP_ID.Width = ddlWidth
+                        autonum += 1
+                        imgBtnOCP_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgBtnOCP_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgBtnOCP_ID.Style.Add("position", "absolute")
+                    End If
+                    If Session("action_edit") = "value" Then
+                        ' set lst pnl 
+                        pnllstleft.Visible = True
+                        pnllstright.Visible = True
+                        enableLst()
+
+                        autonum2 = autonum
+                        autonum2 = autonum2 / 4
+                        If autonum2 Mod 2 <> 0 Then
+                            autonum2 = (autonum2 + 3) / 2
+                            autonum = autonum + 5
+                        Else
+                            autonum2 = (autonum2 + 2) / 2
+                            autonum = autonum + 1
+                        End If
+
+                        imgEMPLOYEE_PROFILE_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        imgEMPLOYEE_PROFILE_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        imgEMPLOYEE_PROFILE_ID.Style.Add("position", "absolute")
+                        autonum += 1
+                        lblEMPLOYEE_PROFILE_ID.CssClass = "wordstyle12"
+                        lblEMPLOYEE_PROFILE_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        lblEMPLOYEE_PROFILE_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        lblEMPLOYEE_PROFILE_ID.Style.Add("position", "absolute")
+                        autonum += 1
+
+                        txtEMPLOYEE_PROFILE_ID.Visible = False
+
+                        pnllstleft.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                        pnllstleft.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                        pnllstleft.Style.Add("position", "absolute")
+                        pnllstleft.Width = txtWidth
+                        lbllstleft.Width = txtWidth
+                        lstleft.Width = ddlWidth
+                        autonum += 1
+                        imgBtnAddAll.Style.Add("left", mySetting.GetObjPositionRL(EctWidth, 1, "X"))
+                        imgBtnAddAll.Style.Add("top", mySetting.GetObjPositionRL(1, autonum2, "Y"))
+                        imgBtnAddAll.Style.Add("position", "absolute")
+                        imgBtnAddItem.Style.Add("left", mySetting.GetObjPositionRL(EctWidth, 2, "X"))
+                        imgBtnAddItem.Style.Add("top", mySetting.GetObjPositionRL(2, autonum2, "Y"))
+                        imgBtnAddItem.Style.Add("position", "absolute")
+                        imgBtnRemoveItem.Style.Add("left", mySetting.GetObjPositionRL(EctWidth, 3, "X"))
+                        imgBtnRemoveItem.Style.Add("top", mySetting.GetObjPositionRL(3, autonum2, "Y"))
+                        imgBtnRemoveItem.Style.Add("position", "absolute")
+                        imgBtnRemoveAll.Style.Add("left", mySetting.GetObjPositionRL(EctWidth, 4, "X"))
+                        imgBtnRemoveAll.Style.Add("top", mySetting.GetObjPositionRL(4, autonum2, "Y"))
+                        imgBtnRemoveAll.Style.Add("position", "absolute")
+                        pnllstright.Style.Add("left", mySetting.GetObjPositionRL(EctWidth, 5, "X"))
+                        pnllstright.Style.Add("top", mySetting.GetObjPositionRL(5, autonum2, "Y"))
+                        pnllstright.Style.Add("position", "absolute")
+                        pnllstright.Width = txtWidth
+                        lbllstright.Width = txtWidth
+                        lstright.Width = ddlWidth
+
+                        imgBtnEMPLOYEE_PROFILE_ID2.Visible = True
+                        imgBtnEMPLOYEE_PROFILE_ID.Visible = False
+                        imgBtnEMPLOYEE_PROFILE_ID2.Style.Add("left", mySetting.GetObjPositionRL(EctWidth, 6, "X"))
+                        imgBtnEMPLOYEE_PROFILE_ID2.Style.Add("top", mySetting.GetObjPositionRL(6, autonum2, "Y"))
+                        imgBtnEMPLOYEE_PROFILE_ID2.Style.Add("position", "absolute")
+                        autonum += 44
+                    Else
+                        If lblEMPLOYEE_PROFILE_ID.Visible = True Then
+                            autonum += 1
+                            imgEMPLOYEE_PROFILE_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                            imgEMPLOYEE_PROFILE_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                            imgEMPLOYEE_PROFILE_ID.Style.Add("position", "absolute")
+                            autonum += 1
+                            lblEMPLOYEE_PROFILE_ID.CssClass = "wordstyle12"
+                            lblEMPLOYEE_PROFILE_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                            lblEMPLOYEE_PROFILE_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                            lblEMPLOYEE_PROFILE_ID.Style.Add("position", "absolute")
+                            autonum += 1
+                            txtEMPLOYEE_PROFILE_ID.Visible = True
+                            txtEMPLOYEE_PROFILE_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                            txtEMPLOYEE_PROFILE_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                            txtEMPLOYEE_PROFILE_ID.Style.Add("position", "absolute")
+                            txtEMPLOYEE_PROFILE_ID.Width = txtWidth
+                            autonum += 1
+                            imgBtnEMPLOYEE_PROFILE_ID.Style.Add("left", mySetting.GetObjPosition(EctWidth, autonum, "X"))
+                            imgBtnEMPLOYEE_PROFILE_ID.Style.Add("top", mySetting.GetObjPosition(EctWidth, autonum, "Y"))
+                            imgBtnEMPLOYEE_PROFILE_ID.Style.Add("position", "absolute")
+                        End If
+                    End If
+                End If
+
+            Next
+        End If
+        myDS = Nothing
+
+        autonum = autonum / 4
+        If autonum Mod 2 <> 0 Then
+            autonum = autonum + 1
+        End If
+        autonum = autonum / 2
+
+        buttonPosition1 = buttonPosition1 & autonum - 1
+        buttonPosition2 = buttonPosition2 & autonum - 1
+        buttonPosition3 = buttonPosition3 & autonum - 1
+
+        labelPosition1 = labelPosition1 & autonum - 1
+        lblresult2.CssClass = labelPosition1
+        lblresult2.Text = "Click on Cancel Button to return..."
+        imgtop.CssClass = "Display_0"
+        imgbottom.CssClass = panelPosition & autonum
+
+    End Sub
+
+    Sub ClearText()
+
+        Try
+            Dim code As Integer = 2
+            Dim dt As Integer = 6
+            lblresult.Text = ""
+
+            myDS = mySetting.GetLabelDescription_(Form.ID)
+            If CInt(myDS.Tables.Count) > 1 Then
+                If CInt(myDS.Tables(1).Rows.Count) > 0 Then
+                    For i = 0 To myDS.Tables(1).Rows.Count - 1
+                        Select Case UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString))
+                            Case "OPTION"
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                                myDropdownlist.SelectedIndex = 0
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                                myTextBox.Text = ""
+                        End Select
+                    Next
+                End If
+            End If
+            myDS = Nothing
+        Catch ex As Exception
+            lblresult.Text = "[ClearText]Error: " & ex.Message
+            SetFieldToFalse()
+        End Try
+
+    End Sub
+
+    Sub SetFieldToTrue()
+
+        Try
+            Dim code As Integer = 2
+            Dim dt As Integer = 6
+            pnledit.Visible = True
+            pnlmain.Visible = False
+            lblresult2.Visible = True
+
+            myDS = mySetting.GetLabelDescription_(Form.ID)
+            If CInt(myDS.Tables.Count) > 1 Then
+                If CInt(myDS.Tables(1).Rows.Count) > 0 Then
+                    For i = 0 To myDS.Tables(1).Rows.Count - 1
+                        Dim myImage As Image = Page.FindControl("img" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                        Dim myLabel As Label = Page.FindControl("lbl" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                        Dim myImageButton As ImageButton = Page.FindControl("imgBtn" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                        Select Case UCase(Trim(myDS.Tables(1).Rows(i).Item(dt).ToString))
+                            Case "OPTION"
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                                myDropdownlist.Visible = True
+                                myDropdownlist.Enabled = True
+                            Case Else
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(1).Rows(i).Item(code).ToString))
+                                myTextBox.Visible = True
+                                myTextBox.Enabled = True
+                        End Select
+                        myImage.Visible = True
+                        myLabel.Visible = True
+                        myImageButton.Visible = True
+                        myLabel.Enabled = True
+                        myLabel.Enabled = True
+                        myImageButton.Enabled = True
+                    Next
+                End If
+            End If
+            myDS = Nothing
+        Catch ex As Exception
+            lblresult.Text = "[SetFieldToTrue]Error: " & ex.Message
+            SetFieldToFalse()
+        End Try
+
+    End Sub
+
+    Sub SetFieldToFalse()
+        pnledit.Visible = False
+        pnlmain.Visible = True
+    End Sub
+
+    Private Function ValidateUpdate() As Boolean
+
+        Try
+            lblresult2.Visible = True
+            myDS = mySQL.ExecuteSQL("Select Code,Option_Data_Type,[Name] From Table_Field Where Table_Profile_Code='" & Form.ID & "' And Option_Primary_Key='NO' And Option_View_Card ='YES' Order By Table_Profile_Code,Sequence_No", Session("Company").ToString, Session("EmpID").ToString)
+            ssql = "Update [" & Form.ID & "] Set "
+            If myDS.Tables(0).Rows.Count > 0 Then
+                For i = 0 To myDS.Tables(0).Rows.Count - 1
+                    Select Case UCase(myDS.Tables(0).Rows(i).Item(1).ToString)
+
+                        Case "OPTION"
+                            logic = False
+                            Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myDropdownlist.SelectedValue) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myDropdownlist.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+                            If logic = True Then
+                                If myDropdownlist.SelectedValue <> "" Then
+                                    If mySetting.ValidateInput(myDropdownlist, myDS.Tables(0).Rows(i).Item(1).ToString) = True Then
+                                        ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "=N'" & Trim(myDropdownlist.SelectedValue) & "',"
+                                    Else
+                                        lblresult2.Text = "Invalid selection for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                        myDropdownlist.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "='',"
+                                End If
+                            End If
+
+                        Case "DATETIME", "DATE"
+                            logic = False
+                            Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+                            If logic = True Then
+                                If myTextBox.Text <> "" Then
+                                    Dim strDate As String = Trim(myTextBox.Text)
+                                    strDate = mySetting.ConvertDateToDecimal(myTextBox.Text, Session("Company"), Session("Module"))
+                                    If Len(strDate) = 14 Then
+                                        ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "='" & strDate & "',"
+                                    Else
+                                        lblresult2.Text = "Invalid input format for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "='',"
+                                End If
+                            End If
+
+                        Case "DECIMAL", "INTEGER"
+                            logic = False
+                            Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+                            If logic = True Then
+                                If myTextBox.Text <> "" Then
+                                    If IsNumeric(myTextBox.Text) Then
+                                        ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "='" & Trim(myTextBox.Text) & "',"
+                                    Else
+                                        lblresult2.Text = "Invalid input format for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "='0',"
+                                End If
+                            End If
+
+                        Case Else 'character & lookup
+                            logic = False
+                            Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+
+                            If logic = True Then
+                                If myTextBox.Text <> "" Then
+                                    If mySetting.ValidateInput(myTextBox, myDS.Tables(0).Rows(i).Item(1).ToString) = True Then
+                                        'validate for employee_profile_id
+                                        If myDS.Tables(0).Rows(i).Item(0).ToString.ToUpper = "EMPLOYEE_PROFILE_ID" Then
+                                            ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(dbo.fn_ReturnEmpIDByCodeName(N'" & Session("Company").ToString & "',N'" & myTextBox.Text.ToString & "'),''),"
+                                        Else
+                                            Dim myDST As New DataSet
+                                            ssql5 = "Select Function_Name,Default_Value,Default_Value2,Default_Value3 From User_Define_Function Where Company_Profile_Code='" & Session("Company").ToString & "' And OCP_ID_LEAVE='" & Session("Module").ToString & "' And Table_Profile_Code='" & Form.ID & "' And Table_Field_Code='" & myDS.Tables(0).Rows(i).Item(0).ToString & "' And Query_Action='UPDATE'"
+                                            myDST = mySQL.ExecuteSQL(ssql5, Session("Company").ToString, Session("EmpID").ToString)
+                                            If myDST.Tables(0).Rows.Count > 0 Then
+                                                'Accept up to 3 parameters -- modify on 150307
+                                                ssql6 = "Select " & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString
+                                                If myDST.Tables(0).Rows(0).Item(1).ToString.Trim <> "" Then
+                                                    ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString
+                                                End If
+                                                If myDST.Tables(0).Rows(0).Item(2).ToString.Trim <> "" Then
+                                                    If UCase(myDST.Tables(0).Rows(0).Item(2).ToString) = "COMPANY" Then
+                                                        ssql6 = ssql6 & "',N'" & Session("Company").ToString
+                                                    Else
+                                                        ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString
+                                                    End If
+                                                End If
+                                                If myDST.Tables(0).Rows(0).Item(3).ToString.Trim <> "" Then
+                                                    ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(3).ToString
+                                                End If
+                                                ssql6 = ssql6 & "')"
+                                                '-------------------------------------------->
+                                                myDS1 = mySQL.ExecuteSQL(ssql6, Session("Company").ToString, Session("EmpID").ToString)
+                                                If myDS1.Tables(0).Rows(0).Item(0).ToString <> "" Then
+                                                    ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "=N'" & myDS1.Tables(0).Rows(0).Item(0).ToString & "',"
+                                                Else
+                                                    lblresult2.Text = "Data Error for [" & Trim(myDS.Tables(0).Rows(i).Item(2)) & "] field! Make sure [" & myTextBox.Text.ToString & "] exist in Database..."
+                                                    myTextBox.Focus()
+                                                    myDS1 = Nothing
+                                                    myDST = Nothing
+                                                    myDS = Nothing
+                                                    Return False
+                                                End If
+                                                myDS1 = Nothing
+                                            Else
+                                                ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "=N'" & Trim(myTextBox.Text.ToString) & "',"
+                                            End If
+                                            myDST = Nothing
+                                        End If
+                                    Else
+                                        lblresult2.Text = "Invalid input format for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    ssql = ssql & myDS.Tables(0).Rows(i).Item(0) & "='',"
+                                End If
+                            End If
+
+                    End Select
+                Next
+                ssql = Left(ssql, Len(ssql) - 1) & " Where "
+                myDS = Nothing
+
+                myDS2 = mySQL.ExecuteSQL("Select Code,Option_Data_Type,[Name] From Table_Field Where Table_Profile_Code='" & Form.ID & "' And Option_Primary_Key='YES' Order By Table_Profile_Code,Sequence_No", Session("Company").ToString, Session("EmpID").ToString)
+                If myDS2.Tables(0).Rows.Count > 0 Then
+                    For i = 0 To myDS2.Tables(0).Rows.Count - 1
+                        Select Case UCase(myDS2.Tables(0).Rows(i).Item(1).ToString)
+
+                            Case "OPTION"
+                                logic = False
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myDropdownlist.SelectedValue) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDS2.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                        myDropdownlist.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    If myDropdownlist.SelectedValue <> "" Then
+                                        If mySetting.ValidateInput(myDropdownlist, myDS2.Tables(0).Rows(i).Item(1).ToString) = True Then
+                                            ssql = ssql & myDS2.Tables(0).Rows(i).Item(0) & "=N'" & Trim(myDropdownlist.SelectedValue) & "' And "
+                                        Else
+                                            lblresult2.Text = "Invalid selection for " & Trim(myDS2.Tables(0).Rows(i).Item(2)) & " !"
+                                            myDropdownlist.Focus()
+                                            Return False
+                                        End If
+                                    End If
+                                End If
+
+                            Case "DATETIME", "DATE"
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDS2.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        Dim strDate As String = Trim(myTextBox.Text)
+                                        strDate = mySetting.ConvertDateToDecimal(myTextBox.Text, Session("Company"), Session("Module"))
+                                        If Len(strDate) = 14 Then
+                                            ssql = ssql & myDS2.Tables(0).Rows(i).Item(0) & "='" & strDate & "' And "
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDS2.Tables(0).Rows(i).Item(2)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    End If
+                                End If
+
+                            Case "DECIMAL", "INTEGER"
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDS2.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        If IsNumeric(myTextBox.Text) Then
+                                            ssql = ssql & myDS2.Tables(0).Rows(i).Item(0) & "='" & Trim(myTextBox.Text) & "' And "
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDS2.Tables(0).Rows(i).Item(2)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    End If
+                                End If
+
+                            Case Else 'character & lookup
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDS2.Tables(0).Rows(i).Item(0)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDS2.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        If mySetting.ValidateInput(myTextBox, myDS2.Tables(0).Rows(i).Item(1).ToString) = True Then
+                                            'validate for employee_profile_id
+                                            If myDS2.Tables(0).Rows(i).Item(0).ToString.ToUpper = "EMPLOYEE_PROFILE_ID" Then
+                                                ssql = ssql & myDS2.Tables(0).Rows(i).Item(0) & "=ISNULL(dbo.fn_ReturnEmpIDByCodeName(N'" & Session("Company").ToString & "',N'" & myTextBox.Text.ToString & "'),''),"
+                                            Else
+                                                Dim myDST As New DataSet
+                                                ssql5 = "Select Function_Name,Default_Value,Default_Value2,Default_Value3 From User_Define_Function Where Company_Profile_Code='" & Session("Company").ToString & "' And OCP_ID_LEAVE='" & Session("Module").ToString & "' And Table_Profile_Code='" & Form.ID & "' And Table_Field_Code='" & myDS2.Tables(0).Rows(i).Item(0).ToString & "' And Query_Action='UPDATE'"
+                                                myDST = mySQL.ExecuteSQL(ssql5, Session("Company").ToString, Session("EmpID").ToString)
+                                                If myDST.Tables(0).Rows.Count > 0 Then
+                                                    'Accept up to 3 parameters -- modify on 150307
+                                                    ssql6 = "Select " & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString
+                                                    If myDST.Tables(0).Rows(0).Item(1).ToString.Trim <> "" Then
+                                                        ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString
+                                                    End If
+                                                    If myDST.Tables(0).Rows(0).Item(2).ToString.Trim <> "" Then
+                                                        If UCase(myDST.Tables(0).Rows(0).Item(2).ToString) = "COMPANY" Then
+                                                            ssql6 = ssql6 & "',N'" & Session("Company").ToString
+                                                        Else
+                                                            ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString
+                                                        End If
+                                                    End If
+                                                    If myDST.Tables(0).Rows(0).Item(3).ToString.Trim <> "" Then
+                                                        ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(3).ToString
+                                                    End If
+                                                    ssql6 = ssql6 & "')"
+                                                    '-------------------------------------------->
+                                                    myDS1 = mySQL.ExecuteSQL(ssql6, Session("Company").ToString, Session("EmpID").ToString)
+                                                    If myDS1.Tables(0).Rows.Count > 0 Then
+                                                        ssql = ssql & myDS2.Tables(0).Rows(i).Item(0) & "=N'" & myDS1.Tables(0).Rows(0).Item(0).ToString & "' And "
+                                                    Else
+                                                        lblresult2.Text = "Process Terminated! Data Error for " & Trim(myDS2.Tables(0).Rows(i).Item(2)) & "..."
+                                                        myDS1 = Nothing
+                                                        myDST = Nothing
+                                                        myDS2 = Nothing
+                                                        Return False
+                                                    End If
+                                                    myDS1 = Nothing
+                                                Else
+                                                    ssql = ssql & myDS2.Tables(0).Rows(i).Item(0) & "=N'" & Trim(myTextBox.Text.ToString) & "' And "
+                                                End If
+                                                myDST = Nothing
+                                            End If
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDS2.Tables(0).Rows(i).Item(2)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    End If
+                                End If
+
+                        End Select
+                    Next
+                End If
+                ssql = Left(ssql, Len(ssql) - 5)
+                myDS2 = Nothing
+            End If
+            Return True
+        Catch ex As Exception
+            lblresult2.Text = "[ValidateUpdate]Error: " & ex.Message
+            myDS = Nothing
+            myDS1 = Nothing
+            myDS2 = Nothing
+            Return False
+        End Try
+
+    End Function
+
+    Private Function ValidateInsert() As Boolean
+
+        Try
+            'get insert statement
+            Dim num As Integer = 0
+            Dim code As Integer = 1
+            Dim name As Integer = 2
+            Dim odt As Integer = 3
+            Dim opr As Integer = 4
+            Dim ovc As Integer = 5
+            Dim odv As Integer = 6
+            Dim dv As Integer = 7
+            ssql = "exec sp_sa_get_insert_statement '" & Session("Company") & "','" & Session("Module") & "','" & Form.ID & "'"
+            myDSInsert = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+            lblresult2.Visible = True
+            ssql = "Insert Into [" & Form.ID & "] ("
+            ssql2 = ") Values("
+            ssql3 = "Select * From [" & Form.ID & "] Where "
+            ssql4 = ""
+
+            If myDSInsert.Tables(0).Rows.Count > 0 Then
+                For i = 0 To myDSInsert.Tables(0).Rows.Count - 1
+                    num = CInt(myDSInsert.Tables(0).Rows(i).Item(0).ToString)
+                    If UCase(Trim(myDSInsert.Tables(0).Rows(i).Item(ovc).ToString)) = "YES" Then
+
+                        Select Case UCase(myDSInsert.Tables(0).Rows(i).Item(odt).ToString)
+                            Case "OPTION"
+                                logic = False
+                                Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myDropdownlist.SelectedValue) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " field is required..."
+                                        myDropdownlist.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    If myDropdownlist.SelectedValue <> "" Then
+                                        If mySetting.ValidateInput(myDropdownlist, myDSInsert.Tables(0).Rows(i).Item(odt).ToString) = True Then
+                                            ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                            ssql2 = ssql2 & "N'" & Trim(myDropdownlist.SelectedValue) & "',"
+                                            If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "='" & Trim(myDropdownlist.SelectedValue) & "' And "
+                                                ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & Trim(myDropdownlist.SelectedValue) & ","
+                                            End If
+                                        Else
+                                            lblresult2.Text = "Invalid selection for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " !"
+                                            myDropdownlist.Focus()
+                                            Return False
+                                        End If
+                                    Else
+                                        ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                        If UCase(myDSInsert.Tables(0).Rows(i).Item(odv).ToString) = "YES" Then
+                                            ssql2 = ssql2 & "N'" & Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) & "',"
+                                        Else
+                                            ssql2 = ssql2 & "N'',"
+                                        End If
+
+                                    End If
+                                End If
+
+                            Case "DATE"
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        Dim strDate As String = Trim(myTextBox.Text)
+                                        strDate = mySetting.ConvertDateToDecimal(myTextBox.Text, Session("Company"), Session("Module"))
+                                        If Len(strDate) = 14 Then
+                                            ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                            ssql2 = ssql2 & "'" & strDate & "',"
+                                            If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "='" & strDate & "' And "
+                                                ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & strDate & ","
+                                            End If
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    Else
+                                        ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                        If UCase(myDSInsert.Tables(0).Rows(i).Item(odv).ToString) = "YES" Then
+                                            ssql2 = ssql2 & "N'" & Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) & "',"
+                                        Else
+                                            ssql2 = ssql2 & "N'',"
+                                        End If
+                                    End If
+                                End If
+
+                            Case "TIME"
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        Dim strTime As String = Trim(myTextBox.Text)
+                                        strTime = mySetting.UnDisplayTime(myTextBox.Text, Session("Company"), Session("Module"))
+                                        If Len(strTime) = 6 Then
+                                            ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                            ssql2 = ssql2 & "'" & strTime & "',"
+                                            If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "='" & strTime & "' And "
+                                                ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & strTime & ","
+                                            End If
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    Else
+                                        ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                        If UCase(myDSInsert.Tables(0).Rows(i).Item(odv).ToString) = "YES" Then
+                                            ssql2 = ssql2 & "N'" & Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) & "',"
+                                        Else
+                                            ssql2 = ssql2 & "N'',"
+                                        End If
+                                    End If
+                                End If
+
+                            Case "DATETIME"
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        Dim strDateTime As String = ""
+                                        Dim strDate As String = Left(Trim(myTextBox.Text), 10) 'first type of date
+                                        strDate = mySetting.ConvertDateToDecimal(Trim(strDate), Session("Company"), Session("Module"))
+                                        If Len(strDate) <> 14 Then
+                                            strDate = Left(Trim(myTextBox.Text), 8) 'second type of date
+                                            strDate = mySetting.ConvertDateToDecimal(strDate, Session("Company"), Session("Module"))
+                                        End If
+
+                                        Dim strTime As String = Right(Trim(myTextBox.Text), Len(myTextBox.Text) - 10)
+                                        strTime = mySetting.UnDisplayTime(Trim(strTime), Session("Company"), Session("Module"))
+                                        If Len(strTime) <> 6 Then
+                                            strTime = Right(Trim(myTextBox.Text), Len(myTextBox.Text) - 8)
+                                            strTime = mySetting.UnDisplayTime(Trim(strTime), Session("Company"), Session("Module"))
+                                        End If
+
+                                        strDateTime = strDate + strTime 'combine date & time
+
+                                        If Len(strDateTime) = 14 Then
+                                            ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                            ssql2 = ssql2 & "'" & strDateTime & "',"
+                                            If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "='" & strDateTime & "' And "
+                                                ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & strDateTime & ","
+                                            End If
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    Else
+                                        ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                        If UCase(myDSInsert.Tables(0).Rows(i).Item(odv).ToString) = "YES" Then
+                                            ssql2 = ssql2 & "N'" & Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) & "',"
+                                        Else
+                                            ssql2 = ssql2 & "N'',"
+                                        End If
+                                    End If
+                                End If
+
+                            Case "DECIMAL", "INTEGER"
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        If IsNumeric(myTextBox.Text) Then
+                                            ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                            ssql2 = ssql2 & "'" & myTextBox.Text.ToString & "',"
+                                            If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "='" & myTextBox.Text.ToString & "' And "
+                                                ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & myTextBox.Text.ToString & ","
+                                            End If
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    Else
+                                        ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                        If Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) <> "" Then
+                                            ssql2 = ssql2 & "N'" & Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) & "',"
+                                        Else
+                                            ssql2 = ssql2 & "'0',"
+                                        End If
+                                        'myTextBox.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString)
+                                    End If
+                                End If
+
+                            Case Else 'character & lookup
+                                logic = False
+                                Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                Dim myImg As Image = Page.FindControl("img" & Trim(myDSInsert.Tables(0).Rows(i).Item(code)))
+                                If myImg.Visible = True Then
+                                    If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                        logic = True
+                                    Else
+                                        lblresult2.Text = Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " field is required..."
+                                        myTextBox.Focus()
+                                        Return False
+                                    End If
+                                Else
+                                    logic = True
+                                End If
+
+                                If logic = True Then
+                                    If myTextBox.Text <> "" Then
+                                        If mySetting.ValidateInput(myTextBox, myDSInsert.Tables(0).Rows(i).Item(odt).ToString) = True Then
+                                            ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                            'validate for employee_profile_id
+                                            If myDSInsert.Tables(0).Rows(i).Item(code).ToString.ToUpper = "EMPLOYEE_PROFILE_ID" Then
+                                                ssql2 = ssql2 & "ISNULL(dbo.fn_ReturnEmpIDByCodeName('" & Session("Company").ToString & "','" & myTextBox.Text.ToString & "'),''),"
+                                                ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "=ISNULL(dbo.fn_ReturnEmpIDByCodeName(N'" & Session("Company").ToString & "',N'" & myTextBox.Text.ToString & "'),'') And "
+                                            Else
+                                                Dim myDST As New DataSet
+                                                ssql5 = "Select Function_Name,Default_Value,Default_Value2,Default_Value3 From User_Define_Function Where Company_Profile_Code='" & Session("Company").ToString & "' And OCP_ID_LEAVE='" & Session("Module").ToString & "' And Table_Profile_Code='" & Form.ID & "' And Table_Field_Code='" & myDSInsert.Tables(0).Rows(i).Item(code).ToString & "' And Query_Action='INSERT'"
+                                                myDST = mySQL.ExecuteSQL(ssql5, Session("Company").ToString, Session("EmpID").ToString)
+                                                If myDST.Tables(0).Rows.Count > 0 Then
+                                                    'Accept up to 3 parameters -- modify on 150307
+                                                    ssql6 = "Select " & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString
+                                                    If myDST.Tables(0).Rows(0).Item(1).ToString.Trim <> "" Then
+                                                        ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString
+                                                    End If
+                                                    If myDST.Tables(0).Rows(0).Item(2).ToString.Trim <> "" Then
+                                                        If UCase(myDST.Tables(0).Rows(0).Item(2).ToString) = "COMPANY" Then
+                                                            ssql6 = ssql6 & "',N'" & Session("Company").ToString
+                                                        Else
+                                                            ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString
+                                                        End If
+                                                    End If
+                                                    If myDST.Tables(0).Rows(0).Item(3).ToString.Trim <> "" Then
+                                                        ssql6 = ssql6 & "',N'" & myDST.Tables(0).Rows(0).Item(3).ToString
+                                                    End If
+                                                    ssql6 = ssql6 & "')"
+                                                    '------------------------------------->
+                                                    myDS1 = mySQL.ExecuteSQL(ssql6, Session("Company").ToString, Session("EmpID").ToString)
+                                                    If Trim(myDS1.Tables(0).Rows(0).Item(0).ToString) <> "" Then
+                                                        ssql2 = ssql2 & "N'" & myDS1.Tables(0).Rows(0).Item(0).ToString & "',"
+                                                        If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                            ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "=N'" & myDS1.Tables(0).Rows(0).Item(0).ToString & "' And "
+                                                        End If
+                                                        ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & myDS1.Tables(0).Rows(0).Item(0).ToString & ","
+                                                    Else
+                                                        lblresult2.Text = "Process Terminated! Data Error for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & "..."
+                                                        myDS1 = Nothing
+                                                        myDST = Nothing
+                                                        myDSInsert = Nothing
+                                                        Return False
+                                                    End If
+                                                    myDS1 = Nothing
+                                                Else
+                                                    ssql2 = ssql2 & "ISNULL(N'" & Trim(myTextBox.Text.ToString) & "',''),"
+                                                    If UCase(myDSInsert.Tables(0).Rows(i).Item(opr).ToString) = "YES" Then
+                                                        ssql3 = ssql3 & myDSInsert.Tables(0).Rows(i).Item(code) & "=N'" & Trim(myTextBox.Text.ToString) & "' And "
+                                                        ssql4 = ssql4 & myDSInsert.Tables(0).Rows(i).Item(code) & "=" & Trim(myTextBox.Text.ToString) & ","
+                                                    End If
+                                                End If
+                                                myDST = Nothing
+                                            End If
+
+                                        Else
+                                            lblresult2.Text = "Invalid input format for " & Trim(myDSInsert.Tables(0).Rows(i).Item(name)) & " !"
+                                            myTextBox.Focus()
+                                            Return False
+                                        End If
+                                    Else
+                                        ssql = ssql & myDSInsert.Tables(0).Rows(i).Item(code) & ","
+                                        If UCase(myDSInsert.Tables(0).Rows(i).Item(odv).ToString) = "YES" Then
+                                            ssql2 = ssql2 & "N'" & Trim(myDSInsert.Tables(0).Rows(i).Item(dv).ToString) & "',"
+                                        Else
+                                            ssql2 = ssql2 & "N'',"
+                                        End If
+                                    End If
+                                End If
+
+                        End Select
+
+                    End If
+                Next
+                ssql = Left(ssql, Len(ssql) - 1) & Left(ssql2, Len(ssql2) - 1) & ")"
+                ssql3 = Left(ssql3, Len(ssql3) - 5)
+                ssql4 = Left(ssql4, Len(ssql4) - 1)
+                Session("insertArgument") = ssql4
+            End If
+
+            myDS = mySQL.ExecuteSQL(ssql3, Session("Company").ToString, Session("EmpID").ToString)
+            If myDS.Tables(0).Rows.Count > 0 Then
+                lblresult2.Text = "Duplicate record found!"
+                myDS = Nothing
+                Return False
+            Else
+                mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                'lblresult.Text = "Data insert successfully..."
+                myDS = Nothing
+            End If
+            Return True
+        Catch ex As Exception
+            lblresult2.Text = "[ValidateInsert]Error: " & ex.Message
+            myDS = Nothing
+            Return False
+        End Try
+
+    End Function
+
+    Private Function ValidateSearch() As Boolean
+        Dim tmpssql As String = "", strSplit As String = ""
+        lblresult2.Visible = True
+        ssql = ""
+        ssql2 = ""
+        ssql3 = ""
+        myDS = New DataSet
+        myDS = mySQL.ExecuteSQL("Select Code,Name,Option_Data_Type From Table_Field Where Table_Profile_Code='" & Form.ID & "' And Option_View_Card='YES' Order By Table_Profile_Code,Sequence_No", Session("Company").ToString, Session("EmpID").ToString)
+        If Not myDS Is Nothing Then
+            If myDS.Tables.Count > 0 Then
+                For i = 0 To myDS.Tables(0).Rows.Count - 1
+                    Dim myDR As DataRow = myDS.Tables(0).Rows(i)
+                    Select Case myDR(2).ToString
+                        Case "OPTION"
+                            Dim myDDL As DropDownList = Page.FindControl("ddl" & myDR(0).ToString)
+                            If myDDL.Visible = True And myDDL.SelectedValue <> "" Then
+                                ssql = ssql & Form.ID & "_Card_Vw" & "@@"
+                                ssql2 = ssql2 & myDR(0).ToString & "@@"
+                                ssql3 = ssql3 & Trim(myDDL.SelectedValue) & "@@"
+                            End If
+                            myDDL = Nothing
+                        Case "DATE"
+                            Dim myTxt As TextBox = Page.FindControl("txt" & myDR(0).ToString)
+                            If myTxt.Visible = True Then
+                                If Trim(myTxt.Text.ToString) <> "" Then
+                                    If mySetting.ValidateQuerySyntax(myTxt.Text.ToString) = True Then
+                                        strSplit = mySetting.ProcessQuerySyntax(myTxt.Text.ToString)
+                                        Dim intPos As Integer, arr As New ArrayList, intLeftMidRight As Integer
+                                        intPos = InStr(myTxt.Text.ToString, strSplit)
+                                        If intPos = 1 Then
+                                            intLeftMidRight = -1
+                                        ElseIf intPos > 1 And intPos < Len(myTxt.Text.ToString) Then
+                                            intLeftMidRight = 0
+                                        ElseIf intPos = Len(myTxt.Text.ToString) Then
+                                            intLeftMidRight = 1
+                                        End If
+                                        mySetting.AddQuerySyntax(arr, myTxt.Text.ToString)
+                                        If arr.Count = 0 Then
+                                            arr.Add(myTxt.Text.ToString.Trim)
+                                        End If
+
+                                        For j = 0 To arr.Count - 1
+                                            If Trim(arr(j).ToString) <> "" Then
+                                                If Not IsNumeric(mySetting.ConvertDateToDecimal(arr(j).ToString, Session("Company").ToString, Session("Module").ToString)) = True Then
+                                                    lblresult2.Text = "Invalid Input [Date] Format For [" & myDR(1).ToString & "] With Value [" & arr(j).ToString & "]"
+                                                    myTxt.Focus()
+                                                    Return False
+                                                Else
+                                                    Select Case intLeftMidRight
+                                                        Case -1
+                                                            tmpssql = tmpssql & strSplit & mySetting.ConvertDateToDecimal(arr(j).ToString, Session("Company").ToString, Session("Module").ToString)
+                                                        Case 0
+                                                            tmpssql = tmpssql & mySetting.ConvertDateToDecimal(arr(j).ToString, Session("Company").ToString, Session("Module").ToString) & strSplit
+                                                        Case 1
+                                                            tmpssql = tmpssql & mySetting.ConvertDateToDecimal(arr(j).ToString, Session("Company").ToString, Session("Module").ToString) & strSplit
+                                                    End Select
+                                                End If
+                                            End If
+                                        Next
+                                        Select Case intLeftMidRight
+                                            Case -1
+                                                'Do nothing
+                                            Case 0
+                                                If Right(tmpssql, Len(strSplit)) = strSplit Then
+                                                    tmpssql = Left(tmpssql, Len(tmpssql) - Len(strSplit))
+                                                End If
+                                            Case 1
+                                                'Do nothing
+                                        End Select
+                                        ssql = ssql & Form.ID & "_Card_Vw" & "@@"
+                                        ssql2 = ssql2 & myDR(0).ToString & "@@"
+                                        ssql3 = ssql3 & tmpssql & "@@"
+                                    Else
+                                        lblresult2.Text = "More than 1 syntax found in the [" & myDR(1).ToString & "]"
+                                        myTxt.Focus()
+                                        Return False
+                                    End If
+                                End If
+                            End If
+                            myTxt = Nothing
+                            tmpssql = ""
+                        Case "DATETIME"
+                            Dim myTxt As TextBox = Page.FindControl("txt" & myDR(0).ToString)
+                            If myTxt.Visible = True Then
+                                If Trim(myTxt.Text.ToString) <> "" Then
+                                    If mySetting.ValidateQuerySyntax(myTxt.Text.ToString) = True Then
+                                        strSplit = mySetting.ProcessQuerySyntax(myTxt.Text.ToString)
+                                        Dim intPos As Integer, arr As New ArrayList, intLeftMidRight As Integer
+                                        intPos = InStr(myTxt.Text.ToString, strSplit)
+                                        If intPos = 1 Then
+                                            intLeftMidRight = -1
+                                        ElseIf intPos > 1 And intPos < Len(myTxt.Text.ToString) Then
+                                            intLeftMidRight = 0
+                                        ElseIf intPos = Len(myTxt.Text.ToString) Then
+                                            intLeftMidRight = 1
+                                        End If
+                                        mySetting.AddQuerySyntax(arr, myTxt.Text.ToString)
+                                        If arr.Count = 0 Then
+                                            arr.Add(myTxt.Text.ToString.Trim)
+                                        End If
+
+                                        For j = 0 To arr.Count - 1
+                                            If Trim(arr(j).ToString) <> "" Then
+                                                If Not IsNumeric(mySetting.UnDisplayDateTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString)) = True Then
+                                                    lblresult2.Text = "Invalid Input [Date] Format For [" & myDR(1).ToString & "] With Value [" & arr(j).ToString & "]"
+                                                    myTxt.Focus()
+                                                    Return False
+                                                Else
+                                                    Select Case intLeftMidRight
+                                                        Case -1
+                                                            tmpssql = tmpssql & strSplit & mySetting.UnDisplayDateTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString)
+                                                        Case 0
+                                                            tmpssql = tmpssql & mySetting.UnDisplayDateTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString) & strSplit
+                                                        Case 1
+                                                            tmpssql = tmpssql & mySetting.UnDisplayDateTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString) & strSplit
+                                                    End Select
+                                                End If
+                                            End If
+                                        Next
+                                        Select Case intLeftMidRight
+                                            Case -1
+                                                'Do nothing
+                                            Case 0
+                                                If Right(tmpssql, Len(strSplit)) = strSplit Then
+                                                    tmpssql = Left(tmpssql, Len(tmpssql) - Len(strSplit))
+                                                End If
+                                            Case 1
+                                                'Do nothing
+                                        End Select
+                                        ssql = ssql & Form.ID & "_Card_Vw" & "@@"
+                                        ssql2 = ssql2 & myDR(0).ToString & "@@"
+                                        ssql3 = ssql3 & tmpssql & "@@"
+                                    Else
+                                        lblresult2.Text = "More than 1 syntax found in the [" & myDR(1).ToString & "]"
+                                        myTxt.Focus()
+                                        Return False
+                                    End If
+                                End If
+                            End If
+                            myTxt = Nothing
+                            tmpssql = ""
+                        Case "TIME"
+                            Dim myTxt As TextBox = Page.FindControl("txt" & myDR(0).ToString)
+                            If myTxt.Visible = True Then
+                                If Trim(myTxt.Text.ToString) <> "" Then
+                                    If mySetting.ValidateQuerySyntax(myTxt.Text.ToString) = True Then
+                                        strSplit = mySetting.ProcessQuerySyntax(myTxt.Text.ToString)
+                                        Dim intPos As Integer, arr As New ArrayList, intLeftMidRight As Integer
+                                        intPos = InStr(myTxt.Text.ToString, strSplit)
+                                        If intPos = 1 Then
+                                            intLeftMidRight = -1
+                                        ElseIf intPos > 1 And intPos < Len(myTxt.Text.ToString) Then
+                                            intLeftMidRight = 0
+                                        ElseIf intPos = Len(myTxt.Text.ToString) Then
+                                            intLeftMidRight = 1
+                                        End If
+                                        mySetting.AddQuerySyntax(arr, myTxt.Text.ToString)
+                                        If arr.Count = 0 Then
+                                            arr.Add(myTxt.Text.ToString.Trim)
+                                        End If
+
+                                        For j = 0 To arr.Count - 1
+                                            If Trim(arr(j).ToString) <> "" Then
+                                                If Not IsNumeric(mySetting.UnDisplayTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString)) = True Then
+                                                    lblresult2.Text = "Invalid Input [Date] Format For [" & myDR(1).ToString & "] With Value [" & arr(j).ToString & "]"
+                                                    myTxt.Focus()
+                                                    Return False
+                                                Else
+                                                    Select Case intLeftMidRight
+                                                        Case -1
+                                                            tmpssql = tmpssql & strSplit & mySetting.UnDisplayTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString)
+                                                        Case 0
+                                                            tmpssql = tmpssql & mySetting.UnDisplayTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString) & strSplit
+                                                        Case 1
+                                                            tmpssql = tmpssql & mySetting.UnDisplayTime(arr(j).ToString, Session("Company").ToString, Session("Module").ToString) & strSplit
+                                                    End Select
+                                                End If
+                                            End If
+                                        Next
+                                        Select Case intLeftMidRight
+                                            Case -1
+                                                'Do nothing
+                                            Case 0
+                                                If Right(tmpssql, Len(strSplit)) = strSplit Then
+                                                    tmpssql = Left(tmpssql, Len(tmpssql) - Len(strSplit))
+                                                End If
+                                            Case 1
+                                                'Do nothing
+                                        End Select
+                                        ssql = ssql & Form.ID & "_Card_Vw" & "@@"
+                                        ssql2 = ssql2 & myDR(0).ToString & "@@"
+                                        ssql3 = ssql3 & tmpssql & "@@"
+                                    Else
+                                        lblresult2.Text = "More than 1 syntax found in the [" & myDR(1).ToString & "]"
+                                        myTxt.Focus()
+                                        Return False
+                                    End If
+                                End If
+                            End If
+                            myTxt = Nothing
+                            tmpssql = ""
+                        Case "INTEGER", "DECIMAL"
+                            Dim myTxt As TextBox = Page.FindControl("txt" & myDR(0).ToString)
+                            If myTxt.Visible = True And Trim(myTxt.Text) <> "" Then
+                                'Change Search Numeric Start
+                                'Dim arr() As String = myTxt.Text.ToString.Split("~")
+                                'For j = 0 To arr.Length - 1
+                                'If Trim(arr(j).ToString) <> "" Then
+                                '    If Not IsNumeric(Trim(myTxt.Text.ToString)) Then
+                                If mySetting.ValidateQuerySyntax(myTxt.Text) = True Then
+                                    strSplit = mySetting.ProcessQuerySyntax(myTxt.Text.ToString)
+                                    Dim intPos As Integer, arr As New ArrayList, intLeftMidRight As Integer
+                                    intPos = InStr(myTxt.Text.ToString, strSplit)
+                                    If intPos = 1 Then
+                                        intLeftMidRight = -1
+                                    ElseIf intPos > 1 And intPos < Len(myTxt.Text.ToString) Then
+                                        intLeftMidRight = 0
+                                    ElseIf intPos = Len(myTxt.Text.ToString) Then
+                                        intLeftMidRight = 1
+                                    End If
+                                    mySetting.AddQuerySyntax(arr, myTxt.Text.ToString)
+                                    If arr.Count = 0 Then
+                                        arr.Add(myTxt.Text.ToString.Trim)
+                                    End If
+
+                                    For j = 0 To arr.Count - 1
+                                        If Trim(arr(j).ToString) <> "" Then
+                                            If Not IsNumeric(Trim(arr(j).ToString)) Then
+                                                'Change Search Numeric End
+                                                lblresult2.Text = "Invalid Input [Numeric] Format For " & myDR(1).ToString & " With Value " & arr(j).ToString
+                                                myTxt.Focus()
+                                                Return False
+                                            Else
+                                                tmpssql = tmpssql & arr(j).ToString & "~"
+                                            End If
+                                        End If
+                                    Next
+                                    If Right(tmpssql, 1) = "~" Then
+                                        tmpssql = Left(tmpssql, Len(tmpssql) - 1)
+                                    End If
+                                End If
+                                ssql = ssql & Form.ID & "_Card_Vw" & "@@"
+                                ssql2 = ssql2 & myDR(0).ToString & "@@"
+                                ssql3 = ssql3 & Trim(myTxt.Text.ToString) & "@@"
+                            End If
+                            tmpssql = ""
+                            myTxt = Nothing
+                        Case "LOOKUP", "CHARACTER"
+                            Dim myTxt As TextBox = Page.FindControl("txt" & myDR(0).ToString)
+                            If myTxt.Visible = True And Trim(myTxt.Text) <> "" Then
+                                ssql = ssql & Form.ID & "_Card_Vw" & "@@"
+                                ssql2 = ssql2 & myDR(0).ToString & "@@"
+                                ssql3 = ssql3 & Trim(myTxt.Text.ToString) & "@@"
+                            End If
+                    End Select
+                    myDR = Nothing
+                Next
+                If Len(ssql) > 2 Then
+                    If Right(ssql, 2) = "@@" Then
+                        ssql = Left(ssql, Len(ssql) - 2)
+                    End If
+                End If
+                If Len(ssql2) > 2 Then
+                    If Right(ssql2, 2) = "@@" Then
+                        ssql2 = Left(ssql2, Len(ssql2) - 2)
+                    End If
+                End If
+                If Len(ssql3) > 2 Then
+                    If Right(ssql3, 2) = "@@" Then
+                        ssql3 = Left(ssql3, Len(ssql3) - 2)
+                    End If
+                End If
+
+                If ssql <> "" And ssql2 <> "" And ssql3 <> "" Then
+                    Session("ssql1") = ssql
+                    Session("ssql2") = ssql2
+                    Session("ssql3") = ssql3
+                    Session("action") = "search"
+                Else
+                    Session("action") = "any"
+                End If
+
+            End If
+        End If
+        myDS = Nothing
+        Return True
+    End Function
+
+    Private Function ValidateInsertUpdate() As Boolean
+
+        Try
+            Dim itemCount As Integer = lstright.Items.Count
+            'For k = 0 To itemCount - 1
+            myDS = mySQL.ExecuteSQL("Select Code,Option_Data_Type,[Name],Option_Primary_Key From Table_Field Where Table_Profile_Code='" & Form.ID & "' And Option_View_Card='YES' Order By Table_Profile_Code,Sequence_No", Session("Company").ToString, Session("EmpID").ToString)
+            ssql1 = "Insert Into " & Form.ID & "("
+            ssql2 = ") Values("
+            ssql6 = "Delete From " & Form.ID & " Where "
+            ssql3 = ""
+            ssql4 = ""
+            If myDS.Tables(0).Rows.Count > 0 Then
+                For i = 0 To myDS.Tables(0).Rows.Count - 1
+                    Select Case myDS.Tables(0).Rows(i).Item(1).ToString
+                        Case "OPTION"
+                            logic = False
+                            Dim myDropdownlist As DropDownList = Page.FindControl("ddl" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myDropdownlist.SelectedValue) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myDropdownlist.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+                            If logic = True Then
+                                If mySetting.ValidateInput(myDropdownlist, myDS.Tables(0).Rows(i).Item(1).ToString) = True Then
+                                    ssql1 = ssql1 & myDS.Tables(0).Rows(i).Item(0) & ","
+                                    ssql2 = ssql2 & "'" & Trim(myDropdownlist.SelectedValue) & "',"
+                                    If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                        ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "='" & Trim(myDropdownlist.SelectedValue) & "' And "
+                                        ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=" & Trim(myDropdownlist.SelectedValue) & ","
+                                    End If
+                                Else
+                                    lblresult2.Text = "Invalid selection for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                    myDropdownlist.Focus()
+                                    Return False
+                                End If
+                            End If
+
+                        Case "DATETIME", "DATE"
+                            logic = False
+                            Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+                            If logic = True Then
+                                Dim strDate As String = Trim(myTextBox.Text)
+                                strDate = mySetting.ConvertDateToDecimal(myTextBox.Text, Session("Company"), Session("Module"))
+                                If Len(strDate) = 14 Then
+                                    ssql1 = ssql1 & myDS.Tables(0).Rows(i).Item(0) & ","
+                                    ssql2 = ssql2 & "'" & strDate & "',"
+                                    If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                        ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "='" & strDate & "' And "
+                                        ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=" & strDate & ","
+                                    End If
+                                Else
+                                    lblresult2.Text = "Invalid input format for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            End If
+
+                        Case "DECIMAL", "INTEGER"
+                            logic = False
+                            Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+                            If logic = True Then
+                                If IsNumeric(myTextBox.Text) Then
+                                    ssql1 = ssql1 & myDS.Tables(0).Rows(i).Item(0) & ","
+                                    ssql2 = ssql2 & "'" & myTextBox.Text.ToString & "',"
+                                    If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                        ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "='" & myTextBox.Text.ToString & "'And "
+                                        ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "='" & myTextBox.Text.ToString & ","
+                                    End If
+                                Else
+                                    lblresult2.Text = "Invalid input format for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            End If
+
+                        Case Else 'character & lookup
+                            logic = False
+
+                            If UCase(Trim(myDS.Tables(0).Rows(i).Item(0))) = "EMPLOYEE_PROFILE_ID" Then
+                                txtEMPLOYEE_PROFILE_ID.Text = lstright.Items(0).Value
+                            End If
+
+                            'for non last field
+                            Dim myTextBox As TextBox = Page.FindControl("txt" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            Dim myImg As Image = Page.FindControl("img" & Trim(myDS.Tables(0).Rows(i).Item(0)))
+                            If myImg.Visible = True Then
+                                If mySetting.CheckTextNull(myTextBox.Text) = True Then
+                                    logic = True
+                                Else
+                                    lblresult2.Text = Trim(myDS.Tables(0).Rows(i).Item(2)) & " field is required..."
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            Else
+                                logic = True
+                            End If
+
+                            If logic = True Then
+                                If mySetting.ValidateInput(myTextBox, myDS.Tables(0).Rows(i).Item(1).ToString) = True Then
+                                    ssql1 = ssql1 & myDS.Tables(0).Rows(i).Item(0) & ","
+                                    If myDS.Tables(0).Rows(i).Item(0).ToString.ToUpper = "EMPLOYEE_PROFILE_ID" Then
+                                        ssql2 = ssql2 & "ISNULL(dbo.fn_ReturnEmpID(N'" & myTextBox.Text.ToString & "'),''),"
+                                        ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(dbo.fn_ReturnEmpID(N'" & myTextBox.Text.ToString & "'),'') And "
+                                        ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(dbo.fn_ReturnEmpID(N'" & myTextBox.Text.ToString & "'),''),"
+                                    Else
+                                        Dim myDST As New DataSet
+                                        ssql5 = "Select Function_Name,Default_Value,Default_Value2,Default_Value3 From User_Define_Function Where Company_Profile_Code='" & Session("Company").ToString & "' And OCP_ID_LEAVE='" & Session("Module").ToString & "' And Table_Profile_Code='" & Form.ID & "' And Table_Field_Code='" & myDS.Tables(0).Rows(i).Item(0).ToString & "' And Query_Action='UPDATE'"
+                                        myDST = mySQL.ExecuteSQL(ssql5, Session("Company").ToString, Session("EmpID").ToString)
+                                        If myDST.Tables(0).Rows.Count > 0 Then
+                                            If myDST.Tables(0).Rows(0).Item(3).ToString.Trim <> "" Then
+                                                ssql2 = ssql2 & "ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(3).ToString & "'),''),"
+                                                If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                                    ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(3).ToString & "'),'') And "
+                                                    ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(3).ToString & "'),''),"
+                                                End If
+                                            ElseIf myDST.Tables(0).Rows(0).Item(2).ToString.Trim <> "" Then
+                                                ssql2 = ssql2 & "ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString & "'),''),"
+                                                If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                                    ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString & "'),'') And "
+                                                    ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "',N'" & myDST.Tables(0).Rows(0).Item(2).ToString & "'),''),"
+                                                End If
+                                            ElseIf myDST.Tables(0).Rows(0).Item(1).ToString.Trim <> "" Then
+                                                ssql2 = ssql2 & "ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "'),''),"
+                                                If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                                    ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "'),'') And "
+                                                    ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "',N'" & myDST.Tables(0).Rows(0).Item(1).ToString & "'),''),"
+                                                End If
+
+                                            Else
+                                                ssql2 = ssql2 & "ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "'),''),"
+                                                If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                                    ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "'),'') And "
+                                                    ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(" & myDST.Tables(0).Rows(0).Item(0).ToString & "(N'" & myTextBox.Text.ToString & "'),''),"
+                                                End If
+                                            End If
+                                        Else
+                                            ssql2 = ssql2 & "ISNULL(N'" & Trim(myTextBox.Text.ToString) & "',''),"
+                                            If UCase(myDS.Tables(0).Rows(i).Item(3).ToString) = "YES" Then
+                                                ssql3 = ssql3 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(N'" & Trim(myTextBox.Text.ToString) & "','') And "
+                                                ssql4 = ssql4 & myDS.Tables(0).Rows(i).Item(0) & "=ISNULL(N'" & Trim(myTextBox.Text.ToString) & "',''),"
+                                            End If
+                                        End If
+                                        myDST = Nothing
+                                    End If
+                                Else
+                                    lblresult2.Text = "Invalid input format for " & Trim(myDS.Tables(0).Rows(i).Item(2)) & " !"
+                                    myTextBox.Focus()
+                                    Return False
+                                End If
+                            End If
+
+                    End Select
+                Next
+
+                'add or update selected items
+                'If lstright.Items.Count <> 0 Then
+                '    ssql3 = ssql6 & Left(ssql3, Len(ssql3) - 5)
+                '    mySQL.ExecuteSQL(ssql3, Session("Company").ToString, Session("EmpID").ToString)
+                '    'ssql = Left(ssql1, Len(ssql1) - 1) & Left(ssql2, Len(ssql2) - 1) & ")"
+                '    'mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+                'Else
+                '    ssql3 = ssql6 & Left(ssql3, Len(ssql3) - 5)
+                '    mySQL.ExecuteSQL(ssql3, Session("Company").ToString, Session("EmpID").ToString)
+                'End If
+
+                myDS = Nothing
+            End If
+
+            For k = 0 To itemCount - 1
+                'ssql1 = "select dbo.fn_ReturnCompanyProfileCode(N'" & txtCOMPANY_PROFILE_CODE.Text.Replace("'", "''") & "'),dbo.fn_GetCode_Module_Profile_Vw(N'" & txtOCP_ID_LEAVE.Text & "'),isnull(dbo.fn_GetCode_User_Profile_Vw(N'" & txtUSER_PROFILE_CODE.Text.Replace("'", "''") & "'),''),ISNULL(dbo.fn_ReturnEmpID(N'" & lstright.Items(k).Value.Replace("'", "''") & "'),'')"
+                'myDS = mySQL.ExecuteSQL(ssql1, Session("Company").ToString, Session("EmpID").ToString)
+                'ssql = "exec [sp_ap_insUpdDelAppAuthority] '" & myDS.Tables(0).Rows(0).Item(0).ToString & "','" & myDS.Tables(0).Rows(0).Item(1).ToString & "','" & txtAPPROVAL_LEVEL.Text & "','" & myDS.Tables(0).Rows(0).Item(2).ToString & "','','" & myDS.Tables(0).Rows(0).Item(3).ToString & "','ADD1'"
+                'mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+                ssql1 = Nothing
+                myDS = Nothing
+                ssql = Nothing
+
+            Next 'loop for lst
+
+            Return True
+        Catch ex As Exception
+            lblresult2.Text = "[ValidateInsertUpdate]Error: " & ex.Message
+            myDS = Nothing
+            Return False
+        End Try
+
+    End Function
+
+#End Region
+
+    Protected Sub imgBtnPrint_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnPrint.Click
+        Dim clsRpt As New clsReportServices, myTargetURL As String = ""
+        myTargetURL = clsRpt.GetReportURL(Session("Company").ToString, Session("EmpID").ToString, _
+                    Session("Module").ToString, Form.ID.ToString, Session("Language").ToString, _
+                     Session("FilterField").ToString, Session("FilterCriteria").ToString, _
+                      myGridView.PageSize, 1)
+        'Page.ClientScript.RegisterStartupScript(GetType(Page), "ShowReport", myTargetURL)
+        Response.Write("<script>window.open('" & myTargetURL & "');</script>")
+    End Sub
+
+    Protected Sub ddlOPTION_TYPE_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlOPTION_TYPE.SelectedIndexChanged
+        ssql = "exec [sp_org_getOCPIDObject] '" & ddlOPTION_TYPE.SelectedValue & "_0_1','" & Session("Company") & "','','','','','','',''"
+        myDS2 = mySQL.ExecuteSQL(ssql)
+        If myDS2.Tables.Count > 0 Then
+            If myDS2.Tables(0).Columns.Count > 1 Then
+                ddlOCP_ID.DataTextField = "Name"
+                ddlOCP_ID.DataValueField = "Code"
+                ddlOCP_ID.DataSource = myDS2
+                ddlOCP_ID.DataBind()
+            End If
+        End If
+        myDS2 = Nothing
+    End Sub
+
+    
+End Class

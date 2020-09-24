@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="IncrementList" SavedBy="Tester" SavedAt="6/18/2014 7:51:10 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="IncrementList.xlt" ID="IncrementList" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="5" LastRow="5" ID="Header" Worksheet="DATA" DisposableFirstRow="6" DisposableLastRow="6">
+			<DataLayer Type="SP" ID="CallLetter" ConnectionID="HCRMConnection" Command="sp_pr_rptIncrementList">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="CB" Value="@Data.CB~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Sup" Value="@Data.Sup~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Badge" Value="@Data.Badge~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Name" Value="@Data.Name~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Date_join" Value="@Data.Date_join~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Position" Value="@Data.Position~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Grade" Value="@Data.Grade~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="increment_1" Value="@Data.increment_1~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="Old_Salary" Value="@Data.Old_Salary~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="PromotionMonth" Value="@Data.PromotionMonth~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="Marks" Value="@Data.Marks~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="increment" Value="@Data.increment~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="perfadj" Value="@Data.perfadj~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="specialReview" Value="@Data.specialReview~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="TotalIncrement" Value="@Data.TotalIncrement~"/>
+			<PatternBlockCell Column="Q" PatternBlockRow="1" ID="Percentage" Value="@Data.Percentage~"/>
+			<PatternBlockCell Column="R" PatternBlockRow="1" ID="NewSalary" Value="@Data.NewSalary~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="NewPosition" Value="@Data.NewPosition~"/>
+			<PatternBlockCell Column="T" PatternBlockRow="1" ID="NewGrade" Value="@Data.NewGrade~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

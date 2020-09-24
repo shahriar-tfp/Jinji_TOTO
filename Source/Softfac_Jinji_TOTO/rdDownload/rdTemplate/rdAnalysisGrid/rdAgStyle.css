@@ -1,0 +1,87 @@
+.rdAgCaptionRow
+{
+    background-color: #8A8A8A;  
+    font-size: 14pt; 	
+	color: #FFFFFF;
+	padding: 5 4 4 8;
+}
+
+.rdAgHeaderRow
+{
+	background-color: #8A8A8A;
+	color: white;
+	font-weight: bold;
+	font-size: 8pt;
+}
+
+.rdAgGroup0HeaderRow
+{
+	background-color: #A4A4A4;
+
+}
+
+.rdAgGroup1HeaderRow
+{
+	background-color: #C1C1C1;
+}
+
+.rdAgGroup2HeaderRow
+{
+	background-color: #DEDEDE;
+}
+
+.rdAgContentRow {
+	background-color: #EEEEEE;
+	vertical-align: top;
+}
+
+.rdAgContentTable
+{
+	background-color: #EEEEEE;
+}
+
+.rdAgContentHeading
+{
+	font-weight: bold;
+}
+
+.rdAgContentCell
+{
+	background-color: White;
+}
+
+.rdAgAlignRight
+{
+	text-align: right;
+}
+.rdAgAlignCenter
+{
+	text-align: center;
+}
+
+.rdAgCommand
+{
+	background-color: #FAFAFA;
+	border-top: 1px solid #888888;
+	border-bottom: 1px solid #888888;
+	border-right: 1px solid #888888;
+	border-left: 1px solid #888888;
+	text-decoration: none;
+	margin-left: 3px;
+	padding-right: 3;
+	padding-left: 3;
+}
+
+.rdAgError
+{
+	color: DarkRed;
+}
+
+.rdAgImage 
+{
+	border: 0;
+	margin: 0;
+}
+
+
+

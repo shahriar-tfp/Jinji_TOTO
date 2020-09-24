@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="PR_EPayslip" SavedBy="acm" SavedAt="11/20/2009 9:47:21 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="E-Payslip.xlt" ID="E-Payslip" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="pbHeader" FirstRow="1" LastRow="30">
+			<DataLayer Type="SP" ID="dlHeader" ConnectionID="HCRMConnection" Command="sp_pr_RptEPayslip">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter ID="spid" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-131" Value="@Request.spid~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="CompanyName" Column="F" PatternBlockRow="1" Value="@Data.company_profile_code~"/>
+			<PatternBlockCell ID="EmployeeName" Column="F" PatternBlockRow="2" Value="@Data.Name~"/>
+			<PatternBlockCell ID="EmployeeNo" Column="F" PatternBlockRow="3" Value="@Data.code~"/>
+			<PatternBlockCell ID="Department" Column="I" PatternBlockRow="4" Value="@Data.Department~"/>
+			<PatternBlockCell ID="NRICNo" Column="I" PatternBlockRow="3" Value="@Data.identity_card_no~"/>
+			<PatternBlockCell ID="PayType" Column="F" PatternBlockRow="4" Value="@Data.option_pay_type~"/>
+			<PatternBlockCell ID="ForMonth" Column="J" PatternBlockRow="2" Value="Pay Slip For @Data.PMonth~ @Request.Year~"/>
+			<PatternBlockCell ID="EmployerEPF" Column="G" PatternBlockRow="20" Value="@Data.EPF_ER~"/>
+			<PatternBlockCell ID="EmployerSOCSO" Column="G" PatternBlockRow="21" Value="@Data.SOCSO_ER~"/>
+			<PatternBlockCell ID="PayBy" Column="F" PatternBlockRow="5" Value="@Data.Option_Pay_Mode~"/>
+			<PatternBlockCell ID="BankAccount" Column="I" PatternBlockRow="5" Value="@Data.bank_account_number~ "/>
+			<PatternBlockCell ID="YTD_Basic_Salary" Column="G" PatternBlockRow="23" Value="@Data.YTD_Basic_Salary~"/>
+			<PatternBlockCell ID="YTD_Bonus" Value="@Data.YTD_Bonus~" PatternBlockRow="24" Column="G"/>
+			<PatternBlockCell ID="YTD_OverTime" Value="@Data.YTD_OverTime~" PatternBlockRow="25" Column="G"/>
+			<PatternBlockCell ID="YTD_Allowance" Value="@Data.YTD_Allowance~" PatternBlockRow="26" Column="G"/>
+			<PatternBlockCell ID="YTD_Pay_Back_Leave" Value="@Data.YTD_Pay_Back_Leave~" PatternBlockRow="27" Column="G"/>
+			<PatternBlockCell ID="YTD_Deduction" Value="@Data.YTD_Deduction~" PatternBlockRow="23" Column="J"/>
+			<PatternBlockCell ID="YTD_EPF_EE" Value="@Data.YTD_EPF_EE~" PatternBlockRow="24" Column="J"/>
+			<PatternBlockCell ID="YTD_SOCSO_EE" Value="@Data.YTD_SOCSO_EE~" PatternBlockRow="25" Column="J"/>
+			<PatternBlockCell ID="YTD_EPF_ER" Value="@Data.YTD_EPF_ER~" PatternBlockRow="26" Column="J"/>
+			<PatternBlockCell ID="YTD_SOCSO_ER" Value="@Data.YTD_SOCSO_ER~" PatternBlockRow="27" Column="J"/>
+			<PatternBlockCell ID="YTD_PCB" Value="@Data.YTD_PCB~" PatternBlockRow="28" Column="J"/>
+			<PatternBlockCell ID="YTD_Deducted_Leave" Value="@Data.YTD_Deducted_Leave~" PatternBlockRow="29" Column="J"/>
+			<PatternBlockCell ID="PrintDate" Column="J" PatternBlockRow="1" Value="@Data.PrintDate~"/>
+			<SubPatternBlock ID="spbDetails" FirstRow="9" LastRow="9" FillMode="Overwrite">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" ID="dlDetails" ConnectionID="HCRMConnection" Command="sp_pr_RptEPayslip">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter ID="spid" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-131" Value="@Request.spid~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+						</SPParameters>
+						<SortFilter SortColumn="Allowance_Order,Deduction_Order" SortSequence="Ascending" DataType="Number" ID="SortBy"/>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="code" ID="relEmployeeCode" ParentColumn="code"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="AllowanceCode" Column="D" PatternBlockRow="1" Value="@Data.OCP_Name_Allowance~"/>
+				<PatternBlockCell ID="AllowanceAmount" Column="G" PatternBlockRow="1" Value="@Data.Allowance_Amount~"/>
+				<PatternBlockCell ID="DeductionCode" Column="I" PatternBlockRow="1" Value="@Data.OCP_Name_Deduction~"/>
+				<PatternBlockCell ID="DeductionAmount" Column="J" PatternBlockRow="1" Value="@Data.Deduction_Amount~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TAE" Month="07" Year="2009" spid="1"/>
+</Template>

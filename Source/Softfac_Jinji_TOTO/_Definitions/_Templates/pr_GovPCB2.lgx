@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovPCB2" SavedBy="Tester" SavedAt="9/19/2011 11:56:39 AM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_PCB2.pdf" ID="pr_PCB2" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField Name="txt_Year_1" ID="txt_Year_1" Value="@Data.Year~"/>
+		<PdfFormField Name="txt_Emp_Name" ID="txt_Emp_Name" Value="@Data.empnm~"/>
+		<PdfFormField Name="txt_Emp_ICNo" ID="txt_Emp_ICNo" Value="@Data.nric~"/>
+		<PdfFormField Name="txt_Emp_PCB_No" ID="txt_Emp_PCB_No" Value="@Data.emppcbno~"/>
+		<PdfFormField Name="txt_Emp_Code" ID="txt_Emp_Code" Value="@Data.Employee_Profile_ID~"/>
+		<PdfFormField Name="txt_Com_PCB" ID="txt_Com_PCB" Value="@Data.orgpcbno~"/>
+		<PdfFormField Name="txt_Year_2" ID="txt_Year_2" Value="@Data.Year~"/>
+		<PdfFormField Name="txt_Amount_1" ID="txt_Amount_1" Value="@Data.amt1~"/>
+		<PdfFormField Name="txt_Amount_2" ID="txt_Amount_2" Value="@Data.amt2~"/>
+		<PdfFormField Name="txt_Amount_3" ID="txt_Amount_3" Value="@Data.amt3~"/>
+		<PdfFormField Name="txt_Amount_4" ID="txt_Amount_4" Value="@Data.amt4~"/>
+		<PdfFormField Name="txt_Amount_5" ID="txt_Amount_5" Value="@Data.amt5~"/>
+		<PdfFormField Name="txt_Amount_6" ID="txt_Amount_6" Value="@Data.amt6~"/>
+		<PdfFormField Name="txt_Amount_7" ID="txt_Amount_7" Value="@Data.amt7~"/>
+		<PdfFormField Name="txt_Amount_8" ID="txt_Amount_8" Value="@Data.amt8~"/>
+		<PdfFormField Name="txt_Amount_9" ID="txt_Amount_9" Value="@Data.amt9~"/>
+		<PdfFormField Name="txt_Amount_10" ID="txt_Amount_10" Value="@Data.amt10~"/>
+		<PdfFormField Name="txt_Amount_11" ID="txt_Amount_11" Value="@Data.amt11~"/>
+		<PdfFormField Name="txt_Amount_12" ID="txt_Amount_12" Value="@Data.amt12~"/>
+		<PdfFormField Name="txt_Receipt_No_1" ID="txt_Receipt_No_1" Value="@Data.recp1~"/>
+		<PdfFormField Name="txt_Receipt_No_2" ID="txt_Receipt_No_2" Value="@Data.recp2~"/>
+		<PdfFormField Name="txt_Receipt_No_3" ID="txt_Receipt_No_3" Value="@Data.recp3~"/>
+		<PdfFormField Name="txt_Receipt_No_4" ID="txt_Receipt_No_4" Value="@Data.recp4~"/>
+		<PdfFormField Name="txt_Receipt_No_5" ID="txt_Receipt_No_5" Value="@Data.recp5~"/>
+		<PdfFormField Name="txt_Receipt_No_6" ID="txt_Receipt_No_6" Value="@Data.recp6~"/>
+		<PdfFormField Name="txt_Receipt_No_7" ID="txt_Receipt_No_7" Value="@Data.recp7~"/>
+		<PdfFormField Name="txt_Receipt_No_8" ID="txt_Receipt_No_8" Value="@Data.recp8~"/>
+		<PdfFormField Name="txt_Receipt_No_9" ID="txt_Receipt_No_9" Value="@Data.recp9~"/>
+		<PdfFormField Name="txt_Receipt_No_10" ID="txt_Receipt_No_10" Value="@Data.recp10~"/>
+		<PdfFormField Name="txt_Receipt_No_11" ID="txt_Receipt_No_11" Value="@Data.recp11~"/>
+		<PdfFormField Name="txt_Receipt_No_12" ID="txt_Receipt_No_12" Value="@Data.recp12~"/>
+		<PdfFormField Name="txt_Receipt_Date_1" ID="txt_Receipt_Date_1" Value="@Data.dt1~"/>
+		<PdfFormField Name="txt_Receipt_Date_2" ID="txt_Receipt_Date_2" Value="@Data.dt2~"/>
+		<PdfFormField Name="txt_Receipt_Date_3" ID="txt_Receipt_Date_3" Value="@Data.dt3~"/>
+		<PdfFormField Name="txt_Receipt_Date_4" ID="txt_Receipt_Date_4" Value="@Data.dt4~"/>
+		<PdfFormField Name="txt_Receipt_Date_5" ID="txt_Receipt_Date_5" Value="@Data.dt5~"/>
+		<PdfFormField Name="txt_Receipt_Date_6" ID="txt_Receipt_Date_6" Value="@Data.dt6~"/>
+		<PdfFormField Name="txt_Receipt_Date_7" ID="txt_Receipt_Date_7" Value="@Data.dt7~"/>
+		<PdfFormField Name="txt_Receipt_Date_8" ID="txt_Receipt_Date_8" Value="@Data.dt8~"/>
+		<PdfFormField Name="txt_Receipt_Date_9" ID="txt_Receipt_Date_9" Value="@Data.dt9~"/>
+		<PdfFormField Name="txt_Receipt_Date_10" ID="txt_Receipt_Date_10" Value="@Data.dt10~"/>
+		<PdfFormField Name="txt_Receipt_Date_11" ID="txt_Receipt_Date_11" Value="@Data.dt11~"/>
+		<PdfFormField Name="txt_Receipt_Date_12" ID="txt_Receipt_Date_12" Value="@Data.dt12~"/>
+		<PdfFormField Name="txt_Grand_Total" ID="txt_Grand_Total" Value="@Data.Grand_Total~" Format="0.00"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="SP_PR_RPTPCB2">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+				<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-200" Value="@Request.SpID~"/>
+				<SPParameter SPParamDirection="Input" ID="Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Location~"/>
+				<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="@Request.Type~"/>
+				<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200"/>
+			</SPParameters>
+			<CalculatedColumn Formula="@Data.amt1~+@Data.amt2~+@Data.amt3~+@Data.amt4~+@Data.amt5~+@Data.amt6~+@Data.amt7~+@Data.amt8~+@Data.amt9~+@Data.amt10~+@Data.amt11~+@Data.amt12~" ID="Grand_Total"/>
+		</DataLayer>
+		<PdfFormField Name="txt_Com_Name" ID="txt_Com_Name" Value="@Data.orgname~"/>
+	</PdfForm>
+	<ideTestParams RegNo="SoftFac" Year="2007" SPID="50" Location="PENISULA" Company_Profile_Code="" SpID="" Type=""/>
+</Template>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovBBCD" SavedBy="acm" SavedAt="11/5/2009 11:56:14 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="pr_GovBBCD.xlt" ID="PR_GovBBCD" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock FirstRow="1" LastRow="50" ID="Report">
+			<DataLayer Type="SP" ConnectionID="HCRMConnection" Command="sp_pr_RPTGovBBCD" ID="GovBBCD">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="input" ID="Option_Location" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Location~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Value="JADUAL CARUMAN BULAN @Data.NextMonth~ @Data.NextYear~" ID="Header" Column="F" PatternBlockRow="12"/>
+			<PatternBlockCell ID="OrganEPF" Column="G" PatternBlockRow="16" Value="@Data.EPF_Value~"/>
+			<PatternBlockCell ID="NextMonthYearInt" Column="I" PatternBlockRow="16" Value="@Data.NextMonthInt~  @Data.NextYearInt~"/>
+			<PatternBlockCell ID="EPFAmount" Column="K" PatternBlockRow="16" Value="@Data.EPF_Amount~"/>
+			<PatternBlockCell Value="Cek/Kiriman Wang/Wang Pos/ Draf Bank*No @Request.Cheque~" ID="ChequeNo" Column="I" PatternBlockRow="22"/>
+			<PatternBlockCell ID="OrganName" Column="G" PatternBlockRow="24" Value="@Data.OrganName~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="25" ID="OrganAddr1" Value="@Data.OrganAddr1~"/>
+			<PatternBlockCell ID="OrganAddr2" Column="G" PatternBlockRow="26" Value="@Data.OrganAddr2~"/>
+			<PatternBlockCell ID="OrganCity" Column="G" PatternBlockRow="27" Value="@Data.OrganPostal~ @Data.OrganCity~,"/>
+			<PatternBlockCell ID="OrganCountry" Column="G" PatternBlockRow="28" Value="@Data.OrganState~, @Data.OrganCountry~"/>
+			<PatternBlockCell ID="PICDescription" Column="E" PatternBlockRow="31" Value="          CARUMAN BULAN @Data.ThisMonth~ @Data.ThisYear~ SEPERTI YANG TERKANDUNG DI DALAM PITA/"/>
+			<PatternBlockCell ID="PICName" Column="H" PatternBlockRow="39" Value="@Request.PICName~"/>
+			<PatternBlockCell ID="PICNRIC" Column="H" PatternBlockRow="42" Value="@Request.PICNRIC~"/>
+			<PatternBlockCell ID="PICPosition" Column="H" PatternBlockRow="45" Value="@Request.PICPosition~"/>
+			<PatternBlockCell ID="PICTelNo" Column="H" PatternBlockRow="48" Value="@Request.PICTelNo~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="TAP" Month="10" Year="2009" Option_Location="PENINSULA"/>
+</Template>

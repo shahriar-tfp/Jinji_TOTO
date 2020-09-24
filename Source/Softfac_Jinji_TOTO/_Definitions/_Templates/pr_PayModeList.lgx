@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_PayModeList" SavedBy="Tester" SavedAt="7/2/2014 5:19:43 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="PayModeList.xlt" ID="PayModeList" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="25" ID="Header">
+			<DataLayer Type="SP" ID="Header" ConnectionID="HCRMConnection" Command="sp_pr_RptPayModeList">
+				<SPParameters>
+					<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+					<SPParameter ID="Option_Pay_Mode" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Mode~"/>
+					<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+					<SPParameter SPParamDirection="Input" ID="ByRpt" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByRpt~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell ID="OrganName" Column="A" PatternBlockRow="1" Value="@Data.CompanyName~"/>
+			<PatternBlockCell ID="OrganAdds1" Column="A" PatternBlockRow="2" Value="@Data.OrganAddress1~"/>
+			<PatternBlockCell ID="OrganAdds2" Column="A" PatternBlockRow="3" Value="@Data.OrganAddress2~"/>
+			<PatternBlockCell ID="OrganPostcode" Column="A" PatternBlockRow="4" Value="@Data.OrganPostCode~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="5" ID="OrganState" Value="@Data.OrganState~ , @Data.OrganCountry~"/>
+			<PatternBlockCell ID="Date" Column="A" PatternBlockRow="7" Value="Date : @Request.Date~               - @Request.Option_Pay_Mode~ List"/>
+			<PatternBlockCell Column="A" PatternBlockRow="13" Value="Kindly arrange to transfer the proceed of the enclosed cheque number (@Request.Cheque~ ) to" ID="Header1"/>
+			<PatternBlockCell Column="A" PatternBlockRow="14" ID="Header2" Value="the accounts of our staff on @Request.Date~ as detailed in the enclosed attachments."/>
+			<PatternBlockCell Column="G" PatternBlockRow="25" ID="ForAuthority" Value="For @Data.CompanyName~"/>
+			<PatternBlockCell ID="PayMode" Column="C" PatternBlockRow="9" Value="@Data.PayMode~"/>
+			<SubPatternBlock ID="Details" FirstRow="17" LastRow="17" DisposableFirstRow="18" DisposableLastRow="18">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="Details" Command="sp_pr_RptPayModeList">
+						<SPParameters>
+							<SPParameter ID="Company_Profile_Code" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter ID="Year" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter ID="Month" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Option_Pay_Cycle" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Cycle~"/>
+							<SPParameter ID="Option_Pay_Mode" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.Option_Pay_Mode~"/>
+							<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-200" Value="@Request.Spid~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+							<SPParameter SPParamDirection="Input" ID="ByRpt" SPParamSize="0" SPParamType="dt-200" Value="@Request.ByRpt~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="CompanyName" ParentColumn="CompanyName" ID="RelCompanyName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmpCode" Column="B" PatternBlockRow="1" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="ICNo" Value="@Data.NewIC~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="ACNo" Value="'@Data.EmpACNo~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="Amount" Value="@Data.Amount~"/>
+				<PatternBlockCell ID="RowNum" Column="A" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JoinDate" Column="J" PatternBlockRow="1" Value="@Data.JoinDate~"/>
+				<PatternBlockCell ID="ResignDate" Column="K" PatternBlockRow="1" Value="@Data.ResignDate~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

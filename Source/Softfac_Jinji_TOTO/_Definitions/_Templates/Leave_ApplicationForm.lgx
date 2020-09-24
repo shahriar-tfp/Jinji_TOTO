@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Leave_ApplicationForm" SavedBy="Tester" SavedAt="1/24/2014 10:34:23 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Leave_Application.xlt" ID="Leave_Application" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="36" ID="Header" Worksheet="LeaveApplication">
+			<DataLayer Type="SP" Command="sp_ls_RptLeaveApplication" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Employee_Profile_ID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Employee_Profile_ID~"/>
+					<SPParameter SPParamDirection="Input" ID="LeaveCode" SPParamSize="0" SPParamType="dt-200" Value="@Request.LeaveCode~"/>
+					<SPParameter SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200" Value="@Request.fromDate~" ID="fromDate"/>
+					<SPParameter SPParamDirection="Input" ID="Todate" Value="@Request.Todate~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="reason" SPParamSize="0" SPParamType="dt-200" Value="@Request.reason~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="CompanyName" Value="@Data.CompanyName~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="4" ID="EmpName" Value="@Data.EmpName~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="5" ID="Fincode" Value="@Data.Fincode~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="11" ID="From_Date" Value="@Data.Fromdate~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="11" ID="To_Date" Value="@Data.Todate~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="4" ID="ICno" Value="@Data.ICno~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="5" ID="Badge" Value="@Data.Empcode~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="6" ID="DateJoin" Value="@Data.DateJoin~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="10" ID="Dayapply" Value="@Data.Dayapply~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="12" ID="Reason" Value="@Data.reason~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="27" ID="CurrentBalance" Value="@Data.Balance~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="28" ID="pending" Value="@Data.pending~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="29" ID="TDayapply" Value="@Data.Dayapply~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="30" ID="Balance" Value="@Data.Balance~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="10" ID="LeaveCode" Value="@Data.LeaveCodeName~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

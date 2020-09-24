@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="ResponsibilityReport" SavedBy="Tester" SavedAt="7/27/2018 2:15:53 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="ResponsibilityAllow.xlt" ID="ResponsibilityReport" ExcelTemplateMode="OneWorksheetPerDataRow" IdeDisplayStatus="Collapsed">
+		<PatternBlock FirstRow="1" LastRow="17" ID="Header" Worksheet="Report" IdeDisplayStatus="Collapsed">
+			<DataLayer Type="SP" Command="sp_pr_SelRptResponsibilityAllow" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="StartDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+					<SPParameter SPParamDirection="Input" ID="Enddate" Value="@Request.ToDate~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="OrganName" Value="@Data.OrganName~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="3" ID="Period" Value="Allowance Report Date From : @Data.DateStart~ To @Data.DateEnd~"/>
+			<PatternBlockCell Column="A" PatternBlockRow="5" ID="Report" Value="Type Of Allowance :    RESPONSIBILITY ALLOWANCE "/>
+			<SubPatternBlock FirstRow="10" LastRow="10" DisposableFirstRow="11" DisposableLastRow="11" ID="Details" FillMode="Insert" IdeDisplayStatus="Collapsed">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" Command="sp_pr_SelRptResponsibilityAllow" ID="CallDetail" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="StartDate" SPParamSize="0" SPParamType="dt-200" Value="@Request.FromDate~"/>
+							<SPParameter SPParamDirection="Input" ID="Enddate" Value="@Request.ToDate~" SPParamSize="0" SPParamType="dt-200"/>
+							<SPParameter SPParamDirection="Input" ID="Userid" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+						<CalculatedColumn Formula="@Data.NDOTTime1~ * @Data.NDAmount1~" ID="NDA1"/>
+						<CalculatedColumn Formula="@Data.NDOTTime2~ * @Data.NDAmount2~" ID="NDA2"/>
+						<CalculatedColumn Formula="@Data.NDOTTime3~ * @Data.NDAmount3~" ID="NDA3"/>
+						<CalculatedColumn Formula="@Data.NDOTTime4~ * @Data.NDAmount4~" ID="NDA4"/>
+						<CalculatedColumn Formula="@Data.RDOTTime1~ * @Data.RDAmount1~" ID="RDA1"/>
+						<CalculatedColumn Formula="@Data.RDOTTime2~ * @Data.RDAmount2~" ID="RDA2"/>
+						<CalculatedColumn Formula="@Data.RDOTTime3~ * @Data.RDAmount3~" ID="RDA3"/>
+						<CalculatedColumn Formula="@Data.RDOTTime4~ * @Data.RDAmount4~" ID="RDA4"/>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="User_Profile_Code" ID="sdlrcUserid"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="A" PatternBlockRow="1" ID="Empid" Value="@Data.EmpCode~"/>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="EmpName" Value="@Data.EmpName~"/>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="Jobgrade" Value="@Data.Jobgrade~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="Costcenter" Value="@Data.Costcenter~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="TotalHour" Value="@Data.TotalHour~"/>
+				<PatternBlockCell Column="F" PatternBlockRow="1" ID="NDOTTime1" Value="@Data.NDOTTime1~"/>
+				<PatternBlockCell Column="G" PatternBlockRow="1" ID="NDAmount1" Value="@Data.NDA1~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="NDOTTime2" Value="@Data.NDOTTime2~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="NDAmount2" Value="@Data.NDA2~"/>
+				<PatternBlockCell Column="J" PatternBlockRow="1" ID="NDOTTime3" Value="@Data.NDOTTime3~"/>
+				<PatternBlockCell Column="K" PatternBlockRow="1" ID="NDAmount3" Value="@Data.NDA3~"/>
+				<PatternBlockCell Column="L" PatternBlockRow="1" ID="NDOTTime4" Value="@Data.NDOTTime4~"/>
+				<PatternBlockCell Column="M" PatternBlockRow="1" ID="NDAmount4" Value="@Data.NDA4~"/>
+				<PatternBlockCell Column="N" PatternBlockRow="1" ID="RDOTTime1" Value="@Data.RDOTTime1~"/>
+				<PatternBlockCell Column="O" PatternBlockRow="1" ID="RDAmount1" Value="@Data.RDA1~"/>
+				<PatternBlockCell Column="P" PatternBlockRow="1" ID="RDOTTime2" Value="@Data.RDOTTime2~"/>
+				<PatternBlockCell Column="Q" PatternBlockRow="1" ID="RDAmount2" Value="@Data.RDA2~"/>
+				<PatternBlockCell Column="R" PatternBlockRow="1" ID="RDOTTime3" Value="@Data.RDOTTime3~"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="RDAmount3" Value="@Data.RDA3~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="RDOTTime4" Value="@Data.RDOTTime4~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="RDAmount4" Value="@Data.RDA4~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

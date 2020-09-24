@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_TurnOverByOther" SavedBy="Tester" SavedAt="7/9/2014 4:07:17 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="TurnOverbyOthers.xlt" ID="Payroll_TurnOverByOther" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock Worksheet="DATA" FirstRow="2" LastRow="2" ID="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_pr_TurnoverByDepartment" ConnectionID="HCRMConnection" ID="CallDATA">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS2"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Company" Value="@Data.Company~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="YOS" Value="@Data.YOS~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="HOD" Value="@Data.HOD~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Reason" Value="@Data.Reason~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="TitleLevel" Value="@Data.Title_Level~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="EmpCount" Value="@Data.EmpCount~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Month_text" Value="@Data.Month_text~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="ComName" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="PrintDate" Value="@Data.PrintDate~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="ResignStatus" Value="@Data.ResignStatus~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

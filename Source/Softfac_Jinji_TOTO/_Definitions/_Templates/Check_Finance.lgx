@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Check_Finance" SavedBy="Tester" SavedAt="5/28/2012 4:36:15 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Check_Finance.xlt" ID="Check_Finance" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="6" ID="Header">
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Header" Value="New Salary Code not Setting on Finance"/>
+			<PatternBlockCell Column="B" PatternBlockRow="3" ID="Period" Value="For Month / Year : @Request.Month~ / @Request.Year~"/>
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="6" LastRow="6" DisposableFirstRow="7" DisposableLastRow="7" ID="Details">
+				<SubDataLayer ID="sdlDetails">
+					<DataLayer Type="SP" Command="sp_pr_RptChkFinanceSetting" ID="CallDetails" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="B" PatternBlockRow="1" ID="Salary" Value="@Data.Salary_Code~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

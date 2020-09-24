@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Account_Journal" SavedBy="Tester" SavedAt="6/27/2014 5:13:05 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="Account_Journal.xlt" ID="Account_Journal" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="1" LastRow="14" ID="Data">
+			<PatternBlockCell Column="C" PatternBlockRow="11" ID="Date" Value="@Data.CurrentDate~"/>
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code,convert(varchar(10),getdate(),103) as CurrentDate from user_profile where code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock ID="Details" FirstRow="13" LastRow="13" FillMode="Overwrite">
+				<SubDataLayer ID="GetData">
+					<DataLayer Type="SP" Command="SP_PR_RPTFINDOWNLOADDATA" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell Column="C" PatternBlockRow="1" ID="CostCode" Value="@Data.CostCode~"/>
+				<PatternBlockCell Column="D" PatternBlockRow="1" ID="AccountCode" Value="@Data.AccountCode~"/>
+				<PatternBlockCell Column="E" PatternBlockRow="1" ID="AccountName" Value="@Data.AccountName~"/>
+				<PatternBlockCell Column="H" PatternBlockRow="1" ID="Amount" Value="@Data.Amount~"/>
+				<PatternBlockCell Column="I" PatternBlockRow="1" ID="Remakrs" Value="@Data.remarks~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="SupplierCode" Value="@Data.Supplier~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

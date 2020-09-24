@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActiveReportsLayout Version="3.2" PrintWidth="16848" DocumentName="ActiveReports Document" ScriptLang="VB.NET" MasterReport="0">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; color: Black; text-align: left; vertical-align: top; ddo-char-set: 186" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader" Height="2430" BackColor="16777215">
+      <Control Type="AR.Field" Name="txtCompanyName" DataField="CompanyName" Left="288" Top="119.52" Width="8640" Height="240.48" Text="@CompanyName" Style="font-size: 9pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtPeriod1" Left="288.0001" Top="360" Width="3284.641" Height="240.48" Text="Staff Attendance Record for the Period : " Style="font-size: 9pt" />
+      <Control Type="AR.Field" Name="txtPeriod2" DataField="Period2" Left="3572.64" Top="360" Width="3284.641" Height="240.48" Text="@Period2" Style="font-size: 9pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="lblEmployeeID" Left="287.9997" Top="794.8801" Width="1296" Height="240.48" Text="Employee      :" Style="font-size: 9pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="lblPosition" Left="287.9997" Top="1035.36" Width="1296" Height="240.48" Text="Position         :" Style="font-size: 9pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="lblDepartment" Left="287.9997" Top="1275.84" Width="1296" Height="240.48" Text="Department  :" Style="font-size: 9pt; font-weight: bold" />
+      <Control Type="AR.Field" Name="txtEmployeeID" DataField="EmployeeCodeName" Left="1584" Top="794.8801" Width="6480" Height="240.48" Text="@EmployeeID" Style="font-size: 9pt" />
+      <Control Type="AR.Field" Name="txtPosition" DataField="PositionCodeName" Left="1584" Top="1035.36" Width="6480" Height="240.48" Text="@Position" Style="font-size: 9pt" />
+      <Control Type="AR.Field" Name="txtDepartment" DataField="DepartmentCodeName" Left="1584" Top="1275.84" Width="6480" Height="240.48" Text="@Department" Style="font-size: 9pt" />
+      <Control Type="AR.ReportInfo" Name="ReportInfo2" Left="11550.24" Top="119.52" Width="3780.001" Height="197.28" FormatString="Printed: {RunDateTime}" Style="font-size: 6.75pt; text-align: right; ddo-char-set: 0" />
+      <Control Type="AR.Field" Name="lblRemark" Left="10080" Top="1962.72" Width="5904" Height="240.48" Text="Remarks (to be completed by staff)" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.Field" Name="lblDate" Left="288.0007" Top="1962.72" Width="1440" Height="240.48" Text="Date" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine10" Left="8928" Top="1843.2" Right="8928" Bottom="326.88" />
+      <Control Type="AR.Field" Name="lblEarlyOut" Left="8064" Top="1857.6" Width="863.9999" Height="432" Text="Early Out (Min)" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.Field" Name="lblLateIn" Left="7200" Top="1857.6" Width="863.9999" Height="432" Text="Late In (Min)" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine5" Left="4032" Top="1843.2" Right="4032" Bottom="0" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine4" Left="3456" Top="1843.2" Right="3456" Bottom="0" />
+      <Control Type="AR.Field" Name="lblTimeOut" Left="6336" Top="1962.72" Width="864.0001" Height="240.48" Text="Time Out" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine7" Left="6336" Top="1843.2" Right="6336" Bottom="0" />
+      <Control Type="AR.Field" Name="lblTimeIn" Left="5472" Top="1962.72" Width="864.0001" Height="240.48" Text="Time In" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine11" Left="10368" Top="1843.2" Right="10368" Bottom="0" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine3" Left="2880" Top="1843.2" Right="2880" Bottom="0" />
+      <Control Type="AR.Field" Name="lblDay" Left="2880" Top="1962.72" Width="576" Height="240.48" Text="Type" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine1" Left="288.0011" Top="1843.2" Right="288.0011" Bottom="326.88" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine12" Left="15984" Top="1843.2" Right="15984" Bottom="326.88" />
+      <Control Type="AR.Field" Name="lblLocation" Left="4032" Top="1962.72" Width="1440" Height="240.48" Text="Clock Location" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine8" Left="7200" Top="1843.2" Right="7200" Bottom="326.88" />
+      <Control Type="AR.Field" Name="lblLeave" Left="8928" Top="1857.6" Width="1440" Height="432" Text="Leave Application" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.Field" Name="lblDayType" Left="3456" Top="1962.72" Width="576" Height="240.48" Text="Day" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.Field" Name="lblTMS" Left="1728.001" Top="1962.72" Width="1152" Height="240.48" Text="TMS" Style="font-size: 9pt; font-weight: bold; text-align: center" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine2" Left="1728.001" Top="1843.2" Right="1728.001" Bottom="0" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine6" Left="5472" Top="1843.2" Right="5472" Bottom="0" />
+      <Control Type="AR.Line" Name="Line2" X1="288" Y1="2409.12" X2="15984" Y2="2409.12" />
+      <Control Type="AR.Line" Name="Line1" X1="288" Y1="1800" X2="15984" Y2="1800" />
+      <Control Type="AR.CrossSectionLine" Name="CrossSectionLine9" Left="8085" Top="1843.2" Right="8085" Bottom="326.88" />
+      <Control Type="AR.Label" Name="lblND" Left="14145" Top="810" Width="1839" Height="225" Caption="ND:   Normal Day" Style="font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblOD" Left="14535.36" Top="1051.2" Width="1448.641" Height="225" Caption="Off Day" Style="font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblRD" Left="14535.36" Top="1275.84" Width="1448.641" Height="225" Caption="Rest Day" Style="font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblPH" Left="14535.36" Top="1500.48" Width="1448.641" Height="225" Caption="Public  Holiday" Style="font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblODH" Left="14145.12" Top="1051.2" Width="390.2393" Height="225" Caption="OD:   " Style="color: LightCoral; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblRDH" Left="14145.12" Top="1275.84" Width="390.2393" Height="225" Caption="RD:   " Style="color: Red; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblPHH" Left="14145.12" Top="1500.48" Width="390.2393" Height="225" Caption="PH:   " Style="color: RoyalBlue; font-size: 8pt; font-weight: bold; ddo-char-set: 1" />
+    </Section>
+    <Section Type="GroupHeader" Name="GroupHeader1" Height="0" DataField="EmployeeCodeName" GroupKeepTogether="2" BackColor="16777215" KeepTogether="1" CanGrow="0" />
+    <Section Type="Detail" Name="Detail" Height="435.0001" BackColor="16777215" KeepTogether="1">
+      <Control Type="AR.Field" Name="txtDate" DataField="DateName1" Left="288" Top="105.12" Width="1440" Height="240.48" Text="@Date" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtLeave" DataField="LeaveApplication" Left="8928" Top="2.88" Width="1440" Height="432" Text="@Leave Application" CanGrow="0" Style="font-size: 6pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtTMS" DataField="TMSCodeName" Left="1728" Top="105.12" Width="1152" Height="240.48" Text="@TMS" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtDay" DataField="DayTypeCodeName" Left="2880" Top="105.12" Width="576" Height="240.48" Text="@Day" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtDayType" DataField="WeekDayName" Left="3456" Top="105.12" Width="576" Height="240.48" Text="@Day" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtLocation" DataField="ClockLocation" Left="4032" Top="105.12" Width="1440" Height="240.48" Text="@Clock Location" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtTimeIn" DataField="TimeInName1" Left="5472" Top="105.12" Width="864.0001" Height="240.48" Text="@Time In" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtTimeOut" DataField="TimeOutName1" Left="6336" Top="105.12" Width="864.0001" Height="240.48" Text="@Time Out" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtLateIn" DataField="LateinName1" Left="7200" Top="105.12" Width="864.0001" Height="240.48" Text="@Late In" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Field" Name="txtEarlyOut" DataField="EarlyOutName1" Left="8064" Top="105.12" Width="864.0001" Height="240.48" Text="@Early Out" Style="font-size: 8.25pt; font-weight: normal; text-align: center" />
+      <Control Type="AR.Line" Name="Line7" X1="288" Y1="417.6" X2="15984" Y2="417.6" LineColor="13882323" LineWeight="2" />
+      <Control Type="AR.Field" Name="txtPreDate" Visible="0" Left="12090.24" Top="2.88" Width="1440" Height="288" Text="" />
+    </Section>
+    <Section Type="GroupFooter" Name="GroupFooter1" Height="0" BackColor="16777215" NewPage="2" KeepTogether="1" CanGrow="0">
+      <Control Type="AR.Field" Name="txtLatemin" DataField="Latein1" Visible="0" Left="8928" Top="0" Width="864.0001" Height="240.48" Text="@Late In" Style="font-size: 8.25pt; font-weight: normal; text-align: center" SummaryType="3" SummaryGroup="GroupHeader1" />
+      <Control Type="AR.Field" Name="txtEarlymin" DataField="EarlyOut1" Visible="0" Left="9957.601" Top="0" Width="864.0001" Height="240.48" Text="@Early Out" Style="font-size: 8.25pt; font-weight: normal; text-align: center" SummaryType="3" SummaryGroup="GroupHeader1" />
+    </Section>
+    <Section Type="PageFooter" Name="PageFooter" Height="1800" BackColor="16777215" CanGrow="0">
+      <Control Type="AR.Line" Name="Line3" X1="288" Y1="0" X2="15984" Y2="0" />
+      <Control Type="AR.Field" Name="lblApproved" Left="3572.64" Top="560.16" Width="1899.36" Height="240.48" Text="Approved By :" Style="font-size: 8pt; font-weight: normal; text-align: center; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="lblVerify" Left="393.12" Top="560.16" Width="1872" Height="240.48" Text="Verified By :" Style="font-size: 8pt; font-weight: normal; text-align: center; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="lblTotal" Left="5904" Top="43.2" Width="1296" Height="240.48" Text="Total  :" Style="font-size: 9pt; font-weight: bold; text-align: right; vertical-align: middle" />
+      <Control Type="AR.Field" Name="lblEmployee" Left="404.64" Top="1176.48" Width="1872" Height="240.48" Text="Employee's Signature" Style="font-size: 8pt; font-weight: bold; text-align: center; ddo-char-set: 1" />
+      <Control Type="AR.Field" Name="lblSuperior" Left="3572.64" Top="1176.48" Width="1899.36" Height="240.48" Text="Immediate Superior" Style="font-size: 8pt; font-weight: bold; text-align: center; ddo-char-set: 1" />
+      <Control Type="AR.Label" Name="lblReportName" Left="405.0007" Top="1596" Width="1860" Height="144" Caption="Tms_TimeSheet.rpx" Style="font-size: 5.25pt; ddo-char-set: 0" />
+      <Control Type="AR.ReportInfo" Name="ReportInfo1" Left="7701.12" Top="1128.96" Width="1919.52" Height="288" FormatString="Page {PageNumber} of {PageCount}" Style="font-size: 8pt" />
+      <Control Type="AR.Line" Name="Line5" X1="404.64" Y1="1128.96" X2="2354.64" Y2="1128.96" LineStyle="3" />
+      <Control Type="AR.Line" Name="Line6" X1="3702.24" Y1="1128.96" X2="5472.24" Y2="1128.96" LineStyle="3" />
+      <Control Type="AR.Line" Name="Line4" X1="288" Y1="326.88" X2="15984" Y2="326.88" />
+      <Control Type="AR.Field" Name="txtTotalLate" Left="7200" Top="43.2" Width="864.0001" Height="240.48" Text="-" CanGrow="0" Style="font-size: 9pt; font-weight: bold; text-align: center; vertical-align: middle" />
+      <Control Type="AR.Field" Name="txtTotalEarly" Left="8085.601" Top="43.2" Width="864.0001" Height="240.48" Text="-" CanGrow="0" Style="font-size: 9pt; font-weight: bold; text-align: center; vertical-align: middle" />
+    </Section>
+  </Sections>
+  <ReportComponentTray />
+  <Script><![CDATA[
+Sub Detail_Format
+	if me.txtDay.Text = "RD" then
+		me.txtDay.ForeColor = System.Drawing.color.Red
+	End If
+	if me.txtDay.Text = "PH" then
+		me.txtDay.ForeColor = System.Drawing.color.RoyalBlue 
+	End If
+	if me.txtDay.Text = "OD" then
+		me.txtDay.ForeColor = System.Drawing.color.LightCoral  
+	End If
+	if me.txtDay.Text = "ND" then
+		me.txtDay.ForeColor = System.Drawing.color.Black   
+	End If
+	
+	if me.txtPreDate.Text = me.txtDate.Text then
+		me.txtDate.Visible = False
+		me.txtTMS.Visible = false
+		me.txtPreDate.Text = me.txtDate.Text 
+	else
+		me.txtDate.Visible = true
+		me.txtTMS.Visible = true
+		me.txtPreDate.Text = me.txtDate.Text 
+	End If
+End Sub
+
+Sub GroupFooter1_Format
+	dim totallate as string
+	dim lateH as String
+	dim lateM as String
+	dim displaylate as String
+	dim totalout as string
+	dim EarlyH as String
+	dim EarlyM as String
+	dim displayout as String
+	totallate = me.txtLatemin.Text
+	lateH = totallate / 60
+	if lateh.IndexOf(".") > 0 then
+	lateH = lateh.Substring(0,lateh.IndexOf("."))
+	end if
+	lateM = cint(totallate mod 60)
+	if lateH.Length = 1 then
+		lateH = "0" + lateH
+	End If
+	if lateM.Length = 1 then
+		lateM = "0" + lateM
+	End If
+	displaylate = lateH + ":" + lateM
+	
+	me.txtTotalLate.value = displaylate
+	
+	totalout = me.txtEarlymin.Text
+	EarlyH = totalout / 60
+	if EarlyH.IndexOf(".") > 0 then
+		EarlyH = EarlyH.Substring(0, EarlyH.IndexOf("."))
+	end if
+	EarlyM = cint(totalout mod 60)
+	if EarlyH.Length = 1 then
+		EarlyH = "0" + EarlyH
+	End If
+	if EarlyM.Length = 1 then
+		EarlyM = "0" + EarlyM
+	End If
+	displayout = EarlyH + ":" + EarlyM
+	
+	me.txtTotalEarly.value = displayout
+End Sub
+
+Sub GroupHeader1_Format
+	me.txtTotalLate.value = "-"
+	me.txtTotalEarly.value = "-"
+End Sub
+
+
+]]></Script>
+  <PageSettings LeftMargin="144" RightMargin="144" BottomMargin="144" Orientation="2" />
+  <Parameters />
+</ActiveReportsLayout>

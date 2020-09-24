@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="OverTime_Monthly_Summary" SavedBy="Tester" SavedAt="5/23/2019 11:55:10 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="OverTime_Monthly_Summary.xlt" ID="OverTime_Monthly_Summary" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="OverTime_Monthly_Summary_LogicXML" FirstRow="1" LastRow="65536" Worksheet="DATA">
+			<DataLayer Type="SQL" ID="header" Source="select upper(code) as code from user_profile where company_Profile_Code = {*apos;*}@Request.Company_Profile_Code~{*apos;*} and code = {*apos;*}@Request.User_Profile_Code~{*apos;*}" ConnectionID="HCRMConnection"/>
+			<SubPatternBlock FirstRow="2" LastRow="2" ID="details" DisposableFirstRow="3" DisposableLastRow="3">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_RptOvertimeSummary" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ChildColumn="User_Profile_Code" ParentColumn="code" ID="layer"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="EmployeeCode" Column="A" PatternBlockRow="1" Value="@Data.EmpCode~"/>
+				<PatternBlockCell ID="EmployeeName" Value="@Data.EmpName~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Year" Value="@Data.Year~" PatternBlockRow="1" Column="C"/>
+				<PatternBlockCell ID="Month" Column="D" PatternBlockRow="1" Value="@Data.Month~"/>
+				<PatternBlockCell ID="PayCycle" Value="@Data.PayCycle~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Division" Value="@Data.Division~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Department" Value="@Data.Department~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="JobGrade" Value="@Data.JobGrade~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Position" Value="@Data.Position~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="HRP" Value="@Data.HRP~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OTHour" Value="@Data.OTHour~" Column="K" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Option_Cut_Off" Value="@Data.Option_Cut_Off~" Column="L" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Rate" Value="@Data.Rate~" Column="M" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Daytype" Value="@Data.Daytype~" Column="N" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OtRateType" Value="@Data.OtRateType~" Column="O" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OTAmount" Value="@Data.OTAmount~" Column="P" PatternBlockRow="1"/>
+				<PatternBlockCell ID="AllowanceForOT" Value="@Data.AllowanceForOT~" Column="Q" PatternBlockRow="1"/>
+				<PatternBlockCell ID="SalaryForOT" Value="@Data.SalaryForOT~" Column="R" PatternBlockRow="1"/>
+				<PatternBlockCell Column="S" PatternBlockRow="1" ID="TMS" Value="@Data.TMS~"/>
+				<PatternBlockCell Column="T" PatternBlockRow="1" ID="Finance" Value="@Data.Finance~"/>
+				<PatternBlockCell Column="U" PatternBlockRow="1" ID="Section" Value="@Data.Section~"/>
+				<PatternBlockCell Column="V" PatternBlockRow="1" ID="Line" Value="@Data.Line~"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+	<ideTestParams Company_Profile_Code="JR" User_Profile_Code="JR" Month="01" Year="2011"/>
+</Template>

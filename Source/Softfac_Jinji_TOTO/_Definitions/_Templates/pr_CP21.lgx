@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_CP21" SavedBy="Tester" SavedAt="2/1/2012 3:05:32 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_CP21.pdf" ID="pr_CP21" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_A_Cent" Name="txt_A_Cent" Value="@Data.A_Cent~"/>
+		<PdfFormField ID="txt_A_RM" Name="txt_A_RM" Value="@Data.A_RM~"/>
+		<PdfFormField ID="txt_B_Cent" Name="txt_B_Cent" Value="@Data.B_Cent~"/>
+		<PdfFormField ID="txt_B_RM" Name="txt_B_RM" Value="@Data.B_RM~"/>
+		<PdfFormField ID="txt_C_Cent" Name="txt_C_Cent" Value="@Data.C_Cent~"/>
+		<PdfFormField ID="txt_C_RM" Name="txt_C_RM" Value="@Data.C_RM~"/>
+		<PdfFormField ID="txt_Current_Date" Name="txt_Current_Date" Value="@Data.cdate~"/>
+		<PdfFormField ID="txt_D_Cent" Name="txt_D_Cent" Value="@Data.D_Cent~"/>
+		<PdfFormField ID="txt_D_RM" Name="txt_D_RM" Value="@Data.D_RM~"/>
+		<PdfFormField ID="txt_E_Cent" Name="txt_E_Cent" Value="@Data.E_Cent~"/>
+		<PdfFormField ID="txt_E_RM" Name="txt_E_RM" Value="@Data.E_RM~"/>
+		<PdfFormField ID="txt_Emp_Address" Name="txt_Emp_Address" Value="@Data.psaddr~"/>
+		<PdfFormField ID="txt_Emp_IC_No" Name="txt_Emp_IC_No" Value="@Data.nric~"/>
+		<PdfFormField ID="txt_Emp_Job_Title" Name="txt_Emp_Job_Title" Value="@Data.natureemploy~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.empnm~"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.emppcbno~"/>
+		<PdfFormField ID="txt_F_Cent" Name="txt_F_Cent" Value="@Data.F_Cent~"/>
+		<PdfFormField ID="txt_F_RM" Name="txt_F_RM" Value="@Data.F_RM~"/>
+		<PdfFormField ID="txt_G_Cent" Name="txt_G_Cent" Value="@Data.G_Cent~"/>
+		<PdfFormField ID="txt_G_RM" Name="txt_G_RM" Value="@Data.G_RM~"/>
+		<PdfFormField ID="txt_GOV_Address_1" Name="txt_GOV_Address_1" Value="@Data.govaddr1~"/>
+		<PdfFormField ID="txt_GOV_Address_2" Name="txt_GOV_Address_2" Value="@Data.govaddr~"/>
+		<PdfFormField ID="txt_H_Cent" Name="txt_H_Cent" Value="@Data.H_Cent~"/>
+		<PdfFormField ID="txt_H_RM" Name="txt_H_RM" Value="@Data.H_RM~"/>
+		<PdfFormField ID="txt_I_Cent" Name="txt_I_Cent" Value="@Data.I_Cent~"/>
+		<PdfFormField ID="txt_I_RM" Name="txt_I_RM" Value="@Data.I_RM~"/>
+		<PdfFormField ID="txt_Organ_Address_1" Name="txt_Organ_Address_1" Value="@Data.orgaddr1~"/>
+		<PdfFormField ID="txt_Organ_Address_2" Name="txt_Organ_Address_2" Value="@Data.orgaddr2~"/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value="@Data.orgnm~"/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.orgpcbno~"/>
+		<PdfFormField ID="txt_Organ_Phone_No" Name="txt_Organ_Phone_No" Value="@Data.orgtel~"/>
+		<PdfFormField ID="txt_PIC_Job_Title" Name="txt_PIC_Job_Title" Value="@Data.orgpos~"/>
+		<PdfFormField ID="txt_Total" Name="txt_Total" Value="@Data.Total_Amount~" Format="########0.00"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_RptCP21">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="RegNo" SPParamSize="0" SPParamType="dt-200" Value="@Request.RegNo~"/>
+				<SPParameter SPParamDirection="Input" ID="PIC" SPParamSize="0" SPParamType="dt-200" Value="@Request.PIC~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-3" Value="@Request.Year~"/>
+				<SPParameter SPParamDirection="Input" ID="SpID" SPParamSize="0" SPParamType="dt-3" Value="@Request.SpID~"/>
+			</SPParameters>
+			<CalculatedColumn ID="Total_Amount" Formula="@Data.a~+@Data.b~+@Data.c~+@Data.d~+@Data.e~+@Data.f~+@Data.g~+@Data.h~+@Data.i~"/>
+		</DataLayer>
+	</PdfForm>
+	<ideTestParams RegNo="JAVA" PIC="11" Year="2008" SpID="52"/>
+</Template>

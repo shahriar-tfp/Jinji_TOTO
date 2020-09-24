@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_Bonusslip" SavedBy="Tester" SavedAt="11/7/2012 8:20:50 AM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="RWEM_Payslip_blank.pdf" ID="pr_payslip" PdfFormMode="OneFormPerDataRow">
+		<DataLayer Type="SP" ID="CallSP" ConnectionID="HCRMConnection" Command="sp_pr_RptCusBonusslip">
+			<SPParameters>
+				<SPParameter SPParamDirection="Input" ID="OrganID" SPParamSize="0" SPParamType="dt-200" Value="@Request.OrganID~"/>
+				<SPParameter SPParamDirection="Input" ID="month" SPParamSize="0" SPParamType="dt-200" Value="@Request.month~"/>
+				<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.year~"/>
+				<SPParameter SPParamDirection="Input" ID="Spid" SPParamSize="0" SPParamType="dt-3" Value="@Request.SPID~"/>
+				<SPParameter SPParamDirection="Input" ID="PayType" SPParamSize="0" SPParamType="dt-200" Value="MONTHLY"/>
+				<SPParameter SPParamDirection="Input" ID="PayMode" SPParamSize="0" SPParamType="dt-200" Value="@Request.Paymode~"/>
+			</SPParameters>
+			<GroupFilter ID="Groupby" Hierarchical="True" KeepGroupedRows="True" DataType="Text" GroupColumn="EmpCode,EmpName,NRIC,PayType,DeptCode,PayMonth,BasicRate,HRP,PayMode,BankAcc">
+				<GroupAggregateColumn AggregateColumn="allowamt" AggregateFunction="SUM" ID="sumtotalallow"/>
+				<GroupAggregateColumn AggregateColumn="deductamt" AggregateFunction="SUM" ID="sumtotaldeduct"/>
+				<GroupAggregateColumn AggregateColumn="TolEarnAmt" AggregateFunction="SUM" ID="SumTolEarnAmt"/>
+				<GroupAggregateColumn AggregateColumn="TolLeaveAmt" AggregateFunction="SUM" ID="SumTolLeaveAmt"/>
+			</GroupFilter>
+			<CalculatedColumn Formula="@Data.SumTolEarnAmt~ + @Data.SumTolLeaveAmt~ + @Data.sumtotalallow~" ID="TolGrossPay"/>
+			<CalculatedColumn Formula="@Data.TolGrossPay~ - @Data.sumtotaldeduct~" ID="NetPay"/>
+			<SortFilter SortColumn="DeptCode,Empcode,allowance_order,deduction_order" DataType="Number,Number,Number,Number" ID="Sort By Dept" SortSequence="Ascending"/>
+		</DataLayer>
+		<PdfFormField ID="txtAllowance" Name="txtAllowance" Value="@Data.allow~"/>
+		<PdfFormField ID="txtAllowanceRM" Name="txtAllowanceRM" Value="@Data.allowamt~"/>
+		<PdfFormField ID="txtBasicRate" Name="txtBasicRate" Value="@Data.BasicRate~"/>
+		<PdfFormField ID="txtdayhr" Name="txtdayhr" Value="@Data.TolEarnDay~"/>
+		<PdfFormField ID="txtDeduction" Name="txtDeduction" Value="@Data.deduct~"/>
+		<PdfFormField ID="txtDeductionRM" Name="txtDeductionRM" Value="@Data.deductamt~"/>
+		<PdfFormField ID="txtDept" Name="txtDept" Value="@Data.DeptCode~"/>
+		<PdfFormField ID="txtEarning" Name="txtEarning" Value="@Data.Earn~"/>
+		<PdfFormField ID="txtearningRM" Name="txtearningRM" Value="@Data.TolEarnAmt~"/>
+		<PdfFormField ID="txtEmpCode" Name="txtEmpCode" Value="@Data.Empcode~"/>
+		<PdfFormField ID="txtEmpIC" Name="txtEmpIC" Value="@Data.NRIC~"/>
+		<PdfFormField ID="txtEmployer" Name="txtEmployer" Value="@Data.ERCont~"/>
+		<PdfFormField ID="txtEmployerRM" Name="txtEmployerRM" Value="@Data.ERAmt~"/>
+		<PdfFormField ID="txtEmpName" Name="txtEmpName" Value="@Data.EmpName~"/>
+		<PdfFormField ID="txtfor" Name="txtfor" Value="@Data.PayMonth~"/>
+		<PdfFormField ID="txtGrossPay" Name="txtGrossPay" Value="@Data.TolGrossPay~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txtleave" Name="txtleave" Value="@Data.Leave~"/>
+		<PdfFormField ID="txtleaveday" Name="txtleaveday" Value="@Data.TolLeaveDay~"/>
+		<PdfFormField ID="txtleaveRM" Name="txtleaveRM" Value="@Data.TolLeaveAmt~"/>
+		<PdfFormField ID="txtNetpay" Name="txtNetpay" Value="@Data.NetPay~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txtRateHour" Name="txtRateHour" Value="@Data.HRP~"/>
+		<PdfFormField ID="txtRemarks1" Name="txtRemarks1" Value="Annual Leave Balance : @Data.ALBalance~"/>
+		<PdfFormField ID="txtRemarks2" Name="txtRemarks2" Value="Paid By @Data.PayMode~          (Any Mistake Please Contact Personal Department.)"/>
+		<PdfFormField ID="txtRemarks3" Name="txtRemarks3" Value="Bank A/C : @Data.BankAcc~"/>
+		<PdfFormField ID="txtsubtotalAllowance" Name="txtsubtotalAllowance" Value="@Data.sumtotalallow~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txtsubtotalEarning" Name="txtsubtotalEarning" Value="@Data.SumTolEarnAmt~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txtsubtotalleave" Name="txtsubtotalleave" Value="@Data.SumTolLeaveAmt~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txttotalDeduction" Name="txttotalDeduction" Value="@Data.sumtotaldeduct~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txtType" Name="txtType" Value="@Data.PayType~"/>
+		<PdfFormField ID="txtYTD" Name="txtYTD" Value="@Data.YTD~"/>
+		<PdfFormField ID="txtYTDRM" Name="txtYTDRM" Value="@Data.YTDAmt~"/>
+	</PdfForm>
+	<ideTestParams OrganID="RWEM" month="01" year="2012" SPID="1" Paymode="BANK"/>
+</Template>

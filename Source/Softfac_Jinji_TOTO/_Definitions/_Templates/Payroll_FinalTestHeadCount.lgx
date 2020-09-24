@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Payroll_FinalTestHeadCount" SavedBy="Tester" SavedAt="10/10/2014 5:00:43 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="FinalTest_HeadCount.xlt" ID="Payroll_FinalTestHeadCount" ExcelTemplateMode="OneWorksheetPerDataRow">
+		<PatternBlock ID="Payroll_FinalTestHeadCount" FirstRow="1" LastRow="12">
+			<DataLayer Type="SP" Command="sp_pr_rptFinalTestHeadCount" ID="Header" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Company" Value="@Data.ComName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="Month" Value="FINAL TEST HEAD COUNT FOR  @Data.Month_text~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="3" ID="Printdate" Value="Print Date : @Data.PrintDate~"/>
+			<SubPatternBlock FirstRow="5" LastRow="5" ID="details" DisposableFirstRow="6" DisposableLastRow="6">
+				<SubDataLayer ID="details">
+					<DataLayer Type="SP" Command="sp_pr_rptFinalTestHeadCount" ID="GetData" ConnectionID="HCRMConnection">
+						<SPParameters>
+							<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+							<SPParameter SPParamDirection="Input" ID="Month" SPParamSize="0" SPParamType="dt-200" Value="@Request.Month~"/>
+							<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+							<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+						</SPParameters>
+					</DataLayer>
+					<SubDataLayerRelationColumn ID="Com" ChildColumn="Company" ParentColumn="ComName"/>
+				</SubDataLayer>
+				<PatternBlockCell ID="Manage" Value="@Data.Manage~" Column="B" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Superior" Value="@Data.Superior~" Column="C" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Costblock" Value="@Data.CostBlock~" PatternBlockRow="1" Column="D"/>
+				<PatternBlockCell ID="JobLevel" Value="@Data.Job_level~" Column="E" PatternBlockRow="1"/>
+				<PatternBlockCell ID="DireltCode" Value="@Data.DirectCode~" Column="F" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Salary" Value="@Data.Salary~" Column="G" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Allowance" Value="@Data.Allowance~" Column="H" PatternBlockRow="1"/>
+				<PatternBlockCell ID="OT" Value="@Data.OT~" Column="I" PatternBlockRow="1"/>
+				<PatternBlockCell ID="Bonus" Value="@Data.Bonus~" Column="J" PatternBlockRow="1"/>
+				<PatternBlockCell ID="HeadCount" Value="@Data.HeadCount~" Column="K" PatternBlockRow="1"/>
+			</SubPatternBlock>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

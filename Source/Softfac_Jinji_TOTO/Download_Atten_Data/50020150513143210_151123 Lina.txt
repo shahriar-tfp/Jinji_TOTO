@@ -1,0 +1,1004 @@
+HQ, Main Entrance                                 16012015070800022<TAM LENG FONG
+HQ, Main Entrance                                 16012015070800332<NORAZLIN BT ABD MANAF
+HQ, Main Entrance                                 16012015070900010<NGA HOOK MING
+HQ, Main Entrance                                 16012015071200033<ONG TANG KOOK
+HQ, Site Entrance                                 16012015071300332<NORAZLIN BT ABD MANAF
+HQ, Main Entrance                                 16012015071700268<FI C JUMAWAN
+HQ, Site Entrance                                 16012015071800268<FI C JUMAWAN
+HQ, Main Entrance                                 16012015072400228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 16012015072700048<LOH PIT MEE
+HQ, Main Entrance                                 16012015072900067<NG MUN KUEN
+HQ, Main Entrance                                 16012015073400271<SATOSHI ITO
+HQ, Main Entrance                                 16012015074100125<CHAI YET WAI
+HQ, Main Entrance                                 16012015074100288<LIM YOKE SIM
+HQ, Main Entrance                                 16012015074100341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 16012015074200027<LIM SWEE LIAN
+HQ, Main Entrance                                 16012015074600037<TAM SIT LEE
+HQ, Main Entrance                                 16012015075700020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 16012015075700022<TAM LENG FONG
+HQ, Main Entrance                                 16012015075800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 16012015080800079<KHOO BEE NGOH
+HQ, Main Entrance                                 16012015081000100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 16012015081200272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 16012015081400042<CHEONG NAM SAN
+HQ, Main Entrance                                 16012015081600130<CHEONG KOK CHEN
+HQ, Main Entrance                                 16012015081700028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 16012015082000245<KOAY WEN DI
+HQ, Main Entrance                                 16012015082000233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 16012015082000266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 16012015082200332<NORAZLIN BT ABD MANAF
+HQ, Main Entrance                                 16012015082200251<SEAH WEE TEONG
+HQ, Main Entrance                                 16012015082300026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 16012015082400333<MOHD FIRDAUS
+HQ, Main Entrance                                 16012015082400291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 16012015082600195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 16012015082600003<TORU IWASAKI
+HQ, Main Entrance                                 16012015082700050<YONG KEAN ONN
+HQ, Main Entrance                                 16012015082800286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 16012015082800012<WU YIH CHYUAN
+HQ, Main Entrance                                 16012015082800359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 16012015082900324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 16012015083000020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 16012015083000020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 16012015083100341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 16012015083100341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 16012015083200099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 16012015083300175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 16012015083400364<Y YAMAKI
+HQ, Main Entrance                                 16012015083500024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 16012015083500061<LING KIONG HOCK
+HQ, Main Entrance                                 16012015083500105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 16012015083500326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 16012015083600051<LIEW KIAN WEI
+HQ, Site Entrance                                 16012015084000291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 16012015084800088<LIM YEN PENG
+HQ, Main Entrance                                 16012015084900325<Hiroyuki Masuda
+HQ, Main Entrance                                 16012015085400291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 16012015085500047<LAU POH SOON
+HQ, Main Entrance                                 16012015085600328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 16012015092300130<CHEONG KOK CHEN
+HQ, Main Entrance                                 16012015093600181<MOHAMAD NAJIB BIN TALIB
+HQ, Main Entrance                                 16012015094000348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Main Entrance                                 16012015095000347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 16012015095500198<WONG HWEE KENG
+HQ, Site Entrance                                 16012015101500291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Site Entrance                                 16012015102100012<WU YIH CHYUAN
+HQ, Site Entrance                                 16012015103200047<LAU POH SOON
+HQ, Main Entrance                                 16012015103200347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 16012015104500105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 16012015105200080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 16012015110600359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 16012015112800109<HUSAINI BIN AHMAD TERMIZI
+HQ, Site Entrance                                 16012015112800003<TORU IWASAKI
+HQ, Site Entrance                                 16012015113100272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 16012015120100037<TAM SIT LEE
+HQ, Main Entrance                                 16012015120200245<KOAY WEN DI
+HQ, Site Entrance                                 16012015120200048<LOH PIT MEE
+HQ, Site Entrance                                 16012015120200288<LIM YOKE SIM
+HQ, Site Entrance                                 16012015120300033<ONG TANG KOOK
+HQ, Site Entrance                                 16012015120300328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 16012015120300233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 16012015120400332<NORAZLIN BT ABD MANAF
+HQ, Site Entrance                                 16012015120400333<MOHD FIRDAUS
+HQ, Site Entrance                                 16012015120600251<SEAH WEE TEONG
+HQ, Site Entrance                                 16012015120800026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 16012015120900328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 16012015120900015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 16012015121100325<Hiroyuki Masuda
+HQ, Main Entrance                                 16012015121100209<KENICHI SHIMIZU
+HQ, Main Entrance                                 16012015121300024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 16012015121300024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 16012015121300233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 16012015122600099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 16012015123700332<NORAZLIN BT ABD MANAF
+HQ, Main Entrance                                 16012015124700195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 16012015124800251<SEAH WEE TEONG
+HQ, Main Entrance                                 16012015124900245<KOAY WEN DI
+HQ, Main Entrance                                 16012015124900288<LIM YOKE SIM
+HQ, Site Entrance                                 16012015124900048<LOH PIT MEE
+HQ, Site Entrance                                 16012015124900037<TAM SIT LEE
+HQ, Main Entrance                                 16012015125000079<KHOO BEE NGOH
+HQ, Site Entrance                                 16012015125000079<KHOO BEE NGOH
+HQ, Main Entrance                                 16012015125400325<Hiroyuki Masuda
+HQ, Main Entrance                                 16012015125700033<ONG TANG KOOK
+HQ, Site Entrance                                 16012015133100061<LING KIONG HOCK
+HQ, Main Entrance                                 16012015133800105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 16012015140700060<SHIM GEK KUAN
+HQ, Site Entrance                                 16012015140900271<SATOSHI ITO
+HQ, Site Entrance                                 16012015140900325<Hiroyuki Masuda
+HQ, Main Entrance                                 16012015141000022<TAM LENG FONG
+HQ, Main Entrance                                 16012015142600015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 16012015142700026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 16012015144100033<ONG TANG KOOK
+HQ, Main Entrance                                 16012015145100355<TAN HWA PIN
+HQ, Main Entrance                                 16012015153500101<MAK LAI FAN
+HQ, Main Entrance                                 16012015154900047<LAU POH SOON
+HQ, Site Entrance                                 16012015161000355<TAN HWA PIN
+HQ, Site Entrance                                 16012015162400175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Site Entrance                                 16012015162500042<CHEONG NAM SAN
+HQ, Main Entrance                                 16012015162600272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 16012015162600359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 16012015164500272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 16012015165100271<SATOSHI ITO
+HQ, Site Entrance                                 16012015165300209<KENICHI SHIMIZU
+HQ, Main Entrance                                 16012015165400087<MOHD SHUKRI BIN ABU BAKAR
+HQ, Main Entrance                                 16012015165500272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 16012015170800010<NGA HOOK MING
+HQ, Main Entrance                                 16012015171800324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 16012015171800324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 16012015172100033<ONG TANG KOOK
+HQ, Site Entrance                                 16012015173000228<SECONED TEA LADY ASMA
+HQ, Site Entrance                                 16012015173000105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 16012015173000195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 16012015173100060<SHIM GEK KUAN
+HQ, Site Entrance                                 16012015173100125<CHAI YET WAI
+HQ, Main Entrance                                 16012015173200341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 16012015173200332<NORAZLIN BT ABD MANAF
+HQ, Site Entrance                                 16012015173200359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 16012015173200067<NG MUN KUEN
+HQ, Site Entrance                                 16012015173300100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 16012015173500051<LIEW KIAN WEI
+HQ, Site Entrance                                 16012015174000027<LIM SWEE LIAN
+HQ, Site Entrance                                 16012015174300026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 16012015174300079<KHOO BEE NGOH
+HQ, Site Entrance                                 16012015174700050<YONG KEAN ONN
+HQ, Site Entrance                                 16012015175000088<LIM YEN PENG
+HQ, Site Entrance                                 16012015180300251<SEAH WEE TEONG
+HQ, Site Entrance                                 16012015181400028<ONN BIN SULAIMAN
+HQ, Site Entrance                                 16012015182100326<YUSUKE NAGANUMA
+HQ, Site Entrance                                 16012015182100266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 16012015182500325<Hiroyuki Masuda
+HQ, Site Entrance                                 16012015182600015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 16012015182800347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 16012015183000020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 16012015183200233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 16012015183200286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 16012015183200328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 16012015183900324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 16012015184800348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Site Entrance                                 16012015185300099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Site Entrance                                 16012015190100024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 16012015191100245<KOAY WEN DI
+HQ, Site Entrance                                 16012015191200048<LOH PIT MEE
+HQ, Main Entrance                                 16012015192300347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 16012015192400288<LIM YOKE SIM
+HQ, Site Entrance                                 16012015192400037<TAM SIT LEE
+HQ, Main Entrance                                 16012015192900346<KHAIRUL FAHMI BIN MUSA
+HQ, Main Entrance                                 16012015194000348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Site Entrance                                 16012015194400022<TAM LENG FONG
+HQ, Site Entrance                                 16012015202400080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 16012015202600198<WONG HWEE KENG
+HQ, Site Entrance                                 16012015202800033<ONG TANG KOOK
+HQ, Site Entrance                                 16012015210100325<Hiroyuki Masuda
+HQ, Site Entrance                                 16012015210800271<SATOSHI ITO
+HQ, Site Entrance                                 16012015211200272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 16012015213700047<LAU POH SOON
+HQ, Main Entrance                                 17012015094200286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 17012015095900233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 17012015112000233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 17012015132700198<WONG HWEE KENG
+HQ, Site Entrance                                 17012015145500286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 17012015152400286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 17012015172600286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 17012015180100198<WONG HWEE KENG
+HQ, Main Entrance                                 18012015095600233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 18012015100200364<Y YAMAKI
+HQ, Site Entrance                                 18012015123700233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 19012015065800022<TAM LENG FONG
+HQ, Main Entrance                                 19012015070600010<NGA HOOK MING
+HQ, Main Entrance                                 19012015071800033<ONG TANG KOOK
+HQ, Main Entrance                                 19012015071800016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Main Entrance                                 19012015072400228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 19012015072500048<LOH PIT MEE
+HQ, Main Entrance                                 19012015072600067<NG MUN KUEN
+HQ, Site Entrance                                 19012015072700022<TAM LENG FONG
+HQ, Main Entrance                                 19012015073900037<TAM SIT LEE
+HQ, Main Entrance                                 19012015073900125<CHAI YET WAI
+HQ, Main Entrance                                 19012015074100288<LIM YOKE SIM
+HQ, Main Entrance                                 19012015074300027<LIM SWEE LIAN
+HQ, Main Entrance                                 19012015074700009<TAN MARY
+HQ, Main Entrance                                 19012015074800341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 19012015075500022<TAM LENG FONG
+HQ, Main Entrance                                 19012015075600020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 19012015080100015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 19012015080200079<KHOO BEE NGOH
+HQ, Main Entrance                                 19012015080500237<KO ANDO
+HQ, Main Entrance                                 19012015080800195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 19012015080900286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 19012015081100060<SHIM GEK KUAN
+HQ, Main Entrance                                 19012015081300359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 19012015081400028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 19012015081600042<CHEONG NAM SAN
+HQ, Main Entrance                                 19012015081700246<NUR SYAZANA BT ABD RAZAK
+HQ, Main Entrance                                 19012015081700251<SEAH WEE TEONG
+HQ, Main Entrance                                 19012015081800325<Hiroyuki Masuda
+HQ, Main Entrance                                 19012015081900245<KOAY WEN DI
+HQ, Main Entrance                                 19012015082100272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 19012015082300220<NGOI MUN CHUN
+HQ, Main Entrance                                 19012015082400333<MOHD FIRDAUS
+HQ, Main Entrance                                 19012015082500080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 19012015082600324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 19012015082600233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 19012015082800051<LIEW KIAN WEI
+HQ, Main Entrance                                 19012015082900026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 19012015082900343<RAVIN RAJ
+HQ, Main Entrance                                 19012015083100175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 19012015083100105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 19012015083100050<YONG KEAN ONN
+HQ, Main Entrance                                 19012015083200271<SATOSHI ITO
+HQ, Main Entrance                                 19012015083200326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 19012015083300291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 19012015083400024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 19012015083500099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 19012015083600266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 19012015084500364<Y YAMAKI
+HQ, Site Entrance                                 19012015084500271<SATOSHI ITO
+HQ, Main Entrance                                 19012015084700047<LAU POH SOON
+HQ, Main Entrance                                 19012015084800209<KENICHI SHIMIZU
+HQ, Main Entrance                                 19012015085000328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 19012015090000503<LAW YS - KC
+HQ, Site Entrance                                 19012015092200060<SHIM GEK KUAN
+HQ, Main Entrance                                 19012015092700100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 19012015093500080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 19012015093900349<MOHD SURANI BIN RAHMAN
+HQ, Site Entrance                                 19012015094300237<KO ANDO
+HQ, Main Entrance                                 19012015094600355<TAN HWA PIN
+HQ, Main Entrance                                 19012015094600198<WONG HWEE KENG
+HQ, Site Entrance                                 19012015095900355<TAN HWA PIN
+HQ, Main Entrance                                 19012015100300355<TAN HWA PIN
+HQ, Main Entrance                                 19012015102600218<ZERIN HAZERIQ BIN ZAINAL
+HQ, Main Entrance                                 19012015102800003<TORU IWASAKI
+HQ, Main Entrance                                 19012015103000271<SATOSHI ITO
+HQ, Site Entrance                                 19012015104000291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Site Entrance                                 19012015104900359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 19012015105300022<TAM LENG FONG
+HQ, Site Entrance                                 19012015105600355<TAN HWA PIN
+HQ, Main Entrance                                 19012015112600347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 19012015112900181<MOHAMAD NAJIB BIN TALIB
+HQ, Main Entrance                                 19012015115400346<KHAIRUL FAHMI BIN MUSA
+HQ, Site Entrance                                 19012015120200105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 19012015120400003<TORU IWASAKI
+HQ, Site Entrance                                 19012015120400333<MOHD FIRDAUS
+HQ, Main Entrance                                 19012015120400341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 19012015120500245<KOAY WEN DI
+HQ, Main Entrance                                 19012015120500015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 19012015120500037<TAM SIT LEE
+HQ, Site Entrance                                 19012015120600328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 19012015120800251<SEAH WEE TEONG
+HQ, Site Entrance                                 19012015120800033<ONG TANG KOOK
+HQ, Site Entrance                                 19012015120900286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 19012015121000325<Hiroyuki Masuda
+HQ, Main Entrance                                 19012015121100015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 19012015121200328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 19012015121300028<ONN BIN SULAIMAN
+HQ, Site Entrance                                 19012015121400026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 19012015123400245<KOAY WEN DI
+HQ, Main Entrance                                 19012015123400037<TAM SIT LEE
+HQ, Main Entrance                                 19012015123700251<SEAH WEE TEONG
+HQ, Main Entrance                                 19012015123700059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Site Entrance                                 19012015123900016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Main Entrance                                 19012015124100079<KHOO BEE NGOH
+HQ, Site Entrance                                 19012015124100079<KHOO BEE NGOH
+HQ, Main Entrance                                 19012015124200003<TORU IWASAKI
+HQ, Main Entrance                                 19012015124200325<Hiroyuki Masuda
+HQ, Main Entrance                                 19012015124300051<LIEW KIAN WEI
+HQ, Site Entrance                                 19012015124300051<LIEW KIAN WEI
+HQ, Main Entrance                                 19012015124500348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Main Entrance                                 19012015124600042<CHEONG NAM SAN
+HQ, Site Entrance                                 19012015124600042<CHEONG NAM SAN
+HQ, Site Entrance                                 19012015124600033<ONG TANG KOOK
+HQ, Main Entrance                                 19012015124700347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 19012015125000059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Main Entrance                                 19012015125600020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 19012015125600020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 19012015125600099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 19012015125700026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 19012015125800341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 19012015125800333<MOHD FIRDAUS
+HQ, Main Entrance                                 19012015130000286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 19012015130300195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 19012015130300195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 19012015131500016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Main Entrance                                 19012015132600359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 19012015142600359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 19012015142700109<HUSAINI BIN AHMAD TERMIZI
+HQ, Site Entrance                                 19012015145800328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 19012015145900010<NGA HOOK MING
+HQ, Main Entrance                                 19012015150300359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 19012015150400042<CHEONG NAM SAN
+HQ, Main Entrance                                 19012015150400101<MAK LAI FAN
+HQ, Main Entrance                                 19012015150500105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 19012015150700181<MOHAMAD NAJIB BIN TALIB
+HQ, Site Entrance                                 19012015151000003<TORU IWASAKI
+HQ, Site Entrance                                 19012015152200271<SATOSHI ITO
+HQ, Main Entrance                                 19012015153000233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 19012015154100033<ONG TANG KOOK
+HQ, Site Entrance                                 19012015155100101<MAK LAI FAN
+HQ, Main Entrance                                 19012015155200347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 19012015160100080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 19012015160100325<Hiroyuki Masuda
+HQ, Site Entrance                                 19012015160100325<Hiroyuki Masuda
+HQ, Main Entrance                                 19012015161200237<KO ANDO
+HQ, Main Entrance                                 19012015161800022<TAM LENG FONG
+HQ, Main Entrance                                 19012015161800060<SHIM GEK KUAN
+HQ, Main Entrance                                 19012015163200349<MOHD SURANI BIN RAHMAN
+HQ, Main Entrance                                 19012015165300348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Main Entrance                                 19012015170000218<ZERIN HAZERIQ BIN ZAINAL
+HQ, Site Entrance                                 19012015173000228<SECONED TEA LADY ASMA
+HQ, Site Entrance                                 19012015173000100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 19012015173100125<CHAI YET WAI
+HQ, Site Entrance                                 19012015173100359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 19012015173100060<SHIM GEK KUAN
+HQ, Site Entrance                                 19012015173200333<MOHD FIRDAUS
+HQ, Site Entrance                                 19012015173200341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 19012015173400027<LIM SWEE LIAN
+HQ, Site Entrance                                 19012015173400343<RAVIN RAJ
+HQ, Site Entrance                                 19012015173700195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 19012015173800067<NG MUN KUEN
+HQ, Main Entrance                                 19012015173800324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 19012015173900324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 19012015174000175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Site Entrance                                 19012015174000220<NGOI MUN CHUN
+HQ, Site Entrance                                 19012015174100079<KHOO BEE NGOH
+HQ, Site Entrance                                 19012015174100105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 19012015174700080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 19012015174800251<SEAH WEE TEONG
+HQ, Site Entrance                                 19012015174900209<KENICHI SHIMIZU
+HQ, Site Entrance                                 19012015175200051<LIEW KIAN WEI
+HQ, Site Entrance                                 19012015175600037<TAM SIT LEE
+HQ, Site Entrance                                 19012015175900246<NUR SYAZANA BT ABD RAZAK
+HQ, Site Entrance                                 19012015180200047<LAU POH SOON
+HQ, Site Entrance                                 19012015180300050<YONG KEAN ONN
+HQ, Site Entrance                                 19012015180400266<NUR FADZILAH BT MOHD NOR
+HQ, Site Entrance                                 19012015180600016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Site Entrance                                 19012015180900024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 19012015183000026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 19012015183000286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 19012015183000233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 19012015184100020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 19012015184600028<ONN BIN SULAIMAN
+HQ, Site Entrance                                 19012015184600022<TAM LENG FONG
+HQ, Main Entrance                                 19012015184800325<Hiroyuki Masuda
+HQ, Main Entrance                                 19012015185300347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 19012015185900009<TAN MARY
+HQ, Site Entrance                                 19012015185900245<KOAY WEN DI
+HQ, Site Entrance                                 19012015185900048<LOH PIT MEE
+HQ, Site Entrance                                 19012015185900288<LIM YOKE SIM
+HQ, Main Entrance                                 19012015190200271<SATOSHI ITO
+HQ, Site Entrance                                 19012015190700015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 19012015191500349<MOHD SURANI BIN RAHMAN
+HQ, Main Entrance                                 19012015194700346<KHAIRUL FAHMI BIN MUSA
+HQ, Site Entrance                                 19012015195900198<WONG HWEE KENG
+HQ, Site Entrance                                 19012015203600324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 19012015204500271<SATOSHI ITO
+HQ, Site Entrance                                 19012015204600364<Y YAMAKI
+HQ, Site Entrance                                 19012015205200325<Hiroyuki Masuda
+HQ, Site Entrance                                 19012015210100272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 19012015210100237<KO ANDO
+HQ, Main Entrance                                 20012015065300022<TAM LENG FONG
+HQ, Main Entrance                                 20012015070200010<NGA HOOK MING
+HQ, Main Entrance                                 20012015071800037<TAM SIT LEE
+HQ, Main Entrance                                 20012015071900033<ONG TANG KOOK
+HQ, Main Entrance                                 20012015072300048<LOH PIT MEE
+HQ, Main Entrance                                 20012015072900067<NG MUN KUEN
+HQ, Main Entrance                                 20012015073100228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 20012015073200271<SATOSHI ITO
+HQ, Main Entrance                                 20012015073300125<CHAI YET WAI
+HQ, Site Entrance                                 20012015073400022<TAM LENG FONG
+HQ, Main Entrance                                 20012015074100009<TAN MARY
+HQ, Main Entrance                                 20012015074100341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 20012015074200037<TAM SIT LEE
+HQ, Site Entrance                                 20012015074200048<LOH PIT MEE
+HQ, Main Entrance                                 20012015074300022<TAM LENG FONG
+HQ, Main Entrance                                 20012015074500341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 20012015074500341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 20012015074700288<LIM YOKE SIM
+HQ, Main Entrance                                 20012015075300020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 20012015075500079<KHOO BEE NGOH
+HQ, Main Entrance                                 20012015080100027<LIM SWEE LIAN
+HQ, Main Entrance                                 20012015080600195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 20012015080600042<CHEONG NAM SAN
+HQ, Main Entrance                                 20012015080600100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 20012015080700359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 20012015080800324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 20012015080900015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 20012015081100272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 20012015081300245<KOAY WEN DI
+HQ, Main Entrance                                 20012015081400060<SHIM GEK KUAN
+HQ, Main Entrance                                 20012015081400286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 20012015081500028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 20012015081600251<SEAH WEE TEONG
+HQ, Main Entrance                                 20012015081800246<NUR SYAZANA BT ABD RAZAK
+HQ, Main Entrance                                 20012015081900130<CHEONG KOK CHEN
+HQ, Main Entrance                                 20012015082300325<Hiroyuki Masuda
+HQ, Main Entrance                                 20012015082400050<YONG KEAN ONN
+HQ, Main Entrance                                 20012015082500080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 20012015082600333<MOHD FIRDAUS
+HQ, Main Entrance                                 20012015082600237<KO ANDO
+HQ, Main Entrance                                 20012015082600233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 20012015082700366<SUGIYAMA
+HQ, Main Entrance                                 20012015082700364<Y YAMAKI
+HQ, Main Entrance                                 20012015082800266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 20012015083000088<LIM YEN PENG
+HQ, Main Entrance                                 20012015083000012<WU YIH CHYUAN
+HQ, Main Entrance                                 20012015083000343<RAVIN RAJ
+HQ, Main Entrance                                 20012015083000051<LIEW KIAN WEI
+HQ, Main Entrance                                 20012015083000175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 20012015083100362<NG WEE CHOON
+HQ, Main Entrance                                 20012015083100105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 20012015083400003<TORU IWASAKI
+HQ, Main Entrance                                 20012015083500061<LING KIONG HOCK
+HQ, Main Entrance                                 20012015083600099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 20012015083700291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 20012015083900026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 20012015084300024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 20012015084500359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 20012015084600220<NGOI MUN CHUN
+HQ, Main Entrance                                 20012015084700047<LAU POH SOON
+HQ, Main Entrance                                 20012015085100326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 20012015085700274<S.YAMAGUCHI
+HQ, Main Entrance                                 20012015085800355<TAN HWA PIN
+HQ, Main Entrance                                 20012015090100328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 20012015090800109<HUSAINI BIN AHMAD TERMIZI
+HQ, Site Entrance                                 20012015091100355<TAN HWA PIN
+HQ, Site Entrance                                 20012015091500022<TAM LENG FONG
+HQ, Site Entrance                                 20012015091600060<SHIM GEK KUAN
+HQ, Site Entrance                                 20012015093600362<NG WEE CHOON
+HQ, Site Entrance                                 20012015094800105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 20012015095100198<WONG HWEE KENG
+HQ, Site Entrance                                 20012015100300012<WU YIH CHYUAN
+HQ, Main Entrance                                 20012015100500347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 20012015101300349<MOHD SURANI BIN RAHMAN
+HQ, Main Entrance                                 20012015103400367<OHWA
+HQ, Site Entrance                                 20012015103500291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 20012015103600362<NG WEE CHOON
+HQ, Site Entrance                                 20012015104500061<LING KIONG HOCK
+HQ, Main Entrance                                 20012015104600346<KHAIRUL FAHMI BIN MUSA
+HQ, Site Entrance                                 20012015105600130<CHEONG KOK CHEN
+HQ, Site Entrance                                 20012015111800366<SUGIYAMA
+HQ, Main Entrance                                 20012015115500348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Site Entrance                                 20012015115800003<TORU IWASAKI
+HQ, Site Entrance                                 20012015120000026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 20012015120300251<SEAH WEE TEONG
+HQ, Site Entrance                                 20012015120300288<LIM YOKE SIM
+HQ, Site Entrance                                 20012015120300245<KOAY WEN DI
+HQ, Site Entrance                                 20012015120500015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 20012015120600233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 20012015120700033<ONG TANG KOOK
+HQ, Main Entrance                                 20012015120700220<NGOI MUN CHUN
+HQ, Site Entrance                                 20012015120800220<NGOI MUN CHUN
+HQ, Site Entrance                                 20012015120900328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 20012015121000015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 20012015121100080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 20012015121500328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 20012015122800364<Y YAMAKI
+HQ, Main Entrance                                 20012015123000100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 20012015123100100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 20012015123400024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 20012015123400024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 20012015123600026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 20012015123800067<NG MUN KUEN
+HQ, Main Entrance                                 20012015124100251<SEAH WEE TEONG
+HQ, Main Entrance                                 20012015124400020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 20012015124400020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 20012015124500003<TORU IWASAKI
+HQ, Main Entrance                                 20012015124800079<KHOO BEE NGOH
+HQ, Main Entrance                                 20012015124900209<KENICHI SHIMIZU
+HQ, Main Entrance                                 20012015125400288<LIM YOKE SIM
+HQ, Main Entrance                                 20012015125400245<KOAY WEN DI
+HQ, Main Entrance                                 20012015125700047<LAU POH SOON
+HQ, Main Entrance                                 20012015125800228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 20012015125900033<ONG TANG KOOK
+HQ, Main Entrance                                 20012015130100233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 20012015130400195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 20012015130400195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 20012015130900359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 20012015131400020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 20012015131500099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 20012015132100028<ONN BIN SULAIMAN
+HQ, Site Entrance                                 20012015132500042<CHEONG NAM SAN
+HQ, Site Entrance                                 20012015132500233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 20012015132600105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 20012015132800033<ONG TANG KOOK
+HQ, Site Entrance                                 20012015132900047<LAU POH SOON
+HQ, Site Entrance                                 20012015133600220<NGOI MUN CHUN
+HQ, Site Entrance                                 20012015133600175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Site Entrance                                 20012015134500050<YONG KEAN ONN
+HQ, Main Entrance                                 20012015140700037<TAM SIT LEE
+HQ, Main Entrance                                 20012015140700048<LOH PIT MEE
+HQ, Site Entrance                                 20012015140800272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 20012015140800003<TORU IWASAKI
+HQ, Site Entrance                                 20012015141300237<KO ANDO
+HQ, Site Entrance                                 20012015141400325<Hiroyuki Masuda
+HQ, Main Entrance                                 20012015143000022<TAM LENG FONG
+HQ, Main Entrance                                 20012015143000060<SHIM GEK KUAN
+HQ, Main Entrance                                 20012015143700080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 20012015153700291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 20012015155300130<CHEONG KOK CHEN
+HQ, Site Entrance                                 20012015155600060<SHIM GEK KUAN
+HQ, Main Entrance                                 20012015155800325<Hiroyuki Masuda
+HQ, Main Entrance                                 20012015160200061<LING KIONG HOCK
+HQ, Site Entrance                                 20012015160300009<TAN MARY
+HQ, Main Entrance                                 20012015161400175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 20012015162400347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 20012015162900233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 20012015164000050<YONG KEAN ONN
+HQ, Site Entrance                                 20012015164700209<KENICHI SHIMIZU
+HQ, Main Entrance                                 20012015165900059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Main Entrance                                 20012015170200009<TAN MARY
+HQ, Site Entrance                                 20012015173000105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 20012015173000100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 20012015173000195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 20012015173100228<SECONED TEA LADY ASMA
+HQ, Site Entrance                                 20012015173100125<CHAI YET WAI
+HQ, Site Entrance                                 20012015173300027<LIM SWEE LIAN
+HQ, Site Entrance                                 20012015173300080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 20012015173300359<MUHAMMAD YUSRI BIN ISA
+HQ, Site Entrance                                 20012015173300291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Site Entrance                                 20012015173300022<TAM LENG FONG
+HQ, Site Entrance                                 20012015173400067<NG MUN KUEN
+HQ, Site Entrance                                 20012015173400061<LING KIONG HOCK
+HQ, Site Entrance                                 20012015173400333<MOHD FIRDAUS
+HQ, Site Entrance                                 20012015173400341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 20012015173400266<NUR FADZILAH BT MOHD NOR
+HQ, Site Entrance                                 20012015173500088<LIM YEN PENG
+HQ, Site Entrance                                 20012015174000079<KHOO BEE NGOH
+HQ, Site Entrance                                 20012015174000246<NUR SYAZANA BT ABD RAZAK
+HQ, Site Entrance                                 20012015174100051<LIEW KIAN WEI
+HQ, Site Entrance                                 20012015175100130<CHEONG KOK CHEN
+HQ, Main Entrance                                 20012015175600347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 20012015175700251<SEAH WEE TEONG
+HQ, Site Entrance                                 20012015175800026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 20012015175800343<RAVIN RAJ
+HQ, Site Entrance                                 20012015180000286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 20012015180800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 20012015180800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 20012015181000328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 20012015181300028<ONN BIN SULAIMAN
+HQ, Site Entrance                                 20012015181300364<Y YAMAKI
+HQ, Site Entrance                                 20012015182100362<NG WEE CHOON
+HQ, Site Entrance                                 20012015182500010<NGA HOOK MING
+HQ, Site Entrance                                 20012015184000198<WONG HWEE KENG
+HQ, Site Entrance                                 20012015184600024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 20012015184900033<ONG TANG KOOK
+HQ, Site Entrance                                 20012015185100015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 20012015185200233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 20012015190500288<LIM YOKE SIM
+HQ, Site Entrance                                 20012015190500048<LOH PIT MEE
+HQ, Main Entrance                                 20012015191200272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 20012015191900175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Site Entrance                                 20012015192200009<TAN MARY
+HQ, Site Entrance                                 20012015192500050<YONG KEAN ONN
+HQ, Main Entrance                                 20012015192500348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Site Entrance                                 20012015193300245<KOAY WEN DI
+HQ, Site Entrance                                 20012015193300037<TAM SIT LEE
+HQ, Site Entrance                                 20012015195500326<YUSUKE NAGANUMA
+HQ, Site Entrance                                 20012015195900325<Hiroyuki Masuda
+HQ, Site Entrance                                 20012015200200272<SHUNSUKE KANEKO
+HQ, Site Entrance                                 20012015200700033<ONG TANG KOOK
+HQ, Site Entrance                                 20012015203500271<SATOSHI ITO
+HQ, Main Entrance                                 21012015065800022<TAM LENG FONG
+HQ, Main Entrance                                 21012015070400288<LIM YOKE SIM
+HQ, Main Entrance                                 21012015070700010<NGA HOOK MING
+HQ, Main Entrance                                 21012015071200033<ONG TANG KOOK
+HQ, Main Entrance                                 21012015072200037<TAM SIT LEE
+HQ, Main Entrance                                 21012015072300067<NG MUN KUEN
+HQ, Main Entrance                                 21012015072700016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Site Entrance                                 21012015072900022<TAM LENG FONG
+HQ, Main Entrance                                 21012015072900228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 21012015073100048<LOH PIT MEE
+HQ, Main Entrance                                 21012015073100271<SATOSHI ITO
+HQ, Main Entrance                                 21012015073800022<TAM LENG FONG
+HQ, Main Entrance                                 21012015074400069<WONG YOKE YEE
+HQ, Main Entrance                                 21012015074400125<CHAI YET WAI
+HQ, Site Entrance                                 21012015074700288<LIM YOKE SIM
+HQ, Main Entrance                                 21012015074900009<TAN MARY
+HQ, Main Entrance                                 21012015075200015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 21012015075300288<LIM YOKE SIM
+HQ, Main Entrance                                 21012015075300341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 21012015075500020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 21012015075600027<LIM SWEE LIAN
+HQ, Main Entrance                                 21012015075600100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 21012015075800079<KHOO BEE NGOH
+HQ, Main Entrance                                 21012015080600246<NUR SYAZANA BT ABD RAZAK
+HQ, Main Entrance                                 21012015080700060<SHIM GEK KUAN
+HQ, Main Entrance                                 21012015080900359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 21012015081300286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 21012015081400012<WU YIH CHYUAN
+HQ, Main Entrance                                 21012015081500246<NUR SYAZANA BT ABD RAZAK
+HQ, Site Entrance                                 21012015081600246<NUR SYAZANA BT ABD RAZAK
+HQ, Main Entrance                                 21012015081700266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 21012015081800130<CHEONG KOK CHEN
+HQ, Main Entrance                                 21012015081800325<Hiroyuki Masuda
+HQ, Main Entrance                                 21012015081800042<CHEONG NAM SAN
+HQ, Main Entrance                                 21012015082200195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 21012015082600326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 21012015082700233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 21012015082700028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 21012015082900003<TORU IWASAKI
+HQ, Main Entrance                                 21012015082900245<KOAY WEN DI
+HQ, Main Entrance                                 21012015082900050<YONG KEAN ONN
+HQ, Main Entrance                                 21012015083000105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 21012015083100367<OHWA
+HQ, Main Entrance                                 21012015083100362<NG WEE CHOON
+HQ, Main Entrance                                 21012015083100333<MOHD FIRDAUS
+HQ, Main Entrance                                 21012015083200251<SEAH WEE TEONG
+HQ, Site Entrance                                 21012015083200359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 21012015083300026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 21012015083400024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 21012015083400051<LIEW KIAN WEI
+HQ, Main Entrance                                 21012015083500324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 21012015083500291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 21012015083900061<LING KIONG HOCK
+HQ, Main Entrance                                 21012015084100088<LIM YEN PENG
+HQ, Main Entrance                                 21012015084800099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 21012015085300220<NGOI MUN CHUN
+HQ, Main Entrance                                 21012015085300047<LAU POH SOON
+HQ, Main Entrance                                 21012015085500503<LAW YS - KC
+HQ, Main Entrance                                 21012015085500209<KENICHI SHIMIZU
+HQ, Main Entrance                                 21012015085900328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 21012015092600022<TAM LENG FONG
+HQ, Main Entrance                                 21012015093100343<RAVIN RAJ
+HQ, Site Entrance                                 21012015094600012<WU YIH CHYUAN
+HQ, Site Entrance                                 21012015094700291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 21012015095300347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 21012015095400198<WONG HWEE KENG
+HQ, Main Entrance                                 21012015100300059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Site Entrance                                 21012015102600100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 21012015102700061<LING KIONG HOCK
+HQ, Main Entrance                                 21012015102800347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 21012015102900051<LIEW KIAN WEI
+HQ, Site Entrance                                 21012015102900251<SEAH WEE TEONG
+HQ, Main Entrance                                 21012015103800109<HUSAINI BIN AHMAD TERMIZI
+HQ, Main Entrance                                 21012015104600181<MOHAMAD NAJIB BIN TALIB
+HQ, Main Entrance                                 21012015104700028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 21012015110800100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 21012015113600325<Hiroyuki Masuda
+HQ, Main Entrance                                 21012015113600175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 21012015115500325<Hiroyuki Masuda
+HQ, Site Entrance                                 21012015115900105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 21012015115900079<KHOO BEE NGOH
+HQ, Site Entrance                                 21012015120000333<MOHD FIRDAUS
+HQ, Site Entrance                                 21012015120000341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 21012015120000325<Hiroyuki Masuda
+HQ, Site Entrance                                 21012015120100026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 21012015120200048<LOH PIT MEE
+HQ, Site Entrance                                 21012015120200245<KOAY WEN DI
+HQ, Site Entrance                                 21012015120200288<LIM YOKE SIM
+HQ, Main Entrance                                 21012015120400233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 21012015120400328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 21012015120500003<TORU IWASAKI
+HQ, Site Entrance                                 21012015120600010<NGA HOOK MING
+HQ, Site Entrance                                 21012015120800362<NG WEE CHOON
+HQ, Main Entrance                                 21012015121100328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 21012015121500009<TAN MARY
+HQ, Main Entrance                                 21012015123700048<LOH PIT MEE
+HQ, Main Entrance                                 21012015123700245<KOAY WEN DI
+HQ, Main Entrance                                 21012015123700288<LIM YOKE SIM
+HQ, Main Entrance                                 21012015123700026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 21012015124200003<TORU IWASAKI
+HQ, Main Entrance                                 21012015124300009<TAN MARY
+HQ, Main Entrance                                 21012015124400047<LAU POH SOON
+HQ, Main Entrance                                 21012015124900042<CHEONG NAM SAN
+HQ, Site Entrance                                 21012015124900042<CHEONG NAM SAN
+HQ, Site Entrance                                 21012015124900010<NGA HOOK MING
+HQ, Site Entrance                                 21012015125100033<ONG TANG KOOK
+HQ, Main Entrance                                 21012015125300220<NGOI MUN CHUN
+HQ, Site Entrance                                 21012015125300220<NGOI MUN CHUN
+HQ, Main Entrance                                 21012015125500099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Site Entrance                                 21012015125500099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 21012015125600341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 21012015125600333<MOHD FIRDAUS
+HQ, Main Entrance                                 21012015125800020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 21012015125800020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 21012015125900359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 21012015130000233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 21012015130000080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 21012015130000195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 21012015130100195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 21012015130300130<CHEONG KOK CHEN
+HQ, Site Entrance                                 21012015133000359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 21012015134200059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Main Entrance                                 21012015134500341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 21012015134500341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 21012015140900003<TORU IWASAKI
+HQ, Site Entrance                                 21012015141400020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 21012015142200060<SHIM GEK KUAN
+HQ, Site Entrance                                 21012015143300271<SATOSHI ITO
+HQ, Main Entrance                                 21012015150300105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 21012015151800022<TAM LENG FONG
+HQ, Site Entrance                                 21012015152100037<TAM SIT LEE
+HQ, Site Entrance                                 21012015152400220<NGOI MUN CHUN
+HQ, Site Entrance                                 21012015153700080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 21012015153800009<TAN MARY
+HQ, Main Entrance                                 21012015160100037<TAM SIT LEE
+HQ, Main Entrance                                 21012015160200181<MOHAMAD NAJIB BIN TALIB
+HQ, Main Entrance                                 21012015163000271<SATOSHI ITO
+HQ, Main Entrance                                 21012015163800362<NG WEE CHOON
+HQ, Main Entrance                                 21012015165100067<NG MUN KUEN
+HQ, Site Entrance                                 21012015165200067<NG MUN KUEN
+HQ, Main Entrance                                 21012015170100009<TAN MARY
+HQ, Site Entrance                                 21012015172600209<KENICHI SHIMIZU
+HQ, Site Entrance                                 21012015172800100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 21012015172800100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 21012015172800326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 21012015173000060<SHIM GEK KUAN
+HQ, Main Entrance                                 21012015173000100<AHMAD MAHMUD BIN JAMARAN
+HQ, Site Entrance                                 21012015173000228<SECONED TEA LADY ASMA
+HQ, Site Entrance                                 21012015173000069<WONG YOKE YEE
+HQ, Site Entrance                                 21012015173000125<CHAI YET WAI
+HQ, Site Entrance                                 21012015173100333<MOHD FIRDAUS
+HQ, Site Entrance                                 21012015173100341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 21012015173100105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 21012015173300027<LIM SWEE LIAN
+HQ, Site Entrance                                 21012015173500195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 21012015173500067<NG MUN KUEN
+HQ, Site Entrance                                 21012015174200324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 21012015174400266<NUR FADZILAH BT MOHD NOR
+HQ, Site Entrance                                 21012015175900286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 21012015180300175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Site Entrance                                 21012015180600026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 21012015180700028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 21012015181100181<MOHAMAD NAJIB BIN TALIB
+HQ, Site Entrance                                 21012015181800271<SATOSHI ITO
+HQ, Site Entrance                                 21012015182100233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 21012015182200050<YONG KEAN ONN
+HQ, Site Entrance                                 21012015182300362<NG WEE CHOON
+HQ, Site Entrance                                 21012015182400246<NUR SYAZANA BT ABD RAZAK
+HQ, Site Entrance                                 21012015182600328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 21012015182600328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 21012015182600024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 21012015182700328<SEAH LAI YOON (RACHEL)
+HQ, Site Entrance                                 21012015182700010<NGA HOOK MING
+HQ, Site Entrance                                 21012015182900099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Site Entrance                                 21012015183200088<LIM YEN PENG
+HQ, Site Entrance                                 21012015183700033<ONG TANG KOOK
+HQ, Site Entrance                                 21012015183900048<LOH PIT MEE
+HQ, Site Entrance                                 21012015183900245<KOAY WEN DI
+HQ, Site Entrance                                 21012015183900288<LIM YOKE SIM
+HQ, Site Entrance                                 21012015184800343<RAVIN RAJ
+HQ, Site Entrance                                 21012015184900028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 21012015185700059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Site Entrance                                 21012015185800047<LAU POH SOON
+HQ, Site Entrance                                 21012015190600042<CHEONG NAM SAN
+HQ, Site Entrance                                 21012015190700016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Site Entrance                                 21012015190700009<TAN MARY
+HQ, Site Entrance                                 21012015190700022<TAM LENG FONG
+HQ, Site Entrance                                 21012015193700037<TAM SIT LEE
+HQ, Site Entrance                                 21012015194200198<WONG HWEE KENG
+HQ, Site Entrance                                 21012015194300015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 21012015194400233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 22012015063600022<TAM LENG FONG
+HQ, Site Entrance                                 22012015064300022<TAM LENG FONG
+HQ, Main Entrance                                 22012015065000195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 22012015070500010<NGA HOOK MING
+HQ, Main Entrance                                 22012015072600037<TAM SIT LEE
+HQ, Main Entrance                                 22012015072700033<ONG TANG KOOK
+HQ, Main Entrance                                 22012015073000016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Main Entrance                                 22012015073100048<LOH PIT MEE
+HQ, Main Entrance                                 22012015073200228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 22012015074100271<SATOSHI ITO
+HQ, Main Entrance                                 22012015074500009<TAN MARY
+HQ, Main Entrance                                 22012015074700027<LIM SWEE LIAN
+HQ, Main Entrance                                 22012015074700079<KHOO BEE NGOH
+HQ, Main Entrance                                 22012015075300069<WONG YOKE YEE
+HQ, Main Entrance                                 22012015075300125<CHAI YET WAI
+HQ, Main Entrance                                 22012015075600020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 22012015080100341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 22012015080200288<LIM YOKE SIM
+HQ, Main Entrance                                 22012015080600100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 22012015080900042<CHEONG NAM SAN
+HQ, Main Entrance                                 22012015081400245<KOAY WEN DI
+HQ, Main Entrance                                 22012015081600130<CHEONG KOK CHEN
+HQ, Site Entrance                                 22012015081600324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 22012015081800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 22012015081800080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 22012015082200251<SEAH WEE TEONG
+HQ, Main Entrance                                 22012015082400333<MOHD FIRDAUS
+HQ, Site Entrance                                 22012015082500028<ONN BIN SULAIMAN
+HQ, Main Entrance                                 22012015082600291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Main Entrance                                 22012015082800359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 22012015082900286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 22012015082900026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 22012015083000237<KO ANDO
+HQ, Main Entrance                                 22012015083000362<NG WEE CHOON
+HQ, Main Entrance                                 22012015083000060<SHIM GEK KUAN
+HQ, Main Entrance                                 22012015083000246<NUR SYAZANA BT ABD RAZAK
+HQ, Site Entrance                                 22012015083100080<MOHD YUSOF BIN ABD SALLEH
+HQ, Main Entrance                                 22012015083200012<WU YIH CHYUAN
+HQ, Main Entrance                                 22012015083600105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 22012015083700326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 22012015083900051<LIEW KIAN WEI
+HQ, Main Entrance                                 22012015084100175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 22012015084700099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Main Entrance                                 22012015084800024<FOO SI HO, KEVIN
+HQ, Main Entrance                                 22012015084900059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Main Entrance                                 22012015085000266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 22012015085300220<NGOI MUN CHUN
+HQ, Main Entrance                                 22012015085500050<YONG KEAN ONN
+HQ, Main Entrance                                 22012015085700328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 22012015091200061<LING KIONG HOCK
+HQ, Main Entrance                                 22012015091400088<LIM YEN PENG
+HQ, Main Entrance                                 22012015091500346<KHAIRUL FAHMI BIN MUSA
+HQ, Site Entrance                                 22012015091600060<SHIM GEK KUAN
+HQ, Main Entrance                                 22012015093200047<LAU POH SOON
+HQ, Main Entrance                                 22012015093400003<TORU IWASAKI
+HQ, Main Entrance                                 22012015093500059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Main Entrance                                 22012015094200181<MOHAMAD NAJIB BIN TALIB
+HQ, Site Entrance                                 22012015094400198<WONG HWEE KENG
+HQ, Site Entrance                                 22012015095800010<NGA HOOK MING
+HQ, Site Entrance                                 22012015095900359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 22012015101200220<NGOI MUN CHUN
+HQ, Site Entrance                                 22012015101200220<NGOI MUN CHUN
+HQ, Site Entrance                                 22012015101800288<LIM YOKE SIM
+HQ, Site Entrance                                 22012015102200291<MOHD SAFRIE AKMAL BIN TEWIRAN
+HQ, Site Entrance                                 22012015102900012<WU YIH CHYUAN
+HQ, Site Entrance                                 22012015103100016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Site Entrance                                 22012015103300130<CHEONG KOK CHEN
+HQ, Main Entrance                                 22012015103600288<LIM YOKE SIM
+HQ, Main Entrance                                 22012015103800067<NG MUN KUEN
+HQ, Site Entrance                                 22012015105200130<CHEONG KOK CHEN
+HQ, Main Entrance                                 22012015110300325<Hiroyuki Masuda
+HQ, Main Entrance                                 22012015110900347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 22012015114100209<KENICHI SHIMIZU
+HQ, Main Entrance                                 22012015114800233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 22012015115600003<TORU IWASAKI
+HQ, Site Entrance                                 22012015115700325<Hiroyuki Masuda
+HQ, Site Entrance                                 22012015120000105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 22012015120000333<MOHD FIRDAUS
+HQ, Site Entrance                                 22012015120100026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 22012015120100251<SEAH WEE TEONG
+HQ, Site Entrance                                 22012015120200015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 22012015120200233<MASNALINA BINTI BASIR
+HQ, Site Entrance                                 22012015120400286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 22012015120700033<ONG TANG KOOK
+HQ, Site Entrance                                 22012015120700245<KOAY WEN DI
+HQ, Site Entrance                                 22012015121300048<LOH PIT MEE
+HQ, Site Entrance                                 22012015121300288<LIM YOKE SIM
+HQ, Main Entrance                                 22012015121900033<ONG TANG KOOK
+HQ, Main Entrance                                 22012015122000245<KOAY WEN DI
+HQ, Main Entrance                                 22012015122200079<KHOO BEE NGOH
+HQ, Main Entrance                                 22012015123100048<LOH PIT MEE
+HQ, Main Entrance                                 22012015123100288<LIM YOKE SIM
+HQ, Site Entrance                                 22012015124800237<KO ANDO
+HQ, Main Entrance                                 22012015124900026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 22012015125000286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 22012015125800333<MOHD FIRDAUS
+HQ, Main Entrance                                 22012015130400003<TORU IWASAKI
+HQ, Main Entrance                                 22012015130400325<Hiroyuki Masuda
+HQ, Main Entrance                                 22012015130700047<LAU POH SOON
+HQ, Main Entrance                                 22012015130800251<SEAH WEE TEONG
+HQ, Main Entrance                                 22012015130900010<NGA HOOK MING
+HQ, Site Entrance                                 22012015130900271<SATOSHI ITO
+HQ, Main Entrance                                 22012015130900198<WONG HWEE KENG
+HQ, Main Entrance                                 22012015131000027<LIM SWEE LIAN
+HQ, Main Entrance                                 22012015131200195<HAZLINA BT HAMZAH
+HQ, Main Entrance                                 22012015131200015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 22012015131200195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 22012015131400033<ONG TANG KOOK
+HQ, Main Entrance                                 22012015132200356<MUHAMMAD RIDZWAN
+HQ, Main Entrance                                 22012015132200009<TAN MARY
+HQ, Main Entrance                                 22012015132500022<TAM LENG FONG
+HQ, Main Entrance                                 22012015132600181<MOHAMAD NAJIB BIN TALIB
+HQ, Main Entrance                                 22012015133000218<ZERIN HAZERIQ BIN ZAINAL
+HQ, Site Entrance                                 22012015133500060<SHIM GEK KUAN
+HQ, Main Entrance                                 22012015133900272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 22012015134900364<Y YAMAKI
+HQ, Site Entrance                                 22012015135300324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 22012015135700020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 22012015135700020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 22012015135900348<MOHD RIDHUAN BIN JAMALUDDIN
+HQ, Main Entrance                                 22012015141300061<LING KIONG HOCK
+HQ, Site Entrance                                 22012015141300061<LING KIONG HOCK
+HQ, Main Entrance                                 22012015141400220<NGOI MUN CHUN
+HQ, Site Entrance                                 22012015141400220<NGOI MUN CHUN
+HQ, Main Entrance                                 22012015142700207<SAMSUDIN BIN KARSAN
+HQ, Site Entrance                                 22012015144900209<KENICHI SHIMIZU
+HQ, Main Entrance                                 22012015145600218<ZERIN HAZERIQ BIN ZAINAL
+HQ, Site Entrance                                 22012015150800060<SHIM GEK KUAN
+HQ, Site Entrance                                 22012015151800022<TAM LENG FONG
+HQ, Main Entrance                                 22012015154100271<SATOSHI ITO
+HQ, Main Entrance                                 22012015154400036<SITI HAJAR BT YUSOF
+HQ, Site Entrance                                 22012015160700047<LAU POH SOON
+HQ, Main Entrance                                 22012015161700347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Main Entrance                                 22012015163600105<KIKUZI SAKAKIBARA
+HQ, Main Entrance                                 22012015164500367<OHWA
+HQ, Main Entrance                                 22012015164600059<SAID ABU BAKAR BIN MOHD SIDEK
+HQ, Main Entrance                                 22012015171600080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 22012015173000036<SITI HAJAR BT YUSOF
+HQ, Site Entrance                                 22012015173000100<AHMAD MAHMUD BIN JAMARAN
+HQ, Main Entrance                                 22012015173000195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 22012015173000228<SECONED TEA LADY ASMA
+HQ, Site Entrance                                 22012015173000069<WONG YOKE YEE
+HQ, Site Entrance                                 22012015173000125<CHAI YET WAI
+HQ, Site Entrance                                 22012015173100105<KIKUZI SAKAKIBARA
+HQ, Site Entrance                                 22012015173100207<SAMSUDIN BIN KARSAN
+HQ, Site Entrance                                 22012015173100061<LING KIONG HOCK
+HQ, Site Entrance                                 22012015173300051<LIEW KIAN WEI
+HQ, Site Entrance                                 22012015173400027<LIM SWEE LIAN
+HQ, Site Entrance                                 22012015173500079<KHOO BEE NGOH
+HQ, Site Entrance                                 22012015173600067<NG MUN KUEN
+HQ, Site Entrance                                 22012015173800341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Site Entrance                                 22012015174100362<NG WEE CHOON
+HQ, Site Entrance                                 22012015174300251<SEAH WEE TEONG
+HQ, Site Entrance                                 22012015174300024<FOO SI HO, KEVIN
+HQ, Site Entrance                                 22012015174700050<YONG KEAN ONN
+HQ, Main Entrance                                 22012015174900347<MOHD FAIRUS BIN MOHD DIAH
+HQ, Site Entrance                                 22012015175200220<NGOI MUN CHUN
+HQ, Site Entrance                                 22012015175400088<LIM YEN PENG
+HQ, Main Entrance                                 22012015175800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 22012015175800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 22012015180000324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 22012015180300026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Site Entrance                                 22012015181100246<NUR SYAZANA BT ABD RAZAK
+HQ, Site Entrance                                 22012015181100266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 22012015182500233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 22012015182500286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Site Entrance                                 22012015182600009<TAN MARY
+HQ, Site Entrance                                 22012015182700010<NGA HOOK MING
+HQ, Site Entrance                                 22012015182700333<MOHD FIRDAUS
+HQ, Site Entrance                                 22012015182800080<MOHD YUSOF BIN ABD SALLEH
+HQ, Site Entrance                                 22012015183000048<LOH PIT MEE
+HQ, Site Entrance                                 22012015183000288<LIM YOKE SIM
+HQ, Site Entrance                                 22012015183100175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Site Entrance                                 22012015183200020<HISHAMUDDIN BIN HUSSAIN
+HQ, Site Entrance                                 22012015185700003<TORU IWASAKI
+HQ, Site Entrance                                 22012015190000028<ONN BIN SULAIMAN
+HQ, Site Entrance                                 22012015190400245<KOAY WEN DI
+HQ, Site Entrance                                 22012015190600328<SEAH LAI YOON (RACHEL)
+HQ, Main Entrance                                 22012015191200346<KHAIRUL FAHMI BIN MUSA
+HQ, Main Entrance                                 22012015191800015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Site Entrance                                 22012015194000042<CHEONG NAM SAN
+HQ, Site Entrance                                 22012015194200324<Mohd Faridzuan Bin Zulkifli
+HQ, Site Entrance                                 22012015194200015<MOHAMED ISMAIL BIN ABD AHAD
+HQ, Main Entrance                                 22012015194900099<KASHFUL RAHMAN BIN KHAMIS
+HQ, Site Entrance                                 22012015200200325<Hiroyuki Masuda
+HQ, Site Entrance                                 22012015200900198<WONG HWEE KENG
+HQ, Site Entrance                                 22012015201900326<YUSUKE NAGANUMA
+HQ, Site Entrance                                 22012015201900364<Y YAMAKI
+HQ, Site Entrance                                 22012015204000271<SATOSHI ITO
+HQ, Site Entrance                                 22012015211300272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 23012015070700010<NGA HOOK MING
+HQ, Main Entrance                                 23012015070800010<NGA HOOK MING
+HQ, Site Entrance                                 23012015070800010<NGA HOOK MING
+HQ, Main Entrance                                 23012015071000022<TAM LENG FONG
+HQ, Main Entrance                                 23012015071100037<TAM SIT LEE
+HQ, Main Entrance                                 23012015071600016<SUBHAS NAIDU A/L RAMANAIDU
+HQ, Main Entrance                                 23012015072200033<ONG TANG KOOK
+HQ, Main Entrance                                 23012015072300228<SECONED TEA LADY ASMA
+HQ, Main Entrance                                 23012015072800067<NG MUN KUEN
+HQ, Main Entrance                                 23012015073100048<LOH PIT MEE
+HQ, Main Entrance                                 23012015073400271<SATOSHI ITO
+HQ, Main Entrance                                 23012015073700027<LIM SWEE LIAN
+HQ, Main Entrance                                 23012015074500069<WONG YOKE YEE
+HQ, Main Entrance                                 23012015074500125<CHAI YET WAI
+HQ, Main Entrance                                 23012015074800288<LIM YOKE SIM
+HQ, Main Entrance                                 23012015075200009<TAN MARY
+HQ, Main Entrance                                 23012015075300020<HISHAMUDDIN BIN HUSSAIN
+HQ, Main Entrance                                 23012015075900079<KHOO BEE NGOH
+HQ, Main Entrance                                 23012015080000341<MOHD MUZAMMIR BIN MOHD RAZALI
+HQ, Main Entrance                                 23012015080300359<MUHAMMAD YUSRI BIN ISA
+HQ, Main Entrance                                 23012015080600130<CHEONG KOK CHEN
+HQ, Main Entrance                                 23012015081100195<HAZLINA BT HAMZAH
+HQ, Site Entrance                                 23012015081100324<Mohd Faridzuan Bin Zulkifli
+HQ, Main Entrance                                 23012015081100245<KOAY WEN DI
+HQ, Main Entrance                                 23012015081200060<SHIM GEK KUAN
+HQ, Main Entrance                                 23012015082000042<CHEONG NAM SAN
+HQ, Main Entrance                                 23012015082100286<NURULSHAHIDA BT MOHAMAD@YAHYA
+HQ, Main Entrance                                 23012015082100012<WU YIH CHYUAN
+HQ, Main Entrance                                 23012015082300050<YONG KEAN ONN
+HQ, Main Entrance                                 23012015082300367<OHWA
+HQ, Main Entrance                                 23012015082300233<MASNALINA BINTI BASIR
+HQ, Main Entrance                                 23012015082400266<NUR FADZILAH BT MOHD NOR
+HQ, Main Entrance                                 23012015082500003<TORU IWASAKI
+HQ, Main Entrance                                 23012015082500051<LIEW KIAN WEI
+HQ, Main Entrance                                 23012015082900326<YUSUKE NAGANUMA
+HQ, Main Entrance                                 23012015082900246<NUR SYAZANA BT ABD RAZAK
+HQ, Main Entrance                                 23012015082900362<NG WEE CHOON
+HQ, Site Entrance                                 23012015082900251<SEAH WEE TEONG
+HQ, Main Entrance                                 23012015083000026<MOHAMED YUSOF B AHMAD SHAHUDIN
+HQ, Main Entrance                                 23012015083100366<SUGIYAMA
+HQ, Main Entrance                                 23012015083100364<Y YAMAKI
+HQ, Main Entrance                                 23012015083100175<MUHD NASIR BIN MUHD AFFANDI
+HQ, Main Entrance                                 23012015083100272<SHUNSUKE KANEKO
+HQ, Main Entrance                                 23012015083100105<KIKUZI SAKAKIBARA

@@ -1,0 +1,21 @@
+﻿Installing assembly 'C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.exe
+   logfile = C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.InstallLog
+Installing service Payroll_Batch_Process_Service3...
+Service Payroll_Batch_Process_Service3 has been successfully installed.
+Creating EventLog source Payroll_Batch_Process_Service3 in log Application...
+Committing assembly 'C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.exe
+   logfile = C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.InstallLog
+Uninstalling assembly 'C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.exe
+   logfile = C:\APPLICATION\Softfac_Jinji_unisem\Setup\Payroll_Batch_Process_Service3.InstallLog
+Removing EventLog source Payroll_Batch_Process_Service3.
+Service Payroll_Batch_Process_Service3 is being removed from the system...
+Service Payroll_Batch_Process_Service3 was successfully removed from the system.

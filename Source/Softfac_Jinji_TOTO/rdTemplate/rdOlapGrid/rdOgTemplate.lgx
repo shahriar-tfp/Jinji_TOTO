@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report ID="OlapGrid.rdOgTemplate" SavedBy="dave" SavedAt="1/9/2007 9:08:20 AM" EngineVersion="7.5.7">
+	<Body>
+		<Rows ID="rowsOlapGrid" CellSpacing="4">
+			<Row ID="rowOgTitle" Class="rdOgCaptionRow" IdeDisplayStatus="Collapsed">
+				<Column ID="colOgTitle" ColSpan="2">
+					<Label ID="lblOgTitle"/>
+				</Column>
+			</Row>
+			<Row ID="rowMenu" IdeDisplayStatus="Collapsed">
+				<Column ID="colMenu" ColSpan="2">
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgDimensions.gif" ID="imgDimension" AltText="Set the Dimensions for the grid's top and left sides.">
+						<Action Type="ShowElement" ElementID="rowDimension" ID="actShowDimensions" Display="Toggle"/>
+					</Image>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgMeasures.gif" ID="imgMeasure" AltText="Set the Measures for the grid's cell values.">
+						<Action Type="ShowElement" ElementID="rowMeasure" ID="actShowMeasure" Display="Toggle"/>
+					</Image>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgCalculatedMeasure.gif" ID="imgCalculatedMeasure" AltText="Write formulas to create new Calculated Measures.">
+						<Action Type="ShowElement" ElementID="rowCalculatedMeasure" ID="actShowCalculatedMeasure" Display="Toggle"/>
+					</Image>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgFilter.gif" ID="imgFilter" AltText="Add Filters to include or exclude members and values.">
+						<Action Type="ShowElement" ElementID="rowFilter" ID="actShowFilters" Display="Toggle"/>
+					</Image>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgChart.gif" ID="imgChart" Tooltip="Chart the OLAP grid.">
+						<Action Type="Report">
+							<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+							<LinkParams rdOgCommand="ChartShow" rdOgCommandID="@Function.GUID~"/>
+						</Action>
+					</Image>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgHeatmap.gif" ID="imgHeatmap" Tooltip="Show the data in a Heatmap.">
+						<Action Type="Report">
+							<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+							<LinkParams rdOgCommand="HeatmapShow" rdOgCommandID="@Function.GUID~"/>
+						</Action>
+					</Image>
+				</Column>
+			</Row>
+			<Row ID="rowDimension" Class="rdOgContentRow" IdeDisplayStatus="Collapsed">
+				<Column ID="colTitleDimensions" Width="50" WidthScale="px">
+					<Label Caption="Dimensions" Class="rdOgContentHeading" ID="lblDimensions"/>
+					<LineBreak/>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgDimensions.gif" ID="imgDimension" AltText="Close">
+						<Action Type="ShowElement" ID="actHideDimensions" ElementID="rowDimension" Display="Hide"/>
+					</Image>
+				</Column>
+				<Column ID="colDimensions" Width="500" WidthScale="px">
+					<Division ID="divDimensions" Class="rdPanelScroll" HtmlDiv="True">
+						<DataMultiColumnList ID="mclDimensions" MultiListDirection="Down" MultiListColumns="2" Layout="Fixed">
+							<Note Note="This is used for non-hierarchical dimensions."/>
+							<DataLayer ID="dlDimensions" Type="Static"/>
+							<Division ID="divDimAdd" Condition="&quot;@Data.rdInAxis~&quot; = &quot;&quot;">
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddLeft.gif" ID="imgDimAddLeft" Tooltip="Move this Dimension to the Left axis.">
+									<Action Type="Report" ID="actDimAddLeft">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="DimAddLeft" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddTop.gif" ID="imgDimAddTop" Tooltip="Move this Dimension to the Top axis.">
+									<Action Type="Report" ID="actDimAddTop">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="DimAddTop" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+							</Division>
+							<Division ID="divDimDelTop" Condition="&quot;@Data.rdInAxis~&quot; = &quot;Top&quot;">
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddLeft.gif" ID="imgDimAddLeft" Tooltip="Move this Dimension to the Left axis.">
+									<Action Type="Report" ID="actDimAddLeft">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="DimAddLeft" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapDelDim.gif" ID="imgDimDelTop" Tooltip="Remove this Dimension from the grid.">
+									<Action Type="Report" ID="actDimDelTop">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="DimDel" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+							</Division>
+							<Division ID="divDimDelLeft" Condition="&quot;@Data.rdInAxis~&quot; = &quot;Left&quot;">
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapDelDim.gif" ID="imgDimDelLeft" Tooltip="Remove this Dimension from the grid.">
+									<Action Type="Report" ID="actDimDelLeft">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOgCommand="DimDel" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddTop.gif" ID="imgDimAddTop" Tooltip="Move this Dimension to the Top axis.">
+									<Action Type="Report" ID="actDimDelTop">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="DimAddTop" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+							</Division>
+							<Label Caption="@Data.DIMENSION_CAPTION~" ID="lblDimName"/>
+						</DataMultiColumnList>
+						<DataTable ID="dtDimensions" Class="rdPanelScroll">
+							<Note Note="This is used for hierarchical dimensions."/>
+							<DataLayer ID="dlDimensions" Type="Static">
+								<GroupFilter Hierarchical="True" GroupColumn="rdDIMENSION_CAPTION" ID="groupDimension" KeepGroupedRows="True">
+								</GroupFilter>
+							</DataLayer>
+							<DataTableColumn>
+								<ToggleImage ElementID="mirDimensions" ID="toggleDimensions" FalseImage="rdTemplate/rdPlus.gif" TrueImage="rdTemplate/rdMinus.gif"/>
+								<Label Caption="@Data.rdDIMENSION_CAPTION~" ID="lblDimName"/>
+							</DataTableColumn>
+							<MoreInfoRow ShowModes="None" ID="mirDimensions">
+								<SubDataMultiColumnList ID="mclDimensionHierarchies" SubDataGroupID="groupDimension" MultiListDirection="Down" MultiListColumns="2">
+									<Spaces Size="5"/>
+									<Division ID="divDimAdd" Condition="&quot;@Data.rdInAxis~&quot; = &quot;&quot;">
+										<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddLeft.gif" ID="imgDimAddLeft" Tooltip="Move this Dimension to the Left axis.">
+											<Action Type="Report" ID="actDimAddLeft">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="DimAddLeft" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+											</Action>
+										</Image>
+										<Spaces Size="1"/>
+										<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddTop.gif" ID="imgDimAddTop" Tooltip="Move this Dimension to the Top axis.">
+											<Action Type="Report" ID="actDimAddTop">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="DimAddTop" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+											</Action>
+										</Image>
+										<Spaces Size="1"/>
+									</Division>
+									<Division ID="divDimDelTop" Condition="&quot;@Data.rdInAxis~&quot; = &quot;Top&quot;">
+										<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddLeft.gif" ID="imgDimAddLeft" Tooltip="Move this Dimension to the Left axis.">
+											<Action Type="Report" ID="actDimAddLeft">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="DimAddLeft" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+											</Action>
+										</Image>
+										<Spaces Size="1"/>
+										<Image Caption="rdTemplate/rdOlapGrid/rdOlapDelDim.gif" ID="imgDimDelTop" Tooltip="Remove this Dimension from the grid.">
+											<Action Type="Report" ID="actDimDelTop">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="DimDel" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+											</Action>
+										</Image>
+										<Spaces Size="1"/>
+									</Division>
+									<Division ID="divDimDelLeft" Condition="&quot;@Data.rdInAxis~&quot; = &quot;Left&quot;">
+										<Image Caption="rdTemplate/rdOlapGrid/rdOlapDelDim.gif" ID="imgDimDelLeft" Tooltip="Remove this Dimension from the grid.">
+											<Action Type="Report" ID="actDimDelLeft">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOgCommand="DimDel" rdOlapTableID="otOlapGrid"/>
+											</Action>
+										</Image>
+										<Spaces Size="1"/>
+										<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddTop.gif" ID="imgDimAddTop" Tooltip="Move this Dimension to the Top axis.">
+											<Action Type="Report" ID="actDimDelTop">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="DimAddTop" rdOgCommandID="@Function.GUID~" rdOlapDim="@Data.rdUNIQUE_NAME~" rdOlapTableID="otOlapGrid"/>
+											</Action>
+										</Image>
+										<Spaces Size="1"/>
+									</Division>
+									<Label Caption="@Data.HIERARCHY_NAME~" ID="lblDimName"/>
+								</SubDataMultiColumnList>
+							</MoreInfoRow>
+						</DataTable>
+						<Division ID="divDimensionError-NoLeft" Condition="@Session.ogDimensionError-NoLeft~">
+							<Label ID="lblDimensionError-NoLeft" Class="rdOgError" Caption="* Select a Dimension for the left axis.">
+							</Label>
+							<LineBreak/>
+						</Division>
+						<Division ID="divDimensionError-InFilter" Condition="@Session.ogDimensionError-InFilter~">
+							<Label ID="lblDimensionError-InFilter" Class="rdOgError" Caption="* Unable to add any Dimensions already in the Filter.">
+							</Label>
+							<LineBreak/>
+						</Division>
+						<Remark>
+							<Division ID="divDimensionError-NoTop" Condition="False">
+								<Label ID="lblDimensionError-NoTop" Class="rdOgError" Caption="* Select a Dimension for the top axis.">
+								</Label>
+								<LineBreak/>
+							</Division>
+						</Remark>
+					</Division>
+				</Column>
+			</Row>
+			<Row ID="rowMeasure" Class="rdOgContentRow" IdeDisplayStatus="Collapsed">
+				<Column ID="colTitleMeasures" Width="50" WidthScale="px">
+					<Label Caption="Measures" Class="rdOgContentHeading" ID="lblMeasures"/>
+					<LineBreak/>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgMeasures.gif" ID="imgMeasure" AltText="Close">
+						<Action Type="ShowElement" ID="actHideMeasure" ElementID="rowMeasure" Display="Hide"/>
+					</Image>
+				</Column>
+				<Column ID="colMeasures" Width="500" WidthScale="px">
+					<Division ID="divMeasures" HtmlDiv="True">
+						<DataMultiColumnList ID="mclMeasures" MultiListDirection="Down" MultiListColumns="2" Layout="Fixed">
+							<DataLayer ID="dlMeasures" Type="Static">
+								<SortFilter SortColumn="MEASURE_NAME"/>
+							</DataLayer>
+							<DataLayer Type="Static" ID="dlPickableCalculatedMeasures">
+							</DataLayer>
+							<Division ID="divMeasureAdd" Condition="&quot;@Data.rdInCellSet~&quot; &lt;&gt; &quot;True&quot;">
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddMeasure.gif" ID="imgMeasureAddLeft" Tooltip="Add this Measure to the grid.">
+									<Action Type="Report" ID="actDimAddLeft">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="MeasureAdd" rdOgCommandID="@Function.GUID~" rdOlapMeasure="@Data.MEASURE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+							</Division>
+							<Division ID="divDimDel" Condition="&quot;@Data.rdInCellSet~&quot; = &quot;True&quot;">
+								<Image Caption="rdTemplate/rdOlapGrid/rdOlapDelDim.gif" ID="imgDimDel" Tooltip="Remove this Measure from the grid.">
+									<Action Type="Report" ID="actMeasureDel">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="MeasureDel" rdOgCommandID="@Function.GUID~" rdOlapMeasure="@Data.MEASURE_NAME~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</Image>
+								<Spaces Size="1"/>
+							</Division>
+							<Label Caption="@Data.MEASURE_CAPTION~" ID="lblMeasureName"/>
+						</DataMultiColumnList>
+					</Division>
+				</Column>
+			</Row>
+			<Row ID="rowCalculatedMeasure" Class="rdOgContentRow" ShowModes="None" IdeDisplayStatus="Collapsed">
+				<Column ID="colTitleCalc">
+					<Label Caption="Calculated" Class="rdOgContentHeading" ID="lblCalc1"/>
+					<LineBreak/>
+					<Label Caption="Measures" Class="rdOgContentHeading" ID="lblCalc2"/>
+					<LineBreak/>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgCalculatedMeasure.gif" ID="imgCalc" AltText="Close">
+						<Action Type="ShowElement" ID="actHideCalc" ElementID="rowCalculatedMeasure" Display="Hide"/>
+					</Image>
+				</Column>
+				<Column ID="colCalc" Width="500">
+					<Division ID="divCalcAdd">
+						<Rows>
+							<Row>
+								<Column>
+									<Label ID="lblCalcName" Caption="Name">
+									</Label>
+								</Column>
+								<Column>
+									<InputText ID="rdOgCalcName" DefaultValue="@Request.rdOgCalcName~"/>
+								</Column>
+							</Row>
+							<Row Class="rdOgAlignRight">
+								<Column>
+								</Column>
+								<Column>
+									<Label ID="lblCalcInsertMeasure" Caption="Insert a Measure">
+									</Label>
+									<Spaces Size="2"/>
+									<InputSelectList OptionValueColumn="MEASURE_UNIQUE_NAME" ID="rdOgCalcMeasures" IncludeBlank="True" OptionCaptionColumn="MEASURE_NAME">
+										<DataLayer ID="dlInsertableMeasures" Type="Static"/>
+									</InputSelectList>
+									<Spaces Size="2"/>
+									<Label ID="lblCalcInsertMeasureNow" Caption="Insert" Class="rdOgCommand">
+										<Action Type="Link" ID="actCalcInsertMeasureNow">
+											<Target Type="Link" ID="tgtCalcInsertMeasureNow" Link="javascript:rdForm.rdOgCalcFormula.value=rdForm.rdOgCalcFormula.value+rdForm.rdOgCalcMeasures.value"/>
+										</Action>
+									</Label>
+									<Spaces Size="3"/>
+									<Label Caption="Formula Help" ID="lblCalcHelp" Class="rdOgCommand">
+										<Action Type="Report" ID="actCalcHelp">
+											<Target Type="Report" Report="rdOgHelpCalc"/>
+											<LinkParams rdOgStyleSheet=""/>
+										</Action>
+									</Label>
+								</Column>
+							</Row>
+							<Row>
+								<Column>
+									<Label ID="lblCalcFormula" Caption="Formula">
+									</Label>
+								</Column>
+								<Column>
+									<InputTextArea ID="rdOgCalcFormula" InputColumns="50" InputRows="4" DefaultValue="@Request.rdOgCalcFormula~"/>
+								</Column>
+							</Row>
+							<Row>
+								<Column>
+									<Label ID="lblCalcDisplayFormat" Caption="Display Format">
+									</Label>
+								</Column>
+								<Column>
+									<InputSelectList OptionValueColumn="FormatString" ID="rdOgCalcFormats" IncludeBlank="True" OptionCaptionColumn="Format" DefaultValue="@Request.rdOgCalcFormats~">
+										<DataLayer Type="Static" ID="dlCalcFormats">
+											<StaticDataRow Format="Number" FormatString="###,###,###,###,###,##0.#########"/>
+											<StaticDataRow Format="Percent" FormatString="Percent"/>
+											<StaticDataRow Format="Currency" FormatString="Currency"/>
+										</DataLayer>
+									</InputSelectList>
+								</Column>
+							</Row>
+							<Row>
+								<Column ColSpan="2"/>
+							</Row>
+						</Rows>
+						<Label Caption="Add" ID="lblCalcOk" Class="rdOgCommand">
+							<Action Type="Report" ID="actAddCalc">
+								<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+								<LinkParams rdOgCommand="CalcAdd" rdOgCommandID="@Function.GUID~"/>
+							</Action>
+						</Label>
+						<Division ID="divCalcError-BlankName" Condition="@Session.ogCalcError-BlankName~">
+							<Spaces Size="3"/>
+							<Label ID="lblCalcError-BlankName" Class="rdOgError" Caption="Enter a Name for the new calcluated measure.">
+							</Label>
+						</Division>
+						<Division ID="divCalcError-BlankFormula" Condition="@Session.ogCalcError-BlankFormula~">
+							<Spaces Size="3"/>
+							<Label ID="lblCalcError-BlankFormula" Class="rdOgError" Caption="Enter a Formula for the column.">
+							</Label>
+						</Division>
+						<Division ID="divCalcError-InvalidFormula" Condition="@Session.ogCalcError-InvalidFormula~">
+							<Spaces Size="3"/>
+							<Label ID="lblCalcError-InvalidFormula" Class="rdOgError" Caption="The formula is invalid.">
+							</Label>
+						</Division>
+						<Division ID="divCalcError-DuplicateName" Condition="@Session.ogCalcError-DuplicateName~">
+							<Spaces Size="3"/>
+							<Label ID="lblCalcError-DuplicateName" Class="rdOgError" Caption="There is already a Calculated Measure with the same name.">
+							</Label>
+						</Division>
+						<Division ID="divCalcError-InUse" Condition="@Session.ogCalcError-InUse~">
+							<Spaces Size="3"/>
+							<Label ID="lblCalcError-InUse" Class="rdOgError" Caption="This Calculated Measure is referenced by another Calculated Measure.">
+							</Label>
+						</Division>
+					</Division>
+					<Division ID="divCalcList" ShowModes="None">
+						<LineBreak LineCount="2"/>
+						<Label Caption="Calculated Measures:" ID="lblCalcMeasures" Class="rdOgSubContentHeading"/>
+						<DataTable ID="dtCalcMeasures" Width="100" WidthScale="%">
+							<DataLayer Type="Static" ID="dlCalcMeasures"/>
+							<DataTableColumn ID="colCalcMeasureName">
+								<Label Caption="&amp;bull;&amp;nbsp;" ID="lblBullet" Format="HTML">
+								</Label>
+								<Label Caption="@Data.Name~" ID="lblCalcMeasureName">
+									<Action Type="Link" ID="actShowCalcMeasure">
+										<Target Type="Link" Link="javascript:
+rdForm.rdOgCalcName.value=&quot;@Data.Name~&quot;;
+rdForm.rdOgCalcFormula.value=&quot;@Data.Formula~&quot;;
+" ID="tgtShowCalcMeasure"/>
+									</Action>
+								</Label>
+								<Spaces Size="3"/>
+							</DataTableColumn>
+							<DataTableColumn ID="colCalcMeasureFormula">
+								<Label Caption="@Data.Formula~" ID="lblCalcMeasureFormula">
+								</Label>
+								<Spaces Size="3"/>
+							</DataTableColumn>
+							<DataTableColumn ID="colCalcColumnReplaceRemove">
+								<Label Caption="Replace..." ID="lblCalcReplace" Class="rdOgCommand">
+									<Action Type="Report" ConfirmMessage="Replace?  Are you sure?">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="CalcReplace" rdOgCalcID="@Data.ID~" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Label>
+								<Label Caption="Remove..." ID="lblCalcRemove" Class="rdOgCommand">
+									<Action Type="Report" ConfirmMessage="Remove?  Are you sure?">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="CalcRemove" rdOgCalcID="@Data.ID~" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Label>
+							</DataTableColumn>
+						</DataTable>
+					</Division>
+				</Column>
+			</Row>
+			<Row ID="rowFilter" Class="rdOgContentRow" ShowModes="None" IdeDisplayStatus="Collapsed">
+				<Column ID="colTitleFilter" Width="50" WidthScale="px">
+					<Label Caption="Filter" Class="rdOgContentHeading" ID="lblFilter"/>
+					<LineBreak/>
+					<Image Caption="rdTemplate/rdOlapGrid/rdOgFilter.gif" ID="imgFilter" AltText="Close">
+						<Action Type="ShowElement" ID="actHideFilters" ElementID="rowFilter" Display="Hide"/>
+					</Image>
+				</Column>
+				<Column ID="colFilter" Width="800" WidthScale="px">
+					<Division ID="divFilters" HtmlDiv="True">
+						<Rows>
+							<Row Class="rdOgContentRow">
+								<Column>
+									<DataMultiColumnList ID="mclFilters" MultiListDirection="Down" MultiListColumns="2" Layout="Fixed" IdeDisplayStatus="Collapsed">
+										<DataLayer ID="dlFilterDimensions" Type="Static"/>
+										<Division ID="divFilterAdd">
+											<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddFilter.gif" ID="imgFilterAdd" Tooltip="Add a Filter for the Dimension.">
+												<Action Type="Report" ID="actDimAddLeft">
+													<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+													<LinkParams rdOgCommand="FilterShowDimension" rdOgCommandID="@Function.GUID~" rdOgDim="@Data.rdUNIQUE_NAME~" rdOgDimCaption="@Data.DIMENSION_CAPTION~"/>
+												</Action>
+											</Image>
+											<Spaces Size="1"/>
+										</Division>
+										<Label Caption="@Data.DIMENSION_CAPTION~" ID="lblDimName"/>
+									</DataMultiColumnList>
+									<DataTable ID="dtFilters">
+										<Note Note="This is used for hierarchical dimensions."/>
+										<DataLayer ID="dlFilterDimensions" Type="Static">
+											<GroupFilter Hierarchical="True" GroupColumn="rdDIMENSION_CAPTION" ID="groupDimension" KeepGroupedRows="True">
+											</GroupFilter>
+										</DataLayer>
+										<DataTableColumn>
+											<ToggleImage ElementID="mirFilterDimensions" ID="toggleFilterDimensions" FalseImage="rdTemplate/rdPlus.gif" TrueImage="rdTemplate/rdMinus.gif"/>
+											<Label Caption="@Data.rdDIMENSION_CAPTION~" ID="lblDimName"/>
+										</DataTableColumn>
+										<MoreInfoRow ShowModes="None" ID="mirFilterDimensions">
+											<SubDataMultiColumnList ID="mclDimensionHierarchies" SubDataGroupID="groupDimension" MultiListDirection="Down" MultiListColumns="2">
+												<Division ID="divFilterAdd">
+													<Image Caption="rdTemplate/rdOlapGrid/rdOlapAddFilter.gif" ID="imgFilterAdd" Tooltip="Add a Filter for the Dimension.">
+														<Action Type="Report" ID="actDimAddLeft">
+															<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+															<LinkParams rdOgCommand="FilterShowDimension" rdOgCommandID="@Function.GUID~" rdOgDim="@Data.rdUNIQUE_NAME~" rdOgDimCaption="@Data.DIMENSION_CAPTION~"/>
+														</Action>
+													</Image>
+													<Spaces Size="1"/>
+												</Division>
+												<Label Caption="@Data.HIERARCHY_NAME~" ID="lblDimName"/>
+											</SubDataMultiColumnList>
+										</MoreInfoRow>
+									</DataTable>
+									<LineBreak/>
+									<Label Caption="Selected Filters:" ID="lblSelectedFilters" Class="rdOgSubContentHeading"/>
+									<DataTable ID="dtPickedFilters" Class="rdOgFilterTable" CellSpacing="1" IdeDisplayStatus="Collapsed">
+										<DataLayer Type="Static" ID="dlPickedFilters">
+											<SortFilter SortColumn="FilterPosition"/>
+										</DataLayer>
+										<DataTableColumn ID="colPickedFilters" Class="rdOgPickedFilterCell">
+											<Rows>
+												<Row>
+													<Column>
+														<Image Caption="rdTemplate/rdOlapGrid/rdOlapUnPickFilter.gif" ID="imgUnPickFilter" Tooltip="Remove this Filter.">
+															<Action Type="Report">
+																<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+																<LinkParams rdOgCommand="FilterUnPick" rdOgCommandID="@Function.GUID~" rdOgFilterPosition="@Data.FilterPosition~"/>
+															</Action>
+														</Image>
+													</Column>
+													<Column>
+														<Label Caption="@Data.FilterType~" ID="lblFilterType" Class="rdOgBold"/>
+													</Column>
+													<Column>
+														<Label Caption="@Data.FilterName~" ID="lblFilterName"/>
+													</Column>
+												</Row>
+											</Rows>
+										</DataTableColumn>
+									</DataTable>
+									<Division ID="divFilterError-InAxis" Condition="@Session.ogFilterError-InAxis~">
+										<Label ID="lblFilterError-InAxis" Class="rdOgError" Caption="* Can't add a Dimension that's already in the left or top axis.">
+										</Label>
+										<LineBreak/>
+									</Division>
+								</Column>
+								<Column Width="38" WidthScale="%">
+									<Division ID="divFilterTable" ShowModes="None">
+										<Label Caption="@Session.rdOgFilterDimension~:" ID="lblFilterDimension" Class="rdOgSubContentHeading">
+										</Label>
+										<LineBreak/>
+										<InputText ID="txtFilterFind" InputSize="10" DefaultValue="@Request.txtFilterFind~"/>
+										<Label Caption="Find" ID="lblFilterFind" Class="rdOgCommand">
+											<Action Type="Report" ID="actFilterFind">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="FilterFind" rdOgCommandID="@Function.GUID~"/>
+											</Action>
+										</Label>
+										<OlapTable ID="otFilterTable" Class="rdOgFilterTable" TableBorder="0" CellSpacing="1">
+											<DataLayer Type="OlapMdx" ID="dlFilter">
+												<MdxQuery ID="qryFilter">
+												</MdxQuery>
+											</DataLayer>
+										</OlapTable>
+									</Division>
+								</Column>
+							</Row>
+						</Rows>
+					</Division>
+				</Column>
+			</Row>
+			<Row ID="rowTable" Class="rdOgContentRow">
+				<Column ColSpan="2">
+					<Division ID="divTableHeading">
+						<Label Caption="Table" Class="rdOgContentHeading" ID="lblTable"/>
+						<Division Condition="@Session.ogShowSwap~" ID="divShowEmpty">
+							<Remark>
+								<Spaces Size="20"/>
+							</Remark>
+							<LineBreak/>
+							<InputCheckbox CheckedValue="True" ID="ogShowEmpty">
+								<EventHandler DhtmlEvent="onclick">
+									<Action Type="Report" ID="actShowEmpty">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="ShowEmpty" rdOgCommandID="@Function.GUID~" rdOlapTableID="otOlapGrid"/>
+									</Action>
+								</EventHandler>
+							</InputCheckbox>
+							<Label Caption="Show empty members." ID="lblShowEmpty"/>
+						</Division>
+						<Division ID="divDimSwap" Condition="@Session.ogShowSwap~">
+							<Spaces Size="10"/>
+							<Image Caption="rdTemplate/rdOlapGrid/rdOlapSwap.gif" ID="imgDimSwap" Tooltip="Swap Dimension Axes">
+								<Action Type="Report" ID="actDimSwap">
+									<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+									<LinkParams rdOgCommand="DimSwap" rdOgCommandID="@Function.GUID~" rdOlapTableID="otOlapGrid"/>
+								</Action>
+							</Image>
+							<Label Caption=" Swap Axes" ID="lblDimSwap">
+							</Label>
+						</Division>
+						<Division ID="divExport" Condition="@Session.ogShowSwap~">
+							<Spaces Size="10"/>
+							<Label Caption="Export: " ID="lblExport"/>
+							<Label Caption="Excel" ID="lblExportExcel" Class="rdOgCommand">
+								<Action Type="NativeExcel">
+									<Target Type="NativeExcel" ExportDataTableID="otOlapGrid"/>
+								</Action>
+							</Label>
+							<Remark>
+								<Label Caption="PDF" ID="lblExportPdf" Class="rdOgCommand">
+									<Action Type="PDF">
+										<Target Type="PDF"/>
+										<LinkParams rdExportTableID="otOlapGrid"/>
+									</Action>
+								</Label>
+							</Remark>
+						</Division>
+					</Division>
+					<OlapTable ID="otOlapGrid" rdFromOlapGrid="True" TableBorder="0" CellSpacing="1" Class="rdOgOlapTable" CaptionClass="lblOlapGridInstruct">
+					</OlapTable>
+				</Column>
+			</Row>
+			<Row ID="rowChart" ShowModes="None" Class="rdOgContentRow" IdeDisplayStatus="Collapsed">
+				<Column ColSpan="2">
+					<Rows Width="100" WidthScale="%">
+						<Row>
+							<Column Class="rdOgContentHeading" Width="50" WidthScale="px">
+								<Label Caption="Chart" ID="lblHeading"/>
+								<LineBreak/>
+								<Image Caption="rdTemplate/rdOlapGrid/rdOgChart.gif" ID="imgChart" Tooltip="Close">
+									<Action Type="Report">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="ChartShow" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Image>
+							</Column>
+							<Column>
+								<Label Caption="Chart Style: " ID="lblChartStyle"/>
+								<InputSelectList OptionCaptionColumn="ChartStyle" ID="ogChartStyle" OptionValueColumn="ChartStyle">
+									<DataLayer Type="Static" ID="dlChartStyle">
+										<StaticDataRow ChartStyle="Side by Side Bar"/>
+										<StaticDataRow ChartStyle="Stacked Bar"/>
+										<StaticDataRow ChartStyle="Horizontal Side by Side Bar"/>
+										<StaticDataRow ChartStyle="Horizontal Stacked Bar"/>
+										<StaticDataRow ChartStyle="Stacked Area"/>
+										<StaticDataRow ChartStyle="Line"/>
+										<StaticDataRow ChartStyle="Spline"/>
+									</DataLayer>
+									<EventHandler DhtmlEvent="onchange">
+										<Action Type="Report" ID="actChartStyle">
+											<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+											<LinkParams rdOgCommand="ChartStyle" rdOgCommandID="@Function.GUID~"/>
+										</Action>
+									</EventHandler>
+								</InputSelectList>
+								<Spaces Size="3"/>
+								<Label Caption="Size:" ID="lblChartSize"/>
+								<Spaces Size="2"/>
+								<Label Caption="Shorter" ID="lblChartSizeShorter">
+									<Action Type="Report" ID="actChartSizeShorter">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="ChartShorter" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Label>
+								<Label Caption=" | " ID="lblSep"/>
+								<Label Caption="Taller" ID="lblChartSizeTaller">
+									<Action Type="Report" ID="actChartSizeTaller">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="ChartTaller" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Label>
+								<Label Caption=" | " ID="lblSep"/>
+								<Label Caption="Narrower" ID="lblChartSizeNarrower">
+									<Action Type="Report" ID="actChartSizeNarrower">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="ChartNarrower" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Label>
+								<Label Caption=" | " ID="lblSep"/>
+								<Label Caption="Wider" ID="lblChartSizeWider">
+									<Action Type="Report" ID="actChartSizeWider">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="ChartWider" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Label>
+								<LineBreak/>
+								<Division ID="divChartTitle">
+									<Label Caption="Chart Title: " ID="lblChartTitle"/>
+									<Spaces Size="1"/>
+									<InputText ID="ogChartTitle" InputSize="50" DefaultValue="@Session.rdOgChartTitle~">
+										<EventHandler DhtmlEvent="onchange">
+											<Action Type="Report" ID="actChartStyle">
+												<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+												<LinkParams rdOgCommand="ChartTitle" rdOgCommandID="@Function.GUID~"/>
+											</Action>
+										</EventHandler>
+									</InputText>
+									<Spaces Size="3"/>
+									<Label Caption="Set Title" ID="lblChartSetTitle">
+										<Action Type="Report" ID="actChartTitle">
+											<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+											<LinkParams rdOgCommand="ChartTitle" rdOgCommandID="@Function.GUID~"/>
+										</Action>
+									</Label>
+								</Division>
+							</Column>
+						</Row>
+						<Row ID="rowContentChart">
+							<Column ColSpan="2">
+								<OlapChart>
+									<Chart Type="XY" XYChartType="Bar" ChartHeight="400" ChartWidth="600" BorderLeft="75" BorderTop="25" BorderBottom="150" BorderRight="150" Transparency="3" LineWidth="2" ID="ogChart" BackgroundColor="Transparent" ChartBackgroundColor="White" BarShape="Circle" Color="red, yellow, blue">
+										<FontChartTitle FontSize="10" FontFilename="arialbd.ttf"/>
+										<FontLabel FontAngle="40" FontSize="8"/>
+										<FontData FontSize="8"/>
+										<DataScale ZeroAffinity="1"/>
+										<Action Type="Report" ID="actChartDrilldown">
+											<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+											<LinkParams rdOgCommand="Drill" rdOlapTableID="@Request.rdOlapTableID~" rdDrilldownDimension="@Data.rdDrilldownDimension~" rdOgCommandID="@Function.GUID~" rdDrilldownPosition="&quot;@Data.rdDrilldownPosition-&quot; &amp; sDimensionName &amp; &quot;~&quot;" rdDrilledDown="&quot;@Data.rdDrilledDown-&quot; &amp; sDimensionName &amp; &quot;~&quot;"/>
+										</Action>
+									</Chart>
+								</OlapChart>
+							</Column>
+						</Row>
+					</Rows>
+				</Column>
+			</Row>
+			<Row ID="rowHeatmap" ShowModes="None" Class="rdOgContentRow" IdeDisplayStatus="Collapsed">
+				<Column ColSpan="2">
+					<Rows Width="100" WidthScale="%">
+						<Row>
+							<Column Class="rdOgContentHeading" Width="50" WidthScale="px">
+								<Label Caption="Heatmap" ID="lblHeading"/>
+								<LineBreak/>
+								<Image Caption="rdTemplate/rdOlapGrid/rdOgHeatmap.gif" ID="imgHeatmap" Tooltip="Close">
+									<Action Type="Report">
+										<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+										<LinkParams rdOgCommand="HeatmapShow" rdOgCommandID="@Function.GUID~"/>
+									</Action>
+								</Image>
+							</Column>
+							<Column>
+								<Division ID="divHeatmapCaption">
+									<Label ID="lblHeatmapCaption" Class="rdOgSubContentHeading" Format="HTML"/>
+								</Division>
+								<LineBreak LineCount="2"/>
+								<Division>
+									<Label Caption="Size:" ID="lblHeatmapSize"/>
+									<Spaces Size="2"/>
+									<Label Caption="Smaller" ID="lblHeatmapSizeSmaller">
+										<Action Type="Report" ID="actHeatmapSizeSmaller">
+											<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+											<LinkParams rdOgCommand="HeatmapSmaller" rdOgCommandID="@Function.GUID~"/>
+										</Action>
+									</Label>
+									<Label Caption=" | " ID="lblSep"/>
+									<Label Caption="Bigger" ID="lblHeatmapSizeBigger">
+										<Action Type="Report" ID="actHeatmapSizeBigger">
+											<Target Type="Report" KeepScrollPosition="True" KeepShowElements="True"/>
+											<LinkParams rdOgCommand="HeatmapBigger" rdOgCommandID="@Function.GUID~"/>
+										</Action>
+									</Label>
+									<Division ID="divHeatmapGrouping">
+										<Spaces Size="5"/>
+										<Label Caption="(Right-click for drilldown options.)" ID="lblHeatmapDrilldownGrouping"/>
+									</Division>
+								</Division>
+							</Column>
+						</Row>
+						<Row ID="rowContentHeatmap">
+							<Column ColSpan="2">
+								<OlapHeatmap>
+									<Heatmap Width="800" Height="500" HeatmapInfoPanelLocation="Popup" HeatmapControlPanelLocation="Top" ID="heatmapGrid" FontFilename="arial">
+									</Heatmap>
+								</OlapHeatmap>
+							</Column>
+						</Row>
+					</Rows>
+				</Column>
+			</Row>
+		</Rows>
+	</Body>
+	<ideTestParams rdOgFilterColumn="" rdOgFilterOperator="" rdOgFilterValue="" txtFilterFind="" ogChartType="" ogChartStyle="" rdOlapTableID="" rdAgCalcName="" rdAgCalcFormula="" rdAgCalcDataTypes="" rdAgCalcFormats="" rdOgCalcName="" rdOgCalcFormula="" rdOgCalcFormats=""/>
+</Report>

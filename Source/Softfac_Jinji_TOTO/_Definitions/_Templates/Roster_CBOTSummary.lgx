@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="Roster_CBOTSummary" SavedBy="Tester" SavedAt="6/17/2014 11:26:26 AM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="CBOTSummary.xlt" ID="Roster_CBOTSummary">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_tms_OvertimeSummary" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_From" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date_From~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_To" Value="@Request.Date_To~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Category_Group" SPParamSize="0" SPParamType="dt-200" Value="@Request.Category_Group~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="DETAILS"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Superior" Value="@Data.Superior~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="CostBlock" Value="@Data.CostBlock~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Daytype" Value="@Data.Daytype~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Direct" Value="@Data.Direct~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="TotalOT" Value="@Data.TotalOT~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="ReportBy" Value="@Data.ReportType~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Department" Value="@Data.Department~"/>
+		</PatternBlock>
+		<PatternBlock FirstRow="1" LastRow="3" Worksheet="OT" ID="Header2">
+			<DataLayer Type="SP" Command="sp_tms_OvertimeSummary" ID="CallHeader" ConnectionID="HCRMConnection">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_From" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date_From~"/>
+					<SPParameter SPParamDirection="Input" ID="Date_To" Value="@Request.Date_To~" SPParamSize="0" SPParamType="dt-200"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Category_Group" SPParamSize="0" SPParamType="dt-200" Value="@Request.Category_Group~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="ReportHeader" Value="@Data.ReportHeader~ @Data.ReportType~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="2" ID="OTHeader" Value="@Data.Header~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="PrintDate" Value="Print Date : @Data.PrintDate~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

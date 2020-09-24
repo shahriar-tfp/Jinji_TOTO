@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="TOTOKPI_CRITICALSKILL" SavedBy="Tester" SavedAt="6/2/2017 4:10:54 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="TOTOKPI_CRITICALSKILL.xlt" ID="TOTOKPI_CRITICALSKILL">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Detail" Worksheet="Data" DisposableFirstRow="3" DisposableLastRow="3">
+			<DataLayer Type="SP" Command="sp_KPI_RptCriticalSkill" ConnectionID="HCRMConnection" ID="CallCriticalSkill">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Year" SPParamSize="0" SPParamType="dt-200" Value="@Request.Year~"/>
+					<SPParameter SPParamDirection="Input" ID="Department" SPParamSize="0" SPParamType="dt-200" Value="@Request.Department~"/>
+					<SPParameter SPParamDirection="Input" ID="Section" SPParamSize="0" SPParamType="dt-200" Value="@Request.Section~"/>
+					<SPParameter SPParamDirection="Input" ID="Direct" SPParamSize="0" SPParamType="dt-200" Value="@Request.Direct~"/>
+					<SPParameter SPParamDirection="Input" ID="Level" SPParamSize="0" SPParamType="dt-200" Value="@Request.Level~"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="Department" Value="@Data.DeptName~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Section" Value="@Data.SectName~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="Level" Value="@Data.LEVEL~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="Process" Value="@Data.ProcessName~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="Item" Value="@Data.ItemName~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="Model" Value="@Data.ModelName~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Country" Value="@Data.CountryName~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="Station" Value="@Data.StationName~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="NoofPerson" Value="@Data.NoofPerson~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

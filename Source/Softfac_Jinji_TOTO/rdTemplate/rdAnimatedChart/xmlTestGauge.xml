@@ -1,0 +1,10 @@
+<chart upperLimit='100' lowerLimit='0' numberSuffix='%25' decimalPrecision='0'>
+    <colorRange>
+        <color minValue='0' maxValue='50' name='Bad' code='FF0000' />
+        <color minValue='50' maxValue='80' name='Average' code='FFFF00' />
+        <color minValue='80' maxValue='100' name='Average' code='00FF00' />
+    </colorRange>
+    <dials>
+        <dial value='86' />
+    </dials>
+</chart>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="BusRequestByVan" SavedBy="Tester" SavedAt="9/25/2018 12:07:23 PM" EngineVersion="8.0.30">
+	<ExcelTemplate ExcelTemplateFilename="BusRequestByVan.xlt" ID="BusRequestByVan" ExcelTemplateMode="OneWorksheet">
+		<PatternBlock FirstRow="2" LastRow="2" ID="Header" Worksheet="DATA" DisposableFirstRow="3" DisposableLastRow="3" FillMode="Insert">
+			<DataLayer Type="SP" ID="CallRequest" ConnectionID="HCRMConnection" Command="sp_est_RptExecl">
+				<SPParameters>
+					<SPParameter SPParamDirection="Input" ID="Company_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.Company_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="pickupdate" SPParamSize="0" SPParamType="dt-200" Value="@Request.Date~"/>
+					<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" SPParamType="dt-200" Value="@Request.User_Profile_Code~"/>
+					<SPParameter SPParamDirection="Input" ID="Type" SPParamSize="0" SPParamType="dt-200" Value="HEADER"/>
+				</SPParameters>
+			</DataLayer>
+			<PatternBlockCell Column="A" PatternBlockRow="1" ID="REQDOCNO" Value="@Data.REQDOCNO~"/>
+			<PatternBlockCell Column="B" PatternBlockRow="1" ID="Reason" Value="@Data.Reason~"/>
+			<PatternBlockCell Column="C" PatternBlockRow="1" ID="PickUpDate" Value="@Data.PickUpDate~"/>
+			<PatternBlockCell Column="D" PatternBlockRow="1" ID="PickUpTime" Value="@Data.PickUpTime~"/>
+			<PatternBlockCell Column="E" PatternBlockRow="1" ID="SendBackDate" Value="@Data.SendBackDate~"/>
+			<PatternBlockCell Column="F" PatternBlockRow="1" ID="SendBackTime" Value="@Data.SendBackTime~"/>
+			<PatternBlockCell Column="G" PatternBlockRow="1" ID="Requester" Value="@Data.Requester~"/>
+			<PatternBlockCell Column="H" PatternBlockRow="1" ID="DeptID" Value="@Data.DeptID~"/>
+			<PatternBlockCell Column="I" PatternBlockRow="1" ID="Ext" Value="@Data.Ext~"/>
+			<PatternBlockCell Column="J" PatternBlockRow="1" ID="RequestDate" Value="@Data.RequestDate~"/>
+			<PatternBlockCell Column="K" PatternBlockRow="1" ID="RequestTime" Value="@Data.RequestTime~"/>
+			<PatternBlockCell Column="L" PatternBlockRow="1" ID="ApprovedBy" Value="@Data.ApprovedBy~"/>
+			<PatternBlockCell Column="M" PatternBlockRow="1" ID="ApprovedDate" Value="@Data.ApprovedDate~"/>
+			<PatternBlockCell Column="N" PatternBlockRow="1" ID="Remark1" Value="@Data.Remark1~"/>
+			<PatternBlockCell Column="O" PatternBlockRow="1" ID="Remark2" Value="@Data.Remark2~"/>
+			<PatternBlockCell Column="P" PatternBlockRow="1" ID="Status" Value="@Data.Status~"/>
+			<PatternBlockCell Column="Q" PatternBlockRow="1" ID="CodeB" Value="@Data.CodeB~"/>
+			<PatternBlockCell Column="R" PatternBlockRow="1" ID="EMPLOYEE_PROFILE_ID" Value="@Data.EMPLOYEE_PROFILE_ID~"/>
+			<PatternBlockCell Column="S" PatternBlockRow="1" ID="RouteNo" Value="@Data.RouteNo~"/>
+			<PatternBlockCell Column="T" PatternBlockRow="1" ID="ZONE" Value="@Data.ZONE~"/>
+			<PatternBlockCell Column="U" PatternBlockRow="1" ID="BusStopID" Value="@Data.BusStopID~"/>
+			<PatternBlockCell Column="V" PatternBlockRow="1" ID="ShiftTime" Value="@Data.ShiftTime~"/>
+			<PatternBlockCell Column="W" PatternBlockRow="1" ID="shift" Value="@Data.shift~"/>
+			<PatternBlockCell Column="X" PatternBlockRow="1" ID="PickUP_Year" Value="@Data.PickUP_Year~"/>
+			<PatternBlockCell Column="Y" PatternBlockRow="1" ID="PickUP_Month" Value="@Data.PickUP_Month~"/>
+			<PatternBlockCell Column="Z" PatternBlockRow="1" ID="SendBack_Year" Value="@Data.SendBack_Year~"/>
+			<PatternBlockCell Column="AA" PatternBlockRow="1" ID="SendBack_Month" Value="@Data.SendBack_Month~"/>
+			<PatternBlockCell Column="AB" PatternBlockRow="1" ID="Van" Value="@Data.Van~"/>
+		</PatternBlock>
+	</ExcelTemplate>
+</Template>

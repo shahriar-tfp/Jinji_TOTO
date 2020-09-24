@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Template ID="pr_GovEA" SavedBy="Tester" SavedAt="12/28/2012 12:12:20 PM" EngineVersion="8.0.30">
+	<PdfForm PdfFormTemplateFilename="pr_GovEA_2015.pdf" ID="pr_GovEA" PdfFormMode="OneFormPerDataRow">
+		<PdfFormField ID="txt_Emp_Allowance_1" Name="txt_Emp_Allowance_1" Value="@Data.Allowance_1~" Format="###,###,##0.00"/>
+		<PdfFormField Name="Potongan_Cukai_Pendapat_1" ID="Potongan_Cukai_Pendapat_1" Value="@Data.PreAllowance1~"/>
+		<PdfFormField ID="txt_Emp_Allowance_2" Name="txt_Emp_Allowance_2" Value="@Data.Allowance_2~" Format="###,###,##0.00"/>
+		<PdfFormField Name="bonus1" Value="@Data.bonus1~" ID="txt_Emp_bonus1"/>
+		<PdfFormField Value="@Data.bonus2~" ID="txt_Emp_bonus2" Name="bonus2"/>
+		<PdfFormField ID="txt_Emp_Allowance_3" Name="txt_Emp_Allowance_3" Value="@Data.Allowance_3~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_4" Name="txt_Emp_Allowance_4" Value="@Data.Allowance_4~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_5" Name="txt_Emp_Allowance_5" Value="@Data.Allowance_5~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_6" Name="txt_Emp_Allowance_6" Value="@Data.Allowance_6~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_7" Name="txt_Emp_Allowance_7" Value="@Data.Allowance_7~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_8" Name="txt_Emp_Allowance_8" Value="@Data.Allowance_8~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_9" Name="txt_Emp_Allowance_9" Value="@Data.Allowance_9~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_10" Name="txt_Emp_Allowance_10" Value="@Data.Allowance_10~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_11" Name="txt_Emp_Allowance_11" Value="@Data.Allowance_11~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_12" Name="txt_Emp_Allowance_12" Value="@Data.Allowance_12~" Format="###,###,##0.00"/>
+		<PdfFormField Name="Potongan_Cukai_Berjadual_PCB_RM_1" ID="Potongan_Cukai_Berjadual_PCB_RM_1" Value="@Data.PreCP39A1~"/>
+		<PdfFormField ID="txt_Emp_Allowance_13" Name="txt_Emp_Allowance_13" Value="@Data.Allowance_13~" Format="###,###,##0.00"/>
+		<PdfFormField Name="Potongan_Cukai_Tahun_2" ID="Potongan_Cukai_Tahun_2"/>
+		<PdfFormField ID="txt_Emp_Allowance_14" Name="txt_Emp_Allowance_14" Value="@Data.Allowance_14~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_15" Name="txt_Emp_Allowance_15" Value="@Data.Allowance_15~" Format="###,###,##0.00"/>
+		<PdfFormField Name="Potongan_Cukai_KWSP_1" ID="Potongan_Cukai_KWSP_1" Value="@Data.PreEPF1~"/>
+		<PdfFormField Name="Potongan_Cukai_KWSP_2" ID="Potongan_Cukai_KWSP_2"/>
+		<PdfFormField ID="txt_Emp_Allowance_16" Name="txt_Emp_Allowance_16" Value="@Data.Allowance_16~" Format="###,###,##0.00"/>
+		<PdfFormField Name="Potongan_Cukai_Jumlah_2" ID="Potongan_Cukai_Jumlah_2"/>
+		<PdfFormField ID="txt_Emp_Allowance_18" Name="txt_Emp_Allowance_18" Value="@Data.Allowance_18~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_19" Name="txt_Emp_Allowance_19" Value="@Data.Allowance_19~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_20" Name="txt_Emp_Allowance_20" Value="@Data.Allowance_20~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_21" Name="txt_Emp_Allowance_21" Value="@Data.Allowance_21~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Total_Allowance" Name="txt_Total_Allowance" Value="@Data.TotalAllowance~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Allowance_G" Name="txt_Emp_Allowance_G" Format="###,###,##0.00" Value="@Data.Allowance_22~"/>
+		<PdfFormField ID="txt_Emp_CP38_Amount" Name="txt_Emp_CP38_Amount" Value="@Data.CP38~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_Current_Date" Name="txt_Emp_Current_Date" Value="@Data.CurrentDate~"/>
+		<PdfFormField ID="txt_Emp_Date_Join" Name="txt_Emp_Date_Join" Value="@Data.Join_Date~"/>
+		<PdfFormField ID="txt_Emp_Date_Resign" Name="txt_Emp_Date_Resign" Value="@Data.Resign_Date~"/>
+		<PdfFormField ID="txt_Emp_EPF_Amount" Name="txt_Emp_EPF_Amount" Value="@Data.EPF_Employee~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_EPF_No" Name="txt_Emp_EPF_No" Value="@Data.EPF~"/>
+		<PdfFormField ID="txt_Emp_ID" Name="txt_Emp_ID" Value="@Data.Employee_Profile_ID~"/>
+		<PdfFormField ID="txt_Emp_Job_Title" Name="txt_Emp_Job_Title" Value="@Data.Position~"/>
+		<PdfFormField ID="txt_Emp_Name" Name="txt_Emp_Name" Value="@Data.Emp_Name~"/>
+		<PdfFormField ID="txt_Emp_New_IC_No" Name="txt_Emp_New_IC_No" Value="@Data.Identity_Card_No~"/>
+		<PdfFormField ID="txt_Emp_Old_IC_No" Name="txt_Emp_Old_IC_No"/>
+		<PdfFormField ID="txt_Emp_PCB_Amount" Name="txt_Emp_PCB_Amount" Value="@Data.PCB~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Emp_PCB_No" Name="txt_Emp_PCB_No" Value="@Data.PCB1~"/>
+		<PdfFormField ID="txt_Emp_Zakat_Amount" Name="txt_Emp_Zakat_Amount" Value="@Data.ZAKAT~" Format="###,###,##0.00"/>
+		<PdfFormField ID="txt_Organ_Address" Name="txt_Organ_Address" Value=""/>
+		<PdfFormField ID="txt_Organ_Name" Name="txt_Organ_Name" Value=""/>
+		<PdfFormField ID="txt_Organ_PCB_No" Name="txt_Organ_PCB_No" Value="@Data.Company_PCB_No~"/>
+		<PdfFormField ID="txt_Serial_No" Name="txt_Serial_No" Value="@Data.Serial_No~"/>
+		<PdfFormField ID="Nama_Kumpulan_Wang" Name="Nama_Kumpulan_Wang" Value="KWSP"/>
+		<PdfFormField ID="txt_Year" Name="txt_Year" Value="@Data.year~"/>
+		<DataLayer Type="SP" ConnectionID="HCRMConnection" ID="CallSP" Command="sp_pr_RptEEA_2015">
+			<SPParameters>
+				<SPParameter ID="RegNo" Value="@Request.RegNo~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+				<SPParameter ID="SpID" Value="@Request.SpID~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-3"/>
+				<SPParameter ID="Year" Value="@Request.Year~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-3"/>
+				<SPParameter ID="bonus1" Value="@Request.bonus1~" SPParamDirection="Input" SPParamSize="0" SPParamType="dt-200"/>
+				<SPParameter SPParamDirection="Input" ID="bonus2" SPParamSize="0" SPParamType="dt-200" Value="@Request.bonus2~"/>
+				<SPParameter SPParamDirection="Input" ID="User_Profile_Code" SPParamSize="0" Value="@Request.User_Profile_Code~" SPParamType="dt-200"/>
+			</SPParameters>
+			<CalculatedColumn ID="TotalAllowance" Formula="@Data.Allowance_1~+@Data.Allowance_2~+@Data.Allowance_3~+@Data.Allowance_4~+@Data.Allowance_5~+@Data.Allowance_6~+@Data.Allowance_7~+@Data.Allowance_8~+@Data.Allowance_9~+@Data.Allowance_10~+@Data.Allowance_11~+@Data.Allowance_12~+@Data.Allowance_13~+@Data.Allowance_14~+@Data.Allowance_15~+@Data.Allowance_16~+@Data.Allowance_17~+@Data.Allowance_18~+@Data.Allowance_19~+@Data.Allowance_20~+@Data.Allowance_21~"/>
+		</DataLayer>
+		<PdfFormField Name="txt_Tip_Text" ID="txt_Tip_Text" Value="@Data.OTHER_SALARY~"/>
+		<PdfFormField ID="txt_Emp_Allowance_17" Name="txt_Emp_Allowance_17" Value="@Data.Allowance_17~" Format="###,###,##0.00"/>
+		<PdfFormField Name="txt_Car_Date" ID="txt_Car_Date" Value="@Data.CAR_DATE~"/>
+		<PdfFormField Name="txt_Car_Type" ID="txt_Car_Type" Value="@Data.CAR_TYPE~"/>
+		<PdfFormField Name="txt_Car_Year" ID="txt_Car_Year" Value="@Data.CAR_YEAR~"/>
+		<PdfFormField Name="txt_Car_Model" ID="txt_Car_Model" Value="@Data.CAR_MODEL~"/>
+		<PdfFormField Name="txt_HOUSE_ADDRESS" ID="txt_HOUSE_ADDRESS" Value="@Data.HOUSE_ADDRESS~"/>
+		<PdfFormField Name="Potongan_Cukai_Tahun_1" ID="Potongan_Cukai_Tahun_1" Value="@Data.Preyear1~"/>
+		<PdfFormField Name="Potongan_Cukai_Pendapat_2" ID="Potongan_Cukai_Pendapat_2"/>
+		<PdfFormField Name="Potongan_Cukai_Jumlah_1" ID="Potongan_Cukai_Jumlah_1" Value="@Data.PrePayment1~"/>
+	</PdfForm>
+	<ideTestParams RegNo="TASH" SpID="61" Company_Profile_Code="JAVA" year="2007" PicID="11" type="PRINT2" Year="2010" bonus1="01/01/2010" bonus2="31/12/2010"/>
+</Template>
