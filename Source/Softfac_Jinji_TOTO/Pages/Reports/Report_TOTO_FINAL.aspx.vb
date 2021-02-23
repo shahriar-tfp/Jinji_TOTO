@@ -868,7 +868,8 @@ Partial Class Pages_Reports_Report_TOTO_FINAL
             lblresult2.Text = "[" & lblOCP_ID_DEPARTMENT.Text & "] Is A Required Field!"
             ddlOCP_ID_DEPARTMENT.Focus()
             Return False
-        ElseIf ddlOCP_ID_SECTION.SelectedValue = "" And ddlOCP_ID_SECTION.Items.Count > 1 Then
+            'previously 1
+        ElseIf ddlOCP_ID_SECTION.SelectedValue = "" And ddlOCP_ID_SECTION.Items.Count > 2 Then
             lblresult2.Text = "[" & lblOCP_ID_SECTION.Text & "] Is A Required Field!"
             ddlOCP_ID_SECTION.Focus()
             Return False
@@ -928,7 +929,7 @@ Partial Class Pages_Reports_Report_TOTO_FINAL
             ddlOCP_ID_SECTION.DataValueField = "Code"
             ddlOCP_ID_SECTION.DataBind()
 
-            If myDS1.Tables(0).Rows.Count = 2 And ddlOCP_ID_DEPARTMENT.SelectedValue <> "" Then
+            If myDS1.Tables(0).Rows.Count > 2 And ddlOCP_ID_DEPARTMENT.SelectedValue <> "" Then
                 ddlOCP_ID_SECTION.SelectedIndex = 1
             End If
         End If
