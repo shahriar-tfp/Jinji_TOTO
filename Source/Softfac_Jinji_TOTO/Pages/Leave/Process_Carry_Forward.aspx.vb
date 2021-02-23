@@ -1,7 +1,8 @@
 Imports System
 Imports System.Data
 Imports System.Data.SqlClient
-Imports System.web.Configuration
+Imports System.Drawing
+Imports System.Web.Configuration
 
 Partial Class Pages_Leave_Process_Carry_Forward
     Inherits System.Web.UI.Page
@@ -163,8 +164,8 @@ Partial Class Pages_Leave_Process_Carry_Forward
     End Sub
 
     Protected Sub imgBtnUpdate_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgBtnUpdate.Click
-
-        lblresult.Text = ""
+        lblresult.ForeColor = Color.Red
+        lblresult.Text = "Please wait..."
 
         'checking for require field
         If imgCompany_Profile_ID.Visible = True Then
@@ -241,7 +242,7 @@ Partial Class Pages_Leave_Process_Carry_Forward
         'myDS = Nothing
 
         If Session("strService") = "YEARLY" Then
-            DateProcessFor = "01/01/" & CStr(CInt(txtDate.Text) + 2)
+            DateProcessFor = "01/01/" & CStr(CInt(txtDate.Text))
         ElseIf Session("strService") = "MONTHLY" And Val(txtDate.Text) >= Now.Month Then
             DateProcessFor = "01/" & txtDate.Text & "/" & CStr(Now.Year)
         ElseIf Session("strService") = "MONTHLY" And Val(txtDate.Text) < Now.Month Then
@@ -286,11 +287,14 @@ Partial Class Pages_Leave_Process_Carry_Forward
             & ExpiryDate & "',1,'" & Session("EmpID") & "'"
         Else
             ssql = "Exec sp_ls_CalCarryForward1 '" & Session("Company") & "','" _
-            & ddlOption_Leave_Type.SelectedValue & "','" & txtDate.Text & "','" _
+            & ddlOption_Leave_Type.SelectedValue & "','" & DateProcessFor & "','" _
             & ExpiryDate & "',1,'" & Session("EmpID") & "'"
         End If
 
-        mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+        myDS = mySQL.ExecuteSQL(ssql, Session("Company").ToString, Session("EmpID").ToString)
+
+        lblresult.ForeColor = Color.Green
+        lblresult.Text = "Process completed."
 
 
     End Sub
